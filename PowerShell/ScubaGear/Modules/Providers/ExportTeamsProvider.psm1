@@ -38,6 +38,9 @@ function Export-TeamsProvider {
     # json, otherwise rego gets mad.
     $json = $json.replace("\`"", "'")
     $json = $json.replace("\", "")
+
+    #$json | Out-File -FilePath .\configs-json\teams_config.json
+
     $json
 }
 
