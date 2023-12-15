@@ -13,7 +13,13 @@ function Export-TeamsProvider {
     $Tracker = Get-CommandTracker
 
     $TenantInfo = ConvertTo-Json @($Tracker.TryCommand("Get-CsTenant"))
+
     $MeetingPolicies = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsMeetingPolicy"))
+    #$MeetingPolicies | Out-File -FilePath .\configs-json\teams_meeting_policies_config.json
+
+    $MeetingPolicies = Get-Content -Path .\configs-json\teams_meeting_policies_config.json -Raw
+    #$MeetingPolicies | Out-File -FilePath .\configs-json\teams_meeting_policies_config_check.json
+
     $FedConfig = ConvertTo-Json @($Tracker.TryCommand("Get-CsTenantFederationConfiguration"))
     $ClientConfig = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsClientConfiguration"))
     $AppPolicies = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsAppPermissionPolicy"))
@@ -34,14 +40,19 @@ function Export-TeamsProvider {
     "teams_unsuccessful_commands": $TeamsUnSuccessfulCommands,
 "@
 
+    #$json | Out-File -FilePath .\configs-json\teams_config.json
+
+    #$json = Get-Content -Path .\configs-json\teams_config.json -Raw
     # We need to remove the backslash characters from the
     # json, otherwise rego gets mad.
     $json = $json.replace("\`"", "'")
     $json = $json.replace("\", "")
 
-    #$json | Out-File -FilePath .\configs-json\teams_config.json
-
+    #Outputs the JSON as a file
+    
+   # $json = ConvertTo-Json @($json)
     $json
+    
 }
 
 function Get-TeamsTenantDetail {
@@ -86,6 +97,13 @@ function Get-TeamsTenantDetail {
             "TeamsAdditionalData" = $TenantInfo;
         }
         $TeamsTenantInfo = ConvertTo-Json @($TeamsTenantInfo) -Depth 4
+        
+        #created the test json tenant info
+        #$TeamsTenantInfo | Out-File -FilePath .\configs-json\teams_tenant_info.json
+
+        #Gets the tenant info from the test json    
+        #$TeamsTenantInfo = Get-Content -Path .\configs-json\teams_tenant_info.json -Raw
+
         $TeamsTenantInfo
     }
     catch {
@@ -97,6 +115,8 @@ function Get-TeamsTenantDetail {
             "TeamsAdditionalData" = "Error retrieving additional data";
         }
         $TeamsTenantInfo = ConvertTo-Json @($TeamsTenantInfo) -Depth 4
+        #$TeamsTenantInfo | Out-File -FilePath .\configs-json\teams_tenant_info.json
+
         $TeamsTenantInfo
     }
 }
