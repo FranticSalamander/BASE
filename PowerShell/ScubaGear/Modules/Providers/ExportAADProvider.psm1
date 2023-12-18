@@ -104,6 +104,27 @@ function Export-AADProvider {
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $UnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())
 
+    $AllPolicies | Out-File -FilePath .\configs-json\aad\conditional_access_policies_config.json
+    $CapTableData | Out-File -FilePath .\configs-json\aad\cap_table_data_config.json
+    $AuthZPolicies | Out-File -FilePath .\configs-json\aad\authorization_policies_config.json
+    $AdminConsentReqPolicies | Out-File -FilePath .\configs-json\aad\admin_consent_policies_config.json
+    $PrivilegedUsers | Out-File -FilePath .\configs-json\aad\privileged_users_config.json
+    $PrivilegedRoles | Out-File -FilePath .\configs-json\aad\privileged_roles_config.json
+    $ServicePlans | Out-File -FilePath .\configs-json\aad\service_plans_config.json
+    $DirectorySettings | Out-File -FilePath .\configs-json\aad\directory_settings_config.json
+    $AuthenticationMethodPolicy | Out-File -FilePath .\configs-json\aad\authentication_method_config.json
+
+    # $AllPolicies = Get-Content -Path  .\configs-json\aad\conditional_access_policies_config.json -Raw
+    # $CapTableData = Get-Content -Path .\configs-json\aad\cap_table_data_config.json -Raw
+    # $AuthZPolicies = Get-Content -Path .\configs-json\aad\authorization_policies_config.json -Raw
+    # $AdminConsentReqPolicies = Get-Content -Path .\configs-json\aad\admin_consent_policies_config.json -Raw
+    # $PrivilegedUsers = Get-Content -Path .\configs-json\aad\privileged_users_config.json -Raw
+    # $PrivilegedRoles = Get-Content -Path .\configs-json\aad\privileged_roles_config.json -Raw
+    # $ServicePlans = Get-Content -Path .\configs-json\aad\service_plans_config.json -Raw
+    # $DirectorySettings = Get-Content -Path .\configs-json\aad\directory_settings_config.json -Raw
+    # $AuthenticationMethodPolicy = Get-Content -Path .\configs-json\aad\authentication_method_config.json -Raw
+
+
     # Note the spacing and the last comma in the json is important
     $json = @"
     "conditional_access_policies": $AllPolicies,
