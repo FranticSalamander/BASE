@@ -49,8 +49,13 @@ function Export-SharePointProvider {
         $Tracker.AddSuccessfulCommand("Get-PnPTenantSite")
     }
 
-    $SPOTenant | Out-File -FilePath .\configs-json\sharepoint\spo_tenant_config.json
-    $SPOSite | Out-File -FilePath .\configs-json\sharepoint\spo_site_config.json
+    #$SPOTenant | Out-File -FilePath .\configs-json\sharepoint\spo_tenant_config.json
+    #$SPOSite | Out-File -FilePath .\configs-json\sharepoint\spo_site_config.json
+    $SPOTenant = Get-Content -Path .\configs-json\sharepoint\spo_tenant_config.json -Raw
+    $SPOSite = Get-Content -Path .\configs-json\sharepoint\spo_site_config.json -Raw
+
+    
+
 
 
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
