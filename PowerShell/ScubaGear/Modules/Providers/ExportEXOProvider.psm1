@@ -21,49 +21,58 @@ function Export-EXOProvider {
     MS.EXO.1.1v1
     #>
     $RemoteDomains = ConvertTo-Json @($Tracker.TryCommand("Get-RemoteDomain"))
+    $RemoteDomains | Out-File -FilePath .\configs-json\exo\remote_domains_config.json
 
     <#
     MS.EXO.2.1v1 SPF
     #>
     $domains = $Tracker.TryCommand("Get-AcceptedDomain")
     $SPFRecords = ConvertTo-Json @($Tracker.TryCommand("Get-ScubaSpfRecords", @{"Domains"=$domains})) -Depth 3
+    $SPFRecords | Out-File -FilePath .\configs-json\exo\spf_records_config.json
 
     <#
     MS.EXO.3.1v1 DKIM
     #>
     $DKIMConfig = ConvertTo-Json @($Tracker.TryCommand("Get-DkimSigningConfig"))
     $DKIMRecords = ConvertTo-Json @($Tracker.TryCommand("Get-ScubaDkimRecords", @{"Domains"=$domains})) -Depth 3
+    $DKIMConfig | Out-File -FilePath .\configs-json\exo\DKIM_config.json
 
     <#
     MS.EXO.4.1v1 DMARC
     #>
     $DMARCRecords = ConvertTo-Json @($Tracker.TryCommand("Get-ScubaDmarcRecords", @{"Domains"=$domains})) -Depth 3
+    $DMARCRecords | Out-File -FilePath .\configs-json\exo\DMARC_Records_config.json
 
     <#
     MS.EXO.5.1v1
     #>
     $TransportConfig = ConvertTo-Json @($Tracker.TryCommand("Get-TransportConfig"))
+    $TransportConfig | Out-File -FilePath .\configs-json\exo\transport_config.json
 
     <#
     MS.EXO.6.1v1
     #>
     $SharingPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-SharingPolicy"))
+    $SharingPolicy | Out-File -FilePath .\configs-json\exo\sharing_policy_config.json
 
     <#
     MS.EXO.7.1v1
     #>
     $TransportRules = ConvertTo-Json @($Tracker.TryCommand("Get-TransportRule"))
+    $TransportRules | Out-File -FilePath .\configs-json\exo\transport_rules_config.json
 
     <#
     MS.EXO.12.1v1
     #>
     $ConnectionFilter = ConvertTo-Json @($Tracker.TryCommand("Get-HostedConnectionFilterPolicy"))
+    $ConnectionFilter | Out-File -FilePath .\configs-json\exo\connection_filter_config.json
 
     <#
     MS.EXO.13.1v1
     #>
     $Config = $Tracker.TryCommand("Get-OrganizationConfig") | Select-Object Name, DisplayName, AuditDisabled
     $Config = ConvertTo-Json @($Config)
+    $Config | Out-File -FilePath .\configs-json\exo\config_config.json
 
     # Used in the reporter to check successful cmdlet invocation
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
