@@ -128,6 +128,29 @@ function Export-DefenderProvider {
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $UnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())
 
+    $ProtectionPolicyRule | Out-File -FilePath .\configs-json\defender\protection_policy_rules_config.json
+    $ATPPolicy | Out-File -FilePath .\configs-json\defender\atp_policy_rules_config.json
+    $DLPCompliancePolicy | Out-File -FilePath .\configs-json\defender\dlp_compliance_policies_config.json
+    $DLPComplianceRules | Out-File -FilePath .\configs-json\defender\dlp_compliance_rules_config.json
+    $AntiPhishPolicy | Out-File -FilePath .\configs-json\defender\anti_phish_policies_config.json
+    $ProtectionAlert | Out-File -FilePath .\configs-json\defender\protection_alerts_config.json
+    $AdminAuditLogConfig | Out-File -FilePath .\configs-json\defender\admin_audit_log_config.json
+    $ATPPolicy | Out-File -FilePath .\configs-json\defender\atp_policy_for_o365_config.json
+    $DefenderLicense | Out-File -FilePath .\configs-json\defender\defender_license_config.json
+
+
+ 
+
+    # $ProtectionPolicyRule = Get-Content -Path.\configs-json\defender\protection_policy_rules_config.json -Raw
+    # $ATPPolicy  = Get-Content -Path .\configs-json\defender\atp_policy_rules_config.json -Raw
+    # $DLPCompliancePolicy = Get-Content -Path .\configs-json\defender\dlp_compliance_policies_config.json -Raw
+    # $DLPComplianceRules = Get-Content -Path .\configs-json\defender\dlp_compliance_rules_config.json -Raw
+    # $AntiPhishPolicy = Get-Content -Path .\configs-json\defender\anti_phish_policies_config.json -Raw
+    # $ProtectionAlert = Get-Content -Path .\configs-json\defender\protection_alerts_config.json -Raw
+    # $AdminAuditLogConfig = Get-Content -Path .\configs-json\defender\admin_audit_log_config.json -Raw
+    # $ATPPolicy = Get-Content -Path .\configs-json\defender\atp_policy_for_o365_config.json -Raw
+    # $DefenderLicense = Get-Content -Path .\configs-json\defender\defender_license_config.json -Raw
+
     # Note the spacing and the last comma in the json is important
     $json = @"
     "protection_policy_rules": $ProtectionPolicyRule,
