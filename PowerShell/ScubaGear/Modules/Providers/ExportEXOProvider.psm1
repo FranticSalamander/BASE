@@ -30,7 +30,7 @@ function Export-EXOProvider {
     $domains = $Tracker.TryCommand("Get-AcceptedDomain")
     $SPFRecords = ConvertTo-Json @($Tracker.TryCommand("Get-ScubaSpfRecords", @{"Domains"=$domains})) -Depth 3
     #$SPFRecords | Out-File -FilePath .\configs-json\exo\spf_records_config.json
-    $SPFRecords = Get-Content -Path .\configs-json\exo\spf_records_config.jsonn -Raw
+    $SPFRecords = Get-Content -Path .\configs-json\exo\spf_records_config.json -Raw
 
     <#
     MS.EXO.3.1v1 DKIM
