@@ -40,6 +40,7 @@ function Export-SharePointProvider {
         $Tracker.AddSuccessfulCommand("Get-SPOTenant")
         $Tracker.AddSuccessfulCommand("Get-SPOSite")
         $UsedPnP = ConvertTo-Json $true
+        $UsedPnP | Out-File -FilePath .\configs-json\sharepoint\used_pnp_config.json
     }
     else {
         $SPOTenant = ConvertTo-Json @($Tracker.TryCommand("Get-SPOTenant"))
@@ -47,6 +48,9 @@ function Export-SharePointProvider {
         $Tracker.AddSuccessfulCommand("Get-PnPTenant")
         $Tracker.AddSuccessfulCommand("Get-PnPTenantSite")
     }
+
+    $SPOTenant | Out-File -FilePath .\configs-json\sharepoint\spo_tenant_config.json
+    $SPOSite | Out-File -FilePath .\configs-json\sharepoint\spo_site_config.json
 
 
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
