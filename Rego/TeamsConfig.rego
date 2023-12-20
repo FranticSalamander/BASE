@@ -24,6 +24,24 @@ ReportDetailsArray(Status, Array, String1) := Detail if {
     Detail := Description(Format(Array), String1, String2)
 }
 
+AllowUserPinings[Policy.Identity] {
+	Policy := input.app_setup_policy[_]
+	Policy.AllowUserPining == true
+}
+
+tests[{
+	"PolicyId" : "MS.TEAMS.0.0v1",
+	"Criticality" : "Should",
+	"Commandlet" : ["Get-CsTeamsMeetingPolicy"],
+	"ActualValue" : Policies,
+	"ReportDetails" : ReportDetailsArray(Status, Policies, String),
+	"RequirementMet" : Status
+}] {
+	Policies := AllowUserPinings
+	String := "meeting policy(ies) found that allows external control:"
+	Status := count(Policies) == 0
+}
+
 #--
 # MS.TEAMS.1.1v1
 #--

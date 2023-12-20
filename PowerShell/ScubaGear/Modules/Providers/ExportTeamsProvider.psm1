@@ -20,6 +20,10 @@ function Export-TeamsProvider {
     $ClientConfig = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsClientConfiguration"))
     $AppPolicies = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsAppPermissionPolicy"))
     $BroadcastPolicies = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsMeetingBroadcastPolicy"))
+
+    $Bonus = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsAppSetupPolicy"))
+    $Bonus | Out-File -FilePath .\configs-json\teams\teams_app_setup_policies_config.json
+
    
 
     #Output Configs in Json
