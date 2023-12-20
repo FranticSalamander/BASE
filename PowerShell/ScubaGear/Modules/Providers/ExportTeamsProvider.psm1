@@ -16,25 +16,32 @@ function Export-TeamsProvider {
 
     #needs to be here to pass test
     $MeetingPolicies = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsMeetingPolicy"))
-    #$MeetingPolicies | Out-File -FilePath .\configs-json\teams\teams_meeting_policies_config.json
-    $MeetingPolicies = Get-Content -Path .\configs-json\teams\teams_meeting_policies_config.json -Raw
-
     $FedConfig = ConvertTo-Json @($Tracker.TryCommand("Get-CsTenantFederationConfiguration"))
-    #$FedConfig | Out-File -FilePath .\configs-json\teams\teams_Fed_config.json
-    $FedConfig = Get-Content -Path .\configs-json\teams\teams_Fed_config.json -Raw
-
     $ClientConfig = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsClientConfiguration"))
-    #$ClientConfig | Out-File -FilePath .\configs-json\teams\teams_client_config.json
-    $ClientConfig = Get-Content -Path .\configs-json\teams\teams_client_config.json -Raw
-
     $AppPolicies = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsAppPermissionPolicy"))
-    #$AppPolicies | Out-File -FilePath .\configs-json\teams\teams_app_policies_config.json
-    $AppPolicies = Get-Content -Path .\configs-json\teams\teams_app_policies_config.json -Raw
+    $BroadcastPolicies = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsMeetingBroadcastPolicy"))
    
 
-    $BroadcastPolicies = ConvertTo-Json @($Tracker.TryCommand("Get-CsTeamsMeetingBroadcastPolicy"))
-    #$BroadcastPolicies | Out-File -FilePath .\configs-json\teams\teams_Broadcast_policies_config.json
-    $BroadcastPolicies = Get-Content -Path .\configs-json\teams\teams_broadcast_policies_config.json -Raw
+    #Output Configs in Json
+
+    $MeetingPolicies | Out-File -FilePath .\configs-json\teams\blueprint\teams_meeting_policies_config.json
+    $FedConfig | Out-File -FilePath .\configs-json\teams\blueprint\teams_Fed_config.json
+    $ClientConfig | Out-File -FilePath .\configs-json\teams\blueprint\teams_client_config.json
+    $AppPolicies | Out-File -FilePath .\configs-json\teams\blueprint\teams_app_policies_config.json
+    $BroadcastPolicies | Out-File -FilePath .\configs-json\teams\blueprint\teams_Broadcast_policies_config.json
+
+
+    #Use JSONs as input
+
+    # $MeetingPolicies = Get-Content -Path .\configs-json\teams\teams_meeting_policies_config.json -Raw
+    # $FedConfig = Get-Content -Path .\configs-json\teams\teams_Fed_config.json -Raw
+    # $ClientConfig = Get-Content -Path .\configs-json\teams\teams_client_config.json -Raw
+    # $AppPolicies = Get-Content -Path .\configs-json\teams\teams_app_policies_config.json -Raw
+    # $BroadcastPolicies = Get-Content -Path .\configs-json\teams\teams_broadcast_policies_config.json -Raw
+
+
+
+
 
     $TeamsSuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $TeamsUnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())

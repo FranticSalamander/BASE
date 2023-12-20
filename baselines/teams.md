@@ -263,7 +263,7 @@ Unmanaged users SHALL NOT be enabled to initiate contact with internal users.
 - _Last modified:_ July 2023
 
 #### MS.TEAMS.2.3v1
-Internal users SHOULD NOT be enabled to initiate contact with unmanaged users.
+hello.
 
 <!--Policy: MS.TEAMS.2.3v1; Criticality: SHOULD -->
 - _Rationale:_ Contact with unmanaged users can pose the risk of data leakage and other security threats. This policy provides protection by disabling internal user access to unmanaged users.
@@ -351,7 +351,7 @@ This section helps reduce security risks related to contact with Skype users. Mi
 ### Policies
 
 #### MS.TEAMS.3.1v1
-Contact with Skype users SHALL be blocked.
+Contact with Skype users will be time to party.
 
 <!--Policy: MS.TEAMS.3.1v1; Criticality: SHALL -->
 - _Rationale:_ Microsoft is officially retiring all forms of Skype as listed above. Allowing contact with Skype users puts agency users at additional security risk.  By blocking contact with Skype users an agency limits access to security threats utilizing the vulnerabilities of the Skype product.

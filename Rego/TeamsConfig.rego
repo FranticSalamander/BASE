@@ -333,7 +333,7 @@ tests[{
 #--
 SkpyeBlocConfig[Policy.Identity] {
     Policy := input.federation_configuration[_]
-    Policy.AllowPublicUsers == true
+    Policy.AllowPublicUsers == false
 }
 
 tests[{
