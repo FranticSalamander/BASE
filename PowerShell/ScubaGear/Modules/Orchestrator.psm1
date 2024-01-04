@@ -965,6 +965,9 @@ function Invoke-Connection {
         [hashtable]
         $BoundParameters
     )
+    if ($ProductNames.Contains("entra")) {
+        $ProductNames = "aad"
+    }
 
     $ConnectTenantParams = @{
         'ProductNames' = $ProductNames;
@@ -977,9 +980,6 @@ function Invoke-Connection {
     }
 
     if ($LogIn) {
-        if ($ProductNames.Contains("entra")) {
-            $ProductNames = "aad"
-        }
         $AnyFailedAuth = Connect-Tenant @ConnectTenantParams
         $AnyFailedAuth
     }
