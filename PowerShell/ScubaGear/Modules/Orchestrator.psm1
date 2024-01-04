@@ -112,9 +112,9 @@ function Invoke-SCuBA {
     param (
         [Parameter(Mandatory = $false, ParameterSetName = 'Report')]
         [ValidateNotNullOrEmpty()]
-        [ValidateSet("teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
+        [ValidateSet("entra","teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
         [string[]]
-        $ProductNames = @("teams", "exo", "defender", "aad", "sharepoint"),
+        $ProductNames = @("entra","teams", "exo", "defender", "aad", "sharepoint"),
 
         [Parameter(Mandatory = $false, ParameterSetName = 'Report')]
         [ValidateSet("commercial", "gcc", "gcchigh", "dod", IgnoreCase = $false)]
@@ -221,7 +221,7 @@ function Invoke-SCuBA {
         if ($PSCmdlet.ParameterSetName -eq 'Report'){
 
             if ($ProductNames -eq '*'){
-                $ProductNames = "teams", "exo", "defender", "aad", "sharepoint", "powerplatform"
+                $ProductNames = "entra","teams", "exo", "defender", "aad", "sharepoint", "powerplatform"
             }
 
             $ProvidedParameters = @{
@@ -358,6 +358,7 @@ $ArgToProd = @{
     aad = "AAD";
     powerplatform = "PowerPlatform";
     sharepoint = "SharePoint";
+    entra = "Entra";
 }
 
 $ProdToFullName = @{
@@ -367,6 +368,7 @@ $ProdToFullName = @{
     AAD = "Azure Active Directory";
     PowerPlatform = "Microsoft Power Platform";
     SharePoint = "SharePoint Online";
+    Entra = "Entra ID"
 }
 
 function Get-FileEncoding{
@@ -399,7 +401,7 @@ function Invoke-ProviderList {
     param (
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
-        [ValidateSet("teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
+        [ValidateSet("entra","teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
         [string[]]
         $ProductNames,
 
@@ -473,6 +475,9 @@ function Invoke-ProviderList {
                 try {
                     $RetVal = ""
                     switch ($Product) {
+                        "entra" {
+                            $RetVal = Export-EntraProvider | Select-Object -Last 1
+                        }
                         "aad" {
                             $RetVal = Export-AADProvider | Select-Object -Last 1
                         }
@@ -559,7 +564,7 @@ function Invoke-RunRego {
     param(
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
-        [ValidateSet("teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
+        [ValidateSet("entra","teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
         [string[]]
         $ProductNames,
 
@@ -702,7 +707,7 @@ function Invoke-ReportCreation {
     param(
         [Parameter(Mandatory=$true)]
         [ValidateNotNullOrEmpty()]
-        [ValidateSet("teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
+        [ValidateSet("entra", "teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
         [string[]]
         $ProductNames,
 
@@ -1097,7 +1102,7 @@ function Remove-Resources {
     Internal
     #>
     [CmdletBinding()]
-    $Providers = @("ExportPowerPlatform", "ExportEXOProvider", "ExportAADProvider",
+    $Providers = @("ExportEntraProvider","ExportPowerPlatform", "ExportEXOProvider", "ExportAADProvider",
     "ExportDefenderProvider", "ExportTeamsProvider", "ExportSharePointProvider")
     foreach ($Provider in $Providers) {
         Remove-Module $Provider -ErrorAction "SilentlyContinue"
