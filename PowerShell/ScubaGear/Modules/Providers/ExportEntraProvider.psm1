@@ -1,4 +1,4 @@
-function Export-AADProvider {
+function Export-EntraProvider {
     <#
     .Description
     Gets the Azure Active Directory (AAD) settings that are relevant
