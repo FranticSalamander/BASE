@@ -952,7 +952,7 @@ function Invoke-Connection {
 
         [Parameter(Mandatory=$true)]
         [ValidateNotNullOrEmpty()]
-        [ValidateSet("entra","teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
+        [ValidateSet("entra", "teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
         [string[]]
         $ProductNames,
 
@@ -977,6 +977,9 @@ function Invoke-Connection {
     }
 
     if ($LogIn) {
+        if ($ProductNames.Contains("entra")) {
+            $ProductNames = "aad"
+        }
         $AnyFailedAuth = Connect-Tenant @ConnectTenantParams
         $AnyFailedAuth
     }
