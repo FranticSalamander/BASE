@@ -298,7 +298,7 @@ function Invoke-SCuBA {
                 'OutProviderFileName' = $ScubaConfig.OutProviderFileName;
                 'BoundParameters' = $PSBoundParameters;
             }
-            Write-Output "Hello"
+
             $ProdProviderFailed = Invoke-ProviderList @ProviderParams
             if ($ProdProviderFailed.Count -gt 0) {
                 $ScubaConfig.ProductNames = Compare-ProductList -ProductNames $ScubaConfig.ProductNames `
