@@ -66,6 +66,8 @@ function New-Report {
     $FileName = Join-Path -Path $OutPath -ChildPath "$($OutRegoFileName).json"
     $TestResults =  Get-Content $FileName | ConvertFrom-Json
 
+    Get-Content $FileName | Out-File -FilePath .\configs-json\entratest\test.json
+
     $Fragments = @()
 
     $MetaData += [pscustomobject]@{
@@ -190,6 +192,11 @@ function New-Report {
         $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
         $CapJson = ConvertTo-Json $SettingsExport.cap_table_data
     }
+    # elseif ($BaselineName -eq "entra") {
+    #     $ReportHTML = $ReportHTML.Replace("{AADWARNING}", $AADWarning)
+    #     $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
+    #     $CapJson = ConvertTo-Json $SettingsExport.cap_table_data
+    # }
     else {
         $ReportHTML = $ReportHTML.Replace("{AADWARNING}", $NoWarning)
         $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
