@@ -192,11 +192,11 @@ function New-Report {
         $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
         $CapJson = ConvertTo-Json $SettingsExport.cap_table_data
     }
-    # elseif ($BaselineName -eq "entra") {
-    #     $ReportHTML = $ReportHTML.Replace("{AADWARNING}", $AADWarning)
-    #     $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
-    #     $CapJson = ConvertTo-Json $SettingsExport.cap_table_data
-    # }
+    elseif ($BaselineName -eq "entra") {
+        $ReportHTML = $ReportHTML.Replace("{AADWARNING}", $AADWarning)
+        $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
+        $CapJson = ConvertTo-Json $SettingsExport.cap_table_data
+    }
     else {
         $ReportHTML = $ReportHTML.Replace("{AADWARNING}", $NoWarning)
         $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
