@@ -66,7 +66,6 @@ function New-Report {
     $FileName = Join-Path -Path $OutPath -ChildPath "$($OutRegoFileName).json"
     $TestResults =  Get-Content $FileName | ConvertFrom-Json
 
-    Get-Content $FileName | Out-File -FilePath .\configs-json\entratest\test.json
 
     $Fragments = @()
 
