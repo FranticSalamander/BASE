@@ -102,6 +102,7 @@ function Export-EntraProvider {
     $AuthenticationMethodPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationMethodPolicy"))
 
     $GroupLifecyclePolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupLifecyclePolicy"))
+    #$RoleSettingPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPrivilegedAccessResourceRoleSetting"))
 
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $UnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())
@@ -117,7 +118,8 @@ function Export-EntraProvider {
     # $DirectorySettings | Out-File -FilePath .\configs-json\aad\directory_settings_config.json
     # $AuthenticationMethodPolicy | Out-File -FilePath .\configs-json\aad\authentication_method_config.json
     $GroupLifecyclePolicy | Out-File -FilePath .\configs-json\entratest\group_lifecycle_policy_config.json
-    
+    #$RoleSettingPolicy | Out-File -FilePath .\configs-json\entratest\role_setting_policy_config.json
+
     # Each JSON inputed
     # $AllPolicies = Get-Content -Path  .\configs-json\aad\conditional_access_policies_config.json -Raw
     # $CapTableData = Get-Content -Path .\configs-json\aad\cap_table_data_config.json -Raw
