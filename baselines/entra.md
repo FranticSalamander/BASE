@@ -55,7 +55,8 @@ As described in Microsoft’s literature related to conditional access policies,
 
 # Baseline Policies
 
-## 1. Something or Other<!--Legacy Authentication-->
+
+## 1. Legacy Authentication
 
 This section provides policies that reduce security risks related to legacy authentication protocols that do not support multifactor authentication (MFA).
 
@@ -770,6 +771,31 @@ Guest invites SHOULD only be allowed to specific external domains that have been
 3. Select **Target domains** and enter the names of the external domains authorized by the agency for guest user access.
 
 4. Click **Save**.
+
+## 9. Group Lifecycle
+
+This section provides policies to do with group lifecycles
+
+### Policies
+#### MS.Entra.9.1v1
+Group Lifecycle Policy SHALL be Followed
+
+<!--Policy: MS.Entra.9.1v1; Criticality: SHALL -->
+- _Rationale:_ The security risk of allowing legacy authentication protocols is they do not support MFA. Blocking legacy protocols reduces the impact of user credential theft.
+- _Last modified:_ June 2023
+
+### Resources
+
+- [Common Conditional Access policy: Block legacy authentication](https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-policy-block-legacy)
+
+- [Five steps to securing your identity infrastructure](https://learn.microsoft.com/en-us/azure/security/fundamentals/steps-secure-identity)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
 
 
 # Appendix A: Hybrid Azure AD Guidance

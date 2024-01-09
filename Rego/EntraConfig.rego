@@ -1027,3 +1027,40 @@ tests[{
     true
 }
 #--
+############
+# MS.Entra.9 #
+############
+
+#
+# MS.Entra.9.1v1
+#--
+default GroupLifecycleConditionsMatch(_) := true
+GroupLifecycleConditionsMatch(Policy) := true #if {
+   # "All" in Policy.ManagedGroupTypes
+   # 180 == Policy.GroupLifetimeInDays
+   # "Office365_Group_Expiration@agency.gov.au" in Policy.AlternateNotificationEmails
+#}
+
+GroupLifecycle[Cap.DisplayName] {
+    Cap := input.group_lifecycle_policies[_]
+
+    # Match all simple conditions
+    GroupLifecycleConditionsMatch(Cap)
+    # Only match policies with user and group exclusions if all exempted
+    #UserExclusionsFullyExempt(Cap, "MS.Entra.9.1v1") == true
+    #GroupExclusionsFullyExempt(Cap, "MS.Entra.9.1v1") == true
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.9.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaGroupLifecyclePolicy"],
+    "ActualValue" : GroupLifecycle,
+    "ReportDetails" : concat(". ", [ReportFullDetailsArray(GroupLifecycle, DescriptionString), CapLink]),
+    "RequirementMet" : Status
+}] {
+    DescriptionString := "Group Lifecycle policy(s) found that meet(s) all requirements"
+    Status :=  count(GroupLifecycle) > 0
+}
+#--

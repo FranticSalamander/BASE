@@ -134,6 +134,7 @@ function Export-EntraProvider {
 
     # Note the spacing and the last comma in the json is important
     $json = @"
+    "group_lifecycle_policies" : $GroupLifecyclePolicy,
     "conditional_access_policies": $AllPolicies,
     "cap_table_data": $CapTableData,
     "authorization_policies": $AuthZPolicies,
