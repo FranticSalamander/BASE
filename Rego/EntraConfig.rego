@@ -1034,21 +1034,24 @@ tests[{
 #
 # MS.Entra.9.1v1
 #--
-default GroupLifecycleConditionsMatch(_) := true
-GroupLifecycleConditionsMatch(Policy) := true #if {
-   # "All" in Policy.ManagedGroupTypes
-   # 180 == Policy.GroupLifetimeInDays
-   # "Office365_Group_Expiration@agency.gov.au" in Policy.AlternateNotificationEmails
-#}
+default GroupLifecycleConditionsMatch(_) := false
+GroupLifecycleConditionsMatch(Policy) := true if {
+   "All" in Policy.ManagedGroupTypes
+    180 == Policy.GroupLifetimeInDays
+    "Office365_Group_Expiration@agency.gov.au" in Policy.AlternateNotificationEmails
+}
 
 GroupLifecycle[Cap.DisplayName] {
-    Cap := input.group_lifecycle_policies[_]
+    
+    
+    Cap := input.group_lifecycle_policies
+    #Cap.GroupLifetimeInDays == 180
 
-    # Match all simple conditions
+    # # Match all simple conditions
     GroupLifecycleConditionsMatch(Cap)
-    # Only match policies with user and group exclusions if all exempted
-    #UserExclusionsFullyExempt(Cap, "MS.Entra.9.1v1") == true
-    #GroupExclusionsFullyExempt(Cap, "MS.Entra.9.1v1") == true
+    # # Only match policies with user and group exclusions if all exempted
+    # UserExclusionsFullyExempt(Cap, "MS.Entra.9.1v1") == true
+    # GroupExclusionsFullyExempt(Cap, "MS.Entra.9.1v1") == true
 
 }
 
