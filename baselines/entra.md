@@ -56,15 +56,21 @@ As described in Microsoft’s literature related to conditional access policies,
 # Baseline Policies
 
 
-## 1. Group Lifecycle
+## 1. Groups
 
-This section provides policies to do with group lifecycles
+Groups Policies
 
 ### Policies
 #### MS.Entra.1.1v1
 The Group Expiry will be set to 180 Days
 <!--Policy: MS.Entra.9.1v1; Criticality: SHALL -->
 - _Rationale:_ Limit group sprawl by ensuring that groups that are no longer in use are deleted.
+- _Last modified:_ June 2023
+
+#### MS.Entra.1.1v1
+The Group Expiry will be set to 180 Days
+<!--Policy: MS.Entra.9.1v1; Criticality: SHALL -->
+- _Rationale:_ Avoid fixed organisation based group naming conventions to avoid issues with changing organisation structures.
 - _Last modified:_ June 2023
 
 ### Resources
@@ -78,6 +84,8 @@ The Group Expiry will be set to 180 Days
 - N/A
 
 ### Implementation
+
+
 
 
 

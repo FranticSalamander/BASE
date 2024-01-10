@@ -150,6 +150,28 @@ tests[{
 
     Policy := input.group_lifecycle_policies[_]
     Conditions := [Policy.ManagedGroupTypes == "All", Policy.GroupLifetimeInDays == 180, Policy.AlternateNotificationEmails == "Office365_Group_Expiration@agency.gov.au"]
+    Status := count([Condition | Condition = Conditions[_]; Condition == true]) == 3
+    
+}
+#--
+
+#
+# MS.Entra.1.2v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.2.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaGroupLifecyclePolicy"],
+    "ActualValue" : [Policy.ManagedGroupTypes, Policy.GroupLifetimeInDays, Policy.AlternateNotificationEmails],
+    "ReportDetails" : ReportDetailsBoolean(Status),
+    "RequirementMet" : Status
+}] {
+    
+
+    Policy := input.group_naming_policies[_]
+    Conditions := [Policy.ManagedGroupTypes == "All", Policy.GroupLifetimeInDays == 180, Policy.AlternateNotificationEmails == "Office365_Group_Expiration@agency.gov.au"]
     DescriptionString := "Group Lifecycle policy(s) found that meet(s) all requirements"
     Status := count([Condition | Condition = Conditions[_]; Condition == true]) == 3
     
