@@ -69,9 +69,9 @@ The Group Expiry will be set to 180 Days
 
 ### Resources
 
-- [Common Conditional Access policy: Block legacy authentication](https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-policy-block-legacy)
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/groups/)
 
-- [Five steps to securing your identity infrastructure](https://learn.microsoft.com/en-us/azure/security/fundamentals/steps-secure-identity)
+- [Configuration Documentation](null)
 
 ### License Requirements
 
