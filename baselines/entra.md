@@ -56,16 +56,15 @@ As described in Microsoft’s literature related to conditional access policies,
 # Baseline Policies
 
 
-## 9. Group Lifecycle
+## 1. Group Lifecycle
 
 This section provides policies to do with group lifecycles
 
 ### Policies
-#### MS.Entra.9.1v1
-Group Lifecycle Policy SHALL be Followed
-
+#### MS.Entra.1.1v1
+The Group Expiry will be set to 180 Days
 <!--Policy: MS.Entra.9.1v1; Criticality: SHALL -->
-- _Rationale:_ The security risk of allowing legacy authentication protocols is they do not support MFA. Blocking legacy protocols reduces the impact of user credential theft.
+- _Rationale:_ Limit group sprawl by ensuring that groups that are no longer in use are deleted.
 - _Last modified:_ June 2023
 
 ### Resources

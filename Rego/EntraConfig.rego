@@ -139,7 +139,7 @@ GroupExclusionsFullyExempt(Policy, PolicyID) := true if {
 
 
 tests[{
-    "PolicyId" : "MS.Entra.9.1v1",
+    "PolicyId" : "MS.Entra.1.1v1",
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaGroupLifecyclePolicy"],
     "ActualValue" : [Policy.ManagedGroupTypes, Policy.GroupLifetimeInDays, Policy.AlternateNotificationEmails],

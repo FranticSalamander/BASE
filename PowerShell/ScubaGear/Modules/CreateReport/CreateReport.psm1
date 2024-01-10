@@ -56,7 +56,7 @@ function New-Report {
         $SecureBaselines
     )
 
-    $ScubaGitHubUrl = "https://github.com/cisagov/ScubaGear"
+    $ScubaGitHubUrl = "https://github.com/FranticSalamander/BASE"
 
     $ProductSecureBaseline = $SecureBaselines.$BaselineName
 
@@ -169,7 +169,7 @@ function New-Report {
         $Number = $BaselineName.ToUpper() + '-' + $BaselineGroup.GroupNumber
         $Name = $BaselineGroup.GroupName
         $GroupAnchor = New-MarkdownAnchor -GroupNumber $BaselineGroup.GroupNumber -GroupName $BaselineGroup.GroupName
-        $MarkdownLink = "<a class='control_group' href=`"$($ScubaGitHubUrl)/blob/v$($SettingsExport.module_version)/baselines/$($BaselineName.ToLower()).md#$GroupAnchor`" target=`"_blank`">$Name</a>"
+        $MarkdownLink = "<a class='control_group' href=`"$($ScubaGitHubUrl)/blob/main/baselines/$($BaselineName.ToLower()).md#$GroupAnchor`" target=`"_blank`">$Name</a>"
         $Fragments += $Fragment | ConvertTo-Html -PreContent "<h2>$Number $MarkdownLink</h2>" -Fragment
     }
 
@@ -191,11 +191,11 @@ function New-Report {
         $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
         $CapJson = ConvertTo-Json $SettingsExport.cap_table_data
     }
-    elseif ($BaselineName -eq "entra") {
-        $ReportHTML = $ReportHTML.Replace("{AADWARNING}", $AADWarning)
-        $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
-        $CapJson = ConvertTo-Json $SettingsExport.cap_table_data
-    }
+    # elseif ($BaselineName -eq "entra") {
+    #     $ReportHTML = $ReportHTML.Replace("{AADWARNING}", $AADWarning)
+    #     $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
+    #     $CapJson = ConvertTo-Json $SettingsExport.cap_table_data
+    # }
     else {
         $ReportHTML = $ReportHTML.Replace("{AADWARNING}", $NoWarning)
         $ReportHTML = $ReportHTML.Replace("{CAPTABLES}", "")
