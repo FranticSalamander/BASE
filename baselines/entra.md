@@ -63,15 +63,9 @@ Groups Policies
 ### Policies
 #### MS.Entra.1.1v1
 The Group Expiry will be set to 180 Days
-<!--Policy: MS.Entra.9.1v1; Criticality: SHALL -->
+<!--Policy: MS.Entra.2.1v1; Criticality: SHALL -->
 - _Rationale:_ Limit group sprawl by ensuring that groups that are no longer in use are deleted.
-- _Last modified:_ June 2023
-
-#### MS.Entra.1.1v1
-The Group Expiry will be set to 180 Days
-<!--Policy: MS.Entra.9.1v1; Criticality: SHALL -->
-- _Rationale:_ Avoid fixed organisation based group naming conventions to avoid issues with changing organisation structures.
-- _Last modified:_ June 2023
+- _Last modified:_ Jan 2024
 
 ### Resources
 
@@ -85,6 +79,41 @@ The Group Expiry will be set to 180 Days
 
 ### Implementation
 
+
+## 2. Authentication Strength
+
+Groups Policies
+
+### Policies
+#### MS.Entra.2.1v1
+Multifactor authentication will be configured correctly
+<!--Policy: MS.Entra.2.1v1; Criticality: SHALL -->
+- _Rationale:_ to manage the Authentication methods policy.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.2.2v1
+Passwordless MFA will be configured correctly
+<!--Policy: MS.Entra.2.2v1; Criticality: SHALL -->
+- _Rationale:_ to manage the Authentication methods policy for passwordless MFA.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.2.3v1
+Phishing Resistant MFA will be configured correctly
+<!--Policy: MS.Entra.2.3v1; Criticality: SHALL -->
+- _Rationale:_ to manage the Authentication methods policy for passwordless MFA.
+- _Last modified:_ Jan 2024
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/authentication/)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
 
 
 
