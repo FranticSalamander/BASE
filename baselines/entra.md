@@ -63,8 +63,20 @@ Groups Policies
 ### Policies
 #### MS.Entra.1.1v1
 The Group Expiry will be set to 180 Days
-<!--Policy: MS.Entra.2.1v1; Criticality: SHALL -->
+<!--Policy: MS.Entra.1.1v1; Criticality: SHALL -->
 - _Rationale:_ Limit group sprawl by ensuring that groups that are no longer in use are deleted.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.1.2v1
+The Group Naming Policy will be Unrestricted but with guidelines
+<!--Policy: MS.Entra.1.2v1; Criticality: SHALL -->
+- _Rationale:_ Avoid fixed organisation based group naming conventions to avoid issues with changing organisation structures.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.1.3v1
+The Group Naming Policy will be Unrestricted but with guidelines
+<!--Policy: MS.Entra.1.3v1; Criticality: SHALL -->
+- _Rationale:_ Avoid fixed organisation based group naming conventions to avoid issues with changing organisation structures.
 - _Last modified:_ Jan 2024
 
 ### Resources
@@ -114,6 +126,7 @@ Phishing Resistant MFA will be configured correctly
 - N/A
 
 ### Implementation
+
 
 
 

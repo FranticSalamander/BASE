@@ -153,6 +153,56 @@ tests[{
 }
 #--
 
+#
+# MS.Entra.1.2v1
+#--
+default CustomBlockedWordsListMatch(_) := false
+CustomBlockedWordsListMatch(Policy) := true if {
+    Policy.Name == "CustomBlockedWordsList"
+    Policy.Value == "HR,Exec,SOC,Minister"
+}
+
+CustomBlockedWordsList[Policy.DisplayName] {
+    Policy := input.group_naming_policies[_]
+
+    # Match all simple conditions
+    CustomBlockedWordsListMatch(Policy)
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.1.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaDirectorySetting"],
+    "ActualValue" : CustomBlockedWordsList,
+    "ReportDetails" : ReportDetailsBoolean(Status),
+    "RequirementMet" : Status
+}] {
+    Status := count(CustomBlockedWordsList) > 0
+}
+#--
+
+#
+# MS.Entra.1.3v1
+#--
+tests[{
+    "PolicyId" : "MS.Entra.1.3v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaDirectorySetting"],
+    "ActualValue" : [Policy.Name, Policy.Value],
+    "ReportDetails" : ReportDetailsBoolean(Status),
+    "RequirementMet" : Status
+}] {
+    
+
+    Policy := input.group_naming_policies[_]
+    Conditions := [Policy.Name == "CustomBlockedWordsList",Policy.Value == "HR,Exec,SOC,Minister"]
+    Status := count([Condition | Condition = Conditions[_]; Condition == true]) == 2
+    
+}
+#--
+
+
+
 
 #--
 ############
@@ -274,3 +324,9 @@ tests[{
     Status := count(PhishingResistantMFA) > 0
 }
 #--
+
+#--
+############
+# MS.Entra.3 #
+############
+
