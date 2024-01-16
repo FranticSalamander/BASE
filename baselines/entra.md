@@ -73,12 +73,6 @@ The Group Naming Policy will be Unrestricted but with guidelines
 - _Rationale:_ Avoid fixed organisation based group naming conventions to avoid issues with changing organisation structures.
 - _Last modified:_ Jan 2024
 
-#### MS.Entra.1.3v1
-The Group Naming Policy will be Unrestricted but with guidelines
-<!--Policy: MS.Entra.1.3v1; Criticality: SHALL -->
-- _Rationale:_ Avoid fixed organisation based group naming conventions to avoid issues with changing organisation structures.
-- _Last modified:_ Jan 2024
-
 ### Resources
 
 - [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/groups/)
