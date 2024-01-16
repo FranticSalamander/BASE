@@ -72,7 +72,7 @@ function New-Report {
     $MetaData += [pscustomobject]@{
         "Tenant Display Name" = $SettingsExport.tenant_details.DisplayName;
         "Report Date" = $SettingsExport.date;
-        "Baseline Version" = $SettingsExport.baseline_version;
+        "Blueprint Version" = $SettingsExport.blueprint_version;
         "Module Version" = $SettingsExport.module_version
     }
 

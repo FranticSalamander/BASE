@@ -525,14 +525,16 @@ function Invoke-ProviderList {
         if(! $ConfigDetails) {
             $ConfigDetails = "{}"
         }
+        
 
         $BaselineSettingsExport = @"
         {
-                "baseline_version": "1",
-                "module_version": "$ModuleVersion",
+                
                 "date": "$($CurrentDate) $($TimeZone)",
                 "tenant_details": $($TenantDetails),
                 "scuba_config": $($ConfigDetails),
+                "blueprint_version": "1",
+                "module_version": "$ModuleVersion",
 
                 $ProviderJSON
         }
