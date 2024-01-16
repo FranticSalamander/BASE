@@ -54,7 +54,7 @@ function Connect-Tenant {
        Write-Progress @ProgressParams
        try {
            switch ($Product) {
-               "aad" {
+               {($_ -eq "aad") -or ($_ -eq "entra")}{
                    $GraphScopes = (
                        'User.Read.All',
                        'Policy.Read.All',
@@ -276,7 +276,7 @@ function Disconnect-SCuBATenant {
            $Percent = $N*100/$Len
            Write-Progress -Activity "Disconnecting from each service" -Status "Disconnecting from $($Product); $($n) of $($Len) disconnected." -PercentComplete $Percent
            Write-Verbose "Disconnecting from $Product."
-           if (($Product -eq "aad") -or ($Product -eq "sharepoint")) {
+           if (($Product -eq "aad") -or ($Product -eq "sharepoint") -or ($Product -eq "entra")) {
                Disconnect-MgGraph -ErrorAction SilentlyContinue | Out-Null
 
                if($Product -eq "sharepoint") {
