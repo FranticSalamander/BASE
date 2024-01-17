@@ -125,3 +125,100 @@ test_GroupExpiry_Incorrect_V5 if {
     not RuleOutput[0].RequirementMet
     RuleOutput[0].ReportDetails == "Requirement not met"
 }
+
+#
+# MS.Entra.1.2v1
+#--
+test_GroupNaming_Correct if {
+    PolicyId := "MS.Entra.1.2v1"
+
+    Output := tests with input as {
+        "group_naming_policy": [
+            {
+                "Name" : "CustomBlockedWordsList",
+                "Value" : "HR,Exec,SOC,Minister"
+            }
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement met"
+}
+
+test_GroupNaming_Incorrect_V1 if {
+    PolicyId := "MS.Entra.1.2v1"
+
+    Output := tests with input as {
+        "group_naming_policy": [
+            {
+                "Name" : "CustomBlokedWordsList",
+                "Value" : "HR,Exec,SOC,Minister"
+            }
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    not RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement not met"
+}
+
+test_GroupNaming_Incorrect_V2 if {
+    PolicyId := "MS.Entra.1.2v1"
+
+    Output := tests with input as {
+        "group_naming_policy": [
+            {
+                "Name" : "AllowGuestsToBeGroupOwner",
+                "Value" : "HR,Exec,SOC,Minister"
+            }
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    not RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement not met"
+}
+
+test_GroupNaming_Incorrect_V3 if {
+    PolicyId := "MS.Entra.1.2v1"
+
+    Output := tests with input as {
+        "group_naming_policy": [
+            {
+                "Name" : "",
+                "Value" : ""
+            }
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    not RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement not met"
+}
+
+test_GroupNaming_Incorrect_V4 if {
+    PolicyId := "MS.Entra.1.2v1"
+
+    Output := tests with input as {
+        "group_naming_policy": [
+            {
+               
+            }
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    not RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement not met"
+}

@@ -34,8 +34,7 @@ function Export-EntraProvider {
     $NamedLocationsPolicy | Out-File -FilePath .\configs-json\entratest\named_locations_policy.json
     $AuthenticationStrengthPolicy | Out-File -FilePath .\configs-json\entratest\authentication_strength_policy.json
 
-
-
+    
     # Note the spacing and the last comma in the json is important
     $json = @"
     "group_lifecycle_policy" : $GroupLifecyclePolicy,
