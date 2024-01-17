@@ -6,6 +6,7 @@ import data.report.utils.ReportDetailsBoolean
 import data.policy.utils.IsEmptyContainer
 import data.policy.utils.Contains
 import data.policy.utils.Count
+import data.report.utils.ReportDetailsString
 
 #############################################################################
 # The report formatting functions below are generic and used throughout Entra #
@@ -163,7 +164,7 @@ CustomBlockedWordsListMatch(Policy) := true if {
 }
 
 CustomBlockedWordsList[Policy.Name] {
-    Policy := input.group_naming_policy[_]
+    Policy := input.group_settings[_]
 
     # Match all simple conditions
     CustomBlockedWordsListMatch(Policy)
@@ -174,10 +175,176 @@ tests[{
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaDirectorySetting"],
     "ActualValue" : CustomBlockedWordsList,
-    "ReportDetails" : ReportDetailsBoolean(Status),
+    "ReportDetails" : ReportDetailsString(Status, Detail),
     "RequirementMet" : Status
 }] {
     Status := count(CustomBlockedWordsList) > 0
+    Detail := "Requirement not met: 'CustomBlockedWordsList' needs to be set to 'HR,Exec,SOC,Minister'"
+}
+#--
+
+#
+# MS.Entra.1.3v1
+#--
+default AllowGuestsToAccessGroupsMatch(_) := false
+AllowGuestsToAccessGroupsMatch(Policy) := true if {
+    Policy.Name == "AllowGuestsToAccessGroups"  
+    Policy.Value == "False"
+}
+AllowGuestsToAccessGroupsMatch(Policy) := true if {
+    Policy.Name == "AllowGuestsToAccessGroups"  
+    Policy.Value == "false"
+}
+
+AllowGuestsToAccessGroups[Policy.Name] {
+    Policy := input.group_settings[_]
+
+    # Match all simple conditions
+    AllowGuestsToAccessGroupsMatch(Policy)
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.1.3v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaDirectorySetting"],
+    "ActualValue" : AllowGuestsToAccessGroups,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Status := count(AllowGuestsToAccessGroups) > 0
+    Detail := "Requirement not met: 'AllowGuestsToAccessGroups' needs to be set to false"
+}
+#--
+
+#
+# MS.Entra.1.4v1
+#--
+default AllowGuestsToBeGroupOwnerMatch(_) := false
+AllowGuestsToBeGroupOwnerMatch(Policy) := true if {
+    Policy.Name == "AllowGuestsToBeGroupOwner"  
+    Policy.Value == "false"
+}
+AllowGuestsToBeGroupOwnerMatch(Policy) := true if {
+    Policy.Name == "AllowGuestsToBeGroupOwner"  
+    Policy.Value == "False"
+}
+
+AllowGuestsToBeGroupOwner[Policy.Name] {
+    Policy := input.group_settings[_]
+
+    # Match all simple conditions
+    AllowGuestsToBeGroupOwnerMatch(Policy)
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.1.4v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaDirectorySetting"],
+    "ActualValue" : AllowGuestsToBeGroupOwner,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Status := count(AllowGuestsToBeGroupOwner) > 0
+    Detail := "Requirement not met: 'AllowGuestsToBeGroupOwner' needs to be set to false"
+}
+#--
+
+#
+# MS.Entra.1.5v1
+#--
+default AllowToAddGuestsMatch(_) := false
+AllowToAddGuestsMatch(Policy) := true if {
+    Policy.Name == "AllowToAddGuests"  
+    Policy.Value == "false"
+}
+AllowToAddGuestsMatch(Policy) := true if {
+    Policy.Name == "AllowToAddGuests"  
+    Policy.Value == "False"
+}
+
+AllowToAddGuests[Policy.Name] {
+    Policy := input.group_settings[_]
+
+    # Match all simple conditions
+    AllowToAddGuestsMatch(Policy)
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.1.5v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaDirectorySetting"],
+    "ActualValue" : AllowToAddGuests,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Status := count(AllowToAddGuests) > 0
+    Detail := "Requirement not met: 'AllowToAddGuests' needs to be set to false"
+}
+#--
+
+#
+# MS.Entra.1.6v1
+#--
+default EnableGroupCreationMatch(_) := false
+EnableGroupCreationMatch(Policy) := true if {
+    Policy.Name == "EnableGroupCreation"  
+    Policy.Value == "false"
+}
+EnableGroupCreationMatch(Policy) := true if {
+    Policy.Name == "EnableGroupCreation"  
+    Policy.Value == "False"
+}
+
+EnableGroupCreation[Policy.Name] {
+    Policy := input.group_settings[_]
+
+    # Match all simple conditions
+    EnableGroupCreationMatch(Policy)
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.1.6v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaDirectorySetting"],
+    "ActualValue" : EnableGroupCreation,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Status := count(EnableGroupCreation) > 0
+    Detail := "Requirement not met: 'EnableGroupCreation' needs to be set to false"
+}
+#--
+
+#
+# MS.Entra.1.7v1
+#--
+default EnableMIPLabelsMatch(_) := false
+EnableMIPLabelsMatch(Policy) := true if {
+    Policy.Name == "EnableMIPLabels"  
+    Policy.Value == "true"
+}
+EnableMIPLabelsMatch(Policy) := true if {
+    Policy.Name == "EnableMIPLabels"  
+    Policy.Value == "True"
+}
+
+EnableMIPLabels[Policy.Name] {
+    Policy := input.group_settings[_]
+
+    # Match all simple conditions
+    EnableMIPLabelsMatch(Policy)
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.1.7v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaDirectorySetting"],
+    "ActualValue" : EnableMIPLabels,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Status := count(EnableMIPLabels) > 0
+    Detail := "Requirement not met: 'EnableMIPLabels' needs to be set to true"
 }
 #--
 
