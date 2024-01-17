@@ -18,7 +18,7 @@ test_SharingCapability_Correct_V1 if {
     }
 
     RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
+    print(RuleOutput)
     count(RuleOutput) == 1
     RuleOutput[0].RequirementMet
     RuleOutput[0].ReportDetails == "Requirement met"

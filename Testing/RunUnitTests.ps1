@@ -31,7 +31,7 @@
 [CmdletBinding()]
 param (
     [Parameter()]
-    [ValidateSet('AAD','Defender','EXO','PowerPlatform','Sharepoint','Teams')]
+    [ValidateSet('Entra','AAD','Defender','EXO','PowerPlatform','Sharepoint','Teams')]
     [string[]]$p = "",
     [Parameter()]
     [string[]]$c = "",
@@ -197,7 +197,7 @@ if ($v.IsPresent) {
     $Flag = "-v"
 }
 if($pEmpty -and $cEmpty -and $tEmpty) {
-    $p = @('AAD','Defender','EXO','PowerPlatform','Sharepoint','Teams')
+    $p = @('Entra','AAD','Defender','EXO','PowerPlatform','Sharepoint','Teams')
     Invoke-Product -Flag $Flag
 }
 elseif((-not $pEmpty) -and (-not $cEmpty) -and (-not $tEmpty)) {

@@ -38,7 +38,7 @@ function Export-EntraProvider {
 
     # Note the spacing and the last comma in the json is important
     $json = @"
-    "group_lifecycle_policies" : $GroupLifecyclePolicy,
+    "group_lifecycle_policy" : $GroupLifecyclePolicy,
     "group_naming_policy" : $GroupNamingPolicy,
     "named_locations_policy" : $NamedLocationsPolicy,
     "authentication_strength_policy" : $AuthenticationStrengthPolicy,

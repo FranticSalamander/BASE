@@ -146,7 +146,7 @@ tests[{
 }] {
     
 
-    Policy := input.group_lifecycle_policies[_]
+    Policy := input.group_lifecycle_policy[_]
     Conditions := [Policy.ManagedGroupTypes == "All", Policy.GroupLifetimeInDays == 180, Policy.AlternateNotificationEmails == "Office365_Group_Expiration@agency.gov.au"]
     Status := count([Condition | Condition = Conditions[_]; Condition == true]) == 3
     
