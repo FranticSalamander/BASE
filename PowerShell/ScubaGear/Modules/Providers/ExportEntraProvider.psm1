@@ -19,10 +19,14 @@ function Export-EntraProvider {
     $GroupSettings = ConvertTo-Json $GroupSettingsTemp.Values
     #
    # $GroupSettings = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupSetting"))
-   # $NamedLocationsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-countryNamedLocation"))
+    #$NamedLocationsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-countryNamedLocation"))
     $AuthenticationStrengthPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationStrengthPolicy"))
     $SecurityDefaults = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyIdentitySecurityDefaultEnforcementPolicy"))
     $User = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUser"))
+    $AuthenticationMethodsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationMethodPolicy"))
+    $AuthorisationPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthorizationPolicy"))
+   # $AuthenticationMethodsPolicyMicrosoftAuthenticator = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUserAuthenticationMicrosoftAuthenticatorMethod"))
+
 
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $UnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())
@@ -36,6 +40,10 @@ function Export-EntraProvider {
     $AuthenticationStrengthPolicy | Out-File -FilePath .\configs-json\entratest\authentication_strength_policy.json
     $SecurityDefaults | Out-File -FilePath .\configs-json\entratest\security_defaults_policy.json
     $User | Out-File -FilePath .\configs-json\entratest\user.json
+    $AuthenticationMethodsPolicy | Out-File -FilePath .\configs-json\entratest\authentication_method_policy.json
+    $AuthorisationPolicy | Out-File -FilePath .\configs-json\entratest\authorisation_policy.json
+   # $AuthenticationMethodsPolicyMicrosoftAuthenticator | Out-File -FilePath .\configs-json\entratest\authentication_method_policy_Microsoft_Authenticator.json
+
     
     # Note the spacing and the last comma in the json is important
     $json = @"
@@ -44,6 +52,7 @@ function Export-EntraProvider {
     "authentication_strength_policy" : $AuthenticationStrengthPolicy,
     "security_defaults" : $SecurityDefaults,
     "user" : $User,
+    "authorisation_policy" : $AuthorisationPolicy,
     "aad_successful_commands": $SuccessfulCommands,
     "aad_unsuccessful_commands": $UnSuccessfulCommands,
 "@
