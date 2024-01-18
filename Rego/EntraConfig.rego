@@ -429,7 +429,7 @@ PasswordlessMFA[Policy.DisplayName] {
 tests[{
     "PolicyId" : "MS.Entra.2.2v1",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get--MgBetaPolicyAuthenticationStrengthPolicy"],
+    "Commandlet" : ["Get-MgBetaPolicyAuthenticationStrengthPolicy"],
     "ActualValue" : PasswordlessMFA,
     "ReportDetails" : ReportDetailsBoolean(Status),
     "RequirementMet" : Status
@@ -463,7 +463,7 @@ PhishingResistantMFA[Policy.DisplayName] {
 tests[{
     "PolicyId" : "MS.Entra.2.3v1",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get--MgBetaPolicyAuthenticationStrengthPolicy"],
+    "Commandlet" : ["Get-MgBetaPolicyAuthenticationStrengthPolicy"],
     "ActualValue" : PhishingResistantMFA,
     "ReportDetails" : ReportDetailsBoolean(Status),
     "RequirementMet" : Status
@@ -477,3 +477,102 @@ tests[{
 # MS.Entra.3 #
 ############
 
+#
+# MS.Entra.3.1v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.3.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyIdentitySecurityDefaultEnforcementPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Policy := input.security_defaults[_]
+    Status := Policy.IsEnabled == false
+    Detail := "Requirement not met: Security Defaults must be disabled"
+}
+#--
+
+#--
+############
+# MS.Entra.4 #
+############
+
+#
+# MS.Entra.4.1v1
+#--
+
+
+default BreakGlassUser1Match(_) := false
+BreakGlassUser1Match(Policy) := true if {
+    Policy.DisplayName == "Break Glass"  
+    Policy.PasswordPolicies == null
+    Policy.UsageLocation == "AU"
+    Policy.UserType == "Member"
+    startswith(Policy.UserPrincipalName, "break.glass_priv1")
+   
+}
+
+BreakGlassUser1[Policy.DisplayName] {
+    Policy := input.user[_]
+
+    # Match all simple conditions
+    BreakGlassUser1Match(Policy)
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.4.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaUser"],
+    "ActualValue" : BreakGlassUser1,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Status := count(BreakGlassUser1) == 1
+    Details := "Requirement not met: Break Glass User Account 1 is not configured correctly"
+    
+}
+#--
+
+#
+# MS.Entra.4.2v1
+#--
+
+
+default BreakGlassUser2Match(_) := false
+BreakGlassUser2Match(Policy) := true if {
+    Policy.DisplayName == "Break Glass"  
+    Policy.PasswordPolicies == null
+    Policy.UsageLocation == "AU"
+    Policy.UserType == "Member"
+    startswith(Policy.UserPrincipalName, "break.glass_priv2")
+   
+}
+
+BreakGlassUser2[Policy.DisplayName] {
+    Policy := input.user[_]
+
+    # Match all simple conditions
+    BreakGlassUser2Match(Policy)
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.4.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaUser"],
+    "ActualValue" : BreakGlassUser2,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Status := count(BreakGlassUser2) == 1
+    Details := "Requirement not met: Break Glass User Account 2 is not configured correctly"
+    
+}
+#--

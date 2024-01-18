@@ -124,7 +124,7 @@ MIP labels
 
 ## 2. Authentication Strength
 
-Groups Policies
+Authentication Strength Policies
 
 ### Policies
 #### MS.Entra.2.1v1
@@ -158,6 +158,61 @@ Phishing Resistant MFA will be configured correctly
 ### Implementation
 
 
+## 3. Security Defaults
+
+Security Defaults Policies
+
+### Policies
+#### MS.Entra.3.1v1
+Security Defaults will be Disabled
+<!--Policy: MS.Entra.3.1v1; Criticality: SHALL -->
+- _Rationale:_ Settings (MFA, Conditional Access, etc.) are managed at a more granular level than Security Defaults provides.
+- _Last modified:_ Jan 2024
+
+
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/authentication/)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
+## 4. Security Defaults
+
+User Configurations
+
+### Policies
+#### MS.Entra.4.1v1
+Configure Break Glass User Account 1
+<!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
+- _Rationale:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.4.2v1
+Configure Break Glass User Account 2
+<!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
+- _Rationale:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
+- _Last modified:_ Jan 2024
+
+
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/users/)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
 
 
 

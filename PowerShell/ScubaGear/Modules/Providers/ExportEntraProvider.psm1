@@ -17,12 +17,12 @@ function Export-EntraProvider {
     $GroupLifecyclePolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupLifecyclePolicy"))
     $GroupSettingsTemp = @($Tracker.TryCommand("Get-MgBetaDirectorySetting")) | ? { $_.DisplayName -eq "Group.Unified"} 
     $GroupSettings = ConvertTo-Json $GroupSettingsTemp.Values
-    #$GroupSettings = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupSetting"))
+    #
    # $GroupSettings = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupSetting"))
-    $NamedLocationsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessNamedLocation"))
+   # $NamedLocationsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-countryNamedLocation"))
     $AuthenticationStrengthPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationStrengthPolicy"))
-
-
+    $SecurityDefaults = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyIdentitySecurityDefaultEnforcementPolicy"))
+    $User = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUser"))
 
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $UnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())
@@ -32,16 +32,18 @@ function Export-EntraProvider {
     $GroupLifecyclePolicy | Out-File -FilePath .\configs-json\entratest\group_lifecycle_policy_config.json
     $GroupSettings | Out-File -FilePath .\configs-json\entratest\group_settings_config.json
     #$GroupSettings | Out-File -FilePath .\configs-json\entratest\group_settings.json
-    $NamedLocationsPolicy | Out-File -FilePath .\configs-json\entratest\named_locations_policy.json
+   # $NamedLocationsPolicy | Out-File -FilePath .\configs-json\entratest\named_locations_policy.json
     $AuthenticationStrengthPolicy | Out-File -FilePath .\configs-json\entratest\authentication_strength_policy.json
-
+    $SecurityDefaults | Out-File -FilePath .\configs-json\entratest\security_defaults_policy.json
+    $User | Out-File -FilePath .\configs-json\entratest\user.json
     
     # Note the spacing and the last comma in the json is important
     $json = @"
     "group_lifecycle_policy" : $GroupLifecyclePolicy,
     "group_settings" : $GroupSettings,
-    "named_locations_policy" : $NamedLocationsPolicy,
     "authentication_strength_policy" : $AuthenticationStrengthPolicy,
+    "security_defaults" : $SecurityDefaults,
+    "user" : $User,
     "aad_successful_commands": $SuccessfulCommands,
     "aad_unsuccessful_commands": $UnSuccessfulCommands,
 "@
