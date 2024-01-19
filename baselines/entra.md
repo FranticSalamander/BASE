@@ -215,15 +215,64 @@ Configure Break Glass User Account 2
 ### Implementation
 
 
+## 5. Authorisation Policy
 
-# Appendix A: Hybrid Azure AD Guidance
+User Configurations
 
-Most of this document does not focus on securing hybrid Azure AD environments. CISA released a separate [Hybrid Identity Solutions Architecture](https://www.cisa.gov/sites/default/files/2023-03/csso-scuba-guidance_document-hybrid_identity_solutions_architecture-2023.03.22-final.pdf) document addressing the unique implementation requirements of hybrid Azure AD infrastructure.
+### Policies
+#### MS.Entra.5.1v1
+Allowed to sign up to email based subscriptions
+<!--Policy: MS.Entra.5.1v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
 
-# Appendix B: Cross-tenant Access Guidance
+#### MS.Entra.5.2v1
+Allowed to use SSPR
+<!--Policy: MS.Entra.5.2v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
 
-Some of the conditional access policies contained in this security baseline, if implemented as described, will impact guest user access to a tenant. For example, the policies require users to perform MFA and originate from a managed device to gain access. These requirements are also enforced for guest users. For these policies to work effectively with guest users, both the home tenant (the one the guest user belongs to) and the resource tenant (the target tenant) may need to configure their Azure AD cross-tenant access settings.
+#### MS.Entra.5.3v1
+Allow email verified users to join organisation
+<!--Policy: MS.Entra.5.3v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
 
-Microsoft’s [Authentication and Conditional Access for External ID](https://learn.microsoft.com/en-us/entra/external-id/authentication-conditional-access) provides an understanding of how MFA and device claims are passed from the home tenant to the resource tenant. To configure the inbound and outbound cross-tenant access settings in Azure AD, refer to Microsoft’s [Overview: Cross-tenant access with Microsoft Entra External ID](https://learn.microsoft.com/en-us/entra/external-id/cross-tenant-access-overview).
+#### MS.Entra.5.4v1
+Allow invites from none
+<!--Policy: MS.Entra.5.4v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.5.5v1
+Do not block Msol PowerShell
+<!--Policy: MS.Entra.5.5v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.5.6v1
+Default user role must be configured correctly
+<!--Policy: MS.Entra.5.6v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+
+
+
+### Resources
+
+- [Design Documentation]()
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
+
+
+
 
 **`TLP:CLEAR`**

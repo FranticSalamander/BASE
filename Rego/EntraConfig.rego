@@ -576,3 +576,149 @@ tests[{
     
 }
 #--
+
+############
+# MS.Entra.5 #
+############
+
+
+#
+# MS.Entra.5.1v1
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.5.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.AllowedToSignUpEmailBasedSubscriptions,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.authorisation_policy[_]
+    Status := Policy.AllowedToSignUpEmailBasedSubscriptions == true
+    Details := "Requirement not met: 'AllowedToSignUpEmailBasedSubscriptions' must be set to true"
+    
+}
+#--
+
+#
+# MS.Entra.5.2v1
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.5.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.AllowedToUseSspr,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.authorisation_policy[_]
+    Status := Policy.AllowedToUseSspr == true
+    Details := "Requirement not met: 'AllowedToUseSSPR' must be set to true"
+    
+}
+#--
+
+#
+# MS.Entra.5.3v1
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.5.3v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.AllowEmailVerifiedUsersToJoinOrganization,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.authorisation_policy[_]
+    Status := Policy.AllowEmailVerifiedUsersToJoinOrganization == true
+    Details := "Requirement not met: 'AllowEmailVerifiedUsersToJoinOrganization' must be set to true"
+    
+}
+#--
+
+#
+# MS.Entra.5.4v1
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.5.4v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.AllowInvitesFrom,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.authorisation_policy[_]
+    Status := Policy.AllowInvitesFrom == "none"
+    Details := "Requirement not met: 'AllowInvitesFrom' must be set to 'none'"
+    
+}
+#--
+
+#
+# MS.Entra.5.5v1
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.5.5v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.BlockMsolPowerShell,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.authorisation_policy[_]
+    Status := Policy.BlockMsolPowerShell == false
+    Details := "Requirement not met: 'BlockMsolPowerShell' must be set to false"
+    
+}
+#--
+
+#
+# MS.Entra.5.6v1
+#--
+
+
+default DefaultUserRolePermissionsMatch(_) := false
+DefaultUserRolePermissionsMatch(Policy) := true if {
+    Policy.DefaultUserRolePermissions == {
+                                           "AllowedToCreateApps":  false,
+                                           "AllowedToCreateSecurityGroups":  false,
+                                           "AllowedToCreateTenants":  true,
+                                           "AllowedToReadBitlockerKeysForOwnedDevice":  true,
+                                           "AllowedToReadOtherUsers":  true
+                                         }
+}
+
+DefaultUserRolePermissions[Policy.DefaultUserRolePermissions] {
+    Policy := input.authorisation_policy[_]
+
+    
+
+    # Match all simple conditions
+    DefaultUserRolePermissionsMatch(Policy)
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.5.6v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : DefaultUserRolePermissions,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Status := count(DefaultUserRolePermissions) > 0
+    Details := "Requirement not met: 'DefaultUserRolePermissions' must be configured correctly"
+    
+}
+#--
