@@ -722,3 +722,46 @@ tests[{
     
 }
 #--
+
+############
+# MS.Entra.6 #
+############
+
+#
+# MS.Entra.6.1v1
+#--
+
+
+default InboundTrustMatch(_) := false
+InboundTrustMatch(Policy) := true if {
+    Policy.InboundTrust ==  {
+                             "IsCompliantDeviceAccepted":  false,
+                             "IsHybridAzureAdJoinedDeviceAccepted":  false,
+                             "IsMfaAccepted":  false
+                            }
+}
+
+InboundTrust[Policy.InboundTrust] {
+    Policy := input.cross_tenant_access_policy[_]
+
+    
+
+    # Match all simple conditions
+    InboundTrustMatch(Policy)
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.6.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyCrossTenantAccessPolicyDefault"],
+    "ActualValue" : InboundTrust,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Status := count(InboundTrust) > 0
+    Details := "Requirement not met: 'IsCompliantDeviceAccepted', 'IsHybridAzureAdJoinedDeviceAccepted' and 'IsMfaAccepted' must be set to false"
+    
+}
+#--

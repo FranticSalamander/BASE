@@ -226,8 +226,12 @@ test_DefaultUserRoleAllowedToCreateApps_Correct if {
         "authorisation_policy": [
             {
                 "DefaultUserRolePermissions":  {
-                                           "AllowedToCreateApps":  false
-                }
+                                           "AllowedToCreateApps":  false,
+                                           "AllowedToCreateSecurityGroups":  false,
+                                           "AllowedToCreateTenants":  true,
+                                           "AllowedToReadBitlockerKeysForOwnedDevice":  true,
+                                           "AllowedToReadOtherUsers":  true
+                                       },
             }
         ]
     }
@@ -256,178 +260,6 @@ test_DefaultUserRoleAllowedToCreateApps_Incorrect if {
 
     count(RuleOutput) == 1
     not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'AllowedToCreateApps' must be set to false"
-}
-
-#
-# MS.Entra.5.7v1
-#--
-test_DefaultUserRoleAllowedToCreateSecurityGroups_Correct if {
-    PolicyId := "MS.Entra.5.7v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "DefaultUserRolePermissions":  {
-                                           "DefaultUserRoleAllowedToCreateSecurityGroups":  false
-                }
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement met"
-}
-
-test_DefaultUserRoleAllowedToCreateSecurityGroups_Incorrect if {
-    PolicyId := "MS.Entra.5.7v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "DefaultUserRolePermissions":  {
-                                           "DefaultUserRoleAllowedToCreateSecurityGroups":  true
-                }
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'DefaultUserRoleAllowedToCreateSecurityGroups' must be set to false"
-}
-
-#
-# MS.Entra.5.8v1
-#--
-test_DefaultUserRoleAllowedToCreateTenants_Correct if {
-    PolicyId := "MS.Entra.5.8v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "DefaultUserRolePermissions":  {
-                                           "DefaultUserRoleAllowedToCreateTenants":  true
-                }
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement met"
-}
-
-test_DefaultUserRoleAllowedToCreateTenants_Incorrect if {
-    PolicyId := "MS.Entra.5.8v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "DefaultUserRolePermissions":  {
-                                           "DefaultUserRoleAllowedToCreateTenants":  false
-                }
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'DefaultUserRoleAllowedToCreateTenants' must be set to true"
-}
-
-#
-# MS.Entra.5.9v1
-#--
-test_DefaultUserRoleAllowedToReadBitlockerKeysForOwnedDevice_Correct if {
-    PolicyId := "MS.Entra.5.9v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "DefaultUserRolePermissions":  {
-                                           "DefaultUserRoleAllowedToReadBitlockerKeysForOwnedDevice":  true
-                }
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement met"
-}
-
-test_DefaultUserRoleAllowedToReadBitlockerKeysForOwnedDevice_Incorrect if {
-    PolicyId := "MS.Entra.5.9v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "DefaultUserRolePermissions":  {
-                                           "DefaultUserRoleAllowedToReadBitlockerKeysForOwnedDevice":  false
-                }
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'DefaultUserRoleAllowedToReadBitlockerKeysForOwnedDevice' must be set to true"
-}
-
-#
-# MS.Entra.5.10v1
-#--
-test_DefaultUserRoleAllowedToReadOtherUsers_Correct if {
-    PolicyId := "MS.Entra.5.10v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "DefaultUserRolePermissions":  {
-                                           "DefaultUserRoleAllowedToReadOtherUsers":  true
-                }
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement met"
-}
-
-test_DefaultUserRoleAllowedToReadOtherUsers_Incorrect if {
-    PolicyId := "MS.Entra.5.10v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "DefaultUserRolePermissions":  {
-                                           "DefaultUserRoleAllowedToReadOtherUsers":  false
-                }
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'DefaultUserRoleAllowedToReadOtherUsers' must be set to true"
+    RuleOutput[0].ReportDetails == "Requirement not met: 'DefaultUserRolePermissions' must be configured correctly"
 }
 

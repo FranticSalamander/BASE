@@ -272,6 +272,31 @@ Default user role must be configured correctly
 ### Implementation
 
 
+## 6. Cross Tenant Access Policy
+Cross Tenant Access Policy
+
+
+### Policies
+#### MS.Entra.6.1v1
+Inbound trust setting will be configured correctly
+<!--Policy: MS.Entra.3.1v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+
+
+### Resources
+
+- [Design Documentation](null)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
 
 
 

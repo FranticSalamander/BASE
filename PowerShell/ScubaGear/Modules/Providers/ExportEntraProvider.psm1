@@ -25,6 +25,7 @@ function Export-EntraProvider {
     $User = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUser"))
     $AuthenticationMethodsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationMethodPolicy"))
     $AuthorisationPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthorizationPolicy"))
+    $CrossTenantAccessPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyCrossTenantAccessPolicyDefault"))
    # $AuthenticationMethodsPolicyMicrosoftAuthenticator = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUserAuthenticationMicrosoftAuthenticatorMethod"))
 
 
@@ -42,6 +43,7 @@ function Export-EntraProvider {
     $User | Out-File -FilePath .\configs-json\entratest\user.json
     $AuthenticationMethodsPolicy | Out-File -FilePath .\configs-json\entratest\authentication_method_policy.json
     $AuthorisationPolicy | Out-File -FilePath .\configs-json\entratest\authorisation_policy.json
+    $CrossTenantAccessPolicy | Out-File -FilePath .\configs-json\entratest\cross_tenant_access_policy.json
    # $AuthenticationMethodsPolicyMicrosoftAuthenticator | Out-File -FilePath .\configs-json\entratest\authentication_method_policy_Microsoft_Authenticator.json
 
     
@@ -53,6 +55,7 @@ function Export-EntraProvider {
     "security_defaults" : $SecurityDefaults,
     "user" : $User,
     "authorisation_policy" : $AuthorisationPolicy,
+    "cross_tenant_access_policy" : $CrossTenantAccessPolicy,
     "aad_successful_commands": $SuccessfulCommands,
     "aad_unsuccessful_commands": $UnSuccessfulCommands,
 "@
