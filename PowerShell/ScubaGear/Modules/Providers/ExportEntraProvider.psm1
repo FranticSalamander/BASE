@@ -23,12 +23,16 @@ function Export-EntraProvider {
     $AuthenticationStrengthPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationStrengthPolicy"))
     $SecurityDefaults = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyIdentitySecurityDefaultEnforcementPolicy"))
     $User = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUser"))
-    $AuthenticationMethodsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationMethodPolicy"))
+   # $AuthenticationMethodsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationMethodPolicy"))
     $AuthorisationPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthorizationPolicy"))
     $CrossTenantAccessPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyCrossTenantAccessPolicyDefault"))
-   # $AuthenticationMethodsPolicyMicrosoftAuthenticator = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUserAuthenticationMicrosoftAuthenticatorMethod"))
 
+    $AuthenticationMethodsPolicyTEMP = @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationMethodPolicy"))  | ? { $_.Id -eq "authenticationMethodsPolicy"}
+    $AuthenticationMethodsPolicy = ConvertTo-Json $AuthenticationMethodsPolicyTEMP
 
+    $ConditiontalAccessPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy"))
+    $ConditiontalAccessPolicyAdminSignInFrequencyTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "f14f88d7-2665-4ce6-b89b-125b11588383"}
+    $ConditiontalAccessPolicyAdminSignInFrequency = ConvertTo-Json $ConditiontalAccessPolicyAdminSignInFrequencyTEMP
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $UnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())
 
@@ -44,7 +48,11 @@ function Export-EntraProvider {
     $AuthenticationMethodsPolicy | Out-File -FilePath .\configs-json\entratest\authentication_method_policy.json
     $AuthorisationPolicy | Out-File -FilePath .\configs-json\entratest\authorisation_policy.json
     $CrossTenantAccessPolicy | Out-File -FilePath .\configs-json\entratest\cross_tenant_access_policy.json
-   # $AuthenticationMethodsPolicyMicrosoftAuthenticator | Out-File -FilePath .\configs-json\entratest\authentication_method_policy_Microsoft_Authenticator.json
+    $ConditiontalAccessPolicy | Out-File -FilePath .\configs-json\entratest\conditional_access_policy.json
+    $ConditiontalAccessPolicyAdminSignInFrequency | Out-File -FilePath .\configs-json\entratest\conditional_access_policy_admin_sign_in_frequency.json
+
+
+    #$AuthenticationMethodsPolicyMicrosoftAuthenticator | Out-File -FilePath .\configs-json\entratest\authentication_method_policy_Microsoft_Authenticator.json
 
     
     # Note the spacing and the last comma in the json is important
@@ -56,6 +64,7 @@ function Export-EntraProvider {
     "user" : $User,
     "authorisation_policy" : $AuthorisationPolicy,
     "cross_tenant_access_policy" : $CrossTenantAccessPolicy,
+    "conditional_access_policy_admin_sign_in_frequency" : $ConditiontalAccessPolicyAdminSignInFrequency,
     "aad_successful_commands": $SuccessfulCommands,
     "aad_unsuccessful_commands": $UnSuccessfulCommands,
 "@

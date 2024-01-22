@@ -765,3 +765,29 @@ tests[{
     
 }
 #--
+
+############
+# MS.Entra.7 #
+############
+
+#
+# MS.Entra.7.1v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.7.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : [Policy.IsEnabled, Policy.Type, Policy.Value],
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_admin_sign_in_frequency.SessionControls.SignInFrequency
+    Conditions := [Policy.IsEnabled == true, Policy.Type == "hours", Policy.Value == 4]
+    Status := count([Condition | Condition = Conditions[_]; Condition == true]) == 3
+    policies_incorrect := 3 - count([Condition | Condition = Conditions[_]; Condition == true]) 
+    Details := concat(format_int(policies_incorrect, 10), ["Requirement not met: ", " AdminSignInFrequency - SignInFrequency policies configured incorrectly"])
+    
+}
+#--
