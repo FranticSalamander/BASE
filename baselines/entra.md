@@ -289,12 +289,53 @@ Admin SignIn Frequency
 
 ### Policies
 #### MS.Entra.7.1v1
-Inbound trust setting will be configured correctly
+Expire administration sessions
 <!--Policy: MS.Entra.7.1v1; Criticality: SHALL -->
-- _Rationale:_
+- _Rationale:_ Enforces a sign-in frequency to ensure administrators sessions do not remain active for longer than 4 hours.
 - _Last modified:_ Jan 2024
 
 
+#### MS.Entra.7.2v1
+Expire administration sessions
+<!--Policy: MS.Entra.7.2v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.7.3v1
+Expire administration sessions
+<!--Policy: MS.Entra.7.3v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.7.4v1
+Expire administration sessions
+<!--Policy: MS.Entra.7.4v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.7.5v1
+Expire administration sessions
+<!--Policy: MS.Entra.7.5v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.7.6v1
+Expire administration sessions
+<!--Policy: MS.Entra.7.6v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.7.7v1
+Expire administration sessions
+<!--Policy: MS.Entra.7.7v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.7.8v1
+Expire administration sessions
+<!--Policy: MS.Entra.7.8v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
 
 
 ### Resources
