@@ -10,17 +10,15 @@ test_AdminSignInFrequency_Correct if {
     PolicyId := "MS.Entra.7.1v1"
 
     Output := tests with input as {
-        "conditional_access_policy_admin_sign_in_frequency": [
-            {
-                "SessionControls":  {
-                            "SignInFrequency":  {
-                                                    "IsEnabled":  true,
-                                                    "Type":  "hours",
-                                                    "Value":  4
-                                                }
-                        }
+        "conditional_access_policy_admin_sign_in_frequency" : {
+            "SessionControls":  {  
+                "SignInFrequency":  {                     
+                    "IsEnabled":  true,
+                    "Type":  "hours",
+                    "Value":  4
+                }
             }
-        ]
+        }
     }
     
     RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
@@ -34,21 +32,16 @@ test_AdminSignInFrequency_Incorrect if {
     PolicyId := "MS.Entra.7.1v1"
 
     Output := tests with input as {
-        "conditional_access_policy_admin_sign_in_frequency": [
-            {
-                "SessionControls":  {
-                            "SignInFrequency":  {
-                                                    "AuthenticationType":  "primaryAndSecondaryAuthentication",
-                                                    "FrequencyInterval":  "timeBased",
-                                                    "IsEnabled":  true,
-                                                    "Type":  "hours",
-                                                    "Value":  2
-                                                }
-                        },
+        "conditional_access_policy_admin_sign_in_frequency" : {
+            "SessionControls":  {  
+                "SignInFrequency":  {                     
+                    "IsEnabled":  true,
+                    "Type":  "hours",
+                    "Value":  2
+                }
             }
-        ]
+        }
     }
-
     RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
 
     count(RuleOutput) == 1
