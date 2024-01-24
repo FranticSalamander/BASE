@@ -33,6 +33,8 @@ function Export-EntraProvider {
     $ConditiontalAccessPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy"))
     $ConditiontalAccessPolicyAdminSignInFrequencyTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "f14f88d7-2665-4ce6-b89b-125b11588383"}
     $ConditiontalAccessPolicyAdminSignInFrequency = ConvertTo-Json $ConditiontalAccessPolicyAdminSignInFrequencyTEMP
+    $ConditiontalAccessPolicyCountriesNotAllowedTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "1e07844e-825d-4e30-824a-3cb0f34cdd2a"}
+    $ConditiontalAccessPolicyCountriesNotAllowed = ConvertTo-Json $ConditiontalAccessPolicyCountriesNotAllowedTEMP
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $UnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())
 
@@ -50,6 +52,7 @@ function Export-EntraProvider {
     $CrossTenantAccessPolicy | Out-File -FilePath .\configs-json\entratest\cross_tenant_access_policy.json
     $ConditiontalAccessPolicy | Out-File -FilePath .\configs-json\entratest\conditional_access_policy.json
     $ConditiontalAccessPolicyAdminSignInFrequency | Out-File -FilePath .\configs-json\entratest\conditional_access_policy_admin_sign_in_frequency.json
+    $ConditiontalAccessPolicyCountriesNotAllowed | Out-File -FilePath .\configs-json\entratest\conditional_access_policy_countries_not_allowed.json
 
 
     #$AuthenticationMethodsPolicyMicrosoftAuthenticator | Out-File -FilePath .\configs-json\entratest\authentication_method_policy_Microsoft_Authenticator.json
@@ -65,6 +68,7 @@ function Export-EntraProvider {
     "authorisation_policy" : $AuthorisationPolicy,
     "cross_tenant_access_policy" : $CrossTenantAccessPolicy,
     "conditional_access_policy_admin_sign_in_frequency" : $ConditiontalAccessPolicyAdminSignInFrequency,
+    "conditional_access_policy_countries_not_allowed" : $ConditiontalAccessPolicyCountriesNotAllowed,
     "aad_successful_commands": $SuccessfulCommands,
     "aad_unsuccessful_commands": $UnSuccessfulCommands,
 "@

@@ -350,6 +350,84 @@ Expire administration sessions
 
 ### Implementation
 
+## 8. CAP - Countries Not Allowed
+Blocks all connections from countries not in the allowed countries list.
+
+### Policies
+#### MS.Entra.8.1v1
+Blocks all connections from countries not in the allowed countries list.
+<!--Policy: MS.Entra.8.1v1; Criticality: SHALL -->
+- _Rationale:_ Enforces a sign-in frequency to ensure administrators sessions do not remain active for longer than 4 hours.
+- _Last modified:_ Jan 2024
+
+
+#### MS.Entra.8.2v1
+Blocks all connections from countries not in the allowed countries list.
+<!--Policy: MS.Entra.8.2v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.8.3v1
+Blocks all connections from countries not in the allowed countries list.
+<!--Policy: MS.Entra.8.3v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.8.4v1
+Blocks all connections from countries not in the allowed countries list.
+<!--Policy: MS.Entra.8.4v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.8.5v1
+Blocks all connections from countries not in the allowed countries list.
+<!--Policy: MS.Entra.8.5v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.8.6v1
+Blocks all connections from countries not in the allowed countries list.
+<!--Policy: MS.Entra.8.6v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.8.7v1
+Blocks all connections from countries not in the allowed countries list.
+<!--Policy: MS.Entra.8.7v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.8.8v1
+Blocks all connections from countries not in the allowed countries list.
+<!--Policy: MS.Entra.8.8v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.8.9v1
+Blocks all connections from countries not in the allowed countries list.
+<!--Policy: MS.Entra.8.7v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.8.10v1
+Blocks all connections from countries not in the allowed countries list.
+<!--Policy: MS.Entra.8.8v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/conditional-access/)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
 
 
 
