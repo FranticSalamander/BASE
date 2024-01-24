@@ -932,9 +932,9 @@ tests[{
 }
 #--
 
-############
-# MS.Entra.8 #
-############
+# ############
+# # MS.Entra.8 #
+# ############
 
 #
 # MS.Entra.8.1v1
@@ -1136,9 +1136,9 @@ tests[{
 }
 #--
 
-############
-# MS.Entra.9 #
-############
+# ############
+# # MS.Entra.9 #
+# ############
 
 #
 # MS.Entra.9.1v1
@@ -1300,45 +1300,45 @@ tests[{
 }
 #--
 
-# #
-# # MS.Entra.9.9v1
-# #--
+#
+# MS.Entra.9.9v1
+#--
 
 
-# tests[{
-#     "PolicyId" : "MS.Entra.9.9v1",
-#     "Criticality" : "Shall",
-#     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-#     "ActualValue" : Policy.IncludeLocations,
-#     "ReportDetails" : ReportDetailsString(Status, Details),
-#     "RequirementMet" : Status
-# }] {
-#     Policy := input.conditional_access_policy_guest_access_block.Conditions.Locations
-#     Status := Policy.IncludeLocations == "All"
-#     Details := "Requirement not met: IncludeLocations must be set to 'All'" 
+tests[{
+    "PolicyId" : "MS.Entra.9.9v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IncludeLocations,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_block.Conditions.Locations
+    Status := Policy.IncludeLocations == "All"
+    Details := "Requirement not met: IncludeLocations must be set to 'All'" 
 
-# }
-# #--
+}
+#--
 
-# #
-# # MS.Entra.9.10v1
-# #--
+#
+# MS.Entra.9.10v1
+#--
 
 
-# tests[{
-#     "PolicyId" : "MS.Entra.9.10v1",
-#     "Criticality" : "Shall",
-#     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-#     "ActualValue" : Policy.IncludeUsers,
-#     "ReportDetails" : ReportDetailsString(Status, Details),
-#     "RequirementMet" : Status
-# }] {
-#     Policy := input.conditional_access_policy_guest_access_block.Conditions.Users
-#     Status := Policy.IncludeUsers == "All"
-#     Details := "Requirement not met: IncludeUsers must be set to 'All'" 
+tests[{
+    "PolicyId" : "MS.Entra.9.10v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IncludeUsers,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_block.Conditions.Users
+    Status := Policy.IncludeUsers == "All"
+    Details := "Requirement not met: IncludeUsers must be set to 'All'" 
 
-# }
-# #--
+}
+#--
 
 ############
 # MS.Entra.10 #
@@ -1560,7 +1560,7 @@ tests[{
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
-    Policy := input.conditional_access_policy_conditional_access_policy_high_risk_sign_ins_grant.SessionControls.ApplicationEnforcedRestrictions
+    Policy := input.conditional_access_policy_high_risk_sign_ins_grant.SessionControls.ApplicationEnforcedRestrictions
     Status := Policy.IsEnabled == false
     Details := "Requirement not met: GuestAccessGrant - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false" 
     
@@ -1580,7 +1580,7 @@ tests[{
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
-    Policy := input.conditional_access_policy_conditional_access_policy_high_risk_sign_ins_grant.SessionControls.CloudAppSecurity
+    Policy := input.conditional_access_policy_high_risk_sign_ins_grant.SessionControls.CloudAppSecurity
     Status := Policy.IsEnabled == false
     Details := "Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false" 
     
@@ -1600,7 +1600,7 @@ tests[{
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
-    Policy := input.conditional_access_policy_conditional_access_policy_high_risk_sign_ins_grant.GrantControls
+    Policy := input.conditional_access_policy_high_risk_sign_ins_grant.GrantControls
     Status := Policy.Operator == "OR"
     Details := "Requirement not met: GrantControls Operator must be 'OR'" 
     
@@ -1620,7 +1620,7 @@ tests[{
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
-    Policy := input.conditional_access_policy_conditional_access_policy_high_risk_sign_ins_grant.GrantControls
+    Policy := input.conditional_access_policy_high_risk_sign_ins_grant.GrantControls
     Status := Policy.BuiltInControls == ["block"]
     Details := "Requirement not met: GrantControlBuiltInControls must be set to 'block'" 
     
@@ -1640,7 +1640,7 @@ tests[{
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
-    Policy := input.conditional_access_policy_conditional_access_policy_high_risk_sign_ins_grant.Conditions
+    Policy := input.conditional_access_policy_high_risk_sign_ins_grant.Conditions
     Status := Policy.ClientAppTypes == ["exchangeActiveSync","browser","mobileAppsAndDesktopClients", "other"]
     Details := "Requirement not met: ClientAppTypes must be configured correctly" 
 

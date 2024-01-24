@@ -495,95 +495,95 @@ Deny all guest and external users by default.
 ### Implementation
 
 ## 10. CAP - Guest Access Grant
-
+BASE
 
 ### Policies
 #### MS.Entra.10.1v1
-
+BASE
 <!--Policy: MS.Entra.10.1v1; Criticality: SHALL -->
 - _Rationale:_ 
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.10.2v1
-
+BASE
 <!--Policy: MS.Entra.10.2v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.3v1
-
+BASE
 <!--Policy: MS.Entra.10.3v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.4v1
-
+BASE
 <!--Policy: MS.Entra.10.4v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.5v1
-
+BASE
 <!--Policy: MS.Entra.10.5v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.6v1
-
+BASE
 <!--Policy: MS.Entra.10.6v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.7v1
-
+BASE
 <!--Policy: MS.Entra.10.7v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.8v1
-
+BASE
 <!--Policy: MS.Entra.10.8v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.9v1
-
+BASE
 <!--Policy: MS.Entra.10.7v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 ## 11. CAP - Guest Access Grant
-
+BASE
 
 ### Policies
 #### MS.Entra.11.1v1
-
+BASE
 <!--Policy: MS.Entra.11.1v1; Criticality: SHALL -->
 - _Rationale:_ 
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.11.2v1
-
+BASE
 <!--Policy: MS.Entra.11.2v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.11.3v1
-
+BASE
 <!--Policy: MS.Entra.11.3v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.11.4v1
-
+BASE
 <!--Policy: MS.Entra.11.4v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.11.5v1
-
+BASE
 <!--Policy: MS.Entra.11.5v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
@@ -602,60 +602,60 @@ Deny all guest and external users by default.
 ### Implementation
 
 ## 12. CAP - Legacy Authentication Block
-
+BASE
 
 ### Policies
 #### MS.Entra.12.1v1
-
+BASE
 <!--Policy: MS.Entra.12.1v1; Criticality: SHALL -->
 - _Rationale:_ 
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.12.2v1
-
+BASE
 <!--Policy: MS.Entra.12.2v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.3v1
-
+BASE
 <!--Policy: MS.Entra.12.3v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.4v1
-
+BASE
 <!--Policy: MS.Entra.12.4v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.5v1
-
+BASE
 <!--Policy: MS.Entra.12.5v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.6v1
-
+BASE
 <!--Policy: MS.Entra.12.6v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.7v1
-
+BASE
 <!--Policy: MS.Entra.12.7v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.8v1
-
+BASE
 <!--Policy: MS.Entra.12.8v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.9v1
-
+BASE
 <!--Policy: MS.Entra.12.7v1; Criticality: SHALL -->
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
@@ -675,54 +675,54 @@ Deny all guest and external users by default.
 ### Implementation
 
 ## 13. CAP - MFA Guest B2B Access
-
+BASE
 
 ### Policies
 #### MS.Entra.13.1v1
-
+BASE
 <!--Policy: MS.Entra.13.1v1; Criticality: SHALL -->
 - _Rationale:_ 
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.13.2v1
-
+BASE
 <!--Policy: MS.Entra.13.2v1; Criticality: SHALL -->
 - _Rationale:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.3v1
-
+BASE
 <!--Policy: MS.Entra.13.3v1; Criticality: SHALL -->
 - _Rationale:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.4v1
-
+BASE
 <!--Policy: MS.Entra.13.4v1; Criticality: SHALL -->
 - _Rationale:_ 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.5v1
-
+BASE
 <!--Policy: MS.Entra.13.5v1; Criticality: SHALL -->
 - _Rationale:_ 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.6v1
-
+BASE
 <!--Policy: MS.Entra.13.6v1; Criticality: SHALL -->
 - _Rationale:_ 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.7v1
-
+BASE
 <!--Policy: MS.Entra.13.7v1; Criticality: SHALL -->
 - _Rationale:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.8v1
-
+BASE
 <!--Policy: MS.Entra.13.8v1; Criticality: SHALL -->
 - _Rationale:_ 
 - _Last modified:_ Jan 2024

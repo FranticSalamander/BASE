@@ -40,7 +40,7 @@ function Export-EntraProvider {
     $ConditiontalAccessPolicyGuestAccessGrantTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "d015040f-99fd-4e7c-abc1-35f5e5a9c728"}
     $ConditiontalAccessPolicyGuestAccessGrant = ConvertTo-Json $ConditiontalAccessPolicyGuestAccessGrantTEMP
     $ConditiontalAccessPolicyHighRiskSignInsGrantTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "4f73b5d4-020e-4631-af22-d6ddd914d1bc"}
-    $ConditiontalAccessPolicyGuestAccessGrant = ConvertTo-Json $ConditiontalAccessPolicyGuestAccessGrantTEMP
+    $ConditiontalAccessPolicyHighRiskSignInsGrant = ConvertTo-Json $ConditiontalAccessPolicyHighRiskSignInsGrantTEMP
     $ConditiontalAccessPolicyLegacyAuthBlockTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "03cd82f7-61dc-4b79-ba6f-825733e38286"}
     $ConditiontalAccessPolicyLegacyAuthBlock = ConvertTo-Json $ConditiontalAccessPolicyLegacyAuthBlockTEMP
     $ConditiontalAccessPolicyMFAGuestB2BAccessTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "91d98558-e2ce-4a20-bd95-c08f22fc6d22"}
@@ -85,7 +85,7 @@ function Export-EntraProvider {
     "conditional_access_policy_guest_access_grant" : $ConditiontalAccessPolicyGuestAccessGrant,
     "conditional_access_policy_high_risk_sign_ins_grant" : $ConditiontalAccessPolicyHighRiskSignInsGrant,
     "conditional_access_policy_legacy_auth_block" : $ConditiontalAccessPolicyLegacyAuthBlock,
-    "conditional_access_policy_mfa_guest_b2b_access" :ConditiontalAccessPolicyMFAGuestB2BAccess,
+    "conditional_access_policy_mfa_guest_b2b_access" : $ConditiontalAccessPolicyMFAGuestB2BAccess,
     "conditional_access_policy_session_sign_in_frequency" : $ConditiontalAccessPolicySessionSignInFrequency,
     "aad_successful_commands": $SuccessfulCommands,
     "aad_unsuccessful_commands": $UnSuccessfulCommands,
@@ -98,3 +98,4 @@ function Export-EntraProvider {
 
     $json
 }
+
