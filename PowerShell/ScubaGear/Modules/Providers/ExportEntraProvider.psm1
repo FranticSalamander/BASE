@@ -35,6 +35,18 @@ function Export-EntraProvider {
     $ConditiontalAccessPolicyAdminSignInFrequency = ConvertTo-Json $ConditiontalAccessPolicyAdminSignInFrequencyTEMP
     $ConditiontalAccessPolicyCountriesNotAllowedTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "1e07844e-825d-4e30-824a-3cb0f34cdd2a"}
     $ConditiontalAccessPolicyCountriesNotAllowed = ConvertTo-Json $ConditiontalAccessPolicyCountriesNotAllowedTEMP
+    $ConditiontalAccessPolicyGuestAccessBlockTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "efd4b3c6-e78d-49ad-ac6a-ca0436576317"}
+    $ConditiontalAccessPolicyGuestAccessBlock = ConvertTo-Json $ConditiontalAccessPolicyGuestAccessBlockTEMP
+    $ConditiontalAccessPolicyGuestAccessGrantTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "d015040f-99fd-4e7c-abc1-35f5e5a9c728"}
+    $ConditiontalAccessPolicyGuestAccessGrant = ConvertTo-Json $ConditiontalAccessPolicyGuestAccessGrantTEMP
+    $ConditiontalAccessPolicyHighRiskSignInsGrantTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "4f73b5d4-020e-4631-af22-d6ddd914d1bc"}
+    $ConditiontalAccessPolicyGuestAccessGrant = ConvertTo-Json $ConditiontalAccessPolicyGuestAccessGrantTEMP
+    $ConditiontalAccessPolicyLegacyAuthBlockTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "03cd82f7-61dc-4b79-ba6f-825733e38286"}
+    $ConditiontalAccessPolicyLegacyAuthBlock = ConvertTo-Json $ConditiontalAccessPolicyLegacyAuthBlockTEMP
+    $ConditiontalAccessPolicyMFAGuestB2BAccessTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "91d98558-e2ce-4a20-bd95-c08f22fc6d22"}
+    $ConditiontalAccessPolicyMFAGuestB2BAccess = ConvertTo-Json $ConditiontalAccessPolicyMFAGuestB2BAccessTEMP
+    $ConditiontalAccessPolicySessionSignInFrequencyTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "f14f88d7-2665-4ce6-b89b-125b11588383"}
+    $ConditiontalAccessPolicySessionSignInFrequency = ConvertTo-Json $ConditiontalAccessPolicySessionSignInFrequencyTEMP
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $UnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())
 
@@ -69,6 +81,12 @@ function Export-EntraProvider {
     "cross_tenant_access_policy" : $CrossTenantAccessPolicy,
     "conditional_access_policy_admin_sign_in_frequency" : $ConditiontalAccessPolicyAdminSignInFrequency,
     "conditional_access_policy_countries_not_allowed" : $ConditiontalAccessPolicyCountriesNotAllowed,
+    "conditional_access_policy_guest_access_block" : $ConditiontalAccessPolicyGuestAccessBlock,
+    "conditional_access_policy_guest_access_grant" : $ConditiontalAccessPolicyGuestAccessGrant,
+    "conditional_access_policy_high_risk_sign_ins_grant" : $ConditiontalAccessPolicyHighRiskSignInsGrant,
+    "conditional_access_policy_legacy_auth_block" : $ConditiontalAccessPolicyLegacyAuthBlock,
+    "conditional_access_policy_mfa_guest_b2b_access" :ConditiontalAccessPolicyMFAGuestB2BAccess,
+    "conditional_access_policy_session_sign_in_frequency" : $ConditiontalAccessPolicySessionSignInFrequency,
     "aad_successful_commands": $SuccessfulCommands,
     "aad_unsuccessful_commands": $UnSuccessfulCommands,
 "@

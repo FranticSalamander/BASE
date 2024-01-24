@@ -933,7 +933,7 @@ tests[{
 #--
 
 ############
-# MS.Entra.7 #
+# MS.Entra.8 #
 ############
 
 #
@@ -945,7 +945,7 @@ tests[{
     "PolicyId" : "MS.Entra.8.1v1",
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : [Policy.IsEnabled, Policy.Type, Policy.Value],
+    "ActualValue" : Policy.IsEnabled,
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
@@ -1135,3 +1135,860 @@ tests[{
 
 }
 #--
+
+############
+# MS.Entra.9 #
+############
+
+#
+# MS.Entra.9.1v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.9.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_block.SessionControls.SignInFrequency
+    Status := Policy.IsEnabled == true
+    Details :="Requirement not met: GuestAccessBlock - SignInFrequency 'IsEnabled' must be set to false"
+    
+}
+#--
+
+#
+# MS.Entra.9.2v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.9.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_block.SessionControls.ApplicationEnforcedRestrictions
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: GuestAccessBlock - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.9.3v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.9.3v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_block.SessionControls.CloudAppSecurity
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.9.4v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.9.4v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_block.SessionControls.PersistentBrowser
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.9.5v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.9.5v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.Operator,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_block.GrantControls
+    Status := Policy.Operator == "OR"
+    Details := "Requirement not met: GrantControls Operator must be 'OR'" 
+    
+}
+#--
+
+#
+# MS.Entra.9.6v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.9.6v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.BuiltInControls,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_block.GrantControls
+    Status := Policy.BuiltInControls == ["block"]
+    Details := "Requirement not met: GrantControlBuiltInControls must be set to 'block'" 
+    
+}
+#--
+
+#
+# MS.Entra.9.7v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.9.7v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.ClientAppTypes,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_block.Conditions
+    Status := Policy.ClientAppTypes == ["exchangeActiveSync","browser","mobileAppsAndDesktopClients","other"]
+    Details := "Requirement not met: ClientAppTypes must be configured correctly" 
+
+}
+#--
+
+#
+# MS.Entra.9.8v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.9.8v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IncludeApplications,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_block.Conditions.Applications
+    Status := Policy.IncludeApplications == "All"
+    Details := "Requirement not met: IncludeApplications must be set to 'All'" 
+
+}
+#--
+
+# #
+# # MS.Entra.9.9v1
+# #--
+
+
+# tests[{
+#     "PolicyId" : "MS.Entra.9.9v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+#     "ActualValue" : Policy.IncludeLocations,
+#     "ReportDetails" : ReportDetailsString(Status, Details),
+#     "RequirementMet" : Status
+# }] {
+#     Policy := input.conditional_access_policy_guest_access_block.Conditions.Locations
+#     Status := Policy.IncludeLocations == "All"
+#     Details := "Requirement not met: IncludeLocations must be set to 'All'" 
+
+# }
+# #--
+
+# #
+# # MS.Entra.9.10v1
+# #--
+
+
+# tests[{
+#     "PolicyId" : "MS.Entra.9.10v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+#     "ActualValue" : Policy.IncludeUsers,
+#     "ReportDetails" : ReportDetailsString(Status, Details),
+#     "RequirementMet" : Status
+# }] {
+#     Policy := input.conditional_access_policy_guest_access_block.Conditions.Users
+#     Status := Policy.IncludeUsers == "All"
+#     Details := "Requirement not met: IncludeUsers must be set to 'All'" 
+
+# }
+# #--
+
+############
+# MS.Entra.10 #
+############
+
+#
+# MS.Entra.10.1v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.10.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_grant.SessionControls.SignInFrequency
+    Status := Policy.IsEnabled == true
+    Details :="Requirement not met: GuestAccessGrant - SignInFrequency 'IsEnabled' must be set to false"
+    
+}
+#--
+
+#
+# MS.Entra.10.2v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.10.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_grant.SessionControls.ApplicationEnforcedRestrictions
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: GuestAccessGrant - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.10.3v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.10.3v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_grant.SessionControls.CloudAppSecurity
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.10.4v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.10.4v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_grant.SessionControls.PersistentBrowser
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.10.5v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.10.5v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.Operator,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_grant.GrantControls
+    Status := Policy.Operator == "OR"
+    Details := "Requirement not met: GrantControls Operator must be 'OR'" 
+    
+}
+#--
+
+#
+# MS.Entra.10.6v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.10.6v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.BuiltInControls,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_grant.GrantControls
+    Status := Policy.BuiltInControls == ["mfa"]
+    Details := "Requirement not met: GrantControlBuiltInControls must be set to 'mfa'" 
+    
+}
+#--
+
+#
+# MS.Entra.10.7v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.10.7v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.ClientAppTypes,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_grant.Conditions
+    Status := Policy.ClientAppTypes == ["browser","mobileAppsAndDesktopClients"]
+    Details := "Requirement not met: ClientAppTypes must be configured correctly" 
+
+}
+#--
+
+#
+# MS.Entra.10.8v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.10.8v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IncludeApplications,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_grant.Conditions.Applications
+    Status := Policy.IncludeApplications == "Office365"
+    Details := "Requirement not met: IncludeApplications must be set to 'All'" 
+
+}
+#--
+
+#
+# MS.Entra.10.9v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.10.9v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IncludePlatforms,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_grant.Conditions.Platforms
+    Status := Policy.IncludePlatforms == "windows"
+    Details := "Requirement not met: IncludePlatforms must be set to 'windows'" 
+
+}
+#--
+
+# #
+# # MS.Entra.10.10v1
+# #--
+
+
+# tests[{
+#     "PolicyId" : "MS.Entra.10.10v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+#     "ActualValue" : Policy.IncludeUsers,
+#     "ReportDetails" : ReportDetailsString(Status, Details),
+#     "RequirementMet" : Status
+# }] {
+#     Policy := input.conditional_access_policy_guest_access_grant.Conditions.Users
+#     Status := Policy.IncludeUsers == "All"
+#     Details := "Requirement not met: IncludeUsers must be set to 'All'" 
+
+# }
+# #--
+
+############
+# MS.Entra.11 #
+############
+#
+# MS.Entra.11.1v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.11.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_conditional_access_policy_high_risk_sign_ins_grant.SessionControls.ApplicationEnforcedRestrictions
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: GuestAccessGrant - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.11.2v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.11.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_conditional_access_policy_high_risk_sign_ins_grant.SessionControls.CloudAppSecurity
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.11.3v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.11.3v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.Operator,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_conditional_access_policy_high_risk_sign_ins_grant.GrantControls
+    Status := Policy.Operator == "OR"
+    Details := "Requirement not met: GrantControls Operator must be 'OR'" 
+    
+}
+#--
+
+#
+# MS.Entra.11.4v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.11.4v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.BuiltInControls,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_conditional_access_policy_high_risk_sign_ins_grant.GrantControls
+    Status := Policy.BuiltInControls == ["block"]
+    Details := "Requirement not met: GrantControlBuiltInControls must be set to 'block'" 
+    
+}
+#--
+
+#
+# MS.Entra.11.5v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.11.5v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.ClientAppTypes,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_conditional_access_policy_high_risk_sign_ins_grant.Conditions
+    Status := Policy.ClientAppTypes == ["exchangeActiveSync","browser","mobileAppsAndDesktopClients", "other"]
+    Details := "Requirement not met: ClientAppTypes must be configured correctly" 
+
+}
+#--
+
+############
+# MS.Entra.12 #
+############
+
+#
+# MS.Entra.12.1v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.12.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_legacy_auth_block.SessionControls.SignInFrequency
+    Status := Policy.IsEnabled == true
+    Details :="Requirement not met: GuestAccessGrant - SignInFrequency 'IsEnabled' must be set to false"
+    
+}
+#--
+
+#
+# MS.Entra.12.2v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.12.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_legacy_auth_block.SessionControls.ApplicationEnforcedRestrictions
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: GuestAccessGrant - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.12.3v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.12.3v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_legacy_auth_block.SessionControls.CloudAppSecurity
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.12.4v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.12.4v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_legacy_auth_block.SessionControls.PersistentBrowser
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.12.5v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.12.5v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.Operator,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_legacy_auth_block.GrantControls
+    Status := Policy.Operator == "OR"
+    Details := "Requirement not met: GrantControls Operator must be 'OR'" 
+    
+}
+#--
+
+#
+# MS.Entra.12.6v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.12.6v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.BuiltInControls,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_legacy_auth_block.GrantControls
+    Status := Policy.BuiltInControls == ["block"]
+    Details := "Requirement not met: GrantControlBuiltInControls must be set to 'mfa'" 
+    
+}
+#--
+
+#
+# MS.Entra.12.7v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.12.7v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.ClientAppTypes,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_legacy_auth_block.Conditions
+    Status := Policy.ClientAppTypes == ["exchangeActiveSync","other"]
+    Details := "Requirement not met: ClientAppTypes must be configured correctly" 
+
+}
+#--
+
+#
+# MS.Entra.12.8v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.12.8v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IncludeApplications,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_legacy_auth_block.Conditions.Applications
+    Status := Policy.IncludeApplications == "All"
+    Details := "Requirement not met: IncludeApplications must be set to 'All'" 
+
+}
+#--
+
+#
+# MS.Entra.12.9v1
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.12.9v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IncludeUsers,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_legacy_auth_block.Conditions.Users
+    Status := Policy.IncludeUsers == "All"
+    Details := "Requirement not met: IncludeUsers must be set to 'All'" 
+
+}
+#--
+
+############
+# MS.Entra.13 #
+############
+
+#
+# MS.Entra.13.1v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.13.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_mfa_guest_b2b_access.SessionControls.SignInFrequency
+    Status := Policy.IsEnabled == true
+    Details :="Requirement not met: GuestAccessGrant - SignInFrequency 'IsEnabled' must be set to false"
+    
+}
+#--
+
+#
+# MS.Entra.13.2v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.13.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_mfa_guest_b2b_access.SessionControls.ApplicationEnforcedRestrictions
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: GuestAccessGrant - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.13.3v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.13.3v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_mfa_guest_b2b_access.SessionControls.CloudAppSecurity
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.13.4v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.13.4v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_mfa_guest_b2b_access.SessionControls.PersistentBrowser
+    Status := Policy.IsEnabled == false
+    Details := "Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false" 
+    
+}
+#--
+
+#
+# MS.Entra.13.5v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.13.5v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.Operator,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_mfa_guest_b2b_access.GrantControls
+    Status := Policy.Operator == "OR"
+    Details := "Requirement not met: GrantControls Operator must be 'OR'" 
+    
+}
+#--
+
+#
+# MS.Entra.13.6v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.13.6v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.BuiltInControls,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_mfa_guest_b2b_access.GrantControls
+    Status := Policy.BuiltInControls == ["mfa"]
+    Details := "Requirement not met: GrantControlBuiltInControls must be set to 'mfa'" 
+    
+}
+#--
+
+#
+# MS.Entra.13.7v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.13.7v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.ClientAppTypes,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_mfa_guest_b2b_access.Conditions
+    Status := Policy.ClientAppTypes == "all"
+    Details := "Requirement not met: ClientAppTypes must be configured correctly" 
+
+}
+#--
+
+#
+# MS.Entra.13.8v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.13.8v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.IncludeApplications,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_mfa_guest_b2b_access.Conditions.Applications
+    Status := Policy.IncludeApplications == "None"
+    Details := "Requirement not met: IncludeApplications must be set to 'None'" 
+
+}

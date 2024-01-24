@@ -428,6 +428,318 @@ Blocks all connections from countries not in the allowed countries list.
 
 ### Implementation
 
+## 9. CAP - Guest Access Block
+Deny all guest and external users by default.
+
+### Policies
+#### MS.Entra.9.1v1
+Deny all guest and external users by default.
+<!--Policy: MS.Entra.9.1v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+
+#### MS.Entra.9.2v1
+Deny all guest and external users by default.
+<!--Policy: MS.Entra.9.2v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.9.3v1
+Deny all guest and external users by default.
+<!--Policy: MS.Entra.9.3v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.9.4v1
+Deny all guest and external users by default.
+<!--Policy: MS.Entra.9.4v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.9.5v1
+Deny all guest and external users by default.
+<!--Policy: MS.Entra.9.5v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.9.6v1
+Deny all guest and external users by default.
+<!--Policy: MS.Entra.9.6v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.9.7v1
+Deny all guest and external users by default.
+<!--Policy: MS.Entra.9.7v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.9.8v1
+Deny all guest and external users by default.
+<!--Policy: MS.Entra.9.8v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/conditional-access/)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
+## 10. CAP - Guest Access Grant
+
+
+### Policies
+#### MS.Entra.10.1v1
+
+<!--Policy: MS.Entra.10.1v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+
+#### MS.Entra.10.2v1
+
+<!--Policy: MS.Entra.10.2v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.10.3v1
+
+<!--Policy: MS.Entra.10.3v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.10.4v1
+
+<!--Policy: MS.Entra.10.4v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.10.5v1
+
+<!--Policy: MS.Entra.10.5v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.10.6v1
+
+<!--Policy: MS.Entra.10.6v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.10.7v1
+
+<!--Policy: MS.Entra.10.7v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.10.8v1
+
+<!--Policy: MS.Entra.10.8v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.10.9v1
+
+<!--Policy: MS.Entra.10.7v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+## 11. CAP - Guest Access Grant
+
+
+### Policies
+#### MS.Entra.11.1v1
+
+<!--Policy: MS.Entra.11.1v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+
+#### MS.Entra.11.2v1
+
+<!--Policy: MS.Entra.11.2v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.11.3v1
+
+<!--Policy: MS.Entra.11.3v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.11.4v1
+
+<!--Policy: MS.Entra.11.4v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.11.5v1
+
+<!--Policy: MS.Entra.11.5v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+
+### Resources
+
+- [Design Documentation]()
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
+## 12. CAP - Legacy Authentication Block
+
+
+### Policies
+#### MS.Entra.12.1v1
+
+<!--Policy: MS.Entra.12.1v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+
+#### MS.Entra.12.2v1
+
+<!--Policy: MS.Entra.12.2v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.12.3v1
+
+<!--Policy: MS.Entra.12.3v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.12.4v1
+
+<!--Policy: MS.Entra.12.4v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.12.5v1
+
+<!--Policy: MS.Entra.12.5v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.12.6v1
+
+<!--Policy: MS.Entra.12.6v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.12.7v1
+
+<!--Policy: MS.Entra.12.7v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.12.8v1
+
+<!--Policy: MS.Entra.12.8v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.12.9v1
+
+<!--Policy: MS.Entra.12.7v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/conditional-access/)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
+## 13. CAP - MFA Guest B2B Access
+
+
+### Policies
+#### MS.Entra.13.1v1
+
+<!--Policy: MS.Entra.13.1v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+
+#### MS.Entra.13.2v1
+
+<!--Policy: MS.Entra.13.2v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.13.3v1
+
+<!--Policy: MS.Entra.13.3v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.13.4v1
+
+<!--Policy: MS.Entra.13.4v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.13.5v1
+
+<!--Policy: MS.Entra.13.5v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.13.6v1
+
+<!--Policy: MS.Entra.13.6v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.13.7v1
+
+<!--Policy: MS.Entra.13.7v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.13.8v1
+
+<!--Policy: MS.Entra.13.8v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/conditional-access/)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
 
 
 
