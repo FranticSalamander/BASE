@@ -740,7 +740,170 @@ BASE
 
 ### Implementation
 
+## 14. CAP - Session Based Policies
+Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+### Policies
+#### MS.Entra.14.1v1
+Expire user sessions
+<!--Policy: MS.Entra.14.1v1; Criticality: SHALL -->
+- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Last modified:_ Jan 2024
 
+
+#### MS.Entra.14.2v1
+Expire user sessions
+<!--Policy: MS.Entra.14.2v1; Criticality: SHALL -->
+- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.14.3v1
+Expire user sessions
+<!--Policy: MS.Entra.14.3v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.14.4v1
+Expire user sessions
+<!--Policy: MS.Entra.14.4v1; Criticality: SHALL -->
+- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.14.5v1
+Expire user sessions
+<!--Policy: MS.Entra.14.5v1; Criticality: SHALL -->
+- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.14.6v1
+Expire user sessions
+<!--Policy: MS.Entra.14.6v1; Criticality: SHALL -->
+- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.14.7v1
+Expire user sessions
+<!--Policy: MS.Entra.14.7v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.14.8v1
+Expire user sessions
+<!--Policy: MS.Entra.14.8v1; Criticality: SHALL -->
+- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.14.9v1
+Expire user sessions
+<!--Policy: MS.Entra.14.9v1; Criticality: SHALL -->
+- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.14.10v1
+Expire user sessions
+<!--Policy: MS.Entra.14.10v1; Criticality: SHALL -->
+- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.14.11v1
+Expire user sessions after 12 hours	
+<!--Policy: MS.Entra.14.11v1; Criticality: SHALL -->
+- _Rationale:_ 	Removes legacy sessions.
+- _Last modified:_ Jan 2024
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/conditional-access/)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
+## 15. CAP - Terms of Use Grant
+Terms of Use Policy
+
+### Policies
+#### MS.Entra.15.1v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.1v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+
+#### MS.Entra.15.2v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.2v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.15.3v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.3v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.15.4v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.4v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.15.5v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.5v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.15.6v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.6v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.15.7v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.7v1; Criticality: SHALL -->
+- _Rationale:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.15.8v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.8v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.15.9v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.9v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.15.10v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.10v1; Criticality: SHALL -->
+- _Rationale:_ 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.15.11v1
+Terms of Use Policy
+<!--Policy: MS.Entra.15.11v1; Criticality: SHALL -->
+- _Rationale:_ 	Removes legacy sessions.
+- _Last modified:_ Jan 2024
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/conditional-access/)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation
 
 
 **`TLP:CLEAR`**

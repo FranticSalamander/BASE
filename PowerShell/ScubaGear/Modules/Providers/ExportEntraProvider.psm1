@@ -45,8 +45,10 @@ function Export-EntraProvider {
     $ConditiontalAccessPolicyLegacyAuthBlock = ConvertTo-Json $ConditiontalAccessPolicyLegacyAuthBlockTEMP
     $ConditiontalAccessPolicyMFAGuestB2BAccessTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "91d98558-e2ce-4a20-bd95-c08f22fc6d22"}
     $ConditiontalAccessPolicyMFAGuestB2BAccess = ConvertTo-Json $ConditiontalAccessPolicyMFAGuestB2BAccessTEMP
-    $ConditiontalAccessPolicySessionSignInFrequencyTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "f14f88d7-2665-4ce6-b89b-125b11588383"}
+    $ConditiontalAccessPolicySessionSignInFrequencyTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "07d16e09-b8f2-46e9-9b90-71d85ce589b3"}
     $ConditiontalAccessPolicySessionSignInFrequency = ConvertTo-Json $ConditiontalAccessPolicySessionSignInFrequencyTEMP
+    $ConditiontalAccessPolicyTermsOfUseGrantTEMP =  @($Tracker.TryCommand("Get-MgBetaIdentityConditionalAccessPolicy")) | ? { $_.Id -eq "485b13ff-9f66-4954-b74e-da7b8f2e243e"}
+    $ConditiontalAccessPolicyTermsOfUseGrant = ConvertTo-Json $ConditiontalAccessPolicyTermsOfUseGrantTEMP
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $UnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())
 
@@ -87,6 +89,7 @@ function Export-EntraProvider {
     "conditional_access_policy_legacy_auth_block" : $ConditiontalAccessPolicyLegacyAuthBlock,
     "conditional_access_policy_mfa_guest_b2b_access" : $ConditiontalAccessPolicyMFAGuestB2BAccess,
     "conditional_access_policy_session_sign_in_frequency" : $ConditiontalAccessPolicySessionSignInFrequency,
+    "conditional_access_policy_terms_of_use_grant" : $ConditiontalAccessPolicyTermsOfUseGrant,
     "aad_successful_commands": $SuccessfulCommands,
     "aad_unsuccessful_commands": $UnSuccessfulCommands,
 "@
