@@ -1025,8 +1025,93 @@ tests[{
 
 default AdminSigninIncludeRolesMatch(_) := false
 AdminSigninIncludeRolesMatch(Policy) := true if {
-    a := contains(Policy.IncludeRoles, ApplicationAdministrator)
-
+    ContainsApplicationAdministrator := contains(Policy.IncludeRoles, ApplicationAdministrator)
+    ContainsApplicationDeveloper := contains(Policy.IncludeRoles, ApplicationDeveloper)
+    ContainsAttackPayloadAuthor := contains(Policy.IncludeRoles, AttackPayloadAuthor)
+    ContainsAttackSimulationAdministrator := contains(Policy.IncludeRoles, AttackSimulationAdministrator)
+    ContainsAttributeDefinitionAdministrator := contains(Policy.IncludeRoles, AttributeDefinitionAdministrator)
+    ContainsAttributeAssignmentReader := contains(Policy.IncludeRoles, AttributeAssignmentReader)
+    ContainsAttributeAssignmentAdministrator := contains(Policy.IncludeRoles, AttributeAssignmentAdministrator)
+    ContainsReportsReader := contains(Policy.IncludeRoles, ReportsReader)
+    ContainsOrganizationalMessagesWriter := contains(Policy.IncludeRoles, OrganizationalMessagesWriter)
+    ContainsSharePointAdministrator := contains(Policy.IncludeRoles, SharePointAdministrator)
+    ContainsYammerAdministrator := contains(Policy.IncludeRoles, YammerAdministrator)
+    ContainsWindowsUpdateDeploymentAdministrator := contains(Policy.IncludeRoles, WindowsUpdateDeploymentAdministrator)
+    ContainsWindows365Administrator := contains(Policy.IncludeRoles, Windows365Administrator)
+    ContainsVivaGoalsAdministrator := contains(Policy.IncludeRoles, VivaGoalsAdministrator)
+    ContainsVirtualVisitsAdministrator := contains(Policy.IncludeRoles, VirtualVisitsAdministrator)
+    ContainsUserAdministrator := contains(Policy.IncludeRoles, UserAdministrator)
+    ContainsUsageSummaryReportsReader := contains(Policy.IncludeRoles, UsageSummaryReportsReader)
+    ContainsTenantCreator := contains(Policy.IncludeRoles, TenantCreator)
+    ContainsTeamsDevicesAdministrator := contains(Policy.IncludeRoles, TeamsDevicesAdministrator)
+    ContainsTeamsCommunicationsSupportSpecialist := contains(Policy.IncludeRoles, TeamsCommunicationsSupportSpecialist)
+    ContainsTeamsCommunicationsSupportEngineer := contains(Policy.IncludeRoles, TeamsCommunicationsSupportEngineer)
+    ContainsTeamsCommunicationsAdministrator := contains(Policy.IncludeRoles, TeamsCommunicationsAdministrator)
+    ContainsTeamsAdministrator := contains(Policy.IncludeRoles, TeamsAdministrator)
+    ContainsSkypeforBusinessAdministrator := contains(Policy.IncludeRoles, SkypeforBusinessAdministrator)
+    ContainsServiceSupportAdministrator := contains(Policy.IncludeRoles, ServiceSupportAdministrator)
+    ContainsSecurityReader := contains(Policy.IncludeRoles, SecurityReader)
+    ContainsSecurityAdministrator := contains(Policy.IncludeRoles, SecurityAdministrator)
+    ContainsSecurityOperator := contains(Policy.IncludeRoles, SecurityOperator)
+    ContainsSearchEditor := contains(Policy.IncludeRoles, SearchEditor)
+    ContainsSearchAdministrator := contains(Policy.IncludeRoles, SearchAdministrator)
+    ContainsPrivilegedRoleAdministrator := contains(Policy.IncludeRoles, PrivilegedRoleAdministrator)
+    ContainsPrivilegedAuthenticationAdministrator := contains(Policy.IncludeRoles, PrivilegedAuthenticationAdministrator)
+    ContainsPrinterTechnician := contains(Policy.IncludeRoles, PrinterTechnician)
+    ContainsPrinterAdministrator := contains(Policy.IncludeRoles, PrinterAdministrator)
+    ContainsPowerPlatformAdministrator := contains(Policy.IncludeRoles, PowerPlatformAdministrator)
+    ContainsFabricAdministrator := contains(Policy.IncludeRoles, FabricAdministrator)
+    ContainsPermissionsManagementAdministrator := contains(Policy.IncludeRoles, PermissionsManagementAdministrator)
+    ContainsPasswordAdministrator := contains(Policy.IncludeRoles, PasswordAdministrator)
+    ContainsOfficeAppsAdministrator := contains(Policy.IncludeRoles, OfficeAppsAdministrator)
+    ContainsNetworkAdministrator := contains(Policy.IncludeRoles, NetworkAdministrator)
+    ContainsMicrosoftHardwareWarrantySpecialist := contains(Policy.IncludeRoles, MicrosoftHardwareWarrantySpecialist)
+    ContainsMicrosoftHardwareWarrantyAdministrator := contains(Policy.IncludeRoles, MicrosoftHardwareWarrantyAdministrator)
+    ContainsMessageCenterReader := contains(Policy.IncludeRoles, MessageCenterReader)
+    ContainsMessageCenterPrivacyReader := contains(Policy.IncludeRoles, MessageCenterPrivacyReader)
+    ContainsLifecycleWorkflowsAdministrator := contains(Policy.IncludeRoles, LifecycleWorkflowsAdministrator)
+    ContainsLicenseAdministrator := contains(Policy.IncludeRoles, LicenseAdministrator)
+    ContainsKnowledgeManager := contains(Policy.IncludeRoles, KnowledgeManager)
+    ContainsKnowledgeAdministrator := contains(Policy.IncludeRoles, KnowledgeAdministrator)
+    ContainsKaizalaAdministrator := contains(Policy.IncludeRoles, KaizalaAdministrator)
+    ContainsIntuneAdministrator := contains(Policy.IncludeRoles, IntuneAdministrator)
+    ContainsInsightsBusinessLeader := contains(Policy.IncludeRoles, InsightsBusinessLeader)
+    ContainsInsightsAnalyst := contains(Policy.IncludeRoles, InsightsAnalyst)
+    ContainsInsightsAdministrator := contains(Policy.IncludeRoles, InsightsAdministrator)
+    ContainsIdentityGovernanceAdministrator := contains(Policy.IncludeRoles, IdentityGovernanceAdministrator)
+    ContainsHybridIdentityAdministrator := contains(Policy.IncludeRoles, HybridIdentityAdministrator)
+    ContainsHelpdeskAdministrator := contains(Policy.IncludeRoles, HelpdeskAdministrator)
+    ContainsGuestInviter := contains(Policy.IncludeRoles, GuestInviter)
+    ContainsGroupsAdministrator := contains(Policy.IncludeRoles, GroupsAdministrator)
+    ContainsGlobalReader := contains(Policy.IncludeRoles, GlobalReader)
+    ContainsGlobalAdministrator := contains(Policy.IncludeRoles, GlobalAdministrator)
+    ContainsExternalIdentityProviderAdministrator := contains(Policy.IncludeRoles, ExternalIdentityProviderAdministrator)
+    ContainsExternalIDUserFlowAttributeAdministrator := contains(Policy.IncludeRoles, ExternalIDUserFlowAttributeAdministrator)
+    ContainsExternalIDUserFlowAdministrator := contains(Policy.IncludeRoles, ExternalIDUserFlowAdministrator)
+    ContainsExchangeRecipientAdministrator := contains(Policy.IncludeRoles, ExchangeRecipientAdministrator)
+    ContainsExchangeAdministrator := contains(Policy.IncludeRoles, ExchangeAdministrator)
+    ContainsEdgeAdministrator := contains(Policy.IncludeRoles, EdgeAdministrator)
+    ContainsDynamics365Administrator := contains(Policy.IncludeRoles, Dynamics365Administrator)
+    ContainsDomainNameAdministrator := contains(Policy.IncludeRoles, DomainNameAdministrator)
+    ContainsDirectoryWriters := contains(Policy.IncludeRoles, DirectoryWriters)
+    ContainsDirectorySynchronizationAccounts := contains(Policy.IncludeRoles, DirectorySynchronizationAccounts)
+    ContainsDirectoryReaders := contains(Policy.IncludeRoles, DirectoryReaders)
+    ContainsDesktopAnalyticsAdministrator := contains(Policy.IncludeRoles, DesktopAnalyticsAdministrator)
+    ContainsCustomerLockBoxAccessApprover := contains(Policy.IncludeRoles, CustomerLockBoxAccessApprover)
+    ContainsConditionalAccessAdministrator := contains(Policy.IncludeRoles, ConditionalAccessAdministrator)
+    ContainsComplianceDataAdministrator := contains(Policy.IncludeRoles, ComplianceDataAdministrator)
+    ContainsComplianceAdministrator := contains(Policy.IncludeRoles, ComplianceAdministrator)
+    ContainsCloudDeviceAdministrator := contains(Policy.IncludeRoles, CloudDeviceAdministrator)
+    ContainsCloudApplicationAdministrator := contains(Policy.IncludeRoles, CloudApplicationAdministrator)
+    ContainsCloudAppSecurityAdministrator := contains(Policy.IncludeRoles, CloudAppSecurityAdministrator)
+    ContainsBillingAdministrator := contains(Policy.IncludeRoles, BillingAdministrator)
+    ContainsB2CIEFPolicyAdministrator := contains(Policy.IncludeRoles, B2CIEFPolicyAdministrator)
+    ContainsAzureInformationProtectionAdministrator := contains(Policy.IncludeRoles, AzureInformationProtectionAdministrator)
+    ContainsB2CIEFKeysetAdministrator := contains(Policy.IncludeRoles, B2CIEFKeysetAdministrator)
+    ContainsAzureDevOpsAdministrator := contains(Policy.IncludeRoles, AzureDevOpsAdministrator)
+    ContainsAuthenticationPolicyAdministrator := contains(Policy.IncludeRoles, AuthenticationPolicyAdministrator)
+    ContainsAuthenticationAdministrator := contains(Policy.IncludeRoles, AuthenticationAdministrator)
+    ContainsAttributeDefinitionReader := contains(Policy.IncludeRoles, AttributeDefinitionReader)
 }
 AdminSigninIncludeRoles[Policy.IncludeRoles] {
     Policy := input.conditional_access_policy_admin_sign_in_frequency.Conditions.Users
@@ -1043,7 +1128,7 @@ tests[{
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
     "ActualValue" : AdminSigninIncludeRoles,
-    "ReportDetails" : ReportDetailsString(Status, Details),
+    "ReportDetails" : ReportDetailsString(Status, Details), 
     "RequirementMet" : Status
 }] {
     Status := count(AdminSigninIncludeRoles) > 0
@@ -1052,6 +1137,26 @@ tests[{
 
 }
 #--
+
+#
+# MS.Entra.7.11v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.7.11v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.State,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_admin_sign_in_frequency
+    Status := Policy.State == "enabledForReportingButNotEnforced"
+    Details := "Requirement not met: State must be set to 'enabledForReportingButNotEnforced'" 
+
+    
+}
 
 # ############
 # # MS.Entra.8 #
@@ -1257,6 +1362,64 @@ tests[{
 }
 #--
 
+
+#
+# MS.Entra.8.11v1
+#--
+tests[{
+    "PolicyId" : "MS.Entra.8.11v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.State,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_countries_not_allowed
+    Status := Policy.State == "enabled"
+    Details := "Requirement not met: State must be set to 'enabled'" 
+}
+
+#
+# MS.Entra.8.12v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.8.12v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.ExcludeGroups,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_countries_not_allowed.Conditions.Users
+    Status := Policy.ExcludeGroups == "a2b89a91-d113-4d94-9d17-08875130ecc1"
+    Details := "Requirement not met: ExcludeGroups must be set to 'grp-Conditional_Access_Exclude'/'a2b89a91-d113-4d94-9d17-08875130ecc1'" 
+
+}
+#--
+
+#
+# MS.Entra.8.13v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.8.13v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.ExcludeLocations,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_countries_not_allowed.Conditions.Locations
+    Status := Policy.ExcludeLocations == "1ea33f82-a850-412b-937b-e3cdea4b9dd7"
+    Details := "Requirement not met: ExcludeLocations must be set to 'Allowed Countries'/'1ea33f82-a850-412b-937b-e3cdea4b9dd7'" 
+
+}
+#--
+    
+
 # ############
 # # MS.Entra.9 #
 # ############
@@ -1430,13 +1593,13 @@ tests[{
     "PolicyId" : "MS.Entra.9.9v1",
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.IncludeLocations,
+    "ActualValue" : Policy.ExcludeApplications,
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
-    Policy := input.conditional_access_policy_guest_access_block.Conditions.Locations
-    Status := Policy.IncludeLocations == "All"
-    Details := "Requirement not met: IncludeLocations must be set to 'All'" 
+    Policy := input.conditional_access_policy_guest_access_block.Conditions.Applications
+    Status := Policy.ExcludeApplications == "Office365"
+    Details := "Requirement not met: ExcludeApplications must be set to 'Office365'" 
 
 }
 #--
@@ -1445,21 +1608,18 @@ tests[{
 # MS.Entra.9.10v1
 #--
 
-
 tests[{
     "PolicyId" : "MS.Entra.9.10v1",
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.IncludeUsers,
+    "ActualValue" : Policy.State,
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
-    Policy := input.conditional_access_policy_guest_access_block.Conditions.Users
-    Status := Policy.IncludeUsers == "All"
-    Details := "Requirement not met: IncludeUsers must be set to 'All'" 
-
+    Policy := input.conditional_access_policy_guest_access_block
+    Status := Policy.State == "enabledForReportingButNotEnforced"
+    Details := "Requirement not met: State must be set to 'enabled'" 
 }
-#--
 
 ############
 # MS.Entra.10 #
@@ -1645,25 +1805,23 @@ tests[{
 }
 #--
 
-# #
-# # MS.Entra.10.10v1
-# #--
+#
+# MS.Entra.10.10v1
+#--
 
+tests[{
+    "PolicyId" : "MS.Entra.10.10v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.State,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_guest_access_grant
+    Status := Policy.State == "enabledForReportingButNotEnforced"
+    Details := "Requirement not met: State must be set to 'enabledForReportingButNotEnforced'" 
+}
 
-# tests[{
-#     "PolicyId" : "MS.Entra.10.10v1",
-#     "Criticality" : "Shall",
-#     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-#     "ActualValue" : Policy.IncludeUsers,
-#     "ReportDetails" : ReportDetailsString(Status, Details),
-#     "RequirementMet" : Status
-# }] {
-#     Policy := input.conditional_access_policy_guest_access_grant.Conditions.Users
-#     Status := Policy.IncludeUsers == "All"
-#     Details := "Requirement not met: IncludeUsers must be set to 'All'" 
-
-# }
-# #--
 
 ############
 # MS.Entra.11 #
@@ -1764,6 +1922,26 @@ tests[{
     Policy := input.conditional_access_policy_high_risk_sign_ins_grant.Conditions
     Status := Policy.ClientAppTypes == ["exchangeActiveSync","browser","mobileAppsAndDesktopClients", "other"]
     Details := "Requirement not met: ClientAppTypes must be configured correctly" 
+
+}
+#--
+
+#
+# MS.Entra.11.6v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.11.6v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.ExcludeGroups,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_high_risk_sign_ins_grant.Conditions.Users
+    Status := Policy.ExcludeGroups == "a2b89a91-d113-4d94-9d17-08875130ecc1"
+    Details := "Requirement not met: ExcludeGroups must be configured correctly" 
 
 }
 #--
@@ -1887,7 +2065,7 @@ tests[{
 }] {
     Policy := input.conditional_access_policy_legacy_auth_block.GrantControls
     Status := Policy.BuiltInControls == ["block"]
-    Details := "Requirement not met: GrantControlBuiltInControls must be set to 'mfa'" 
+    Details := "Requirement not met: GrantControlBuiltInControls must be set to 'block'" 
     
 }
 #--
@@ -1951,12 +2129,30 @@ tests[{
 }
 #--
 
+#
+# MS.Entra.12.10v1
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.12.10v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.State,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_legacy_auth_block
+    Status := Policy.State == "enabled"
+    Details := "Requirement not met: State must be set to 'enabled'" 
+}
+
+
 ############
 # MS.Entra.13 #
 ############
 
 #
-# MS.Entra.13.1v1
+# MS.Entra.13.1v1 
 #--
 
 
@@ -2114,6 +2310,43 @@ tests[{
 
 }
 
+#
+# MS.Entra.13.9v1
+#--
+
+
+tests[{
+    "PolicyId" : "MS.Entra.13.9v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.ExcludeRoles,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_mfa_guest_b2b_access.Conditions.Users
+    Status := Policy.ExcludeRoles == GlobalAdministrator
+    Details := "Requirement not met: ExcludeRoles must be set to Global Administrator" 
+
+}
+#
+# MS.Entra.13.10v1
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.13.10v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
+    "ActualValue" : Policy.State,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    Policy := input.conditional_access_policy_mfa_guest_b2b_access
+    Status := Policy.State == "enabled"
+    Details := "Requirement not met: State must be set to 'enabled'" 
+}
+
+
+
 ############
 # MS.Entra.14 #
 ############
@@ -2127,13 +2360,13 @@ tests[{
     "PolicyId" : "MS.Entra.14.1v1",
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.IsEnabled,
+    "ActualValue" : Policy.ExcludeGroups,
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
-    Policy := input.conditional_access_policy_session_sign_in_frequency.SessionControls.SignInFrequency
-    Status := Policy.IsEnabled == true
-    Details :="Requirement not met: SignInFrequency 'IsEnabled' must be set to false"
+    Policy := input.conditional_access_policy_session_sign_in_frequency.Conditions.Users
+    Status := Policy.ExcludeGroups == "a2b89a91-d113-4d94-9d17-08875130ecc1"
+    Details :="Requirement not met: ExcludeGroups must be set to 'grp-Conditional_Access_Exclude'/'a2b89a91-d113-4d94-9d17-08875130ecc1'"
     
 }
 #--
@@ -2456,7 +2689,7 @@ tests[{
 }] {
     Policy := input.conditional_access_policy_terms_of_use_grant.Conditions.Users
     Status := Policy.ExcludeGroups == "a2b89a91-d113-4d94-9d17-08875130ecc1"
-    Details := "Requirement not met: GrantControlBuiltInControls must be set to 'mfa'" 
+    Details := "Requirement not met: ExcludeGroups needs to be set to 'grp-Conditional_Access_Exclude'/'a2b89a91-d113-4d94-9d17-08875130ecc1'" 
     
 }
 #--
@@ -2534,7 +2767,7 @@ tests[{
 }] {
     Policy := input.conditional_access_policy_terms_of_use_grant.GrantControls
     Status := Policy.TermsOfUse == ["00361d63-8e1d-4f43-ad68-513fcddfdd20"]
-    Details := "Requirement not met: State must be set to 'enabledForReportingButNotEnforced'" 
+    Details := "Requirement not met: TermsOfUse must be set to 'Acceptable Use Policy'/'00361d63-8e1d-4f43-ad68-513fcddfdd20'" 
 }
 
 #
