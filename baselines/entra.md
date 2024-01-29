@@ -337,6 +337,18 @@ Expire administration sessions
 - _Rationale:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
+#### MS.Entra.7.9v1
+Expire administration sessions
+<!--Policy: MS.Entra.7.8v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.7.10v1
+Expire administration sessions
+<!--Policy: MS.Entra.7.8v1; Criticality: SHALL -->
+- _Rationale:_Enforces a sign-in frequency 
+- _Last modified:_ Jan 2024
+
 
 ### Resources
 
