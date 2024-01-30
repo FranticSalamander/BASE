@@ -86,10 +86,10 @@ function LoadProviderExport() {
   $ProviderExport
 }
 
-function Write-ScubaConfig() {
+function Write-BASEConfig() {
   <#
     .SYNOPSIS
-      Private helper function to write scuba config to a file.
+      Private helper function to write BASE config to a file.
   #>
   param(
       [Parameter(Mandatory = $true)]
@@ -98,8 +98,8 @@ function Write-ScubaConfig() {
       $Config
   )
 
-  $ScubaTestConfigPath = Join-Path -Path "C:\Temp" -ChildPath "ScubaTestConfig.json"
-  Set-Content -Path $ScubaTestConfigPath -Value ($Config | ConvertTo-Json ) -Force
+  $BASETestConfigPath = Join-Path -Path "C:\Temp" -ChildPath "BASETestConfig.json"
+  Set-Content -Path $BASETestConfigPath -Value ($Config | ConvertTo-Json ) -Force
 }
 
 function PublishProviderExport() {
@@ -310,7 +310,7 @@ function LoadTestResults() {
     .SYNOPSIS
       Wrapper function to load the test results within the given folder.
     .PARAMETER OutputFolder
-      The folder containing the outputs of a ScubaGear run.
+      The folder containing the outputs of a BASE run.
   #>
   [CmdletBinding()]
   param (

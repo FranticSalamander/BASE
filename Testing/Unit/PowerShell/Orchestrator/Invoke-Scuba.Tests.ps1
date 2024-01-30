@@ -1,8 +1,8 @@
-$OrchestratorPath = '../../../../PowerShell/ScubaGear/Modules/Orchestrator.psm1'
-Import-Module (Join-Path -Path $PSScriptRoot -ChildPath $OrchestratorPath) -Function 'Invoke-SCuBA' -Force
+$OrchestratorPath = '../../../../PowerShell/BASE/Modules/Orchestrator.psm1'
+Import-Module (Join-Path -Path $PSScriptRoot -ChildPath $OrchestratorPath) -Function 'Invoke-BASE' -Force
 
 InModuleScope Orchestrator {
-    Describe -Tag 'Orchestrator' -Name 'Invoke-Scuba' {
+    Describe -Tag 'Orchestrator' -Name 'Invoke-BASE' {
         BeforeAll {
             function Remove-Resources {}
             Mock -ModuleName Orchestrator Remove-Resources {}
@@ -18,8 +18,8 @@ InModuleScope Orchestrator {
             Mock -ModuleName Orchestrator Invoke-RunRego {}
 
             Mock -ModuleName Orchestrator Invoke-ReportCreation {}
-            function Disconnect-SCuBATenant {}
-            Mock -ModuleName Orchestrator Disconnect-SCuBATenant {}
+            function Disconnect-BASETenant {}
+            Mock -ModuleName Orchestrator Disconnect-BASETenant {}
 
             Mock -CommandName New-Item {}
             Mock -CommandName Copy-Item {}
@@ -32,60 +32,60 @@ InModuleScope Orchestrator {
                 }
             }
             It 'Do it quietly (Do not automatically show report)' {
-                {Invoke-Scuba -Quiet} | Should -Not -Throw
+                {Invoke-BASE -Quiet} | Should -Not -Throw
                 Should -Invoke -CommandName Invoke-ReportCreation -Exactly -Times 1 -ParameterFilter {$Quiet -eq $true}
             }
             It 'Show report' {
-                {Invoke-Scuba} | Should -Not -Throw
+                {Invoke-BASE} | Should -Not -Throw
                 Should -Invoke -CommandName Invoke-ReportCreation -Exactly -Times 1 -ParameterFilter {$Quiet -eq $false}
             }
             It 'Given -ProductNames aad should not throw' {
                 $SplatParams += @{
                     ProductNames = @("aad")
                 }
-                {Invoke-Scuba @SplatParams} | Should -Not -Throw
+                {Invoke-BASE @SplatParams} | Should -Not -Throw
             }
             It 'Given -ProductNames defender should not throw' {
                 $SplatParams += @{
                     ProductNames = @("defender")
                 }
-                {Invoke-Scuba @SplatParams} | Should -Not -Throw
+                {Invoke-BASE @SplatParams} | Should -Not -Throw
             }
             It 'Given -ProductNames exo should not throw' {
                 $SplatParams += @{
                     ProductNames = @("exo")
                 }
-                {Invoke-Scuba @SplatParams} | Should -Not -Throw
+                {Invoke-BASE @SplatParams} | Should -Not -Throw
             }
             It 'Given -ProductNames powerplatform should not throw' {
                 $SplatParams += @{
                     ProductNames = @("powerplatform")
                 }
-                {Invoke-Scuba @SplatParams} | Should -Not -Throw
+                {Invoke-BASE @SplatParams} | Should -Not -Throw
             }
             It 'Given -ProductNames teams should not throw' {
                 $SplatParams += @{
                     ProductNames = @("teams")
                 }
-                {Invoke-Scuba @SplatParams} | Should -Not -Throw
+                {Invoke-BASE @SplatParams} | Should -Not -Throw
             }
             It 'Given -ProductNames * should not throw' {
                 $SplatParams += @{
                     ProductNames = @("*")
                 }
-                {Invoke-Scuba @SplatParams} | Should -Not -Throw
+                {Invoke-BASE @SplatParams} | Should -Not -Throw
             }
             It 'Given -ProductNames * and -DisconnectOnExit should not throw' {
                 $SplatParams += @{
                     ProductNames = @("*")
                     DisconnectOnExit = $true
                 }
-                {Invoke-Scuba @SplatParams} | Should -Not -Throw
+                {Invoke-BASE @SplatParams} | Should -Not -Throw
             }
         }
         Context 'When checking module version' {
             It 'Given -Version should not throw' {
-                {Invoke-Scuba -Version} | Should -Not -Throw
+                {Invoke-BASE -Version} | Should -Not -Throw
             }
         }
     }

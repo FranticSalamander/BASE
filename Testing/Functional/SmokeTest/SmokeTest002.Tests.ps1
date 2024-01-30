@@ -1,8 +1,8 @@
 <#
     .SYNOPSIS
-    Test script to verify Invoke-SCuBA generates valid HTML products.
+    Test script to verify Invoke-BASE generates valid HTML products.
     .DESCRIPTION
-    Test script to test Scuba HTML reports validity.
+    Test script to test BASE HTML reports validity.
     .PARAMETER OrganizationDomain
     The Organizations domain name (e.g., abd.onmicrosoft.com)
     .PARAMETER OrganizationName
@@ -11,7 +11,7 @@
     $TestContainer = New-PesterContainer -Path "SmokeTest002.Tests.ps1" -Data @{ OrganizationDomain = "cisaent.onmicrosoft.com"; OrganizationName = "Cybersecurity and Infrastructure Security Agency" }
     Invoke-Pester -Container $TestContainer -Output Detailed
     .NOTES
-    The test expects the Scuba output files to exists from a previous run of Invoke-Scuba for the same tenant and all products.
+    The test expects the BASE output files to exists from a previous run of Invoke-BASE for the same tenant and all products.
 
 #>
 

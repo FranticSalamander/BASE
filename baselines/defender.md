@@ -22,13 +22,13 @@ In addition to these controls, agencies should consider using a cloud
 access security broker to secure their environments as they adopt zero
 trust principles.
 
-The Secure Cloud Business Applications (SCuBA) project run by the Cybersecurity
+The Secure Cloud Business Applications (BASE) project run by the Cybersecurity
 and Infrastructure Security Agency (CISA) provides guidance and capabilities to
 secure federal civilian executive branch (FCEB) agencies' cloud business
 application environments and protect federal information that is created,
 accessed, shared, and stored in those environments.
 
-The CISA SCuBA SCBs for M365 help secure federal information assets stored within
+The CISA BASE SCBs for M365 help secure federal information assets stored within
 M365 cloud business application environments through consistent, effective, and
 manageable security configurations. CISA created baselines tailored to the federal
 government's threats and risk tolerance with the knowledge that every organization

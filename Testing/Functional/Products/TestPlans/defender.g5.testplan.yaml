@@ -1,7 +1,7 @@
 ProductName: defender
 TestPlan:
   - PolicyId: MS.DEFENDER.1.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.1.1v1 Non-compliant -- EOP Disabled, ATP Disabled for both STd & Strict
         Preconditions:
@@ -325,7 +325,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.DEFENDER.1.3v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.1.3v1 Non-compliant -- std&strict SentTo Non-null, SentToMemberOf Non-null, RecipientDomainIs Non-null
         Preconditions:
@@ -353,7 +353,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.DEFENDER.1.5v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.1.5v1 Non-compliant Strict Preset Security Policy Disabled
         Preconditions:
@@ -385,7 +385,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.DEFENDER.3.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.3.1v1 Protection disabled
         Preconditions:

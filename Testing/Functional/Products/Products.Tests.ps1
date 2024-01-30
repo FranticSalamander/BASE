@@ -2,7 +2,7 @@
     .SYNOPSIS
     Test script for MS365 Teams product.
     .DESCRIPTION
-    Test script to execute Invoke-SCuBA against a given tenant using a service
+    Test script to execute Invoke-BASE against a given tenant using a service
     principal. Verifies that all teams policies work properly.
     .PARAMETER Thumbprint
     Thumbprint of the certificate associated with the Service Principal.
@@ -97,10 +97,10 @@ param (
     $Variant = [string]::Empty
 )
 
-$ScubaModulePath = Join-Path -Path $PSScriptRoot -ChildPath "../../../PowerShell/ScubaGear/Modules"
-$ScubaModule = Join-Path -Path $ScubaModulePath -ChildPath "../ScubaGear.psd1"
-$ConnectionModule = Join-Path -Path $ScubaModulePath -ChildPath "Connection/Connection.psm1"
-Import-Module $ScubaModule
+$BASEModulePath = Join-Path -Path $PSScriptRoot -ChildPath "../../../PowerShell/BASE/Modules"
+$BASEModule = Join-Path -Path $BASEModulePath -ChildPath "../BASE.psd1"
+$ConnectionModule = Join-Path -Path $BASEModulePath -ChildPath "Connection/Connection.psm1"
+Import-Module $BASEModule
 Import-Module $ConnectionModule
 Import-Module Selenium
 
@@ -205,13 +205,13 @@ BeforeAll{
         }
     }
 
-    function RunScuba() {
+    function RunBASE() {
         if (-not [string]::IsNullOrEmpty($Thumbprint))
         {
-            Invoke-SCuBA -CertificateThumbPrint $Thumbprint -AppId $AppId -Organization $TenantDomain -Productnames $ProductName -OutPath . -M365Environment $M365Environment -Quiet
+            Invoke-BASE -CertificateThumbPrint $Thumbprint -AppId $AppId -Organization $TenantDomain -Productnames $ProductName -OutPath . -M365Environment $M365Environment -Quiet
         }
         else {
-            Invoke-SCuBA -Login $false -Productnames $ProductName -OutPath . -M365Environment $M365Environment -Quiet
+            Invoke-BASE -Login $false -Productnames $ProductName -OutPath . -M365Environment $M365Environment -Quiet
         }
     }
 }
@@ -220,18 +220,18 @@ Describe "Policy Checks for <ProductName>"{
     Context "Start tests for policy <PolicyId>" -ForEach $TestPlan{
         BeforeEach{
 
-            if ($ConfigFileName -and ('RunScuba' -eq $TestDriver)){
+            if ($ConfigFileName -and ('RunBASE' -eq $TestDriver)){
                 $FullPath = Join-Path -Path $PSScriptRoot -ChildPath "TestConfigurations/$ProductName/$PolicyId/$ConfigFileName"
 
-                $ScubaConfig = Get-Content -Path $FullPath | ConvertFrom-Yaml
+                $BASEConfig = Get-Content -Path $FullPath | ConvertFrom-Yaml
 
                 if ($AppId){
-                    $ScubaConfig.CertificateThumbprint = $Thumbprint
-                    $ScubaConfig.AppID = $AppId
-                    $ScubaConfig.Organization = $TenantDomain
+                    $BASEConfig.CertificateThumbprint = $Thumbprint
+                    $BASEConfig.AppID = $AppId
+                    $BASEConfig.Organization = $TenantDomain
                 }
 
-                $ScubaConfig.M365Environment = $M365Environment
+                $BASEConfig.M365Environment = $M365Environment
 
                 $TestConfigPath = "$TestDrive\$ProductName\$PolicyId"
                 $TestConfigFilePath = Join-Path -Path $TestConfigPath -ChildPath $ConfigFileName
@@ -240,18 +240,18 @@ Describe "Policy Checks for <ProductName>"{
                     New-Item -Path $TestConfigPath -ItemType Directory
                 }
 
-                Set-Content -Path $TestConfigFilePath -Value ($ScubaConfig | ConvertTo-Yaml)
+                Set-Content -Path $TestConfigFilePath -Value ($BASEConfig | ConvertTo-Yaml)
                 SetConditions -Conditions $Preconditions.ToArray()
-                Invoke-SCuBA -ConfigFilePath $TestConfigFilePath -Quiet
+                Invoke-BASE -ConfigFilePath $TestConfigFilePath -Quiet
             }
-            elseif ('RunScuba' -eq $TestDriver){
-                Write-Debug "Driver: RunScuba"
+            elseif ('RunBASE' -eq $TestDriver){
+                Write-Debug "Driver: RunBASE"
                 SetConditions -Conditions $Preconditions.ToArray()
-                RunScuba
+                RunBASE
             }
             elseif ('RunCached' -eq $TestDriver){
                 Write-Debug "Driver: RunCached"
-                RunScuba
+                RunBASE
                 $ReportFolders = Get-ChildItem . -directory -Filter "M365BaselineConformance*" | Sort-Object -Property LastWriteTime -Descending
                 $OutputFolder = $ReportFolders[0].Name
                 SetConditions -Conditions $Preconditions.ToArray() -OutputFolder $OutputFolder

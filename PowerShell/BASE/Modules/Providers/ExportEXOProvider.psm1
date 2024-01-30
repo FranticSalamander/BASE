@@ -2,7 +2,7 @@ function Export-EXOProvider {
     <#
     .Description
     Gets the Exchange Online (EXO) settings that are relevant
-    to the SCuBA EXO baselines using the EXO PowerShell Module
+    to the BASE EXO baselines using the EXO PowerShell Module
     .Functionality
     Internal
     #>
@@ -28,7 +28,7 @@ function Export-EXOProvider {
     MS.EXO.2.1v1 SPF
     #>
     $domains = $Tracker.TryCommand("Get-AcceptedDomain")
-    $SPFRecords = ConvertTo-Json @($Tracker.TryCommand("Get-ScubaSpfRecords", @{"Domains"=$domains})) -Depth 3
+    $SPFRecords = ConvertTo-Json @($Tracker.TryCommand("Get-BASESpfRecords", @{"Domains"=$domains})) -Depth 3
     #$SPFRecords | Out-File -FilePath .\configs-json\exo\spf_records_config.json
     $SPFRecords = Get-Content -Path .\configs-json\exo\spf_records_config.json -Raw
 
@@ -36,14 +36,14 @@ function Export-EXOProvider {
     MS.EXO.3.1v1 DKIM
     #>
     $DKIMConfig = ConvertTo-Json @($Tracker.TryCommand("Get-DkimSigningConfig"))
-    $DKIMRecords = ConvertTo-Json @($Tracker.TryCommand("Get-ScubaDkimRecords", @{"Domains"=$domains})) -Depth 3
+    $DKIMRecords = ConvertTo-Json @($Tracker.TryCommand("Get-BASEDkimRecords", @{"Domains"=$domains})) -Depth 3
     #$DKIMConfig | Out-File -FilePath .\configs-json\exo\DKIM_config.json
     $DKIMConfig = Get-Content -Path .\configs-json\exo\DKIM_config.json -Raw
 
     <#
     MS.EXO.4.1v1 DMARC
     #>
-    $DMARCRecords = ConvertTo-Json @($Tracker.TryCommand("Get-ScubaDmarcRecords", @{"Domains"=$domains})) -Depth 3
+    $DMARCRecords = ConvertTo-Json @($Tracker.TryCommand("Get-BASEDmarcRecords", @{"Domains"=$domains})) -Depth 3
     #$DMARCRecords | Out-File -FilePath .\configs-json\exo\DMARC_Records_config.json
     $DMARCRecords = Get-Content -Path .\configs-json\exo\DMARC_Records_config.json -Raw
 
@@ -296,7 +296,7 @@ function Invoke-RobustDnsTxt {
     }
 }
 
-function Get-ScubaSpfRecords {
+function Get-BASESpfRecords {
     <#
     .Description
     Gets the SPF records for each domain in $Domains
@@ -328,13 +328,13 @@ function Get-ScubaSpfRecords {
     }
 
     if ($NLowConf -gt 0) {
-        Write-Warning "Get-ScubaSpfRecords: for $($NLowConf) domain(s), the tradtional DNS queries returned either NXDomain or an empty answer section and the DoH queries failed. Will assume SPF not configured, but can't guarantee that failure isn't due to something like split horizon DNS. See ProviderSettingsExport.json under 'spf_records' for more details."
+        Write-Warning "Get-BASESpfRecords: for $($NLowConf) domain(s), the tradtional DNS queries returned either NXDomain or an empty answer section and the DoH queries failed. Will assume SPF not configured, but can't guarantee that failure isn't due to something like split horizon DNS. See ProviderSettingsExport.json under 'spf_records' for more details."
     }
     $DnsLog += $Response.LogEntries
     $SPFRecords
 }
 
-function Get-ScubaDkimRecords {
+function Get-BASEDkimRecords {
     <#
     .Description
     Gets the DKIM records for each domain in $Domains
@@ -385,12 +385,12 @@ function Get-ScubaDkimRecords {
     }
 
     if ($NLowConf -gt 0) {
-        Write-Warning "Get-ScubaDkimRecords: for $($NLowConf) domain(s), the tradtional DNS queries returned either NXDomain or an empty answer section and the DoH queries failed. Will assume DKIM not configured, but can't guarantee that failure isn't due to something like split horizon DNS. See ProviderSettingsExport.json under 'dkim_records' for more details."
+        Write-Warning "Get-BASEDkimRecords: for $($NLowConf) domain(s), the tradtional DNS queries returned either NXDomain or an empty answer section and the DoH queries failed. Will assume DKIM not configured, but can't guarantee that failure isn't due to something like split horizon DNS. See ProviderSettingsExport.json under 'dkim_records' for more details."
     }
     $DKIMRecords
 }
 
-function Get-ScubaDmarcRecords {
+function Get-BASEDmarcRecords {
     <#
     .Description
     Gets the DMARC records for each domain in $Domains
@@ -436,7 +436,7 @@ function Get-ScubaDmarcRecords {
     }
 
     if ($NLowConf -gt 0) {
-        Write-Warning "Get-ScubaDmarcRecords: for $($NLowConf) domain(s), the tradtional DNS queries returned either NXDomain or an empty answer section and the DoH queries failed. Will assume DMARC not configured, but can't guarantee that failure isn't due to something like split horizon DNS. See ProviderSettingsExport.json under 'dmarc_records' for more details."
+        Write-Warning "Get-BASEDmarcRecords: for $($NLowConf) domain(s), the tradtional DNS queries returned either NXDomain or an empty answer section and the DoH queries failed. Will assume DMARC not configured, but can't guarantee that failure isn't due to something like split horizon DNS. See ProviderSettingsExport.json under 'dmarc_records' for more details."
     }
     $DMARCRecords
 }

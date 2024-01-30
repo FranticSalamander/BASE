@@ -4,7 +4,7 @@
         This script installs the required OPA executable used by the
         assessment tool
     .DESCRIPTION
-        Installs the OPA executable required to support SCuBAGear.
+        Installs the OPA executable required to support BASE.
     .EXAMPLE
         .\OPA.ps1
 #>
@@ -49,10 +49,10 @@ Try {
     $InstalledVersion= $(& "./$($OPAExe)" @OPAArgs) | Select-Object -First 1
     if ($InstalledVersion -eq "Version: $($ExpectedVersion)")
         {
-        Write-Information "`Downloaded OPA version` `"$InstalledVersion`" meets the ScubaGear requirement"
+        Write-Information "`Downloaded OPA version` `"$InstalledVersion`" meets the BASE requirement"
         }
     else {
-        Write-Information "`Downloaded OPA version` `"$InstalledVersion`" does not meet the ScubaGear requirement of` `"$ExpectedVersion`""
+        Write-Information "`Downloaded OPA version` `"$InstalledVersion`" does not meet the BASE requirement of` `"$ExpectedVersion`""
     }
 }
 catch {

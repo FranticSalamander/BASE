@@ -1,10 +1,10 @@
-$ProviderPath = "../../../../../PowerShell/ScubaGear/Modules/Providers"
-Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ExportEXOProvider.psm1") -Function Get-ScubaDmarcRecords -Force
+$ProviderPath = "../../../../../PowerShell/BASE/Modules/Providers"
+Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ExportEXOProvider.psm1") -Function Get-BASEDmarcRecords -Force
 
 InModuleScope 'ExportEXOProvider' {
-    Describe -Tag 'ExportEXOProvider' -Name "Get-ScubaDmarcRecords" {
+    Describe -Tag 'ExportEXOProvider' -Name "Get-BASEDmarcRecords" {
         It "TODO return DMARC records" {
-            # Get-ScubaDmarcRecords
+            # Get-BASEDmarcRecords
             $true | Should -Be $true
         }
     }

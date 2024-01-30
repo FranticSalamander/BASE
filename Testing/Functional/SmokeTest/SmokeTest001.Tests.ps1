@@ -1,8 +1,8 @@
 <#
     .SYNOPSIS
-    Test script to verify Invoke-SCuBA file outputs.
+    Test script to verify Invoke-BASE file outputs.
     .DESCRIPTION
-    Test script to execute Invoke-SCuBA against a given tenant using a service
+    Test script to execute Invoke-BASE against a given tenant using a service
     principal. Verifies that all expected products (i.e., files) are generated.
     .PARAMETER Thumbprint
     Thumbprint of the certificate associated with the Service Principal.
@@ -44,18 +44,18 @@ param (
     $M365Environment = 'gcc'
 )
 
-$ScubaModulePath = Join-Path -Path $PSScriptRoot -ChildPath "../../../PowerShell/ScubaGear/ScubaGear.psd1"
-Import-Module $ScubaModulePath
+$BASEModulePath = Join-Path -Path $PSScriptRoot -ChildPath "../../../PowerShell/BASE/BASE.psd1"
+Import-Module $BASEModulePath
 
 Describe "Smoke Test: Generate Output" {
-    Context "Invoke Scuba for $Organization" {
+    Context "Invoke BASE for $Organization" {
         BeforeAll {
             if ($PSCmdlet.ParameterSetName -eq 'Manual'){
-                { Invoke-SCuBA -ProductNames "*" -M365Environment $M365Environment -Quiet} |
+                { Invoke-BASE -ProductNames "*" -M365Environment $M365Environment -Quiet} |
                 Should -Not -Throw
             }
             else {
-                { Invoke-SCuBA -CertificateThumbprint $Thumbprint -AppID $AppId -Organization $Organization -ProductNames "*" -M365Environment $M365Environment -Quiet} |
+                { Invoke-BASE -CertificateThumbprint $Thumbprint -AppID $AppId -Organization $Organization -ProductNames "*" -M365Environment $M365Environment -Quiet} |
                 Should -Not -Throw
             }
             $ReportFolders = Get-ChildItem . -directory -Filter "M365BaselineConformance*" | Sort-Object -Property LastWriteTime -Descending

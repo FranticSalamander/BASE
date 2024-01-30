@@ -56,7 +56,7 @@ function New-Report {
         $SecureBaselines
     )
 
-    $ScubaGitHubUrl = "https://github.com/FranticSalamander/BASE"
+    $BASEGitHubUrl = "https://github.com/FranticSalamander/BASE"
 
     $ProductSecureBaseline = $SecureBaselines.$BaselineName
 
@@ -146,7 +146,7 @@ function New-Report {
                         "-"
                     }
                     elseif ($Control.MalformedDescription){
-                        "Report issue on <a href=`"$ScubaGitHubUrl/issues`" target=`"_blank`">GitHub</a>"
+                        "Report issue on <a href=`"$BASEGitHubUrl/issues`" target=`"_blank`">GitHub</a>"
                     }
                     else {
                         $Test.ReportDetails
@@ -160,7 +160,7 @@ function New-Report {
                     "Requirement"=$Control.Value
                     "Result"= "Error - Test results missing"
                     "Criticality"= "-"
-                    "Details"= "Report issue on <a href=`"$ScubaGitHubUrl/issues`" target=`"_blank`">GitHub</a>"
+                    "Details"= "Report issue on <a href=`"$BASEGitHubUrl/issues`" target=`"_blank`">GitHub</a>"
                 }
                 Write-Warning -Message "WARNING: No test results found for Control Id $($Control.Id)"
             }
@@ -169,7 +169,7 @@ function New-Report {
         $Number = $BaselineName.ToUpper() + '-' + $BaselineGroup.GroupNumber
         $Name = $BaselineGroup.GroupName
         $GroupAnchor = New-MarkdownAnchor -GroupNumber $BaselineGroup.GroupNumber -GroupName $BaselineGroup.GroupName
-        $MarkdownLink = "<a class='control_group' href=`"$($ScubaGitHubUrl)/blob/main/baselines/$($BaselineName.ToLower()).md#$GroupAnchor`" target=`"_blank`">$Name</a>"
+        $MarkdownLink = "<a class='control_group' href=`"$($BASEGitHubUrl)/blob/main/baselines/$($BaselineName.ToLower()).md#$GroupAnchor`" target=`"_blank`">$Name</a>"
         $Fragments += $Fragment | ConvertTo-Html -PreContent "<h2>$Number $MarkdownLink</h2>" -Fragment
     }
 

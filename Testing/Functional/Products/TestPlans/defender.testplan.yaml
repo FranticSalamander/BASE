@@ -1,7 +1,7 @@
 ProductName: defender
 TestPlan:
   - PolicyId: MS.DEFENDER.1.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.1.2v1 Non-compliant - std&strict SentTo Non-null, SentToMemberOf Non-null, RecipientDomainIs Non-null
         Preconditions:
@@ -53,7 +53,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.DEFENDER.1.4v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.1.4v1 Non-compliant Strict Preset Security Policy Disabled
         Preconditions:
@@ -112,7 +112,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.DEFENDER.2.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.2.1v1 Non-compliant - Sensitive user not listed
         ConfigFileName: MismatchedUser.yaml
@@ -150,7 +150,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.DEFENDER.2.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.2.2v1 Non-compliant - Agency domain not listed
         ConfigFileName: AgencyDomainList.yaml
@@ -181,7 +181,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.DEFENDER.2.3v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.2.3v1 Non-compliant - Agency domain not listed
         ConfigFileName: PartnerDomainList.yaml
@@ -1248,7 +1248,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.DEFENDER.4.5v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.4.5v1 Not Checked
         Preconditions: []
@@ -1257,7 +1257,7 @@ TestPlan:
         ExpectedResult: false
 
   - PolicyId: MS.DEFENDER.4.6v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.4.6v1 Not Checked
         Preconditions: []
@@ -1446,7 +1446,7 @@ TestPlan:
         ExpectedResult: false
 
   - PolicyId: MS.DEFENDER.5.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.5.2v1 Not Checked
         Preconditions: []
@@ -1455,7 +1455,7 @@ TestPlan:
         ExpectedResult: false
 
   - PolicyId: MS.DEFENDER.6.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.6.1v1 Compliant case
         Preconditions:
@@ -1473,7 +1473,7 @@ TestPlan:
         ExpectedResult: false
 
   - PolicyId: MS.DEFENDER.6.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.6.2v1 Not Checked
         Preconditions: []
@@ -1482,7 +1482,7 @@ TestPlan:
         ExpectedResult: false
 
   - PolicyId: MS.DEFENDER.6.3v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.DEFENDER.6.3v1 Not Checked
         Preconditions: []

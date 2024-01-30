@@ -85,7 +85,7 @@ test_NoExclusionsExemptUsers_Correct_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -139,7 +139,7 @@ test_NoExclusionsExemptGroups_Correct_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -238,7 +238,7 @@ test_UserExclusionConditions_Correct_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -336,7 +336,7 @@ test_UserExclusionsSingleExempt_Incorrect_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -390,7 +390,7 @@ test_MultiUserExclusionsConditions_Correct_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -489,7 +489,7 @@ test_GroupExclusionsConditions_Correct_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -587,7 +587,7 @@ test_GroupExclusionsSingleExempt_Incorrect_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -641,7 +641,7 @@ test_MultiGroupExclusionsConditions_Correct_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -696,7 +696,7 @@ test_UserGroupExclusionConditions_Correct_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -794,7 +794,7 @@ test_UserGroupExclusionUserExemptOnly_Incorrect_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -848,7 +848,7 @@ test_UserGroupExclusionGroupExemptOnly_Incorrect_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -902,7 +902,7 @@ test_UserGroupExclusionTooFewUserExempts_Incorrect_V1 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.1v1" : {
                     "CapExclusions" : {
@@ -1413,7 +1413,7 @@ test_NoExclusionsExemptUsers_Correct_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -1467,7 +1467,7 @@ test_NoExclusionsExemptGroups_Correct_V2 if {
             "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
         }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -1566,7 +1566,7 @@ test_UserExclusionConditions_Correct_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -1664,7 +1664,7 @@ test_UserExclusionsSingleExempt_Incorrect_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -1718,7 +1718,7 @@ test_MultiUserExclusionsConditions_Correct_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -1817,7 +1817,7 @@ test_GroupExclusionsConditions_Correct_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -1915,7 +1915,7 @@ test_GroupExclusionsSingleExempt_Incorrect_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -1969,7 +1969,7 @@ test_MultiGroupExclusionsConditions_Correct_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -2024,7 +2024,7 @@ test_UserGroupExclusionConditions_Correct_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -2122,7 +2122,7 @@ test_UserGroupExclusionUserExemptOnly_Incorrect_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -2176,7 +2176,7 @@ test_UserGroupExclusionGroupExemptOnly_Incorrect_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {
@@ -2230,7 +2230,7 @@ test_UserGroupExclusionTooFewUserExempts_Incorrect_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.2.3v1" : {
                     "CapExclusions" : {

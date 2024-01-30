@@ -2,7 +2,7 @@
  # Due to how the Error handling was implemented, mocked API calls have to be mocked inside a
  # mocked CommandTracker class
 #>
-$ProviderPath = "../../../../../PowerShell/ScubaGear/Modules/Providers"
+$ProviderPath = "../../../../../PowerShell/BASE/Modules/Providers"
 Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ExportTeamsProvider.psm1") -Function Export-TeamsProvider -Force
 Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ProviderHelpers/CommandTracker.psm1") -Force
 
@@ -81,7 +81,7 @@ InModuleScope -ModuleName ExportTeamsProvider {
             Mock -ModuleName ExportTeamsProvider Get-CommandTracker {
                 return [MockCommandTracker]::New()
             }
-            function Test-SCuBAValidProviderJson {
+            function Test-BASEValidProviderJson {
                 param (
                     [string]
                     $Json
@@ -100,7 +100,7 @@ InModuleScope -ModuleName ExportTeamsProvider {
         }
         It "returns valid JSON" {
                 $Json = Export-TeamsProvider -M365Environment 'commercial'
-                $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+                $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
                 $ValidJson | Should -Be $true
             }
     }

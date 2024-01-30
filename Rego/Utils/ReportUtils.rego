@@ -7,7 +7,7 @@ default BaselineVersion := "main"
 BaselineVersion := input.module_version
 
 # baselineVersion := "3.0.0." # Baseline version is pinned to a module version
-ScubaBaseUrl := sprintf("https://github.com/cisagov/ScubaGear/blob/v%v/baselines/", [BaselineVersion])
+BASEBaseUrl := sprintf("https://github.com/cisagov/BASE/blob/v%v/baselines/", [BaselineVersion])
 
 ################
 # Helper functions for this file
@@ -20,7 +20,7 @@ PolicyProduct(PolicyId) := product if {
     product := lower(substring(PolicyId, 3, dotIndexes[1]-dotIndexes[0]-1))
 }
 
-PolicyLink(PolicyId) := sprintf("<a href=\"%v%v.md%v\" target=\"_blank\">Secure Configuration Baseline policy</a>", [ScubaBaseUrl, PolicyProduct(PolicyId), PolicyAnchor(PolicyId)])
+PolicyLink(PolicyId) := sprintf("<a href=\"%v%v.md%v\" target=\"_blank\">Secure Configuration Baseline policy</a>", [BASEBaseUrl, PolicyProduct(PolicyId), PolicyAnchor(PolicyId)])
 
 
 ################
@@ -35,7 +35,7 @@ NotCheckedDetails(PolicyId) := details if {
 
 DefenderMirrorDetails(PolicyId) := details if {
     link := PolicyLink(PolicyId)
-    details := sprintf("A custom product can be used to fulfill this policy requirement. Use a 3rd party assessment tool or manually review to ensure compliance. See %v for instructions on manual check. If you are using Defender for Office 365 to implement this policy, ensure that you are running ScubaGear with defender included in the ProductNames parameter for an automated check. Then, review the corresponding Defender for Office 365 policy that fulfills the requirements of this EXO policy.", [link])
+    details := sprintf("A custom product can be used to fulfill this policy requirement. Use a 3rd party assessment tool or manually review to ensure compliance. See %v for instructions on manual check. If you are using Defender for Office 365 to implement this policy, ensure that you are running BASE with defender included in the ProductNames parameter for an automated check. Then, review the corresponding Defender for Office 365 policy that fulfills the requirements of this EXO policy.", [link])
 }
 
 #

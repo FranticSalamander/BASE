@@ -14,7 +14,7 @@ $M365Environment = "gcc" # Mandatory parameter if running Power Platform. Valid 
 $OutPath = "../Reports" # Report output directory path. Leave as-is if you want the Reports folder to be created in the same directory where the script is executed.
 $OPAPath = "../" # Path to the OPA Executable. Leave this as-is for most cases.
 
-$SCuBAParams = @{
+$BASEParams = @{
     'Login' = $Login;
     'ProductNames' = $ProductNames;
     'M365Environment' = $M365Environment;
@@ -22,14 +22,14 @@ $SCuBAParams = @{
     'OutPath' = $OutPath;
 }
 
-$ManifestPath = Join-Path -Path "../PowerShell" -ChildPath "ScubaGear"
+$ManifestPath = Join-Path -Path "../PowerShell" -ChildPath "BASE"
 #######
-Remove-Module "ScubaGear" -ErrorAction "SilentlyContinue"
+Remove-Module "BASE" -ErrorAction "SilentlyContinue"
 Import-Module -Name $ManifestPath -ErrorAction "Stop"
 if ($Version) {
-    Invoke-SCuBA @SCuBAParams -Version
+    Invoke-BASE @BASEParams -Version
 }
 else {
-    Invoke-SCuBA @SCuBAParams
+    Invoke-BASE @BASEParams
 }
 #######

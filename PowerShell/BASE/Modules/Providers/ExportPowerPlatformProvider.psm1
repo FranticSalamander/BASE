@@ -2,7 +2,7 @@ function Export-PowerPlatformProvider {
     <#
     .Description
     Gets the Power Platform settings that are relevant
-    to the SCuBA Power Platform baselines using the Power Platform Administartion
+    to the BASE Power Platform baselines using the Power Platform Administartion
     PowerShell Module
     .Functionality
     Internal
@@ -116,7 +116,7 @@ function Export-PowerPlatformProvider {
         $FullEnvErrorMessage = @"
 $($_)
         ---------------------------------------
-        Rerun ScubaGear with the correct M365Environment parameter value
+        Rerun BASE with the correct M365Environment parameter value
         by looking at your tenant's OpenId-Configuration displayed above and
         contrast it with the mapped values in the table below
         M365Enviroment => OpenId-Configuration
@@ -126,7 +126,7 @@ $($_)
         gcchigh : tenant_region_scope:USGov, tenant_region_sub_scope: DODCON
         dod: tenant_region_scope:USGov, tenant_region_sub_scope: DOD
         ---------------------------------------
-        Example Rerun for gcc tenants: Invoke-Scuba -M365Environment gcc
+        Example Rerun for gcc tenants: Invoke-BASE -M365Environment gcc
 "@
         throw $FullEnvErrorMessage
     }
@@ -160,7 +160,7 @@ $($_)
         }
     }
     catch {
-        Write-Warning "Error running Get-DlpPolicy: $($_). <= If a HTTP 403 ERROR is thrown then this is because you do not have the proper permissions. Necessary roles for running ScubaGear with Power Platform: Power Platform Administrator with a Power Apps License or Global Admininstrator"
+        Write-Warning "Error running Get-DlpPolicy: $($_). <= If a HTTP 403 ERROR is thrown then this is because you do not have the proper permissions. Necessary roles for running BASE with Power Platform: Power Platform Administrator with a Power Apps License or Global Admininstrator"
     }
 
     # MS.POWERPLATFORM.3.1v1
@@ -181,7 +181,7 @@ $($_)
         }
     }
     catch {
-        Write-Warning "Error running Get-PowerAppTenantIsolationPolicy: $($_). <= If a HTTP 403 ERROR is thrown then this is because you do not have the proper permissions. Necessary roles for running ScubaGear with Power Platform: Power Platform Administrator with a Power Apps License or Global Admininstrator"
+        Write-Warning "Error running Get-PowerAppTenantIsolationPolicy: $($_). <= If a HTTP 403 ERROR is thrown then this is because you do not have the proper permissions. Necessary roles for running BASE with Power Platform: Power Platform Administrator with a Power Apps License or Global Admininstrator"
     }
 
     # MS.POWERPLATFORM.3.2v1 currently has no corresponding PowerShell Cmdlet

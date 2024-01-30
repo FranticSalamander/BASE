@@ -1,4 +1,4 @@
-Import-Module (Join-Path -Path $PSScriptRoot -ChildPath '../../../../PowerShell/ScubaGear/Modules/RunRego')
+Import-Module (Join-Path -Path $PSScriptRoot -ChildPath '../../../../PowerShell/BASE/Modules/RunRego')
 
 InModuleScope 'RunRego' {
     Describe -Tag 'RunRego' -Name 'Invoke-Rego' {

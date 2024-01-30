@@ -1,10 +1,10 @@
-using module 'ScubaConfig\ScubaConfig.psm1'
+using module 'BASEConfig\BASEConfig.psm1'
 
 
-function Invoke-SCuBA {
+function Invoke-BASE {
     <#
     .SYNOPSIS
-    Execute the SCuBAGear tool security baselines for specified M365 products.
+    Execute the BASE tool security baselines for specified M365 products.
     .Description
     This is the main function that runs the Providers, Rego, and Report creation all in one PowerShell script call.
     .Parameter ProductNames
@@ -41,7 +41,7 @@ function Invoke-SCuBA {
     this variable to be `$false` to bypass the reauthenticating in the same session. Default is $true.
     Note: defender will ask for authentication even if this variable is set to `$false`
     .Parameter Version
-    Will output the current ScubaGear version to the terminal without running this cmdlet.
+    Will output the current BASE version to the terminal without running this cmdlet.
     .Parameter AppID
     The application ID of the service principal that's used during certificate based
     authentication. A valid value is the GUID of the application ID (service principal).
@@ -68,7 +68,7 @@ function Invoke-SCuBA {
     The name of the main html file page created in the folder created in OutPath.
     Defaults to "BaselineReports".
     .Parameter DisconnectOnExit
-    Set switch to disconnect all active connections on exit from ScubaGear (default: $false)
+    Set switch to disconnect all active connections on exit from BASE (default: $false)
     .Parameter ConfigFilePath
     Local file path to a JSON or YAML formatted configuration file.
     Configuration file parameters can be used in place of command-line
@@ -80,30 +80,30 @@ function Invoke-SCuBA {
     .Parameter Quiet
     Do not launch external browser for report.
     .Example
-    Invoke-SCuBA
+    Invoke-BASE
     Run an assessment against by default a commercial M365 Tenant against the
     Azure Active Directory, Exchange Online, Microsoft Defender, One Drive, SharePoint Online, and Microsoft Teams
     security baselines. The output will stored in the current directory in a folder called M365BaselineConformaance_*.
     .Example
-    Invoke-SCuBA -Version
-    This example returns the version of SCuBAGear.
+    Invoke-BASE -Version
+    This example returns the version of BASE.
     .Example
-    Invoke-SCuBA -ConfigFilePath MyConfig.json
-    This example uses the specified configuration file when executing SCuBAGear.
+    Invoke-BASE -ConfigFilePath MyConfig.json
+    This example uses the specified configuration file when executing BASE.
     .Example
-    Invoke-SCuBA -ProductNames aad, defender -OPAPath . -OutPath .
+    Invoke-BASE -ProductNames aad, defender -OPAPath . -OutPath .
     The example will run the tool against the Azure Active Directory, and Defender security
     baselines.
     .Example
-    Invoke-SCuBA -ProductNames * -M365Environment dod -OPAPath . -OutPath .
+    Invoke-BASE -ProductNames * -M365Environment dod -OPAPath . -OutPath .
     This example will run the tool against all available security baselines with the
     'dod' teams endpoint.
     .Example
-    Invoke-SCuBA -ProductNames aad,exo -M365Environment gcc -OPAPath . -OutPath . -DisconnectOnExit
+    Invoke-BASE -ProductNames aad,exo -M365Environment gcc -OPAPath . -OutPath . -DisconnectOnExit
     Run the tool against Azure Active Directory and Exchange Online security
     baselines, disconnecting connections for those products when complete.
     .Example
-    Invoke-SCuBA -ProductNames * -CertificateThumbprint <insert-thumbprint> -AppID <insert-appid> -Organization "tenant.onmicrosoft.com"
+    Invoke-BASE -ProductNames * -CertificateThumbprint <insert-thumbprint> -AppID <insert-appid> -Organization "tenant.onmicrosoft.com"
     This example will run the tool against all available security baselines while authenticating using a Service Principal with the CertificateThumprint bundle of parameters.
     .Functionality
     Public
@@ -187,10 +187,10 @@ function Invoke-SCuBA {
         [ValidateNotNullOrEmpty()]
         [ValidateScript({
             if (-Not ($_ | Test-Path)){
-                throw "SCuBA configuration file or folder does not exist. $_"
+                throw "BASE configuration file or folder does not exist. $_"
             }
             if (-Not ($_ | Test-Path -PathType Leaf)){
-                throw "SCuBA configuration Path argument must be a file."
+                throw "BASE configuration Path argument must be a file."
             }
             return $true
         })]
@@ -208,12 +208,12 @@ function Invoke-SCuBA {
         $Quiet
     )
     process {
-        # Retrive ScubaGear Module versions
+        # Retrive BASE Module versions
         $ParentPath = Split-Path $PSScriptRoot -Parent -ErrorAction 'Stop'
-        $ScubaManifest = Import-PowerShellDataFile (Join-Path -Path $ParentPath -ChildPath 'ScubaGear.psd1' -Resolve) -ErrorAction 'Stop'
-        $ModuleVersion = $ScubaManifest.ModuleVersion
+        $BASEManifest = Import-PowerShellDataFile (Join-Path -Path $ParentPath -ChildPath 'BASE.psd1' -Resolve) -ErrorAction 'Stop'
+        $ModuleVersion = $BASEManifest.ModuleVersion
         if ($Version) {
-            Write-Output("SCuBA Gear v$ModuleVersion")
+            Write-Output("BASE Gear v$ModuleVersion")
             return
         }
 
@@ -237,7 +237,7 @@ function Invoke-SCuBA {
                 'OutReportName' = $OutReportName
             }
 
-            $ScubaConfig = New-Object -Type PSObject -Property $ProvidedParameters
+            $BASEConfig = New-Object -Type PSObject -Property $ProvidedParameters
         }
 
         Remove-Resources # Unload helper modules if they are still in the PowerShell session
@@ -245,17 +245,17 @@ function Invoke-SCuBA {
 
         # Loads and executes parameters from a Configuration file
         if ($PSCmdlet.ParameterSetName -eq 'Configuration'){
-            if (-Not ([ScubaConfig]::GetInstance().LoadConfig($ConfigFilePath))){
+            if (-Not ([BASEConfig]::GetInstance().LoadConfig($ConfigFilePath))){
                 Write-Error -Message "The config file failed to load: $ConfigFilePath"
             }
             else {
-                $ScubaConfig = [ScubaConfig]::GetInstance().Configuration
+                $BASEConfig = [BASEConfig]::GetInstance().Configuration
             }
 
-            if ($ScubaConfig.AppID){
-                $PSBoundParameters.Add("AppID", $ScubaConfig.AppID)
-                $PSBoundParameters.Add("CertificateThumbprint", $ScubaConfig.CertificateThumbprint)
-                $PSBoundParameters.Add("Organization", $ScubaConfig.Organization)
+            if ($BASEConfig.AppID){
+                $PSBoundParameters.Add("AppID", $BASEConfig.AppID)
+                $PSBoundParameters.Add("CertificateThumbprint", $BASEConfig.CertificateThumbprint)
+                $PSBoundParameters.Add("Organization", $BASEConfig.Organization)
             }
         }
 
@@ -265,59 +265,59 @@ function Invoke-SCuBA {
         # Creates the output folder
         $Date = Get-Date -ErrorAction 'Stop'
         $FormattedTimeStamp = $Date.ToString("yyyy_MM_dd_HH_mm_ss")
-        $OutFolderPath = $ScubaConfig.OutPath
-        $FolderName = "$($ScubaConfig.OutFolderName)_$($FormattedTimeStamp)"
+        $OutFolderPath = $BASEConfig.OutPath
+        $FolderName = "$($BASEConfig.OutFolderName)_$($FormattedTimeStamp)"
         New-Item -Path $OutFolderPath -Name $($FolderName) -ItemType Directory -ErrorAction 'Stop' | Out-Null
         $OutFolderPath = Join-Path -Path $OutFolderPath -ChildPath $FolderName -ErrorAction 'Stop'
 
         # Product Authentication
         $ConnectionParams = @{
-            'LogIn' = $ScubaConfig.LogIn;
-            'ProductNames' = $ScubaConfig.ProductNames;
-            'M365Environment' = $ScubaConfig.M365Environment;
+            'LogIn' = $BASEConfig.LogIn;
+            'ProductNames' = $BASEConfig.ProductNames;
+            'M365Environment' = $BASEConfig.M365Environment;
             'BoundParameters' = $PSBoundParameters;
         }
         $ProdAuthFailed = Invoke-Connection @ConnectionParams
         if ($ProdAuthFailed.Count -gt 0) {
-            $ScubaConfig.ProductNames = Compare-ProductList -ProductNames $ScubaConfig.ProductNames `
+            $BASEConfig.ProductNames = Compare-ProductList -ProductNames $BASEConfig.ProductNames `
             -ProductsFailed $ProdAuthFailed `
             -ExceptionMessage 'All indicated Products were unable to authenticate'
         }
 
         # Tenant Metadata for the Report
-        $TenantDetails = Get-TenantDetail -ProductNames $ScubaConfig.ProductNames -M365Environment $ScubaConfig.M365Environment
+        $TenantDetails = Get-TenantDetail -ProductNames $BASEConfig.ProductNames -M365Environment $BASEConfig.M365Environment
 
         try {
             # Provider Execution
             $ProviderParams = @{
-                'ProductNames' = $ScubaConfig.ProductNames;
-                'M365Environment' = $ScubaConfig.M365Environment;
+                'ProductNames' = $BASEConfig.ProductNames;
+                'M365Environment' = $BASEConfig.M365Environment;
                 'TenantDetails' = $TenantDetails;
                 'ModuleVersion' = $ModuleVersion;
                 'OutFolderPath' = $OutFolderPath;
-                'OutProviderFileName' = $ScubaConfig.OutProviderFileName;
+                'OutProviderFileName' = $BASEConfig.OutProviderFileName;
                 'BoundParameters' = $PSBoundParameters;
             }
 
             $ProdProviderFailed = Invoke-ProviderList @ProviderParams
             if ($ProdProviderFailed.Count -gt 0) {
-                $ScubaConfig.ProductNames = Compare-ProductList -ProductNames $ScubaConfig.ProductNames `
+                $BASEConfig.ProductNames = Compare-ProductList -ProductNames $BASEConfig.ProductNames `
                  -ProductsFailed $ProdProviderFailed `
                  -ExceptionMessage 'All indicated Product Providers failed to execute'
             }
 
             # OPA Rego invocation
             $RegoParams = @{
-                'ProductNames' = $ScubaConfig.ProductNames;
-                'OPAPath' = $ScubaConfig.OPAPath;
+                'ProductNames' = $BASEConfig.ProductNames;
+                'OPAPath' = $BASEConfig.OPAPath;
                 'ParentPath' = $ParentPath;
                 'OutFolderPath' = $OutFolderPath;
-                'OutProviderFileName' = $ScubaConfig.OutProviderFileName;
-                'OutRegoFileName' = $ScubaConfig.OutRegoFileName;
+                'OutProviderFileName' = $BASEConfig.OutProviderFileName;
+                'OutRegoFileName' = $BASEConfig.OutRegoFileName;
             }
             $ProdRegoFailed = Invoke-RunRego @RegoParams
             if ($ProdRegoFailed.Count -gt 0) {
-                $ScubaConfig.ProductNames = Compare-ProductList -ProductNames $ScubaConfig.ProductNames `
+                $BASEConfig.ProductNames = Compare-ProductList -ProductNames $BASEConfig.ProductNames `
                 -ProductsFailed  $ProdRegoFailed `
                 -ExceptionMessage 'All indicated Product Rego invocations failed'
             }
@@ -326,28 +326,28 @@ function Invoke-SCuBA {
             # Converted back from JSON String for PS Object use
             $TenantDetails = $TenantDetails | ConvertFrom-Json
             $ReportParams = @{
-                'ProductNames' = $ScubaConfig.ProductNames
+                'ProductNames' = $BASEConfig.ProductNames
                 'TenantDetails' = $TenantDetails
                 'ModuleVersion' = $ModuleVersion
                 'OutFolderPath' = $OutFolderPath
-                'OutProviderFileName' = $ScubaConfig.OutProviderFileName
-                'OutRegoFileName' = $ScubaConfig.OutRegoFileName
-                'OutReportName' = $ScubaConfig.OutReportName
+                'OutProviderFileName' = $BASEConfig.OutProviderFileName
+                'OutRegoFileName' = $BASEConfig.OutRegoFileName
+                'OutReportName' = $BASEConfig.OutReportName
                 'DarkMode' = $DarkMode
                 'Quiet' = $Quiet
             }
             Invoke-ReportCreation @ReportParams
         }
         finally {
-            if ($ScubaConfig.DisconnectOnExit) {
+            if ($BASEConfig.DisconnectOnExit) {
                 if ($VerbosePreference -eq "Continue") {
-                    Disconnect-SCuBATenant -ProductNames $ScubaConfig.ProductNames -ErrorAction SilentlyContinue -Verbose
+                    Disconnect-BASETenant -ProductNames $BASEConfig.ProductNames -ErrorAction SilentlyContinue -Verbose
                 }
                 else {
-                    Disconnect-SCuBATenant -ProductNames $ScubaConfig.ProductNames -ErrorAction SilentlyContinue
+                    Disconnect-BASETenant -ProductNames $BASEConfig.ProductNames -ErrorAction SilentlyContinue
                 }
             }
-            [ScubaConfig]::ResetInstance()
+            [BASEConfig]::ResetInstance()
         }
     }
 }
@@ -521,7 +521,7 @@ function Invoke-ProviderList {
                 $TimeZone = ($GetTimeZone).StandardName
             }
 
-        $ConfigDetails = @(ConvertTo-Json -Depth 100 $([ScubaConfig]::GetInstance().Configuration))
+        $ConfigDetails = @(ConvertTo-Json -Depth 100 $([BASEConfig]::GetInstance().Configuration))
         if(! $ConfigDetails) {
             $ConfigDetails = "{}"
         }
@@ -532,7 +532,7 @@ function Invoke-ProviderList {
                 
                 "date": "$($CurrentDate) $($TimeZone)",
                 "tenant_details": $($TenantDetails),
-                "scuba_config": $($ConfigDetails),
+                "BASE_config": $($ConfigDetails),
                 "blueprint_version": "1",
                 "module_version": "$ModuleVersion",
 
@@ -547,7 +547,7 @@ function Invoke-ProviderList {
         }
         catch {
             $InvokeProviderListErrorMessage = "Fatal Error involving the Provider functions. `
-            Ending ScubaGear execution. See the exception message for more details: $($_)"
+            Ending BASE execution. See the exception message for more details: $($_)"
             throw $InvokeProviderListErrorMessage
         }
     }
@@ -656,7 +656,7 @@ function Invoke-RunRego {
         }
         catch {
             $InvokeRegoErrorMessage = "Fatal Error involving the OPA output function. `
-            Ending ScubaGear execution. See the exception message for more details: $($_)"
+            Ending BASE execution. See the exception message for more details: $($_)"
             throw $InvokeRegoErrorMessage
         }
     }
@@ -874,7 +874,7 @@ function Invoke-ReportCreation {
         }
         catch {
             $InvokeReportErrorMessage = "Fatal Error involving the Report Creation. `
-            Ending ScubaGear execution. See the exception message for more details: $($_)"
+            Ending BASE execution. See the exception message for more details: $($_)"
             throw $InvokeReportErrorMessage
         }
     }
@@ -1019,7 +1019,7 @@ function Compare-ProductList {
 
     $Difference = Compare-Object $ProductNames -DifferenceObject $ProductsFailed -PassThru
     if (-not $Difference) {
-        throw "$($ExceptionMessage); aborting ScubaGear execution"
+        throw "$($ExceptionMessage); aborting BASE execution"
     }
     else {
         $Difference
@@ -1056,7 +1056,7 @@ function Get-ServicePrincipalParams {
         $ServicePrincipalParams += @{CertThumbprintParams = $CertThumbprintParams}
     }
     else {
-        throw "Missing parameters required for authentication with Service Principal Auth; Run Get-Help Invoke-Scuba for details on correct arguments"
+        throw "Missing parameters required for authentication with Service Principal Auth; Run Get-Help Invoke-BASE for details on correct arguments"
     }
     $ServicePrincipalParams
 }
@@ -1090,15 +1090,15 @@ function Import-Resources {
         $ConnectionPath = Join-Path -Path $PSScriptRoot -ChildPath "Connection" -ErrorAction 'Stop'
         $RegoPath = Join-Path -Path $PSScriptRoot -ChildPath "RunRego" -ErrorAction 'Stop'
         $ReporterPath = Join-Path -Path $PSScriptRoot -ChildPath "CreateReport" -ErrorAction 'Stop'
-        $ScubaConfigPath = Join-Path -Path $PSScriptRoot -ChildPath "ScubaConfig" -ErrorAction 'Stop'
+        $BASEConfigPath = Join-Path -Path $PSScriptRoot -ChildPath "BASEConfig" -ErrorAction 'Stop'
         Import-Module $ConnectionPath
         Import-Module $RegoPath
         Import-Module $ReporterPath
-        Import-Module $ScubaConfigPath
+        Import-Module $BASEConfigPath
     }
     catch {
         $ImportResourcesErrorMessage = "Fatal Error involving importing PowerShell modules. `
-            Ending ScubaGear execution. See the exception message for more details: $($_)"
+            Ending BASE execution. See the exception message for more details: $($_)"
             throw $ImportResourcesErrorMessage
     }
 }
@@ -1118,7 +1118,7 @@ function Remove-Resources {
         Remove-Module $Provider -ErrorAction "SilentlyContinue"
     }
 
-    Remove-Module "ScubaConfig" -ErrorAction "SilentlyContinue"
+    Remove-Module "BASEConfig" -ErrorAction "SilentlyContinue"
     Remove-Module "RunRego" -ErrorAction "SilentlyContinue"
     Remove-Module "CreateReport" -ErrorAction "SilentlyContinue"
     Remove-Module "Connection" -ErrorAction "SilentlyContinue"
@@ -1127,7 +1127,7 @@ function Remove-Resources {
 function Invoke-RunCached {
     <#
     .SYNOPSIS
-    Specially execute the SCuBAGear tool security baselines for specified M365 products.
+    Specially execute the BASE tool security baselines for specified M365 products.
     Can be executed on static provider JSON.
     .Description
     This is the function for running the tool provider JSON that has already been extracted.
@@ -1136,7 +1136,7 @@ function Invoke-RunCached {
     The rego will be run on a static provider JSON in the specified OutPath.
     <#
     .Parameter ExportProvider
-    This parameter will when set to $true export the provider and act like Invoke-Scuba.
+    This parameter will when set to $true export the provider and act like Invoke-BASE.
     When set to $false will instead omit authentication plus pulling the provider and will
     instead look in OutPath and run just the Rego verification and Report creation.
     .Parameter ProductNames
@@ -1172,7 +1172,7 @@ function Invoke-RunCached {
     If you want to run another verification in the same PowerShell session simply set
     this variable to be `$false` to bypass the reauthenticating in the same session. Default is $true.
     .Parameter Version
-    Will output the current ScubaGear version to the terminal without running this cmdlet.
+    Will output the current BASE version to the terminal without running this cmdlet.
     .Parameter AppID
     The application ID of the service principal that's used during certificate based
     authentication. A valid value is the GUID of the application ID (service principal).
@@ -1206,7 +1206,7 @@ function Invoke-RunCached {
     security baselines. The output will stored in the current directory in a folder called M365BaselineConformaance_*.
     .Example
     Invoke-RunCached -Version
-    This example returns the version of SCuBAGear.
+    This example returns the version of BASE.
     .Example
     Invoke-RunCached -ProductNames aad, defender -OPAPath . -OutPath .
     The example will run the tool against the Azure Active Directory, and Defender security
@@ -1216,7 +1216,7 @@ function Invoke-RunCached {
     This example will run the tool against all available security baselines with the
     'dod' teams endpoint.
     .Example
-    Invoke-SCuBA -ProductNames * -CertificateThumbprint <insert-thumbprint> -AppID <insert-appid> -Organization "tenant.onmicrosoft.com"
+    Invoke-BASE -ProductNames * -CertificateThumbprint <insert-thumbprint> -AppID <insert-appid> -Organization "tenant.onmicrosoft.com"
     This example will run the tool against all available security baselines while authenticating using a Service Principal with the CertificateThumprint bundle of parameters.
     .Functionality
     Public
@@ -1304,11 +1304,11 @@ function Invoke-RunCached {
         )
         process {
             $ParentPath = Split-Path $PSScriptRoot -Parent
-            $ScubaManifest = Import-PowerShellDataFile (Join-Path -Path $ParentPath -ChildPath 'ScubaGear.psd1' -Resolve)
-            $ModuleVersion = $ScubaManifest.ModuleVersion
+            $BASEManifest = Import-PowerShellDataFile (Join-Path -Path $ParentPath -ChildPath 'BASE.psd1' -Resolve)
+            $ModuleVersion = $BASEManifest.ModuleVersion
 
             if ($Version) {
-                Write-Output("SCuBA Gear v$ModuleVersion")
+                Write-Output("BASE Gear v$ModuleVersion")
                 return
             }
 
@@ -1392,6 +1392,6 @@ function Invoke-RunCached {
     }
 
 Export-ModuleMember -Function @(
-    'Invoke-SCuBA',
+    'Invoke-BASE',
     'Invoke-RunCached'
 )

@@ -296,7 +296,7 @@ test_NoExclusionsExemptUsers_Correct if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -340,7 +340,7 @@ test_UserExclusionsConditions_Correct if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -384,7 +384,7 @@ test_MultiUserExclusionsConditions_Correct if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -461,7 +461,7 @@ test_UserExclusionsSingleExempt_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -504,7 +504,7 @@ test_UserExclusionsNoExempt_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -547,7 +547,7 @@ test_UserExclusionsIncludeApplications_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -590,7 +590,7 @@ test_UserExclusionsIncludeUsers_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -633,7 +633,7 @@ test_UserExclusionsExcludeGroups_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -676,7 +676,7 @@ test_UserExclusionsClientAppTypes_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -719,7 +719,7 @@ test_UserExclusionsBuiltInControls_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -762,7 +762,7 @@ test_UserExclusionsState_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -807,7 +807,7 @@ test_NoExclusionsExemptGroups_Correct if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -851,7 +851,7 @@ test_GroupExclusionNoExempt_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -894,7 +894,7 @@ test_GroupExclusionsNoExempt_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -937,7 +937,7 @@ test_GroupExclusionsSingleExempt_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -981,7 +981,7 @@ test_GroupExclusionConditions_Correct if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -1025,7 +1025,7 @@ test_MultiGroupExclusionsConditions_Correct if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -1070,7 +1070,7 @@ test_UserGroupExclusionConditions_Correct if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -1148,7 +1148,7 @@ test_UserGroupExclusionUserExemptOnly_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -1192,7 +1192,7 @@ test_UserGroupExclusionGroupExemptOnly_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {
@@ -1236,7 +1236,7 @@ test_UserGroupExclusionTooFewUserExempts_Incorrect if {
                 "DisplayName" : "Test block Legacy Authentication"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                  "MS.AAD.1.1v1" : {
                     "CapExclusions" : {

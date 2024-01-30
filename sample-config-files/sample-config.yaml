@@ -1,4 +1,4 @@
-Description: YAML Configuration file for unit test in SCuBA
+Description: YAML Configuration file for unit test in BASE
 ProductNames:
 - teams
 - exo

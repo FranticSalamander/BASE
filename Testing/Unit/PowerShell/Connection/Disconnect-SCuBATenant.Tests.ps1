@@ -1,7 +1,7 @@
-Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "../../../../PowerShell/ScubaGear/Modules/Connection/Connection.psm1") -Function 'Disconnect-SCuBATenant' -Force
+Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "../../../../PowerShell/BASE/Modules/Connection/Connection.psm1") -Function 'Disconnect-BASETenant' -Force
 
 InModuleScope Connection {
-    Describe -Tag 'Connection' -Name 'Disconnect-SCuBATenant' {
+    Describe -Tag 'Connection' -Name 'Disconnect-BASETenant' {
         BeforeAll {
             Mock Disconnect-MgGraph -MockWith {}
             Mock Disconnect-ExchangeOnline -MockWith {}
@@ -12,27 +12,27 @@ InModuleScope Connection {
             Mock -CommandName Write-Progress {}
         }
         It 'Disconnects from Microsoft Graph' {
-            Disconnect-SCuBATenant -ProductNames 'aad'
+            Disconnect-BASETenant -ProductNames 'aad'
             Should -Invoke -CommandName Disconnect-MgGraph -Times 1 -Exactly
         }
         It 'Disconnects from Exchange Online' {
-            Disconnect-SCuBATenant -ProductNames 'exo'
+            Disconnect-BASETenant -ProductNames 'exo'
             Should -Invoke -CommandName Disconnect-ExchangeOnline -Times 1 -Exactly
         }
         It 'Disconnects from Defender (Exchange Online and Security & Compliance)' {
-            {Disconnect-SCuBATenant -ProductNames 'defender'} | Should -Not -Throw
+            {Disconnect-BASETenant -ProductNames 'defender'} | Should -Not -Throw
         }
         It 'Disconnects from Power Platform' {
-            {Disconnect-SCuBATenant -ProductNames 'powerplatform'} | Should -Not -Throw
+            {Disconnect-BASETenant -ProductNames 'powerplatform'} | Should -Not -Throw
         }
         It 'Disconnects from SharePoint Online' {
-            {Disconnect-SCuBATenant -ProductNames 'sharepoint'} | Should -Not -Throw
+            {Disconnect-BASETenant -ProductNames 'sharepoint'} | Should -Not -Throw
         }
         It 'Disconnects from Microsoft Teams' {
-            {Disconnect-SCuBATenant -ProductNames 'sharepoint'} | Should -Not -Throw
+            {Disconnect-BASETenant -ProductNames 'sharepoint'} | Should -Not -Throw
         }
         It 'Disconnects from all products' {
-            {Disconnect-SCuBATenant} | Should -Not -Throw
+            {Disconnect-BASETenant} | Should -Not -Throw
         }
     }
 }

@@ -1,5 +1,5 @@
 {
-    "Description": "JSON Configuration file for unit test in SCuBA",
+    "Description": "JSON Configuration file for unit test in BASE",
     "ProductNames": [
       "aad"
     ],

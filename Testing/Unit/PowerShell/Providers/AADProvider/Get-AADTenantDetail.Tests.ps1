@@ -1,4 +1,4 @@
-$ProviderPath = '../../../../../PowerShell/ScubaGear/Modules/Providers'
+$ProviderPath = '../../../../../PowerShell/BASE/Modules/Providers'
 Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ExportAADProvider.psm1") -Function 'Get-AADTenantDetail' -Force
 
 InModuleScope ExportAADProvider {
@@ -11,7 +11,7 @@ InModuleScope ExportAADProvider {
                 Id = "TenantId";
             }
         }
-        function Test-SCuBAValidJson {
+        function Test-BASEValidJson {
             param (
                 [string]
                 $Json
@@ -29,7 +29,7 @@ InModuleScope ExportAADProvider {
     Describe -Tag 'AADProvider' -Name "Get-AADTenantDetail" {
         It "Returns valid JSON" {
             $Json = Get-AADTenantDetail
-            $ValidJson = Test-SCuBAValidJson -Json $Json | Select-Object -Last 1
+            $ValidJson = Test-BASEValidJson -Json $Json | Select-Object -Last 1
             $ValidJson | Should -Be $true
         }
     }

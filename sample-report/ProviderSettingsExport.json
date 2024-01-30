@@ -799,7 +799,7 @@
         "DomainName":  "tqhjy.onmicrosoft.com"
     }
 ],
-                "scuba_config": {},
+                "BASE_config": {},
 
                     "conditional_access_policies": [
     {
@@ -17590,10 +17590,10 @@
     "exo_successful_commands": [
     "Get-RemoteDomain",
     "Get-AcceptedDomain",
-    "Get-ScubaSpfRecords",
+    "Get-BASESpfRecords",
     "Get-DkimSigningConfig",
-    "Get-ScubaDkimRecords",
-    "Get-ScubaDmarcRecords",
+    "Get-BASEDkimRecords",
+    "Get-BASEDmarcRecords",
     "Get-TransportConfig",
     "Get-SharingPolicy",
     "Get-TransportRule",

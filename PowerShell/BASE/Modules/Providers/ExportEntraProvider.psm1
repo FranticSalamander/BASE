@@ -2,7 +2,7 @@ function Export-EntraProvider {
     <#
     .Description
     Gets the Entra Id (Entra) settings that are relevant
-    to the SCuBA Entra baselines using a subset of the modules under the
+    to the BASE Entra baselines using a subset of the modules under the
     overall Microsoft Graph PowerShell Module
     .Functionality
     Internal

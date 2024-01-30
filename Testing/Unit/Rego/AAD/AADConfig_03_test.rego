@@ -458,7 +458,7 @@ test_NoExclusionsExemptUsers_Correct if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -501,7 +501,7 @@ test_NoExclusionsExemptGroups_Correct if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -578,7 +578,7 @@ test_UserExclusionConditions_Correct if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -654,7 +654,7 @@ test_UserExclusionsSingleExempt_Incorrect if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -697,7 +697,7 @@ test_MultiUserExclusionsConditions_Correct if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -774,7 +774,7 @@ test_GroupExclusionsConditions_Correct if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -850,7 +850,7 @@ test_GroupExclusionsSingleExempt_Incorrect if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -893,7 +893,7 @@ test_MultiGroupExclusionsConditions_Correct if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -937,7 +937,7 @@ test_UserGroupExclusionConditions_Correct if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -1013,7 +1013,7 @@ test_UserGroupExclusionUserExemptOnly_Incorrect if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -1056,7 +1056,7 @@ test_UserGroupExclusionGroupExemptOnly_Incorrect if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -1099,7 +1099,7 @@ test_UserGroupExclusionTooFewUserExempts_Incorrect if {
                 "DisplayName" : "Test name"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.3.2v1" : {
                     "CapExclusions" : {
@@ -2188,7 +2188,7 @@ test_ExcludeUserCorrect_V1 if {
     PolicyId := "MS.AAD.3.8v1"
 
     Output := tests with input as {
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 PolicyId : {
                     "CapExclusions" : {
@@ -2231,7 +2231,7 @@ test_ExcludeGroupCorrect_V1 if {
     PolicyId := "MS.AAD.3.8v1"
 
     Output := tests with input as {
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 PolicyId : {
                     "CapExclusions" : {
@@ -2274,7 +2274,7 @@ test_ExcludeUserIncorrect_V1 if {
     PolicyId := "MS.AAD.3.8v1"
 
     Output := tests with input as {
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 PolicyId : {
                     "CapExclusions" : {
@@ -2317,7 +2317,7 @@ test_ExcludeGroupIncorrect_V1 if {
     PolicyId := "MS.AAD.3.8v1"
 
     Output := tests with input as {
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 PolicyId : {
                     "CapExclusions" : {

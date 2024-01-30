@@ -1,12 +1,12 @@
-# Content style guide for SCuBA <!-- omit in toc -->
+# Content style guide for BASE <!-- omit in toc -->
 
-Welcome to the content style guide for ScubaGear
+Welcome to the content style guide for BASE
 
 These guidelines are specific to style rules for PowerShell and OPA Rego code. For general style questions or guidance on topics not covered here, ask or go with best guess and bring up at a later meeting.
 
 Use menu icon on the top left corner of this document to get to a specific section of this guide quickly.
 
-## The SCuBA approach to style
+## The BASE approach to style
 
 - Our style guide aims for simplicity. Guidelines should be easy to apply to a range of scenarios.
 - Decisions aren’t about what’s right or wrong according to the rules, but about what’s best practice and improves readability. We're flexible and open to change while maintaining consistency.

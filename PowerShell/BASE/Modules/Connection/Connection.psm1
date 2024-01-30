@@ -238,23 +238,23 @@ function Connect-Tenant {
    $ProdAuthFailed
 }
 
-function Disconnect-SCuBATenant {
+function Disconnect-BASETenant {
    <#
    .SYNOPSIS
-       Disconnect all active M365 connection sessions made by ScubaGear
+       Disconnect all active M365 connection sessions made by BASE
    .DESCRIPTION
        Forces disconnect of all outstanding open sessions associated with
        M365 product APIs within the current PowerShell session.
-       Best used after an ScubaGear run to ensure a new tenant connection is
-       used for future ScubaGear runs.
+       Best used after an BASE run to ensure a new tenant connection is
+       used for future BASE runs.
    .Parameter ProductNames
-   A list of one or more M365 shortened product names this function will disconnect from. By default this function will disconnect from all possible products ScubaGear can run against.
+   A list of one or more M365 shortened product names this function will disconnect from. By default this function will disconnect from all possible products BASE can run against.
    .EXAMPLE
-   Disconnect-SCuBATenant
+   Disconnect-BASETenant
    .EXAMPLE
-   Disconnect-SCuBATenant -ProductNames teams
+   Disconnect-BASETenant -ProductNames teams
    .EXAMPLE
-   Disconnect-SCuBATenant -ProductNames aad, exo
+   Disconnect-BASETenant -ProductNames aad, exo
    .Functionality
    Public
    #>
@@ -312,5 +312,5 @@ function Disconnect-SCuBATenant {
 
 Export-ModuleMember -Function @(
    'Connect-Tenant',
-   'Disconnect-SCuBATenant'
+   'Disconnect-BASETenant'
 )

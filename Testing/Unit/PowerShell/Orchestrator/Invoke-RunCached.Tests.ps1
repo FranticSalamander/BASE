@@ -1,4 +1,4 @@
-$OrchestratorPath = '../../../../PowerShell/ScubaGear/Modules/Orchestrator.psm1'
+$OrchestratorPath = '../../../../PowerShell/BASE/Modules/Orchestrator.psm1'
 Import-Module (Join-Path -Path $PSScriptRoot -ChildPath $OrchestratorPath) -Function 'Invoke-RunCached' -Force
 
 InModuleScope Orchestrator {
@@ -18,8 +18,8 @@ InModuleScope Orchestrator {
             Mock -ModuleName Orchestrator Invoke-RunRego {}
             function Invoke-ReportCreation {}
             Mock -ModuleName Orchestrator Invoke-ReportCreation {}
-            function Disconnect-SCuBATenant {}
-            Mock -ModuleName Orchestrator Disconnect-SCuBATenant
+            function Disconnect-BASETenant {}
+            Mock -ModuleName Orchestrator Disconnect-BASETenant
 
             Mock -CommandName New-Item {}
             Mock -CommandName Get-Content {}

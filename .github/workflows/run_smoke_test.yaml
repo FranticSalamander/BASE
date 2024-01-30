@@ -19,7 +19,7 @@ jobs:
   Run-Smoke-Test:
     runs-on: windows-latest
     env:
-      SCUBA_GITHUB_AUTOMATION_CREDS: ${{ secrets.SCUBA_GITHUB_AUTOMATION_CREDS }}
+      BASE_GITHUB_AUTOMATION_CREDS: ${{ secrets.BASE_GITHUB_AUTOMATION_CREDS }}
     defaults:
           run:
             shell: powershell 
@@ -29,17 +29,17 @@ jobs:
     - name: Checkout repo code
       uses: actions/checkout@v3
 
-    - name: Execute ScubaGear and Check Outputs
+    - name: Execute BASE and Check Outputs
       run: |
         . Testing/Functional/SmokeTest/SmokeTestUtils.ps1
 
         ##### Install all the dependencies
         Install-SmokeTestExternalDependencies
 
-        # ScubaGear currently requires the provisioning of a certificate for using a ServicePrinicpal, rather than
+        # BASE currently requires the provisioning of a certificate for using a ServicePrinicpal, rather than
         # using Workload Identity Federation, which would ordinarily be preferred for calling Microsoft APIs from
         # GitHub actions.
-        $AUTOMATION_CREDS = $env:SCUBA_GITHUB_AUTOMATION_CREDS | ConvertFrom-Json
+        $AUTOMATION_CREDS = $env:BASE_GITHUB_AUTOMATION_CREDS | ConvertFrom-Json
         $TestTenants = $AUTOMATION_CREDS.TestTenants
         Write-Output "Identified $($TestTenants.Count) Test Tenants"
 

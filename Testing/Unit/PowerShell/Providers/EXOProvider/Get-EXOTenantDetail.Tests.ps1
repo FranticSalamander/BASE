@@ -1,4 +1,4 @@
-$ProviderPath = "../../../../../PowerShell/ScubaGear/Modules/Providers"
+$ProviderPath = "../../../../../PowerShell/BASE/Modules/Providers"
 Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ExportEXOProvider.psm1") -Function Get-EXOTenantDetail -Force
 
 InModuleScope ExportEXOProvider {
@@ -18,7 +18,7 @@ InModuleScope ExportEXOProvider {
                     Content = '{token_endpoint: "this/is/the/token/url"}'
                 }
             }
-            function Test-SCuBAValidJson {
+            function Test-BASEValidJson {
                 param (
                     [string]
                     $Json
@@ -35,22 +35,22 @@ InModuleScope ExportEXOProvider {
         }
         It "When called with -M365Environment 'commercial', returns valid JSON" {
             $Json = Get-EXOTenantDetail -M365Environment "commercial"
-            $ValidJson = Test-SCuBAValidJson -Json $Json | Select-Object -Last 1
+            $ValidJson = Test-BASEValidJson -Json $Json | Select-Object -Last 1
             $ValidJson | Should -Be $true
         }
         It "When called with -M365Environment 'gcc', returns valid JSON" {
             $Json = Get-EXOTenantDetail -M365Environment "gcc"
-            $ValidJson = Test-SCuBAValidJson -Json $Json | Select-Object -Last 1
+            $ValidJson = Test-BASEValidJson -Json $Json | Select-Object -Last 1
             $ValidJson | Should -Be $true
         }
         It "When called with -M365Environment 'gcchigh', returns valid JSON" {
             $Json = Get-EXOTenantDetail -M365Environment "gcchigh"
-            $ValidJson = Test-SCuBAValidJson -Json $Json | Select-Object -Last 1
+            $ValidJson = Test-BASEValidJson -Json $Json | Select-Object -Last 1
             $ValidJson | Should -Be $true
         }
         It "When called with -M365Environment 'dod', returns valid JSON" {
             $Json = Get-EXOTenantDetail -M365Environment "dod"
-            $ValidJson = Test-SCuBAValidJson -Json $Json | Select-Object -Last 1
+            $ValidJson = Test-BASEValidJson -Json $Json | Select-Object -Last 1
             $ValidJson | Should -Be $true
         }
     }

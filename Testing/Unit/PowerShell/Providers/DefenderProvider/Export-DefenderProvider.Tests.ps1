@@ -3,7 +3,7 @@
  # mocked CommandTracker class
 #>
 
-$ProviderPath = "../../../../../PowerShell/ScubaGear/Modules/Providers"
+$ProviderPath = "../../../../../PowerShell/BASE/Modules/Providers"
 Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ExportDefenderProvider.psm1") -Function Export-DefenderProvider -Force
 Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ProviderHelpers/CommandTracker.psm1") -Force
 
@@ -124,7 +124,7 @@ InModuleScope -ModuleName ExportDefenderProvider {
                 } }
             function Get-SafeAttachmentPolicy {}
             Mock -ModuleName ExportDefenderProvider Get-SafeAttachmentPolicy -MockWith {}
-            function Test-SCuBAValidProviderJson {
+            function Test-BASEValidProviderJson {
                 param (
                     [string]
                     $Json
@@ -143,22 +143,22 @@ InModuleScope -ModuleName ExportDefenderProvider {
         }
         It "When called with -M365Environment 'commercial', returns valid JSON" {
             $Json = Export-DefenderProvider -M365Environment 'commercial'
-            $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+            $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
             $ValidJson | Should -Be $true
         }
         It "When called with -M365Environment 'gcc', returns valid JSON" {
             $Json = Export-DefenderProvider -M365Environment 'gcc'
-            $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+            $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
             $ValidJson | Should -Be $true
         }
         It "When called with -M365Environment 'gcchigh', returns valid JSON" {
             $Json = Export-DefenderProvider -M365Environment 'gcchigh'
-            $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+            $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
             $ValidJson | Should -Be $true
         }
         It "When called with -M365Environment 'dod', returns valid JSON" {
             $Json = Export-DefenderProvider -M365Environment 'dod'
-            $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+            $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
             $ValidJson | Should -Be $true
         }
 

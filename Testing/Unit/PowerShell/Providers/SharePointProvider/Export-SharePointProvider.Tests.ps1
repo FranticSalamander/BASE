@@ -3,7 +3,7 @@
  # mocked CommandTracker class
 #>
 
-$ProviderPath = "../../../../../PowerShell/ScubaGear/Modules/Providers"
+$ProviderPath = "../../../../../PowerShell/BASE/Modules/Providers"
 Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ExportSharePointProvider.psm1") -Force
 Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ProviderHelpers/CommandTracker.psm1") -Force
 
@@ -83,7 +83,7 @@ InModuleScope -ModuleName ExportSharePointProvider {
                 return [MockCommandTracker]::New()
             }
 
-            function Test-SCuBAValidProviderJson {
+            function Test-BASEValidProviderJson {
                 param (
                     [string]
                     $Json
@@ -103,44 +103,44 @@ InModuleScope -ModuleName ExportSharePointProvider {
         Context 'When Running Interactively' {
             It "with -M365Environment 'commercial', returns valid JSON" {
                 $Json = Export-SharePointProvider -M365Environment 'commercial'
-                $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+                $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
                 $ValidJson | Should -Be $true
             }
             It "with -M365Environment 'gcc', returns valid JSON" {
                 $Json = Export-SharePointProvider -M365Environment 'gcc'
-                $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+                $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
                 $ValidJson | Should -Be $true
             }
             It "with -M365Environment 'gcchigh', returns valid JSON" {
                 $Json = Export-SharePointProvider -M365Environment 'gcchigh'
-                $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+                $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
                 $ValidJson | Should -Be $true
             }
             It "with -M365Environment 'dod', returns valid JSON" {
                 $Json = Export-SharePointProvider -M365Environment 'dod'
-                $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+                $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
                 $ValidJson | Should -Be $true
             }
         }
         Context 'When running with Service Principals' {
             It "with -M365Environment commercial, returns valid JSON" {
                 $Json = Export-SharePointProvider -M365Environment commercial -PnPFlag
-                $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+                $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
                 $ValidJson | Should -Be $true
             }
             It "with -M365Environment gcc, returns valid JSON" {
                 $Json = Export-SharePointProvider -M365Environment 'gcc' -PnPFlag
-                $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+                $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
                 $ValidJson | Should -Be $true
             }
             It "with -M365Environment gcchigh, returns valid JSON" {
                 $Json = Export-SharePointProvider -M365Environment 'gcchigh' -PnPFlag
-                $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+                $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
                 $ValidJson | Should -Be $true
             }
             It "with -M365Environment dod, returns valid JSON" {
                 $Json = Export-SharePointProvider -M365Environment 'dod' -PnPFlag
-                $ValidJson = Test-SCuBAValidProviderJson -Json $Json | Select-Object -Last 1
+                $ValidJson = Test-BASEValidProviderJson -Json $Json | Select-Object -Last 1
                 $ValidJson | Should -Be $true
             }
         }

@@ -1,20 +1,20 @@
-class ScubaConfig {
-    hidden static [ScubaConfig]$_Instance = [ScubaConfig]::new()
+class BASEConfig {
+    hidden static [BASEConfig]$_Instance = [BASEConfig]::new()
     hidden static [Boolean]$_IsLoaded = $false
 
     [Boolean]LoadConfig([System.IO.FileInfo]$Path){
         if (-Not (Test-Path -PathType Leaf $Path)){
             throw [System.IO.FileNotFoundException]"Failed to load: $Path"
         }
-        elseif ($false -eq [ScubaConfig]::_IsLoaded){
+        elseif ($false -eq [BASEConfig]::_IsLoaded){
             $Content = Get-Content -Raw -Path $Path
             $this.Configuration = $Content | ConvertFrom-Yaml
 
             $this.SetParameterDefaults()
-            [ScubaConfig]::_IsLoaded = $true
+            [BASEConfig]::_IsLoaded = $true
         }
 
-        return [ScubaConfig]::_IsLoaded
+        return [BASEConfig]::_IsLoaded
     }
 
     hidden [void]ClearConfiguration(){
@@ -72,19 +72,19 @@ class ScubaConfig {
         return
     }
 
-    hidden ScubaConfig(){
+    hidden BASEConfig(){
     }
 
     static [void]ResetInstance(){
-        if ([ScubaConfig]::_IsLoaded){
-            [ScubaConfig]::_Instance.ClearConfiguration()
-            [ScubaConfig]::_IsLoaded = $false
+        if ([BASEConfig]::_IsLoaded){
+            [BASEConfig]::_Instance.ClearConfiguration()
+            [BASEConfig]::_IsLoaded = $false
         }
 
         return
     }
 
-    static [ScubaConfig]GetInstance(){
-        return [ScubaConfig]::_Instance
+    static [BASEConfig]GetInstance(){
+        return [BASEConfig]::_Instance
     }
 }

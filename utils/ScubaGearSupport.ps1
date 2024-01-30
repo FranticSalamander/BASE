@@ -4,14 +4,14 @@
         Gather diagnostic information from previous run(s) into a single
         archive bundle for error reporting and troubleshooting.
     .DESCRIPTION
-        Assists development teams in diagnosing issues with the ScubaGear
+        Assists development teams in diagnosing issues with the BASE
         assessment tool by generating and bundling up information related
         to one or more previous assessment runs.
     .EXAMPLE
-        .\ScubaGearSupport.ps1
+        .\BASESupport.ps1
     .NOTES
         Executing the script with no switches will cause it to create an archive
-        of the latest SCuBAGear run report and result files in the current working
+        of the latest BASE run report and result files in the current working
         directory.
 #>
 [CmdletBinding()]
@@ -38,7 +38,7 @@ Write-Debug "Timestamp set as $Timestamp"
 
 ## Create bundle directory timestamped inside current directory
 try {
-    $DiagnosticPath = New-Item -ItemType Directory "ScubaGear_diag_$Timestamp"
+    $DiagnosticPath = New-Item -ItemType Directory "BASE_diag_$Timestamp"
     Write-Debug "Created new directory $($DiagnosticPath.FullName)"
 
     $EnvFile= New-Item -Path $(Join-Path -Path $DiagnosticPath -ChildPath EnvInfo_$Timestamp) -ItemType File
@@ -84,7 +84,7 @@ Get-Module -ListAvailable >> $EnvFile
 Get-Module >> $EnvFile
 
 if($IncludeReports) {
-    # Generate list of ScubaGear Report folder(s) to include in diagnostics
+    # Generate list of BASE Report folder(s) to include in diagnostics
     $ReportList = @()
     if($AllReports) {
         $ReportList = Get-ChildItem -Directory -Path $ReportPath -Filter "M365BaselineConformance*"
@@ -98,7 +98,7 @@ if($IncludeReports) {
     Write-Debug "Reports to Include: $ReportList"
 
     if($ReportList.Count -eq 0) {
-        Write-Warning "No ScubaGear report folders found at $ReportPath."
+        Write-Warning "No BASE report folders found at $ReportPath."
     }
 
     # Copy each report folder to diagnostics folder

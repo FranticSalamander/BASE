@@ -41,8 +41,8 @@ function Invoke-Rego {
 
         # Load Utils
         $RegoFileObject = Get-Item $RegoFile
-        $ScubaUtils = Join-Path -Path $RegoFileObject.DirectoryName -ChildPath "Utils"
-        $CmdArgs = @("eval", "data.$PackageName.tests", "-i", $InputFile, "-d", $RegoFile, "-d", $ScubaUtils, "-f", "values")
+        $BASEUtils = Join-Path -Path $RegoFileObject.DirectoryName -ChildPath "Utils"
+        $CmdArgs = @("eval", "data.$PackageName.tests", "-i", $InputFile, "-d", $RegoFile, "-d", $BASEUtils, "-f", "values")
         $TestResults = $(& $Cmd @CmdArgs) | Out-String -ErrorAction 'Stop' | ConvertFrom-Json -ErrorAction 'Stop'
         $TestResults
     }

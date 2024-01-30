@@ -3,7 +3,7 @@ Description: This test plan is for use with a Service Principal.  It will use Pn
 TestPlan:
 
   - PolicyId: MS.SHAREPOINT.1.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.SHAREPOINT.1.1v1 Non-compliant - ExternalUserAndGuestSharing (3)
         Preconditions:
@@ -35,7 +35,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.SHAREPOINT.1.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.SHAREPOINT.1.2v1 Not Checked (PnP)
         Preconditions: []
@@ -44,7 +44,7 @@ TestPlan:
         ExpectedResult: false
 
   - PolicyId: MS.SHAREPOINT.1.3v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.SHAREPOINT.1.3v1 Non-compliant - SharingCapability Not Disabled SharingDomainRestrictionMode = BlockList
         Preconditions:
@@ -74,7 +74,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.SHAREPOINT.1.4v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.SHAREPOINT.1.4v1 Non-compliant - SharingCapability Not Disabled RequireAcceptingAccountMatchInvitedAccount = false
         Preconditions:
@@ -110,7 +110,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.SHAREPOINT.2.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.SHAREPOINT.2.1v1 Non-compliant - DefaultSharingLinkType = None
         Preconditions:
@@ -144,7 +144,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.SHAREPOINT.2.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.SHAREPOINT.2.2v1 Non-compliant - DefaultSharingLinkType = Edit
         Preconditions:
@@ -162,7 +162,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.SHAREPOINT.3.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.SHAREPOINT.3.1v1 Non-compliant - SharingCapability = ExternalUserAndGuestSharing; RequireAnonymousLinksExpireInDays > 30
         Preconditions:
@@ -215,7 +215,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.SHAREPOINT.3.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.SHAREPOINT.3.2v1 Not Checked
         Preconditions: []
@@ -224,7 +224,7 @@ TestPlan:
         ExpectedResult: false
 
   - PolicyId: MS.SHAREPOINT.3.3v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.SHAREPOINT.3.3v1 Non-compliant - SharingCapability = ExistingExternalUserSharingOnly; EmailAttestationRequired = false; EmailAttestationReAuthDays = 30
         Preconditions:
@@ -316,7 +316,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.SHAREPOINT.4.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.AAD.4.1v1 Not Checked
         Preconditions: []
@@ -325,7 +325,7 @@ TestPlan:
         ExpectedResult: false
 
   - PolicyId: MS.SHAREPOINT.4.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.SHAREPOINT.4.2v1 Non-compliant DenyAddAndCustomizePages disabled
         Preconditions:

@@ -49,8 +49,8 @@ jobs:
         Remove-Item -Recurse -Force certificate
         Remove-Item -Recurse -Force repo -Include .git*
 
-        Move-Item  -Path repo -Destination "ScubaGear-${env:RELEASE_VERSION}" -Force
-        Compress-Archive -Path "ScubaGear-${env:RELEASE_VERSION}" -DestinationPath "ScubaGear-${env:RELEASE_VERSION}.zip"
+        Move-Item  -Path repo -Destination "BASE-${env:RELEASE_VERSION}" -Force
+        Compress-Archive -Path "BASE-${env:RELEASE_VERSION}" -DestinationPath "BASE-${env:RELEASE_VERSION}.zip"
 
         Get-ChildItem -Path . | Write-Output
     - name: release
@@ -61,6 +61,6 @@ jobs:
         prerelease: false
         name: ${{ inputs.releaseName }}
         tag_name: v${{ inputs.version }}
-        files: ScubaGear-${{ inputs.version }}.zip
+        files: BASE-${{ inputs.version }}.zip
         generate_release_notes: true
         fail_on_unmatched_files: true

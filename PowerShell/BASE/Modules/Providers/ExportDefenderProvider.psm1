@@ -2,7 +2,7 @@ function Export-DefenderProvider {
     <#
     .Description
     Gets the Microsoft 365 Defender settings that are relevant
-    to the SCuBA Microsft 365 Defender baselines using the EXO PowerShell Module
+    to the BASE Microsft 365 Defender baselines using the EXO PowerShell Module
     .Functionality
     Internal
     #>

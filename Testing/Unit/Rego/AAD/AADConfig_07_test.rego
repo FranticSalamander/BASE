@@ -240,7 +240,7 @@ test_AdditionalProperties_Correct_V2 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -282,7 +282,7 @@ test_AdditionalProperties_Correct_V3 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -325,7 +325,7 @@ test_AdditionalProperties_LicenseMissing_V1 if {
                 ]
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -526,7 +526,7 @@ test_AdditionalProperties_Incorrect_V5 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -577,7 +577,7 @@ test_AdditionalProperties_Incorrect_V6 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -628,7 +628,7 @@ test_AdditionalProperties_Incorrect_V7 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -683,7 +683,7 @@ test_AdditionalProperties_Incorrect_V8 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -734,7 +734,7 @@ test_AdditionalProperties_Incorrect_V9 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -775,7 +775,7 @@ test_AdditionalProperties_Incorrect_V10 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -826,7 +826,7 @@ test_AdditionalProperties_Incorrect_V11 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -877,7 +877,7 @@ test_AdditionalProperties_Incorrect_V12 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -932,7 +932,7 @@ test_AdditionalProperties_Incorrect_V13 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {
@@ -983,7 +983,7 @@ test_AdditionalProperties_Incorrect_V14 if {
                 "ServicePlanId" : "c7d91867-e1ce-4402-8d4f-22188b44b6c2"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Aad" : {
                 "MS.AAD.7.4v1" : {
                     "RoleExclusions" : {

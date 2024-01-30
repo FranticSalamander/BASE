@@ -4,7 +4,7 @@
         This script installs the required Powershell modules used by the
         assessment tool
     .DESCRIPTION
-        Installs the modules required to support SCuBAGear.  If the Force
+        Installs the modules required to support BASE.  If the Force
         switch is set then any existing module will be re-installed even if
         already at latest version. If the SkipUpdate switch is set then any
         existing module will not be updated to th latest version.
@@ -50,7 +50,7 @@ if (-not $DoNotAutoTrustRepository) {
 # Start a stopwatch to time module installation elapsed time
 $Stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
 
-$RequiredModulesPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell\ScubaGear\RequiredVersions.ps1"
+$RequiredModulesPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell\BASE\RequiredVersions.ps1"
 if (Test-Path -Path $RequiredModulesPath) {
   . $RequiredModulesPath
 }
@@ -130,7 +130,7 @@ else {
 # Stop the clock and report total elapsed time
 $Stopwatch.stop()
 
-Write-Debug "ScubaGear setup time elapsed:  $([math]::Round($stopwatch.Elapsed.TotalSeconds,0)) seconds."
+Write-Debug "BASE setup time elapsed:  $([math]::Round($stopwatch.Elapsed.TotalSeconds,0)) seconds."
 
 $DebugPreference = "SilentlyContinue"
 $InformationPreference = "SilentlyContinue"

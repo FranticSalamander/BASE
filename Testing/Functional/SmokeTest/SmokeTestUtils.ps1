@@ -39,12 +39,12 @@ function New-ServicePrincipalCertificate{
         [SecureString]$CertificatePassword
     )
 
-    Set-Content -Path .\ScubaExecutionCert.txt -Value $EncodedCertificate
-    certutil -decode .\ScubaExecutionCert.txt .\ScubaExecutionCert.pfx
-    $Certificate = Import-PfxCertificate -FilePath .\ScubaExecutionCert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password $CertificatePassword
+    Set-Content -Path .\BASEExecutionCert.txt -Value $EncodedCertificate
+    certutil -decode .\BASEExecutionCert.txt .\BASEExecutionCert.pfx
+    $Certificate = Import-PfxCertificate -FilePath .\BASEExecutionCert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password $CertificatePassword
     $Thumbprint = ([System.Security.Cryptography.X509Certificates.X509Certificate2]$Certificate).Thumbprint
-    Remove-Item -Path .\ScubaExecutionCert.txt
-    Remove-Item -Path .\ScubaExecutionCert.pfx
+    Remove-Item -Path .\BASEExecutionCert.txt
+    Remove-Item -Path .\BASEExecutionCert.pfx
     return $Thumbprint
 }
 
@@ -70,7 +70,7 @@ function Install-SmokeTestExternalDependencies{
     Install dependencies on GitHub runner to support smoke test.
 
     .DESCRIPTION
-    This script installs dependencies needed by the SCuBA smoke test.  For example, Selenium and the Open Policy Agent.
+    This script installs dependencies needed by the BASE smoke test.  For example, Selenium and the Open Policy Agent.
 
     .EXAMPLE
     Install-SmokeTestExternalDependencies

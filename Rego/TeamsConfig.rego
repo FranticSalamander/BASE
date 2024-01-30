@@ -503,7 +503,7 @@ tests[{
     "Criticality" : "Shall/3rd Party",
     "Commandlet" : [],
     "ActualValue" : [],
-    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of ScubaGear. Otherwise, use a 3rd party tool OR manually check",
+    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of BASE. Otherwise, use a 3rd party tool OR manually check",
     "RequirementMet" : false
 }] {
     true
@@ -519,7 +519,7 @@ tests[{
     "Criticality" : "Should/3rd Party",
     "Commandlet" : [],
     "ActualValue" : [],
-    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of ScubaGear. Otherwise, use a 3rd party tool OR manually check",
+    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of BASE. Otherwise, use a 3rd party tool OR manually check",
     "RequirementMet" : false
 }] {
     true
@@ -535,7 +535,7 @@ tests[{
     "Criticality" : "Should/3rd Party",
     "Commandlet" : [],
     "ActualValue" : [],
-    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of ScubaGear. Otherwise, use a 3rd party tool OR manually check",
+    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of BASE. Otherwise, use a 3rd party tool OR manually check",
     "RequirementMet" : false
 }] {
     true
@@ -551,7 +551,7 @@ tests[{
     "Criticality" : "Should/3rd Party",
     "Commandlet" : [],
     "ActualValue" : [],
-    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of ScubaGear. Otherwise, use a 3rd party tool OR manually check",
+    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of BASE. Otherwise, use a 3rd party tool OR manually check",
     "RequirementMet" : false
 }] {
     true
@@ -567,7 +567,7 @@ tests[{
     "Criticality" : "Should/3rd Party",
     "Commandlet" : [],
     "ActualValue" : [],
-    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of ScubaGear. Otherwise, use a 3rd party tool OR manually check",
+    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of BASE. Otherwise, use a 3rd party tool OR manually check",
     "RequirementMet" : false
 }] {
     true
@@ -583,7 +583,7 @@ tests[{
     "Criticality" : "Should/3rd Party",
     "Commandlet" : [],
     "ActualValue" : [],
-    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of ScubaGear. Otherwise, use a 3rd party tool OR manually check",
+    "ReportDetails" : "Custom implementation allowed. If you are using Defender to fulfill this requirement, run the Defender version of BASE. Otherwise, use a 3rd party tool OR manually check",
     "RequirementMet" : false
 }] {
     true

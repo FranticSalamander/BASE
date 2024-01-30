@@ -19,7 +19,7 @@
                        ],
         "Criticality":  "Shall/Not-Implemented",
         "PolicyId":  "MS.AAD.3.5v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/aad.md#msaad35v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/aad.md#msaad35v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -31,7 +31,7 @@
                        ],
         "Criticality":  "Shall/Not-Implemented",
         "PolicyId":  "MS.AAD.4.1v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/aad.md#msaad41v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/aad.md#msaad41v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -43,7 +43,7 @@
                        ],
         "Criticality":  "Shall/Not-Implemented",
         "PolicyId":  "MS.AAD.6.1v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/aad.md#msaad61v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/aad.md#msaad61v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -55,7 +55,7 @@
                        ],
         "Criticality":  "Should/Not-Implemented",
         "PolicyId":  "MS.AAD.2.2v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/aad.md#msaad22v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/aad.md#msaad22v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -67,7 +67,7 @@
                        ],
         "Criticality":  "Should/Not-Implemented",
         "PolicyId":  "MS.AAD.3.3v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/aad.md#msaad33v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/aad.md#msaad33v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -79,7 +79,7 @@
                        ],
         "Criticality":  "Should/Not-Implemented",
         "PolicyId":  "MS.AAD.8.3v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/aad.md#msaad83v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/aad.md#msaad83v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -668,7 +668,7 @@
                        ],
         "Criticality":  "Shall/Not-Implemented",
         "PolicyId":  "MS.DEFENDER.10.2v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/defender.md#msdefender102v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/defender.md#msdefender102v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -680,7 +680,7 @@
                        ],
         "Criticality":  "Shall/Not-Implemented",
         "PolicyId":  "MS.DEFENDER.10.3v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/defender.md#msdefender103v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/defender.md#msdefender103v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -692,7 +692,7 @@
                        ],
         "Criticality":  "Should/Not-Implemented",
         "PolicyId":  "MS.DEFENDER.2.5v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/defender.md#msdefender25v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/defender.md#msdefender25v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -704,7 +704,7 @@
                        ],
         "Criticality":  "Should/Not-Implemented",
         "PolicyId":  "MS.DEFENDER.2.6v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/defender.md#msdefender26v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/defender.md#msdefender26v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -716,7 +716,7 @@
                        ],
         "Criticality":  "Should/Not-Implemented",
         "PolicyId":  "MS.DEFENDER.9.2v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/defender.md#msdefender92v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/defender.md#msdefender92v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -1754,7 +1754,7 @@
                        ],
         "Criticality":  "Shall/Not-Implemented",
         "PolicyId":  "MS.EXO.2.1v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/exo.md#msexo21v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/exo.md#msexo21v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -2164,7 +2164,7 @@
                         ],
         "Commandlet":  [
                            "Get-DkimSigningConfig",
-                           "Get-ScubaDkimRecords",
+                           "Get-BASEDkimRecords",
                            "Get-AcceptedDomain"
                        ],
         "Criticality":  "Should",
@@ -2592,7 +2592,7 @@
                             }
                         ],
         "Commandlet":  [
-                           "Get-ScubaDmarcRecords",
+                           "Get-BASEDmarcRecords",
                            "Get-AcceptedDomain"
                        ],
         "Criticality":  "Shall",
@@ -2696,7 +2696,7 @@
                             }
                         ],
         "Commandlet":  [
-                           "Get-ScubaDmarcRecords",
+                           "Get-BASEDmarcRecords",
                            "Get-AcceptedDomain"
                        ],
         "Criticality":  "Shall",
@@ -2800,7 +2800,7 @@
                             }
                         ],
         "Commandlet":  [
-                           "Get-ScubaDmarcRecords",
+                           "Get-BASEDmarcRecords",
                            "Get-AcceptedDomain"
                        ],
         "Criticality":  "Shall",
@@ -2904,7 +2904,7 @@
                             }
                         ],
         "Commandlet":  [
-                           "Get-ScubaDmarcRecords",
+                           "Get-BASEDmarcRecords",
                            "Get-AcceptedDomain"
                        ],
         "Criticality":  "Should",
@@ -2929,7 +2929,7 @@
 
                         ],
         "Commandlet":  [
-                           "Get-ScubaSpfRecords",
+                           "Get-BASESpfRecords",
                            "Get-AcceptedDomain"
                        ],
         "Criticality":  "Shall",
@@ -2977,7 +2977,7 @@
                        ],
         "Criticality":  "Shall/Not-Implemented",
         "PolicyId":  "MS.POWERPLATFORM.4.1v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/powerplatform.md#mspowerplatform41v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/powerplatform.md#mspowerplatform41v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -2989,7 +2989,7 @@
                        ],
         "Criticality":  "Should/Not-Implemented",
         "PolicyId":  "MS.POWERPLATFORM.3.2v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/powerplatform.md#mspowerplatform32v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/powerplatform.md#mspowerplatform32v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -3001,7 +3001,7 @@
                        ],
         "Criticality":  "Should/Not-Implemented",
         "PolicyId":  "MS.POWERPLATFORM.3.3v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/powerplatform.md#mspowerplatform33v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/powerplatform.md#mspowerplatform33v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -3052,7 +3052,7 @@
                        ],
         "Criticality":  "Shall/Not-Implemented",
         "PolicyId":  "MS.SHAREPOINT.4.1v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/sharepoint.md#mssharepoint41v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/sharepoint.md#mssharepoint41v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -3064,7 +3064,7 @@
                        ],
         "Criticality":  "Should/Not-Implemented",
         "PolicyId":  "MS.SHAREPOINT.1.4v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/sharepoint.md#mssharepoint14v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/sharepoint.md#mssharepoint14v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {
@@ -3264,7 +3264,7 @@
                        ],
         "Criticality":  "Shall/3rd Party",
         "PolicyId":  "MS.TEAMS.8.3v1",
-        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/ScubaGear/blob/0.3.0/baselines/teams.md#msteams83v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
+        "ReportDetails":  "Not currently checked automatically. See \u003ca href=\"https://github.com/cisagov/BASE/blob/0.3.0/baselines/teams.md#msteams83v1\" target=\"_blank\"\u003eSecure Configuration Baseline policy\u003c/a\u003e for instructions on manual check",
         "RequirementMet":  false
     },
     {

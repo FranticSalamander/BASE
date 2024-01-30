@@ -31,7 +31,7 @@ test_TargetedUsers_Correct_V1 if {
                 "TargetedUserProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.1v1" : {
                     "SensitiveUsers" : [
@@ -76,7 +76,7 @@ test_TargetedUsers_Correct_V2 if {
                 "TargetedUserProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.1v1" : {
                     "SensitiveUsers" : [
@@ -120,7 +120,7 @@ test_TargetedUsers_Correct_V3 if {
                 "TargetedUserProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.1v1" : {
                     "SensitiveUsers" : [
@@ -155,7 +155,7 @@ test_TargetedUsers_Incorrect_V1 if {
                 "TargetedUserProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.1v1" : {
                     "SensitiveUsers" : [
@@ -190,7 +190,7 @@ test_TargetedUsers_Incorrect_V2 if {
                 "TargetedUserProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.1v1" : {
                     "SensitiveUsers" : [
@@ -225,7 +225,7 @@ test_TargetedUsers_Incorrect_V3 if {
                 "TargetedUserProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.1v1" : {
                     "SensitiveUsers" : [
@@ -270,7 +270,7 @@ test_TargetedUsers_Incorrect_V4 if {
                 "TargetedUserProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.1v1" : {
                     "SensitiveUsers" : [
@@ -315,7 +315,7 @@ test_TargetedUsers_Incorrect_V5 if {
                 "TargetedUserProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.1v1" : {
                     "SensitiveUsers" : [
@@ -359,7 +359,7 @@ test_TargetedUsers_Incorrect_V6 if {
                 "TargetedUserProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.1v1" : {
                     "SensitiveUsers" : [
@@ -407,7 +407,7 @@ test_AgencyDomains_Correct_V1 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.2v1" : {
                     "AgencyDomains" : [
@@ -452,7 +452,7 @@ test_AgencyDomains_Correct_V2 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.2v1" : {
                     "AgencyDomains" : [
@@ -486,7 +486,7 @@ test_AgencyDomains_Incorrect_V1 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.2v1" : {
                     "AgencyDomains" : [
@@ -521,7 +521,7 @@ test_AgencyDomains_Incorrect_V2 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.2v1" : {
                     "AgencyDomains" : [
@@ -556,7 +556,7 @@ test_AgencyDomains_Incorrect_V3 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.2v1" : {
                     "AgencyDomains" : [
@@ -601,7 +601,7 @@ test_AgencyDomains_Incorrect_V4 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.2v1" : {
                     "AgencyDomains" : [
@@ -646,7 +646,7 @@ test_AgencyDomains_Incorrect_V5 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.2v1" : {
                     "AgencyDomains" : [
@@ -690,7 +690,7 @@ test_AgencyDomains_Incorrect_V6 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.2v1" : {
                     "AgencyDomains" : [
@@ -735,7 +735,7 @@ test_AgencyDomains_Incorrect_V7 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.2v1" : {
                 }
@@ -770,7 +770,7 @@ test_AgencyDomains_Incorrect_V8 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.2v1" : {
                 }
@@ -814,7 +814,7 @@ test_CustomDomains_Correct_V1 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                     "PartnerDomains" : [
@@ -859,7 +859,7 @@ test_CustomDomains_Correct_V2 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                     "PartnerDomains" : [
@@ -903,7 +903,7 @@ test_CustomDomains_Correct_V3 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                     "PartnerDomains" : [
@@ -942,7 +942,7 @@ test_CustomDomains_Correct_V4 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                 }
@@ -973,7 +973,7 @@ test_CustomDomains_Incorrect_V1 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                     "PartnerDomains" : [
@@ -1008,7 +1008,7 @@ test_CustomDomains_Incorrect_V2 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                     "PartnerDomains" : [
@@ -1043,7 +1043,7 @@ test_CustomDomains_Incorrect_V3 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                     "PartnerDomains" : [
@@ -1088,7 +1088,7 @@ test_CustomDomains_Incorrect_V4 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                     "PartnerDomains" : [
@@ -1133,7 +1133,7 @@ test_CustomDomains_Incorrect_V5 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                     "PartnerDomains" : [
@@ -1177,7 +1177,7 @@ test_CustomDomains_Incorrect_V6 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                     "PartnerDomains" : [
@@ -1222,7 +1222,7 @@ test_CustomDomains_Incorrect_V7 if {
                 "TargetedDomainProtectionAction": "Quarantine"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.2.3v1" : {
                 }

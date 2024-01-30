@@ -2,11 +2,11 @@
 <#
     .SYNOPSIS
         This script removes the Powershell modules required by the
-        ScubaGear assessment tool.
+        BASE assessment tool.
     .DESCRIPTION
-        Uninstalls the modules required to support ScubaGear.  This includes
-        module dependencies specific to ScubaGear.  This tool is meant to
-        be used to return a system to a state prior to ScubaGear installation.
+        Uninstalls the modules required to support BASE.  This includes
+        module dependencies specific to BASE.  This tool is meant to
+        be used to return a system to a state prior to BASE installation.
     .EXAMPLE
         .\UninstallModules.ps1
     .NOTES

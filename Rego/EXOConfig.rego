@@ -74,7 +74,7 @@ DomainsWithoutSpf[DNSResponse.domain] {
 tests[{
     "PolicyId" : "MS.EXO.2.2v1",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get-ScubaSpfRecords", "Get-AcceptedDomain"],
+    "Commandlet" : ["Get-BASESpfRecords", "Get-AcceptedDomain"],
     "ActualValue" : Domains,
     "ReportDetails" : ReportDetailsArray(Status, Domains, AllDomains),
     "RequirementMet" : Status
@@ -99,7 +99,7 @@ DomainsWithDkim[DkimConfig.Domain] {
 tests[{
     "PolicyId" : "MS.EXO.3.1v1",
     "Criticality" : "Should",
-    "Commandlet" : ["Get-DkimSigningConfig", "Get-ScubaDkimRecords", "Get-AcceptedDomain"],
+    "Commandlet" : ["Get-DkimSigningConfig", "Get-BASEDkimRecords", "Get-AcceptedDomain"],
     "ActualValue" : [input.dkim_records, input.dkim_config],
     "ReportDetails" : ReportDetailsArray(Status, DomainsWithoutDkim, AllDomains),
     "RequirementMet" : Status
@@ -121,7 +121,7 @@ DomainsWithoutDmarc[DmarcRecord.domain] {
 tests[{
     "PolicyId" : "MS.EXO.4.1v1",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get-ScubaDmarcRecords", "Get-AcceptedDomain"],
+    "Commandlet" : ["Get-BASEDmarcRecords", "Get-AcceptedDomain"],
     "ActualValue" : input.dmarc_records,
     "ReportDetails" : ReportDetailsArray(Status, Domains, AllDomains),
     "RequirementMet" : Status
@@ -143,7 +143,7 @@ DomainsWithoutPreject[DmarcRecord.domain] {
 tests[{
     "PolicyId" : "MS.EXO.4.2v1",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get-ScubaDmarcRecords", "Get-AcceptedDomain"],
+    "Commandlet" : ["Get-BASEDmarcRecords", "Get-AcceptedDomain"],
     "ActualValue" : input.dmarc_records,
     "ReportDetails" : ReportDetailsArray(Status, Domains, AllDomains),
     "RequirementMet" : Status
@@ -173,7 +173,7 @@ DomainsWithoutDHSContact[DmarcRecord.domain] {
 tests[{
     "PolicyId" : "MS.EXO.4.3v1",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get-ScubaDmarcRecords", "Get-AcceptedDomain"],
+    "Commandlet" : ["Get-BASEDmarcRecords", "Get-AcceptedDomain"],
     "ActualValue" : input.dmarc_records,
     "ReportDetails" : ReportDetailsArray(Status, Domains, AllDomains),
     "RequirementMet" : Status
@@ -208,7 +208,7 @@ DomainsWithoutAgencyContact[DmarcRecord.domain] {
 tests[{
     "PolicyId" : "MS.EXO.4.4v1",
     "Criticality" : "Should",
-    "Commandlet" : ["Get-ScubaDmarcRecords", "Get-AcceptedDomain"],
+    "Commandlet" : ["Get-BASEDmarcRecords", "Get-AcceptedDomain"],
     "ActualValue" : input.dmarc_records,
     "ReportDetails" : ReportDetailsArray(Status, Domains, AllDomains),
     "RequirementMet" : Status

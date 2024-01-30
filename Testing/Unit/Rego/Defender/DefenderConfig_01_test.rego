@@ -486,7 +486,7 @@ test_SensitiveEOP_Correct_V1 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -528,7 +528,7 @@ test_SensitiveEOP_Correct_V2 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -568,7 +568,7 @@ test_SensitiveEOP_Correct_V3 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -612,7 +612,7 @@ test_SensitiveEOP_Correct_V4 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -656,7 +656,7 @@ test_SensitiveEOP_Correct_V5 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -700,7 +700,7 @@ test_SensitiveEOP_Correct_V6 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -744,7 +744,7 @@ test_SensitiveEOP_Correct_V7 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -788,7 +788,7 @@ test_SensitiveEOP_Correct_V8 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -832,7 +832,7 @@ test_SensitiveEOP_Correct_V9 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -876,7 +876,7 @@ test_SensitiveEOP_Correct_V10 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -920,7 +920,7 @@ test_SensitiveEOP_Correct_V11 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -964,7 +964,7 @@ test_SensitiveEOP_Correct_V12 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1008,7 +1008,7 @@ test_SensitiveEOP_Correct_V13 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1052,7 +1052,7 @@ test_SensitiveEOP_Correct_V14 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1100,7 +1100,7 @@ test_SensitiveEOP_Correct_V15 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1150,7 +1150,7 @@ test_SensitiveEOP_Correct_V16 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1200,7 +1200,7 @@ test_SensitiveEOP_Correct_V17 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1252,7 +1252,7 @@ test_SensitiveEOP_Correct_V18 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1307,7 +1307,7 @@ test_SensitiveEOP_Correct_V19 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1362,7 +1362,7 @@ test_SensitiveEOP_Correct_V20 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1417,7 +1417,7 @@ test_SensitiveEOP_Correct_V21 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1472,7 +1472,7 @@ test_SensitiveEOP_Correct_V22 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1527,7 +1527,7 @@ test_SensitiveEOP_Correct_V23 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1588,7 +1588,7 @@ test_SensitiveEOP_Correct_V24 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1642,7 +1642,7 @@ test_SensitiveEOP_Incorrect_V1 if {
                 "State":  "Disabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1678,7 +1678,7 @@ test_SensitiveEOP_Incorrect_V1 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1703,7 +1703,7 @@ test_SensitiveEOP_Incorrect_V3 if {
         "protection_policy_rules" : [
             {}
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1743,7 +1743,7 @@ test_SensitiveEOP_Incorrect_V4 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {}
@@ -1782,7 +1782,7 @@ test_SensitiveEOP_Incorrect_V5 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.4v1" : {
                     "SensitiveAccounts" : {
@@ -1840,7 +1840,7 @@ test_SensitiveATP_Correct_V1 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -1882,7 +1882,7 @@ test_SensitiveATP_Correct_V2 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -1922,7 +1922,7 @@ test_SensitiveATP_Correct_V3 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -1966,7 +1966,7 @@ test_SensitiveATP_Correct_V4 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2010,7 +2010,7 @@ test_SensitiveATP_Correct_V5 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2054,7 +2054,7 @@ test_SensitiveATP_Correct_V6 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2098,7 +2098,7 @@ test_SensitiveATP_Correct_V7 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2142,7 +2142,7 @@ test_SensitiveATP_Correct_V8 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2186,7 +2186,7 @@ test_SensitiveATP_Correct_V9 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2230,7 +2230,7 @@ test_SensitiveATP_Correct_V10 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2274,7 +2274,7 @@ test_SensitiveATP_Correct_V11 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2318,7 +2318,7 @@ test_SensitiveATP_Correct_V12 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2362,7 +2362,7 @@ test_SensitiveATP_Correct_V13 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2406,7 +2406,7 @@ test_SensitiveATP_Correct_V14 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2454,7 +2454,7 @@ test_SensitiveATP_Correct_V15 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2504,7 +2504,7 @@ test_SensitiveATP_Correct_V16 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2554,7 +2554,7 @@ test_SensitiveATP_Correct_V17 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2606,7 +2606,7 @@ test_SensitiveATP_Correct_V18 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2661,7 +2661,7 @@ test_SensitiveATP_Correct_V19 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2716,7 +2716,7 @@ test_SensitiveATP_Correct_V20 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2771,7 +2771,7 @@ test_SensitiveATP_Correct_V21 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2826,7 +2826,7 @@ test_SensitiveATP_Correct_V22 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2881,7 +2881,7 @@ test_SensitiveATP_Correct_V23 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2942,7 +2942,7 @@ test_SensitiveATP_Correct_V24 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -2996,7 +2996,7 @@ test_SensitiveATP_Incorrect_V1 if {
                 "State":  "Disabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -3032,7 +3032,7 @@ test_SensitiveATP_Incorrect_V1 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -3057,7 +3057,7 @@ test_SensitiveATP_Incorrect_V3 if {
         "atp_policy_rules" : [
             {}
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {
@@ -3097,7 +3097,7 @@ test_SensitiveATP_Incorrect_V4 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {}
@@ -3136,7 +3136,7 @@ test_SensitiveATP_Incorrect_V5 if {
                 "State":  "Enabled"
             }
         ],
-        "scuba_config" : {
+        "BASE_config" : {
             "Defender" : {
                 "MS.DEFENDER.1.5v1" : {
                     "SensitiveAccounts" : {

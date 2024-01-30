@@ -81,7 +81,7 @@ TestPlan:
         ExpectedResult: true       
 
   - PolicyId: MS.AAD.2.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.AAD.2.2v1 Not Checked
         Preconditions: []
@@ -198,7 +198,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.AAD.3.3v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.AAD.3.3v1 Not Checked
         Preconditions: []
@@ -227,7 +227,7 @@ TestPlan:
         ExpectedResult: true 
   
   - PolicyId: MS.AAD.3.5v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.AAD.3.5v1 Not Checked
         Preconditions: []
@@ -483,7 +483,7 @@ TestPlan:
         ExpectedResult: true
   
   - PolicyId: MS.AAD.4.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.AAD.4.1v1 Not Checked
         Preconditions: []
@@ -589,7 +589,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.AAD.6.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.AAD.6.1v1 Not Checked
         Preconditions: []
@@ -724,7 +724,7 @@ TestPlan:
         ExpectedResult: true
   
   - PolicyId: MS.AAD.7.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.AAD.7.2v1 Not Checked
         Preconditions: []
@@ -841,7 +841,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.AAD.8.3v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.AAD.8.3v1 Not Checked
         Preconditions: []

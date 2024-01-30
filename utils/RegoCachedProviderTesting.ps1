@@ -30,8 +30,8 @@ $RunCachedParams = @{
     'DarkMode' = $DarkMode;
 }
 
-$ManifestPath = Join-Path -Path "../PowerShell" -ChildPath "ScubaGear"
-Remove-Module "ScubaGear" -ErrorAction "SilentlyContinue" # For dev work
+$ManifestPath = Join-Path -Path "../PowerShell" -ChildPath "BASE"
+Remove-Module "BASE" -ErrorAction "SilentlyContinue" # For dev work
 #######
 Import-Module $ManifestPath -ErrorAction Stop
 Invoke-RunCached @RunCachedParams

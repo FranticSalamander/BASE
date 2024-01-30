@@ -1,38 +1,38 @@
-using module '..\..\..\..\PowerShell\ScubaGear\Modules\ScubaConfig\ScubaConfig.psm1'
+using module '..\..\..\..\PowerShell\BASE\Modules\BASEConfig\BASEConfig.psm1'
 
-InModuleScope ScubaConfig {
-    Describe -tag "Utils" -name 'ScubaConfigDelete' {
+InModuleScope BASEConfig {
+    Describe -tag "Utils" -name 'BASEConfigDelete' {
         context 'Delete configuration' {
             BeforeEach{
-                [ScubaConfig]::ResetInstance()
+                [BASEConfig]::ResetInstance()
             }
             It 'Valid config file'{
-                $ScubaConfigTestFile = Join-Path -Path $PSScriptRoot -ChildPath config_test.yaml
-                $Result = [ScubaConfig]::GetInstance().LoadConfig($ScubaConfigTestFile)
+                $BASEConfigTestFile = Join-Path -Path $PSScriptRoot -ChildPath config_test.yaml
+                $Result = [BASEConfig]::GetInstance().LoadConfig($BASEConfigTestFile)
                 $Result | Should -Be $true
             }
             It '6 Product names'{
-                [ScubaConfig]::GetInstance().Configuration.ProductNames | Should -HaveCount 6 -Because "$([ScubaConfig]::GetInstance().Configuration.ParameterNames)"
+                [BASEConfig]::GetInstance().Configuration.ProductNames | Should -HaveCount 6 -Because "$([BASEConfig]::GetInstance().Configuration.ParameterNames)"
             }
             It 'Valid object parameter'{
-                [ScubaConfig]::GetInstance().Configuration.AnObject.name | Should -Be 'MyObjectName'
+                [BASEConfig]::GetInstance().Configuration.AnObject.name | Should -Be 'MyObjectName'
             }
             It 'Valid object parameter'{
-                [ScubaConfig]::GetInstance().Configuration.MissingObject.name | Should -BeNullOrEmpty
+                [BASEConfig]::GetInstance().Configuration.MissingObject.name | Should -BeNullOrEmpty
             }
             It 'A different valid config file'{
-                $ScubaConfigTestFile = Join-Path -Path $PSScriptRoot -ChildPath config_test_missing_defaults.json
-                $Result = [ScubaConfig]::GetInstance().LoadConfig($ScubaConfigTestFile)
+                $BASEConfigTestFile = Join-Path -Path $PSScriptRoot -ChildPath config_test_missing_defaults.json
+                $Result = [BASEConfig]::GetInstance().LoadConfig($BASEConfigTestFile)
                 $Result | Should -Be $true
             }
             It '1 Product names'{
-                [ScubaConfig]::GetInstance().Configuration.ProductNames | Should -HaveCount 1
+                [BASEConfig]::GetInstance().Configuration.ProductNames | Should -HaveCount 1
             }
             It 'Valid object parameter'{
-                [ScubaConfig]::GetInstance().Configuration.AnObject.name | Should -BeNullOrEmpty
+                [BASEConfig]::GetInstance().Configuration.AnObject.name | Should -BeNullOrEmpty
             }
             It 'Valid object parameter'{
-                [ScubaConfig]::GetInstance().Configuration.MissingObject.name | Should -Be 'MyMissingObjectName'
+                [BASEConfig]::GetInstance().Configuration.MissingObject.name | Should -Be 'MyMissingObjectName'
             }
         }
     }

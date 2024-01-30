@@ -1,7 +1,7 @@
 ProductName: teams
 TestPlan:
   - PolicyId: MS.TEAMS.4.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.TEAMS.4.1v1 Compliant - AllowEmailIntoChannel (gcc, dod)
         Preconditions:

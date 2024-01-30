@@ -98,7 +98,7 @@ UserExclusionsFullyExempt(Policy, PolicyID) := true if {
     # Returns true when all user exclusions present in the conditional
     # access policy are exempted in matching config variable for the
     # baseline policy item.  Undefined if no exclusions AND no exemptions.
-    ExemptedUsers := input.scuba_config.Aad[PolicyID].CapExclusions.Users
+    ExemptedUsers := input.BASE_config.Aad[PolicyID].CapExclusions.Users
     ExcludedUsers := { x | x := Policy.Conditions.Users.ExcludeUsers[_] }
     AllowedExcludedUsers := { y | y := ExemptedUsers[_] }
     count(ExcludedUsers - AllowedExcludedUsers) == 0
@@ -107,7 +107,7 @@ UserExclusionsFullyExempt(Policy, PolicyID) := true if {
 UserExclusionsFullyExempt(Policy, PolicyID) := true if {
     # Returns true when user inputs are not defined or user exclusion lists are empty
     count({ x | x := Policy.Conditions.Users.ExcludeUsers[_] }) == 0
-    count({ y | y := input.scuba_config.Aad[PolicyID].CapExclusions.Users }) == 0
+    count({ y | y := input.BASE_config.Aad[PolicyID].CapExclusions.Users }) == 0
 }
 
 default GroupExclusionsFullyExempt(_, _) := false
@@ -115,7 +115,7 @@ GroupExclusionsFullyExempt(Policy, PolicyID) := true if {
     # Returns true when all group exclusions present in the conditional
     # access policy are exempted in matching config variable for the
     # baseline policy item.  Undefined if no exclusions AND no exemptions.
-    ExemptedGroups := input.scuba_config.Aad[PolicyID].CapExclusions.Groups
+    ExemptedGroups := input.BASE_config.Aad[PolicyID].CapExclusions.Groups
     ExcludedGroups := { x | x := Policy.Conditions.Users.ExcludeGroups[_] }
     AllowedExcludedGroups := { y | y:= ExemptedGroups[_] }
     count(ExcludedGroups - AllowedExcludedGroups) == 0
@@ -124,7 +124,7 @@ GroupExclusionsFullyExempt(Policy, PolicyID) := true if {
 GroupExclusionsFullyExempt(Policy, PolicyID) := true if {
     # Returns true when user inputs are not defined or group exclusion lists are empty
     count({ x | x := Policy.Conditions.Users.ExcludeGroups[_] }) == 0
-    count({ y | y := input.scuba_config.Aad[PolicyID].CapExclusions.Groups }) == 0
+    count({ y | y := input.BASE_config.Aad[PolicyID].CapExclusions.Groups }) == 0
 }
 
 ############
@@ -763,8 +763,8 @@ default PrivilegedRoleExclusions(_, _) := false
 PrivilegedRoleExclusions(PrivilegedRole, PolicyID) := true if {
     PrivilegedRoleAssignedPrincipals := { x.PrincipalId | some x in PrivilegedRole.Assignments; x.EndDateTime == null }
 
-    AllowedPrivilegedRoleUsers := { y | some y in input.scuba_config.Aad[PolicyID].RoleExclusions.Users; y != null }
-    AllowedPrivilegedRoleGroups := { y | some y in input.scuba_config.Aad[PolicyID].RoleExclusions.Groups; y != null }
+    AllowedPrivilegedRoleUsers := { y | some y in input.BASE_config.Aad[PolicyID].RoleExclusions.Users; y != null }
+    AllowedPrivilegedRoleGroups := { y | some y in input.BASE_config.Aad[PolicyID].RoleExclusions.Groups; y != null }
     AllowedPrivilegedRole := AllowedPrivilegedRoleUsers | AllowedPrivilegedRoleGroups
 
     count(PrivilegedRoleAssignedPrincipals) > 0
@@ -773,8 +773,8 @@ PrivilegedRoleExclusions(PrivilegedRole, PolicyID) := true if {
 
 PrivilegedRoleExclusions(PrivilegedRole, PolicyID) := true if {
     count({ x.PrincipalId | some x in PrivilegedRole.Assignments; x.EndDateTime == null }) > 0
-    count({ y | some y in input.scuba_config.Aad[PolicyID].RoleExclusions.Users; y != null }) == 0
-    count({ y | some y in input.scuba_config.Aad[PolicyID].RoleExclusions.Groups; y != null }) == 0
+    count({ y | some y in input.BASE_config.Aad[PolicyID].RoleExclusions.Users; y != null }) == 0
+    count({ y | some y in input.BASE_config.Aad[PolicyID].RoleExclusions.Groups; y != null }) == 0
 }
 
 PrivilegedRolesWithoutExpirationPeriod[Role.DisplayName] {

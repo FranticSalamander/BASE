@@ -1,7 +1,7 @@
 ProductName: powerplatform
 TestPlan:
   - PolicyId: MS.POWERPLATFORM.1.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.POWERPLATFORM.1.1v1 Non-Compliant case - Allows production/sandbox environment creation by nonadmin users
         Preconditions:
@@ -21,7 +21,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.POWERPLATFORM.1.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.POWERPLATFORM.1.2v1 Non-Compliant case - Allows trial environment creation by nonadmin users
         Preconditions:
@@ -41,7 +41,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.POWERPLATFORM.2.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.POWERPLATFORM.2.1v1 Non-compliant - no DLP policy in default environment
         Preconditions:
@@ -86,7 +86,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.POWERPLATFORM.3.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.POWERPLATFORM.3.1v1 Non-Compliant case - Power Platform tenant isolation is NOT enabled
         Preconditions:
@@ -100,7 +100,7 @@ TestPlan:
         ExpectedResult: true
 
   - PolicyId: MS.POWERPLATFORM.3.2v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.POWERPLATFORM.3.2v1 Not Checked
         Preconditions: []
@@ -109,7 +109,7 @@ TestPlan:
         ExpectedResult: false
 
   - PolicyId: MS.POWERPLATFORM.4.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.POWERPLATFORM.4.1v1 Not Checked
         Preconditions: []
@@ -118,7 +118,7 @@ TestPlan:
         ExpectedResult: false
 
   - PolicyId: MS.POWERPLATFORM.5.1v1
-    TestDriver: RunScuba
+    TestDriver: RunBASE
     Tests:
       - TestDescription: MS.POWERPLATFORM.5.1v1 Non-compliant - Create Power Pages sites not Restricted To Admins
         Preconditions:

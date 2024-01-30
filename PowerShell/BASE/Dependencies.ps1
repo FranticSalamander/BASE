@@ -4,7 +4,7 @@
         This script verifies the required Powershell modules used by the
         assessment tool are installed.
     .DESCRIPTION
-        Verifies a supported version of the modules required to support SCuBAGear are installed.
+        Verifies a supported version of the modules required to support BASE are installed.
 #>
 
 $RequiredModulesPath = Join-Path -Path $PSScriptRoot -ChildPath "RequiredVersions.ps1"

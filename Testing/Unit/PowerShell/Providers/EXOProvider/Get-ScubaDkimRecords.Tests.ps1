@@ -1,15 +1,15 @@
-$ProviderPath = "../../../../../PowerShell/ScubaGear/Modules/Providers"
-Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ExportEXOProvider.psm1") -Function Get-ScubaDkimRecords -Force
+$ProviderPath = "../../../../../PowerShell/BASE/Modules/Providers"
+Import-Module (Join-Path -Path $PSScriptRoot -ChildPath "$($ProviderPath)/ExportEXOProvider.psm1") -Function Get-BASEDkimRecords -Force
 
 InModuleScope 'ExportEXOProvider' {
-    Describe -Tag 'ExportEXOProvider' -Name "Get-ScubaDkimRecords" {
+    Describe -Tag 'ExportEXOProvider' -Name "Get-BASEDkimRecords" {
         It "TODO handles a domain with DKIM" {
-            # Get-ScubaDkimRecords
+            # Get-BASEDkimRecords
             $true | Should -Be $true
         }
 
         It "TODO handles a domain without DKIM" {
-            # Get-ScubaDkimRecords
+            # Get-BASEDkimRecords
             $true | Should -Be $true
 
         }

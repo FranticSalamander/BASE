@@ -4,15 +4,15 @@
 		{
 			"_comment": "The test tenant needs to provide the following info to support the smoke test.",
 			"TestTenant01": {
-				"_comment1": "DomainName maps to Organization parameter of Invoke-SCuBA",
+				"_comment1": "DomainName maps to Organization parameter of Invoke-BASE",
 				"DomainName": "sample001.onmicrosoft.com",
 				"_comment2": "DisplayName is the Tenant Display Name as expected in the baseline report.",
 				"DisplayName": "Sample 001",
 				"_comment3": "A base 64 encoded PFX certiificate for a service principal.",
 				"CertificateB64": "-----BEGIN CERTIFICATE-----\r\nMIIK...A=\r\n-----END CERTIFICATE-----\r\n\r\n",
-				"_comment4": "AppId maps to AppId parameter of Invoke-SCuBA. The application ID of the application registration",
+				"_comment4": "AppId maps to AppId parameter of Invoke-BASE. The application ID of the application registration",
 				"AppId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
-				"_comment5": "M365Enc maps to -M365Environment parameter of Invoke-SCuBA ",
+				"_comment5": "M365Enc maps to -M365Environment parameter of Invoke-BASE ",
 				"M365Env": "commercial",
 				"_comment6": "The password for the provided certificate, CertificateB64.",
 				"CertificatePassword": "sample01secret"

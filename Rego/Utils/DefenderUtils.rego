@@ -5,7 +5,7 @@ import future.keywords
 # User/Group Exclusion support functions #
 ##########################################
 
-# Gets Sensitive Account Filter specification from SCuBA config input
+# Gets Sensitive Account Filter specification from BASE config input
 SensitiveAccountsConfig(PolicyID) := {
     "IncludedUsers" : IncludedUsers,
     "ExcludedUsers" : ExcludedUsers,
@@ -14,7 +14,7 @@ SensitiveAccountsConfig(PolicyID) := {
     "IncludedDomains" : IncludedDomains,
     "ExcludedDomains" : ExcludedDomains
 } {
-    SensitiveAccounts := input.scuba_config.Defender[PolicyID].SensitiveAccounts
+    SensitiveAccounts := input.BASE_config.Defender[PolicyID].SensitiveAccounts
     IncludedUsers := { trim_space(x) | some x in SensitiveAccounts.IncludedUsers; x != null }
     ExcludedUsers := { trim_space(x) | some x in SensitiveAccounts.ExcludedUsers; x != null }
     IncludedGroups := { trim_space(x) | some x in SensitiveAccounts.IncludedGroups; x != null }
@@ -135,7 +135,7 @@ ImpersonationProtectionSetting(Policies, IdentityString, KeyValue) := Policy[0] 
 } else := set()
 
 ImpersonationProtectionConfig(PolicyID, AccountKey) := IncludedAccounts if {
-    SensitiveAccounts := input.scuba_config.Defender[PolicyID]
+    SensitiveAccounts := input.BASE_config.Defender[PolicyID]
     IncludedAccounts := { lower(trim_space(x)) | some x in SensitiveAccounts[AccountKey]; x != null }
 } else := set()
 
