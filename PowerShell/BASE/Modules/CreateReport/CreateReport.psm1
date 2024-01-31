@@ -112,7 +112,7 @@ function New-Report {
                     $Test.ReportDetails = "This test depends on the following command(s) which did not execute successfully: $($MissingString). See terminal output for more details."
                 }
                 elseif ($Test.RequirementMet) {
-                    $Result = "Pass"
+                    $Result = "Aligned"
                     $ReportSummary.Passes += 1
                 }
                 # elseif ($Test.Criticality -eq "Should") {
@@ -124,7 +124,7 @@ function New-Report {
                 #     $ReportSummary.Manual += 1
                 # }
                 else {
-                    $Result = "Fail"
+                    $Result = "Unaligned"
                     $ReportSummary.Failures += 1
                 }
 

@@ -15,13 +15,13 @@ const colorRows = () => {
             else if (rows[i].children[statusCol].innerHTML.startsWith("Bug")){
                 rows[i].style.background = "var(--test-bug-color)";
             }
-            else if (rows[i].children[statusCol].innerHTML === "Fail") {
+            else if (rows[i].children[statusCol].innerHTML === "Unaligned") {
                 rows[i].style.background = "var(--test-fail)";
             }
             else if (rows[i].children[statusCol].innerHTML === "Warning") {
                 rows[i].style.background = "var(--test-warning)";
             }
-            else if (rows[i].children[statusCol].innerHTML === "Pass") {
+            else if (rows[i].children[statusCol].innerHTML === "Aligned") {
                 rows[i].style.background = "var(--test-pass)";
             }
             /*else if (rows[i].children[criticalityCol].innerHTML.includes("Not-Implemented")) {
