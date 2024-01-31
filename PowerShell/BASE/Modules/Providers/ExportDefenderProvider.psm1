@@ -141,26 +141,18 @@ function Export-DefenderProvider {
 
  
 
-    $ProtectionPolicyRule = Get-Content -Path .\configs-json\defender\protection_policy_rules_config.json -Raw
-    $ATPPolicy  = Get-Content -Path .\configs-json\defender\atp_policy_rules_config.json -Raw
-    $DLPCompliancePolicy = Get-Content -Path .\configs-json\defender\dlp_compliance_policies_config.json -Raw
-    $DLPComplianceRules = Get-Content -Path .\configs-json\defender\dlp_compliance_rules_config.json -Raw
-    $AntiPhishPolicy = Get-Content -Path .\configs-json\defender\anti_phish_policies_config.json -Raw
-    $ProtectionAlert = Get-Content -Path .\configs-json\defender\protection_alerts_config.json -Raw
-    $AdminAuditLogConfig = Get-Content -Path .\configs-json\defender\admin_audit_log_config.json -Raw
-    $ATPPolicy = Get-Content -Path .\configs-json\defender\atp_policy_for_o365_config.json -Raw
-    $DefenderLicense = Get-Content -Path .\configs-json\defender\defender_license_config.json -Raw
+    # $ProtectionPolicyRule = Get-Content -Path .\configs-json\defender\protection_policy_rules_config.json -Raw
+    # $ATPPolicy  = Get-Content -Path .\configs-json\defender\atp_policy_rules_config.json -Raw
+    # $DLPCompliancePolicy = Get-Content -Path .\configs-json\defender\dlp_compliance_policies_config.json -Raw
+    # $DLPComplianceRules = Get-Content -Path .\configs-json\defender\dlp_compliance_rules_config.json -Raw
+    # $AntiPhishPolicy = Get-Content -Path .\configs-json\defender\anti_phish_policies_config.json -Raw
+    # $ProtectionAlert = Get-Content -Path .\configs-json\defender\protection_alerts_config.json -Raw
+    # $AdminAuditLogConfig = Get-Content -Path .\configs-json\defender\admin_audit_log_config.json -Raw
+    # $ATPPolicy = Get-Content -Path .\configs-json\defender\atp_policy_for_o365_config.json -Raw
+    # $DefenderLicense = Get-Content -Path .\configs-json\defender\defender_license_config.json -Raw
 
     # Note the spacing and the last comma in the json is important
     $json = @"
-    "protection_policy_rules": $ProtectionPolicyRule,
-    "atp_policy_rules": $ATPProtectionPolicyRule,
-    "dlp_compliance_policies": $DLPCompliancePolicy,
-    "dlp_compliance_rules": $DLPComplianceRules,
-    "anti_phish_policies": $AntiPhishPolicy,
-    "protection_alerts": $ProtectionAlert,
-    "admin_audit_log_config": $AdminAuditLogConfig,
-    "atp_policy_for_o365": $ATPPolicy,
     "defender_license": $DefenderLicense,
     "defender_successful_commands": $SuccessfulCommands,
     "defender_unsuccessful_commands": $UnSuccessfulCommands,

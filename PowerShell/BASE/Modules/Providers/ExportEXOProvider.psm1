@@ -22,7 +22,7 @@ function Export-EXOProvider {
     #>
     $RemoteDomains = ConvertTo-Json @($Tracker.TryCommand("Get-RemoteDomain"))
     #$RemoteDomains | Out-File -FilePath .\configs-json\exo\remote_domains_config.json
-    $RemoteDomains = Get-Content -Path .\configs-json\exo\remote_domains_config.json -Raw
+    #$RemoteDomains = Get-Content -Path .\configs-json\exo\remote_domains_config.json -Raw
 
     <#
     MS.EXO.2.1v1 SPF
@@ -30,7 +30,7 @@ function Export-EXOProvider {
     $domains = $Tracker.TryCommand("Get-AcceptedDomain")
     $SPFRecords = ConvertTo-Json @($Tracker.TryCommand("Get-BASESpfRecords", @{"Domains"=$domains})) -Depth 3
     #$SPFRecords | Out-File -FilePath .\configs-json\exo\spf_records_config.json
-    $SPFRecords = Get-Content -Path .\configs-json\exo\spf_records_config.json -Raw
+    #$SPFRecords = Get-Content -Path .\configs-json\exo\spf_records_config.json -Raw
 
     <#
     MS.EXO.3.1v1 DKIM
@@ -38,42 +38,42 @@ function Export-EXOProvider {
     $DKIMConfig = ConvertTo-Json @($Tracker.TryCommand("Get-DkimSigningConfig"))
     $DKIMRecords = ConvertTo-Json @($Tracker.TryCommand("Get-BASEDkimRecords", @{"Domains"=$domains})) -Depth 3
     #$DKIMConfig | Out-File -FilePath .\configs-json\exo\DKIM_config.json
-    $DKIMConfig = Get-Content -Path .\configs-json\exo\DKIM_config.json -Raw
+    #$DKIMConfig = Get-Content -Path .\configs-json\exo\DKIM_config.json -Raw
 
     <#
     MS.EXO.4.1v1 DMARC
     #>
     $DMARCRecords = ConvertTo-Json @($Tracker.TryCommand("Get-BASEDmarcRecords", @{"Domains"=$domains})) -Depth 3
     #$DMARCRecords | Out-File -FilePath .\configs-json\exo\DMARC_Records_config.json
-    $DMARCRecords = Get-Content -Path .\configs-json\exo\DMARC_Records_config.json -Raw
+    #$DMARCRecords = Get-Content -Path .\configs-json\exo\DMARC_Records_config.json -Raw
 
     <#
     MS.EXO.5.1v1
     #>
     $TransportConfig = ConvertTo-Json @($Tracker.TryCommand("Get-TransportConfig"))
     #$TransportConfig | Out-File -FilePath .\configs-json\exo\transport_config.json
-    $TransportConfig = Get-Content -Path .\configs-json\exo\transport_config.json -Raw
+    #$TransportConfig = Get-Content -Path .\configs-json\exo\transport_config.json -Raw
 
     <#
     MS.EXO.6.1v1
     #>
     $SharingPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-SharingPolicy"))
     #$SharingPolicy | Out-File -FilePath .\configs-json\exo\sharing_policy_config.json
-    $SharingPolicy = Get-Content -Path .\configs-json\exo\sharing_policy_config.json -Raw
+    #$SharingPolicy = Get-Content -Path .\configs-json\exo\sharing_policy_config.json -Raw
 
     <#
     MS.EXO.7.1v1
     #>
     $TransportRules = ConvertTo-Json @($Tracker.TryCommand("Get-TransportRule"))
     #$TransportRules | Out-File -FilePath .\configs-json\exo\transport_rules_config.json
-    $TransportRules = Get-Content -Path .\configs-json\exo\transport_rules_config.json -Raw
+    #$TransportRules = Get-Content -Path .\configs-json\exo\transport_rules_config.json -Raw
 
     <#
     MS.EXO.12.1v1
     #>
     $ConnectionFilter = ConvertTo-Json @($Tracker.TryCommand("Get-HostedConnectionFilterPolicy"))
     #$ConnectionFilter | Out-File -FilePath .\configs-json\exo\connection_filter_config.json
-    $ConnectionFilter = Get-Content -Path .\configs-json\exo\connection_filter_config.json -Raw
+    #$ConnectionFilter = Get-Content -Path .\configs-json\exo\connection_filter_config.json -Raw
 
     <#
     MS.EXO.13.1v1
@@ -81,7 +81,7 @@ function Export-EXOProvider {
     $Config = $Tracker.TryCommand("Get-OrganizationConfig") | Select-Object Name, DisplayName, AuditDisabled
     $Config = ConvertTo-Json @($Config)
     #$Config | Out-File -FilePath .\configs-json\exo\config_config.json
-    $Config = Get-Content -Path .\configs-json\exo\config_config.json -Raw
+    #$Config = Get-Content -Path .\configs-json\exo\config_config.json -Raw
 
     # Used in the reporter to check successful cmdlet invocation
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())

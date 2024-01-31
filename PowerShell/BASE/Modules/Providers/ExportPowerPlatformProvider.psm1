@@ -197,11 +197,11 @@ $($_)
     #$TenantIsolation | Out-File -FilePath .\configs-json\pp\tenant_isolation_config.json
     #$EnvironmentList | Out-File -FilePath .\configs-json\pp\environment_list_config.json
 
-    $TenantID = Get-Content -Path .\configs-json\pp\tenant_id_config.json -Raw
-    $EnvironmentCreation = Get-Content -Path .\configs-json\pp\environment_creation_config.json -Raw
-    $DLPPolicies = Get-Content -Path .\configs-json\pp\dlp_policies_config.json -Raw
-    $TenantIsolation = Get-Content -Path .\configs-json\pp\tenant_isolation_config.json -Raw
-    $EnvironmentList = Get-Content -Path .\configs-json\pp\environment_list_config.json -Raw
+    # $TenantID = Get-Content -Path .\configs-json\pp\tenant_id_config.json -Raw
+    # $EnvironmentCreation = Get-Content -Path .\configs-json\pp\environment_creation_config.json -Raw
+    # $DLPPolicies = Get-Content -Path .\configs-json\pp\dlp_policies_config.json -Raw
+    # $TenantIsolation = Get-Content -Path .\configs-json\pp\tenant_isolation_config.json -Raw
+    # $EnvironmentList = Get-Content -Path .\configs-json\pp\environment_list_config.json -Raw
 
     # tenant_id added for testing purposes
     # Note the spacing and the last comma in the json is important

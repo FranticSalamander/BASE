@@ -27,7 +27,7 @@ class BASEConfig {
 
     hidden [void]SetParameterDefaults(){
         if (-Not $this.Configuration.ProductNames){
-            $this.Configuration.ProductNames = "entra", "teams", "exo", "defender", "aad", "sharepoint", "powerplatform" | Sort-Object
+            $this.Configuration.ProductNames = "entra", "teams", "exo", "defender", "sharepoint", "powerplatform" | Sort-Object
         }
         else{
             $this.Configuration.ProductNames = $this.Configuration.ProductNames | Sort-Object

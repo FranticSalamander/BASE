@@ -54,19 +54,19 @@ function Export-EntraProvider {
 
     # Each policy to JSON 
     # Useful for Checking what the commands are spitting out
-    $GroupLifecyclePolicy | Out-File -FilePath .\configs-json\entratest\group_lifecycle_policy_config.json
-    $GroupSettings | Out-File -FilePath .\configs-json\entratest\group_settings_config.json
-    #$GroupSettings | Out-File -FilePath .\configs-json\entratest\group_settings.json
-   # $NamedLocationsPolicy | Out-File -FilePath .\configs-json\entratest\named_locations_policy.json
-    $AuthenticationStrengthPolicy | Out-File -FilePath .\configs-json\entratest\authentication_strength_policy.json
-    $SecurityDefaults | Out-File -FilePath .\configs-json\entratest\security_defaults_policy.json
-    $User | Out-File -FilePath .\configs-json\entratest\user.json
-    $AuthenticationMethodsPolicy | Out-File -FilePath .\configs-json\entratest\authentication_method_policy.json
-    $AuthorisationPolicy | Out-File -FilePath .\configs-json\entratest\authorisation_policy.json
-    $CrossTenantAccessPolicy | Out-File -FilePath .\configs-json\entratest\cross_tenant_access_policy.json
-    $ConditiontalAccessPolicy | Out-File -FilePath .\configs-json\entratest\conditional_access_policy.json
-    $ConditiontalAccessPolicyAdminSignInFrequency | Out-File -FilePath .\configs-json\entratest\conditional_access_policy_admin_sign_in_frequency.json
-    $ConditiontalAccessPolicyCountriesNotAllowed | Out-File -FilePath .\configs-json\entratest\conditional_access_policy_countries_not_allowed.json
+#     $GroupLifecyclePolicy | Out-File -FilePath .\configs-json\entratest\group_lifecycle_policy_config.json
+#     $GroupSettings | Out-File -FilePath .\configs-json\entratest\group_settings_config.json
+#     #$GroupSettings | Out-File -FilePath .\configs-json\entratest\group_settings.json
+#    # $NamedLocationsPolicy | Out-File -FilePath .\configs-json\entratest\named_locations_policy.json
+#     $AuthenticationStrengthPolicy | Out-File -FilePath .\configs-json\entratest\authentication_strength_policy.json
+#     $SecurityDefaults | Out-File -FilePath .\configs-json\entratest\security_defaults_policy.json
+#     $User | Out-File -FilePath .\configs-json\entratest\user.json
+#     $AuthenticationMethodsPolicy | Out-File -FilePath .\configs-json\entratest\authentication_method_policy.json
+#     $AuthorisationPolicy | Out-File -FilePath .\configs-json\entratest\authorisation_policy.json
+#     $CrossTenantAccessPolicy | Out-File -FilePath .\configs-json\entratest\cross_tenant_access_policy.json
+#     $ConditiontalAccessPolicy | Out-File -FilePath .\configs-json\entratest\conditional_access_policy.json
+#     $ConditiontalAccessPolicyAdminSignInFrequency | Out-File -FilePath .\configs-json\entratest\conditional_access_policy_admin_sign_in_frequency.json
+#     $ConditiontalAccessPolicyCountriesNotAllowed | Out-File -FilePath .\configs-json\entratest\conditional_access_policy_countries_not_allowed.json
 
 
     #$AuthenticationMethodsPolicyMicrosoftAuthenticator | Out-File -FilePath .\configs-json\entratest\authentication_method_policy_Microsoft_Authenticator.json

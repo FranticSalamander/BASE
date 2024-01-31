@@ -263,7 +263,7 @@ function Disconnect-BASETenant {
        [ValidateSet("entra","aad", "defender", "exo","powerplatform", "sharepoint", "teams", IgnoreCase = $false)]
        [ValidateNotNullOrEmpty()]
        [string[]]
-       $ProductNames = @("aad", "defender", "exo", "powerplatform", "sharepoint", "teams")
+       $ProductNames = @("entra","aad", "defender", "exo", "powerplatform", "sharepoint", "teams")
    )
    $ErrorActionPreference = "SilentlyContinue"
 

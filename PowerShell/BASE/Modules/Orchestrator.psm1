@@ -956,7 +956,7 @@ function Invoke-Connection {
 
         [Parameter(Mandatory=$true)]
         [ValidateNotNullOrEmpty()]
-        [ValidateSet("entra", "teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreCase = $false)]
+        [ValidateSet("entra", "teams", "exo", "defender", "aad", "powerplatform", "sharepoint", '*', IgnoreFCase = $false)]
         [string[]]
         $ProductNames,
 

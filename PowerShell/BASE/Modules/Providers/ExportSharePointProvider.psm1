@@ -51,8 +51,8 @@ function Export-SharePointProvider {
 
     #$SPOTenant | Out-File -FilePath .\configs-json\sharepoint\spo_tenant_config.json
     #$SPOSite | Out-File -FilePath .\configs-json\sharepoint\spo_site_config.json
-    $SPOTenant = Get-Content -Path .\configs-json\sharepoint\spo_tenant_config.json -Raw
-    $SPOSite = Get-Content -Path .\configs-json\sharepoint\spo_site_config.json -Raw
+    # $SPOTenant = Get-Content -Path .\configs-json\sharepoint\spo_tenant_config.json -Raw
+    # $SPOSite = Get-Content -Path .\configs-json\sharepoint\spo_site_config.json -Raw
 
     
 
