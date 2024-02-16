@@ -4,6 +4,9 @@
         <img src="https://img.shields.io/badge/ScubaGear-v1.0.0-%2328B953?labelColor=%23005288" /></a>
 </p>
 
+## The READMe.md has not been updated to accurately refelect BASE, some information may be incorrect
+
+
 Developed by CISA, ScubaGear is an assessment tool that verifies a Microsoft 365 (M365) tenant’s configuration conforms to the policies described in the Secure Cloud Business Applications ([SCuBA](https://cisa.gov/scuba)) Security Configuration Baseline [documents](https://github.com/cisagov/ScubaGear/tree/main/baselines).
 
 ## Table of Contents
@@ -94,24 +97,24 @@ To import the module, navigate to the repository folder in a PowerShell 5.1 term
 
 Then run:
 ```powershell
-Import-Module -Name .\PowerShell\ScubaGear # Imports the module into your session
+Import-Module -Name .\PowerShell\BASE # Imports the module into your session
 ```
 
 ### Example 1: Run an assessment against all products (except PowerPlatform)
 ```powershell
-Invoke-SCuBA
+Invoke-BASE
 ```
 ### Example 2: Run an assessment against Azure Active Directory with custom report output location
 ```powershell
-Invoke-SCuBA -ProductNames aad -OutPath C:\Users\johndoe\reports
+Invoke-BASE -ProductNames aad -OutPath C:\Users\johndoe\reports
 ```
 ### Example 3: Run assessments against multiple products
 ```powershell
-Invoke-SCuBA -ProductNames aad, sharepoint, teams
+Invoke-BASE -ProductNames aad, sharepoint, teams
 ```
 ### Example 4: Run assessments non-interactively using an application service principal and authenticating via CertificateThumbprint
 ```powershell
-Invoke-SCuBA -ProductNames * -CertificateThumbprint "<insert-thumbprint>" -AppID "<insert-appid>" -Organization tenant.onmicrosoft.com
+Invoke-BASE -ProductNames * -CertificateThumbprint "<insert-thumbprint>" -AppID "<insert-appid>" -Organization tenant.onmicrosoft.com
 ```
 
 To view more examples and see detailed help run:
