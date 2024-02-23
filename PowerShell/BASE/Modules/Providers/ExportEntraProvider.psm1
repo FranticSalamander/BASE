@@ -11,8 +11,8 @@ function Export-EntraProvider {
     Import-Module $PSScriptRoot/ProviderHelpers/CommandTracker.psm1
     $Tracker = Get-CommandTracker
 
-    $Properties = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaOrganization"))
-    $Properties | Out-File -FilePath .\configs-json\entratest\test.json
+    $Properties = ConvertTo-Json @($Tracker.TryCommand("Get-AzDefault"))
+    $Properties | Out-File -FilePath .\configs-json\test2.json
 
     # The below cmdlet covers the following baselines
     # - 1.1
