@@ -4,10 +4,10 @@ import future.keywords
 #
 default BaselineVersion := "main"
 
-BaselineVersion := input.module_version
+#BaselineVersion := input.module_version
 
 # baselineVersion := "3.0.0." # Baseline version is pinned to a module version
-BASEBaseUrl := sprintf("https://github.com/cisagov/BASE/blob/v%v/baselines/", [BaselineVersion])
+BASEBaseUrl := sprintf("https://github.com/FranticSalamander/BASE/blob/%v/baselines/", [BaselineVersion])
 
 ################
 # Helper functions for this file

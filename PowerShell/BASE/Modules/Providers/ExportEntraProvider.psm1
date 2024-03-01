@@ -11,8 +11,7 @@ function Export-EntraProvider {
     Import-Module $PSScriptRoot/ProviderHelpers/CommandTracker.psm1
     $Tracker = Get-CommandTracker
 
-    # $Properties = ConvertTo-Json @($Tracker.TryCommand("Get-AzDefault"))
-    # $Properties | Out-File -FilePath .\configs-json\test2.json
+   
 
     # The below cmdlet covers the following baselines
     # - 1.1
@@ -80,7 +79,6 @@ function Export-EntraProvider {
     
     # Note the spacing and the last comma in the json is important
     $json = @"
-    "properties" : $Properties,
     "group_lifecycle_policy" : $GroupLifecyclePolicy,
     "group_settings" : $GroupSettings,
     "authentication_strength_policy" : $AuthenticationStrengthPolicy,

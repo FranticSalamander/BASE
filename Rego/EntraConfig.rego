@@ -203,7 +203,7 @@ YammerAdministrator := "810a2642-a034-447f-a5e8-41beaa378541"
 #
 # MS.Entra.1.1v1
 #--
-# At this time we are unable to test for X because of Y
+# At this time we are unable to test for this because it will be different for every organisation
 tests[{
     "PolicyId" : "MS.Entra.1.1v1",
     "Criticality" : "Shall/Not-Implemented",

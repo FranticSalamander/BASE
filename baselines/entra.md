@@ -62,11 +62,9 @@ Configuration of properties within Microsoft Entra ID
 
 ### Policies
 #### MS.Entra.1.1v1
-Name field will be set to the organisation Name
+Name field will be set to the organisation name
 <!--Policy: MS.Entra.1.1v1; Criticality: Shall-->
-- _Rationale:_ Blah b;af
 - _Last modified:_ March 2024
-
 
 
 ### Implementation
