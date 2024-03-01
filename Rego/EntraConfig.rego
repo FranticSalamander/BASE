@@ -1,4 +1,4 @@
-package entra
+   package entra
 import future.keywords
 import data.report.utils.NotCheckedDetails
 import data.report.utils.Format
@@ -195,7 +195,6 @@ Windows365Administrator := "11451d60-acb2-45eb-a7d6-43d0f0125c13"
 WindowsUpdateDeploymentAdministrator := "32696413-001a-46ae-978c-ce0f6b3620d2"
 YammerAdministrator := "810a2642-a034-447f-a5e8-41beaa378541"
 
-
 #--
 ############
 # MS.Entra.1 #
@@ -204,216 +203,241 @@ YammerAdministrator := "810a2642-a034-447f-a5e8-41beaa378541"
 #
 # MS.Entra.1.1v1
 #--
+# At this time we are unable to test for X because of Y
 tests[{
     "PolicyId" : "MS.Entra.1.1v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaGroupLifecyclePolicy"],
-    "ActualValue" : [Policy.ManagedGroupTypes, Policy.GroupLifetimeInDays, Policy.AlternateNotificationEmails],
-    "ReportDetails" : ReportDetailsBoolean(Status),
-    "RequirementMet" : Status
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
 }] {
     
+    PolicyId := "MS.Entra.1.1v1"
+    true
 
-    Policy := input.group_lifecycle_policy[_]
-    Conditions := [Policy.ManagedGroupTypes == "All", Policy.GroupLifetimeInDays == 180, Policy.AlternateNotificationEmails == "Office365_Group_Expiration@agency.gov.au"]
-    Status := count([Condition | Condition = Conditions[_]; Condition == true]) == 3
+}
+#--
+
+
+# #--
+# ############
+# # MS.Entra.1 #
+# ############
+
+# #
+# # MS.Entra.1.1v1
+# #--
+# tests[{
+#     "PolicyId" : "MS.Entra.1.1v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaGroupLifecyclePolicy"],
+#     "ActualValue" : [Policy.ManagedGroupTypes, Policy.GroupLifetimeInDays, Policy.AlternateNotificationEmails],
+#     "ReportDetails" : ReportDetailsBoolean(Status   ),
+#     "RequirementMet" : Status
+# }] {
     
-}
-#--
 
-#
-# MS.Entra.1.2v1
-#--
-default CustomBlockedWordsListMatch(_) := false
-CustomBlockedWordsListMatch(Policy) := true if {
-    Policy.Name == "CustomBlockedWordsList"  
-    Policy.Value == "HR,Exec,SOC,Minister"
-}
+#     Policy := input.group_lifecycle_policy[_]
+#     Conditions := [Policy.ManagedGroupTypes == "All", Policy.GroupLifetimeInDays == 180, Policy.AlternateNotificationEmails == "Office365_Group_Expiration@agency.gov.au"]
+#     Status := count([Condition | Condition = Conditions[_]; Condition == true]) == 3
+    
+# }
+# #--
 
-CustomBlockedWordsList[Policy.Name] {
-    Policy := input.group_settings[_]
+# #
+# # MS.Entra.1.2v1
+# #--
+# default CustomBlockedWordsListMatch(_) := false
+# CustomBlockedWordsListMatch(Policy) := true if {
+#     Policy.Name == "CustomBlockedWordsList"  
+#     Policy.Value == "HR,Exec,SOC,Minister"
+# }
 
-    # Match all simple conditions
-    CustomBlockedWordsListMatch(Policy)
-}
+# CustomBlockedWordsList[Policy.Name] {
+#     Policy := input.group_settings[_]
 
-tests[{
-    "PolicyId" : "MS.Entra.1.2v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaDirectorySetting"],
-    "ActualValue" : CustomBlockedWordsList,
-    "ReportDetails" : ReportDetailsString(Status, Detail),
-    "RequirementMet" : Status
-}] {
-    Status := count(CustomBlockedWordsList) > 0
-    Detail := "Requirement not met: 'CustomBlockedWordsList' needs to be set to 'HR,Exec,SOC,Minister'"
-}
-#--
+#     # Match all simple conditions
+#     CustomBlockedWordsListMatch(Policy)
+# }
 
-#
-# MS.Entra.1.3v1
-#--
-default AllowGuestsToAccessGroupsMatch(_) := false
-AllowGuestsToAccessGroupsMatch(Policy) := true if {
-    Policy.Name == "AllowGuestsToAccessGroups"  
-    Policy.Value == "False"
-}
-AllowGuestsToAccessGroupsMatch(Policy) := true if {
-    Policy.Name == "AllowGuestsToAccessGroups"  
-    Policy.Value == "false"
-}
+# tests[{
+#     "PolicyId" : "MS.Entra.1.2v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaDirectorySetting"],
+#     "ActualValue" : CustomBlockedWordsList,
+#     "ReportDetails" : ReportDetailsString(Status, Detail),
+#     "RequirementMet" : Status
+# }] {
+#     Status := count(CustomBlockedWordsList) > 0
+#     Detail := "Requirement not met: 'CustomBlockedWordsList' needs to be set to 'HR,Exec,SOC,Minister'"
+# }
+# #--
 
-AllowGuestsToAccessGroups[Policy.Name] {
-    Policy := input.group_settings[_]
+# #
+# # MS.Entra.1.3v1
+# #--
+# default AllowGuestsToAccessGroupsMatch(_) := false
+# AllowGuestsToAccessGroupsMatch(Policy) := true if {
+#     Policy.Name == "AllowGuestsToAccessGroups"  
+#     Policy.Value == "False"
+# }
+# AllowGuestsToAccessGroupsMatch(Policy) := true if {
+#     Policy.Name == "AllowGuestsToAccessGroups"  
+#     Policy.Value == "false"
+# }
 
-    # Match all simple conditions
-    AllowGuestsToAccessGroupsMatch(Policy)
-}
+# AllowGuestsToAccessGroups[Policy.Name] {
+#     Policy := input.group_settings[_]
 
-tests[{
-    "PolicyId" : "MS.Entra.1.3v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaDirectorySetting"],
-    "ActualValue" : AllowGuestsToAccessGroups,
-    "ReportDetails" : ReportDetailsString(Status, Detail),
-    "RequirementMet" : Status
-}] {
-    Status := count(AllowGuestsToAccessGroups) > 0
-    Detail := "Requirement not met: 'AllowGuestsToAccessGroups' needs to be set to false"
-}
-#--
+#     # Match all simple conditions
+#     AllowGuestsToAccessGroupsMatch(Policy)
+# }
 
-#
-# MS.Entra.1.4v1
-#--
-default AllowGuestsToBeGroupOwnerMatch(_) := false
-AllowGuestsToBeGroupOwnerMatch(Policy) := true if {
-    Policy.Name == "AllowGuestsToBeGroupOwner"  
-    Policy.Value == "false"
-}
-AllowGuestsToBeGroupOwnerMatch(Policy) := true if {
-    Policy.Name == "AllowGuestsToBeGroupOwner"  
-    Policy.Value == "False"
-}
+# tests[{
+#     "PolicyId" : "MS.Entra.1.3v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaDirectorySetting"],
+#     "ActualValue" : AllowGuestsToAccessGroups,
+#     "ReportDetails" : ReportDetailsString(Status, Detail),
+#     "RequirementMet" : Status
+# }] {
+#     Status := count(AllowGuestsToAccessGroups) > 0
+#     Detail := "Requirement not met: 'AllowGuestsToAccessGroups' needs to be set to false"
+# }
+# #--
 
-AllowGuestsToBeGroupOwner[Policy.Name] {
-    Policy := input.group_settings[_]
+# #
+# # MS.Entra.1.4v1
+# #--
+# default AllowGuestsToBeGroupOwnerMatch(_) := false
+# AllowGuestsToBeGroupOwnerMatch(Policy) := true if {
+#     Policy.Name == "AllowGuestsToBeGroupOwner"  
+#     Policy.Value == "false"
+# }
+# AllowGuestsToBeGroupOwnerMatch(Policy) := true if {
+#     Policy.Name == "AllowGuestsToBeGroupOwner"  
+#     Policy.Value == "False"
+# }
 
-    # Match all simple conditions
-    AllowGuestsToBeGroupOwnerMatch(Policy)
-}
+# AllowGuestsToBeGroupOwner[Policy.Name] {
+#     Policy := input.group_settings[_]
 
-tests[{
-    "PolicyId" : "MS.Entra.1.4v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaDirectorySetting"],
-    "ActualValue" : AllowGuestsToBeGroupOwner,
-    "ReportDetails" : ReportDetailsString(Status, Detail),
-    "RequirementMet" : Status
-}] {
-    Status := count(AllowGuestsToBeGroupOwner) > 0
-    Detail := "Requirement not met: 'AllowGuestsToBeGroupOwner' needs to be set to false"
-}
-#--
+#     # Match all simple conditions
+#     AllowGuestsToBeGroupOwnerMatch(Policy)
+# }
 
-#
-# MS.Entra.1.5v1
-#--
-default AllowToAddGuestsMatch(_) := false
-AllowToAddGuestsMatch(Policy) := true if {
-    Policy.Name == "AllowToAddGuests"  
-    Policy.Value == "false"
-}
-AllowToAddGuestsMatch(Policy) := true if {
-    Policy.Name == "AllowToAddGuests"  
-    Policy.Value == "False"
-}
+# tests[{
+#     "PolicyId" : "MS.Entra.1.4v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaDirectorySetting"],
+#     "ActualValue" : AllowGuestsToBeGroupOwner,
+#     "ReportDetails" : ReportDetailsString(Status, Detail),
+#     "RequirementMet" : Status
+# }] {
+#     Status := count(AllowGuestsToBeGroupOwner) > 0
+#     Detail := "Requirement not met: 'AllowGuestsToBeGroupOwner' needs to be set to false"
+# }
+# #--
 
-AllowToAddGuests[Policy.Name] {
-    Policy := input.group_settings[_]
+# #
+# # MS.Entra.1.5v1
+# #--
+# default AllowToAddGuestsMatch(_) := false
+# AllowToAddGuestsMatch(Policy) := true if {
+#     Policy.Name == "AllowToAddGuests"  
+#     Policy.Value == "false"
+# }
+# AllowToAddGuestsMatch(Policy) := true if {
+#     Policy.Name == "AllowToAddGuests"  
+#     Policy.Value == "False"
+# }
 
-    # Match all simple conditions
-    AllowToAddGuestsMatch(Policy)
-}
+# AllowToAddGuests[Policy.Name] {
+#     Policy := input.group_settings[_]
 
-tests[{
-    "PolicyId" : "MS.Entra.1.5v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaDirectorySetting"],
-    "ActualValue" : AllowToAddGuests,
-    "ReportDetails" : ReportDetailsString(Status, Detail),
-    "RequirementMet" : Status
-}] {
-    Status := count(AllowToAddGuests) > 0
-    Detail := "Requirement not met: 'AllowToAddGuests' needs to be set to false"
-}
-#--
+#     # Match all simple conditions
+#     AllowToAddGuestsMatch(Policy)
+# }
 
-#
-# MS.Entra.1.6v1
-#--
-default EnableGroupCreationMatch(_) := false
-EnableGroupCreationMatch(Policy) := true if {
-    Policy.Name == "EnableGroupCreation"  
-    Policy.Value == "false"
-}
-EnableGroupCreationMatch(Policy) := true if {
-    Policy.Name == "EnableGroupCreation"  
-    Policy.Value == "False"
-}
+# tests[{
+#     "PolicyId" : "MS.Entra.1.5v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaDirectorySetting"],
+#     "ActualValue" : AllowToAddGuests,
+#     "ReportDetails" : ReportDetailsString(Status, Detail),
+#     "RequirementMet" : Status
+# }] {
+#     Status := count(AllowToAddGuests) > 0
+#     Detail := "Requirement not met: 'AllowToAddGuests' needs to be set to false"
+# }
+# #--
 
-EnableGroupCreation[Policy.Name] {
-    Policy := input.group_settings[_]
+# #
+# # MS.Entra.1.6v1
+# #--
+# default EnableGroupCreationMatch(_) := false
+# EnableGroupCreationMatch(Policy) := true if {
+#     Policy.Name == "EnableGroupCreation"  
+#     Policy.Value == "false"
+# }
+# EnableGroupCreationMatch(Policy) := true if {
+#     Policy.Name == "EnableGroupCreation"  
+#     Policy.Value == "False"
+# }
 
-    # Match all simple conditions
-    EnableGroupCreationMatch(Policy)
-}
+# EnableGroupCreation[Policy.Name] {
+#     Policy := input.group_settings[_]
 
-tests[{
-    "PolicyId" : "MS.Entra.1.6v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaDirectorySetting"],
-    "ActualValue" : EnableGroupCreation,
-    "ReportDetails" : ReportDetailsString(Status, Detail),
-    "RequirementMet" : Status
-}] {
-    Status := count(EnableGroupCreation) > 0
-    Detail := "Requirement not met: 'EnableGroupCreation' needs to be set to false"
-}
-#--
+#     # Match all simple conditions
+#     EnableGroupCreationMatch(Policy)
+# }
 
-#
-# MS.Entra.1.7v1
-#--
-default EnableMIPLabelsMatch(_) := false
-EnableMIPLabelsMatch(Policy) := true if {
-    Policy.Name == "EnableMIPLabels"  
-    Policy.Value == "true"
-}
-EnableMIPLabelsMatch(Policy) := true if {
-    Policy.Name == "EnableMIPLabels"  
-    Policy.Value == "True"
-}
+# tests[{
+#     "PolicyId" : "MS.Entra.1.6v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaDirectorySetting"],
+#     "ActualValue" : EnableGroupCreation,
+#     "ReportDetails" : ReportDetailsString(Status, Detail),
+#     "RequirementMet" : Status
+# }] {
+#     Status := count(EnableGroupCreation) > 0
+#     Detail := "Requirement not met: 'EnableGroupCreation' needs to be set to false"
+# }
+# #--
 
-EnableMIPLabels[Policy.Name] {
-    Policy := input.group_settings[_]
+# #
+# # MS.Entra.1.7v1
+# #--
+# default EnableMIPLabelsMatch(_) := false
+# EnableMIPLabelsMatch(Policy) := true if {
+#     Policy.Name == "EnableMIPLabels"  
+#     Policy.Value == "true"
+# }
+# EnableMIPLabelsMatch(Policy) := true if {
+#     Policy.Name == "EnableMIPLabels"  
+#     Policy.Value == "True"
+# }
 
-    # Match all simple conditions
-    EnableMIPLabelsMatch(Policy)
-}
+# EnableMIPLabels[Policy.Name] {
+#     Policy := input.group_settings[_]
 
-tests[{
-    "PolicyId" : "MS.Entra.1.7v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaDirectorySetting"],
-    "ActualValue" : EnableMIPLabels,
-    "ReportDetails" : ReportDetailsString(Status, Detail),
-    "RequirementMet" : Status
-}] {
-    Status := count(EnableMIPLabels) > 0
-    Detail := "Requirement not met: 'EnableMIPLabels' needs to be set to true"
-}
-#--
+#     # Match all simple conditions
+#     EnableMIPLabelsMatch(Policy)
+# }
+
+# tests[{
+#     "PolicyId" : "MS.Entra.1.7v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaDirectorySetting"],
+#     "ActualValue" : EnableMIPLabels,
+#     "ReportDetails" : ReportDetailsString(Status, Detail),
+#     "RequirementMet" : Status
+# }] {
+#     Status := count(EnableMIPLabels) > 0
+#     Detail := "Requirement not met: 'EnableMIPLabels' needs to be set to true"
+# }
+# #--
 
 
 

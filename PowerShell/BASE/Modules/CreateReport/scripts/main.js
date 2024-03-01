@@ -24,10 +24,10 @@ const colorRows = () => {
             else if (rows[i].children[statusCol].innerHTML === "Aligned") {
                 rows[i].style.background = "var(--test-pass)";
             }
-            /*else if (rows[i].children[criticalityCol].innerHTML.includes("Not-Implemented")) {
+            else if (rows[i].children[criticalityCol].innerHTML.includes("Not-Implemented")) {
                 rows[i].style.background = "var(--test-other)";
             }
-            else if (rows[i].children[criticalityCol].innerHTML.includes("3rd Party")) {
+            /*else if (rows[i].children[criticalityCol].innerHTML.includes("3rd Party")) {
                 rows[i].style.background = "var(--test-other)";
             }*/
             else if (rows[i].children[statusCol].innerHTML.includes("Error")) {

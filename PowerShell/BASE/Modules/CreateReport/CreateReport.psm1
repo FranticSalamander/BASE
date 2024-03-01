@@ -119,10 +119,10 @@ function New-Report {
                 #     $Result = "Warning"
                 #     $ReportSummary.Warnings += 1
                 # }
-                # elseif ($Test.Criticality.EndsWith('3rd Party') -or $test.Criticality.EndsWith('Not-Implemented')) {
-                #     $Result = "N/A"
-                #     $ReportSummary.Manual += 1
-                # }
+                elseif ($Test.Criticality.EndsWith('3rd Party') -or $test.Criticality.EndsWith('Not-Implemented')) {
+                    $Result = "N/A"
+                    $ReportSummary.Manual += 1
+                }
                 else {
                     $Result = "Unaligned"
                     $ReportSummary.Failures += 1
