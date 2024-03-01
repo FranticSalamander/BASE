@@ -61,15 +61,60 @@ As described in Microsoft’s literature related to conditional access policies,
 Configuration of properties within Microsoft Entra ID
 
 ### Policies
-#### MS.Entra.1.1v1
+#### MS.Entra.1.1v2
 Name field will be set to the organisation name
-<!--Policy: MS.Entra.1.1v1; Criticality: Shall-->
+<!--Policy: MS.Entra.1.1v2; Criticality: Shall-->
 - _Last modified:_ March 2024
 
+#### MS.Entra.1.2v2
+Country or region field will be set to Australia
+<!--Policy: MS.Entra.1.2v2; Criticality: Shall-->
+- _Last modified:_ March 2024
 
-### Implementation
+#### MS.Entra.1.3v2
+Data location field will be set to Australia datacenters
+<!--Policy: MS.Entra.1.3v2; Criticality: Shall-->
+- _Last modified:_ March 2024
+
+#### MS.Entra.1.4v2
+Notification language field will be set to English
+<!--Policy: MS.Entra.1.4v2; Criticality: Shall-->
+- _Last modified:_ March 2024
+
+#### MS.Entra.1.5v2
+Tenant ID field will be unique to each tenant
+<!--Policy: MS.Entra.1.5v2; Criticality: Shall-->
+- _Last modified:_ March 2024
+
+#### MS.Entra.1.6v2
+Technical contact field will be set to technical contact email for the tenant
+<!--Policy: MS.Entra.1.6v2; Criticality: Shall-->
+- _Last modified:_ March 2024
+
+#### MS.Entra.1.7v2
+Global privacy contact field will be set to privacy contact email for the tenant
+<!--Policy: MS.Entra.1.7v2; Criticality: Shall-->
+- _Last modified:_ March 2024
+### Resources
+
+#### MS.Entra.1.8v2
+Privacy statement URL field will be set to th privacy statement web address
+<!--Policy: MS.Entra.1.8v2; Criticality: Shall-->
+- _Last modified:_ March 2024
+### Resources
+
+#### MS.Entra.1.9v2
+Access management for Azure resources field will be set to No
+<!--Policy: MS.Entra.1.9v2; Criticality: Shall-->
+- _Last modified:_ March 2024
+
+### Resources
 
 - [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/properties/)
+
+### Implementation
+For details on how and where to check these settings read the [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/properties/) for ASD's Blueprint for Secure Cloud.
+
 
 ## 2. Authentication Strength
 

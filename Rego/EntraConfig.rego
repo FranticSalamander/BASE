@@ -201,11 +201,11 @@ YammerAdministrator := "810a2642-a034-447f-a5e8-41beaa378541"
 ############
 
 #
-# MS.Entra.1.1v1
+# MS.Entra.1.1v2
 #--
 # At this time we are unable to test for this because it will be different for every organisation
 tests[{
-    "PolicyId" : "MS.Entra.1.1v1",
+    "PolicyId" : "MS.Entra.1.1v2",
     "Criticality" : "Shall/Not-Implemented",
     "Commandlet" : [],
     "ActualValue" : [],
@@ -213,11 +213,164 @@ tests[{
     "RequirementMet" : false
 }] {
     
-    PolicyId := "MS.Entra.1.1v1"
+    PolicyId := "MS.Entra.1.1v2"
     true
 
 }
 #--
+
+#
+# MS.Entra.1.2v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.1.2v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.1.2v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.1.3v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.1.3v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.1.3v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.1.4v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.1.4v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.1.4v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.1.5v2
+#--
+# At this time we are unable to test for this because it will be unique to each tenant
+tests[{
+    "PolicyId" : "MS.Entra.1.5v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.1.5v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.1.6v2
+#--
+# At this time we are unable to test for this because it will be different for every organisation
+tests[{
+    "PolicyId" : "MS.Entra.1.6v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.1.6v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.1.7v2
+#--
+# At this time we are unable to test for this because it will be different for every organisation
+tests[{
+    "PolicyId" : "MS.Entra.1.7v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.1.7v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.1.8v2
+#--
+# At this time we are unable to test for this because it will be different for every organisation
+tests[{
+    "PolicyId" : "MS.Entra.1.8v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.1.8v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.1.9v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.1.9v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.1.9v2"
+    true
+
+}
+#--
+
 
 
 # #--
