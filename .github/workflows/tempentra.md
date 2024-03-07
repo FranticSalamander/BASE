@@ -62,3 +62,39 @@ MIP labels
 - N/A
 
 ### Implementation
+
+
+## 2. Authentication Strength
+
+Authentication Strength Policies
+
+### Policies
+#### MS.Entra.2.1v1
+Multifactor authentication will be configured correctly
+<!--Policy: MS.Entra.2.1v1; Criticality: SHALL -->
+- _Rationale:_ to manage the Authentication methods policy.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.2.2v1
+Passwordless MFA will be configured correctly
+<!--Policy: MS.Entra.2.2v1; Criticality: SHALL -->
+- _Rationale:_ to manage the Authentication methods policy for passwordless MFA.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.2.3v1
+Phishing Resistant MFA will be configured correctly
+<!--Policy: MS.Entra.2.3v1; Criticality: SHALL -->
+- _Rationale:_ to manage the Authentication methods policy for passwordless MFA.
+- _Last modified:_ Jan 2024
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/authentication/)
+
+- [Configuration Documentation](null)
+
+### License Requirements
+
+- N/A
+
+### Implementation

@@ -594,127 +594,187 @@ tests[{
 
 
 
-
 #--
 ############
 # MS.Entra.2 #
 ############
 
-
 #
-# MS.Entra.2.1v1 #This test layout works when there are multiple settings using the same name
+# MS.Entra.2.1v2
 #--
-default MultifactorAuthenticationConditionsMatch(_) := false
-MultifactorAuthenticationConditionsMatch(Policy) := true if {
-    Policy.DisplayName =="Multifactor authentication"
-    Policy.Description == "Combinations of methods that satisfy strong authentication, such as a password + SMS"
-    Policy.AllowedCombinations == [
-                                     "windowsHelloForBusiness",
-                                    "fido2",
-                                    "x509CertificateMultiFactor",
-                                    "deviceBasedPush",
-                                    "temporaryAccessPassOneTime",
-                                    "temporaryAccessPassMultiUse",
-                                    "password,microsoftAuthenticatorPush",
-                                    "password,softwareOath",
-                                    "password,hardwareOath",
-                                    "password,sms",
-                                    "password,voice",
-                                    "federatedMultiFactor",
-                                    "microsoftAuthenticatorPush,federatedSingleFactor",
-                                    "softwareOath,federatedSingleFactor",
-                                    "hardwareOath,federatedSingleFactor",
-                                    "sms,federatedSingleFactor",
-                                    "voice,federatedSingleFactor"                               
-                                ]
+default UserCannotRegisterApplicationMatch(_) := false
+UserCannotRegisterApplicationMatch(Policy) := true if {
+    Policy.AllowedToCreateApps == false  
 }
 
-MultifactorAuthentication[Policy.DisplayName] {
-    Policy := input.authentication_strength_policy[_]
+UserCannotRegisterApplication[Policy.Name] {
+    Policy := input.user_settings_default_permissions.DefaultUserRolePermissions[_]
 
     # Match all simple conditions
-    MultifactorAuthenticationConditionsMatch(Policy)
+    UserCannotRegisterApplicationMatch(Policy)
 }
 
 tests[{
-    "PolicyId" : "MS.Entra.2.1v1",
+    "PolicyId" : "MS.Entra.2.1v2",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaPolicyAuthenticationStrengthPolicy"],
-    "ActualValue" : MultifactorAuthentication,
-    "ReportDetails" : ReportDetailsBoolean(Status),
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : UserCannotRegisterApplication,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
     "RequirementMet" : Status
 }] {
-    Status := count(MultifactorAuthentication) > 0
+    Status := count(UserCannotRegisterApplication) > 0
+    Detail := "Requirement not met: <b>User can register application</b> must be set to <b>No</b>"
 }
-
+#--
 
 #
-# MS.Entra.2.2v1 
+# MS.Entra.2.2v2
 #--
-default PasswordlessMFAConditionsMatch(_) := false
-PasswordlessMFAConditionsMatch(Policy) := true if {
-    Policy.DisplayName == "Passwordless MFA"
-    Policy.Description == "Passwordless methods that satisfy strong authentication, such as Passwordless sign-in with the Microsoft Authenticator"
-    Policy.AllowedCombinations == [
-                                    "windowsHelloForBusiness",
-                                    "fido2",
-                                    "x509CertificateMultiFactor",
-                                    "deviceBasedPush"                               
-                                ]
+default RestrictNonAdminUsersFromCreatingTenantsMatch(_) := false
+RestrictNonAdminUsersFromCreatingTenantsMatch(Policy) := true if {
+    Policy.AllowedToCreateTenants == false  
 }
 
-PasswordlessMFA[Policy.DisplayName] {
-    Policy := input.authentication_strength_policy[_]
+RestrictNonAdminUsersFromCreatingTenants[Policy.Name] {
+    Policy := input.user_settings_default_permissions.DefaultUserRolePermissions[_]
 
     # Match all simple conditions
-    PasswordlessMFAConditionsMatch(Policy)
+    RestrictNonAdminUsersFromCreatingTenantsMatch(Policy)
 }
 
 tests[{
-    "PolicyId" : "MS.Entra.2.2v1",
+    "PolicyId" : "MS.Entra.2.2v2",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaPolicyAuthenticationStrengthPolicy"],
-    "ActualValue" : PasswordlessMFA,
-    "ReportDetails" : ReportDetailsBoolean(Status),
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : RestrictNonAdminUsersFromCreatingTenants,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
     "RequirementMet" : Status
 }] {
-    Status := count(PasswordlessMFA) > 0
+    Status := count(RestrictNonAdminUsersFromCreatingTenants) > 0
+    Detail := "Requirement not met: <b>Restrict non-admin users from creating tenants</b> must be set to <b>Yes</b>"
 }
 #--
 
+# #--
+# ############
+# # MS.Entra.2 #
+# ############
 
-#
-# MS.Entra.2.3v1
-#--
-default PhishingResistantMFAConditionsMatch(_) := false
-PhishingResistantMFAConditionsMatch(Policy) := true if {
-    Policy.DisplayName == "Phishing-resistant MFA"
-    Policy.Description == "Phishing-resistant, Passwordless methods for the strongest authentication, such as a FIDO2 security key"
-    Policy.AllowedCombinations == [
-                                    "windowsHelloForBusiness",
-                                    "fido2",
-                                    "x509CertificateMultiFactor"                          
-                                ]
-}
 
-PhishingResistantMFA[Policy.DisplayName] {
-    Policy := input.authentication_strength_policy[_]
+# #
+# # MS.Entra.2.1v1 #This test layout works when there are multiple settings using the same name
+# #--
+# default MultifactorAuthenticationConditionsMatch(_) := false
+# MultifactorAuthenticationConditionsMatch(Policy) := true if {
+#     Policy.DisplayName =="Multifactor authentication"
+#     Policy.Description == "Combinations of methods that satisfy strong authentication, such as a password + SMS"
+#     Policy.AllowedCombinations == [
+#                                      "windowsHelloForBusiness",
+#                                     "fido2",
+#                                     "x509CertificateMultiFactor",
+#                                     "deviceBasedPush",
+#                                     "temporaryAccessPassOneTime",
+#                                     "temporaryAccessPassMultiUse",
+#                                     "password,microsoftAuthenticatorPush",
+#                                     "password,softwareOath",
+#                                     "password,hardwareOath",
+#                                     "password,sms",
+#                                     "password,voice",
+#                                     "federatedMultiFactor",
+#                                     "microsoftAuthenticatorPush,federatedSingleFactor",
+#                                     "softwareOath,federatedSingleFactor",
+#                                     "hardwareOath,federatedSingleFactor",
+#                                     "sms,federatedSingleFactor",
+#                                     "voice,federatedSingleFactor"                               
+#                                 ]
+# }
 
-    # Match all simple conditions
-    PhishingResistantMFAConditionsMatch(Policy)
-}
+# MultifactorAuthentication[Policy.DisplayName] {
+#     Policy := input.authentication_strength_policy[_]
 
-tests[{
-    "PolicyId" : "MS.Entra.2.3v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaPolicyAuthenticationStrengthPolicy"],
-    "ActualValue" : PhishingResistantMFA,
-    "ReportDetails" : ReportDetailsBoolean(Status),
-    "RequirementMet" : Status
-}] {
-    Status := count(PhishingResistantMFA) > 0
-}
-#--
+#     # Match all simple conditions
+#     MultifactorAuthenticationConditionsMatch(Policy)
+# }
+
+# tests[{
+#     "PolicyId" : "MS.Entra.2.1v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaPolicyAuthenticationStrengthPolicy"],
+#     "ActualValue" : MultifactorAuthentication,
+#     "ReportDetails" : ReportDetailsBoolean(Status),
+#     "RequirementMet" : Status
+# }] {
+#     Status := count(MultifactorAuthentication) > 0
+# }
+
+
+# #
+# # MS.Entra.2.2v1 
+# #--
+# default PasswordlessMFAConditionsMatch(_) := false
+# PasswordlessMFAConditionsMatch(Policy) := true if {
+#     Policy.DisplayName == "Passwordless MFA"
+#     Policy.Description == "Passwordless methods that satisfy strong authentication, such as Passwordless sign-in with the Microsoft Authenticator"
+#     Policy.AllowedCombinations == [
+#                                     "windowsHelloForBusiness",
+#                                     "fido2",
+#                                     "x509CertificateMultiFactor",
+#                                     "deviceBasedPush"                               
+#                                 ]
+# }
+
+# PasswordlessMFA[Policy.DisplayName] {
+#     Policy := input.authentication_strength_policy[_]
+
+#     # Match all simple conditions
+#     PasswordlessMFAConditionsMatch(Policy)
+# }
+
+# tests[{
+#     "PolicyId" : "MS.Entra.2.2v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaPolicyAuthenticationStrengthPolicy"],
+#     "ActualValue" : PasswordlessMFA,
+#     "ReportDetails" : ReportDetailsBoolean(Status),
+#     "RequirementMet" : Status
+# }] {
+#     Status := count(PasswordlessMFA) > 0
+# }
+# #--
+
+
+# #
+# # MS.Entra.2.3v1
+# #--
+# default PhishingResistantMFAConditionsMatch(_) := false
+# PhishingResistantMFAConditionsMatch(Policy) := true if {
+#     Policy.DisplayName == "Phishing-resistant MFA"
+#     Policy.Description == "Phishing-resistant, Passwordless methods for the strongest authentication, such as a FIDO2 security key"
+#     Policy.AllowedCombinations == [
+#                                     "windowsHelloForBusiness",
+#                                     "fido2",
+#                                     "x509CertificateMultiFactor"                          
+#                                 ]
+# }
+
+# PhishingResistantMFA[Policy.DisplayName] {
+#     Policy := input.authentication_strength_policy[_]
+
+#     # Match all simple conditions
+#     PhishingResistantMFAConditionsMatch(Policy)
+# }
+
+# tests[{
+#     "PolicyId" : "MS.Entra.2.3v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaPolicyAuthenticationStrengthPolicy"],
+#     "ActualValue" : PhishingResistantMFA,
+#     "ReportDetails" : ReportDetailsBoolean(Status),
+#     "RequirementMet" : Status
+# }] {
+#     Status := count(PhishingResistantMFA) > 0
+# }
+# #--
 
 #--
 ############

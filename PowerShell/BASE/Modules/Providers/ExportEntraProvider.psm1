@@ -14,10 +14,16 @@ function Export-EntraProvider {
    
 
     # The below cmdlet covers the following baselines
-    # - 1.1
+    # - 1
     #Could possibly check some for not NULL 
      #$Properties = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaOrganization"))
      #$Properties | Out-File -FilePath .\configs-json\test.json
+
+
+    # The below cmdlet covers the following baselines
+    # - 2.1 2.2, 2., 2.4
+    $UserSettingsDefaultPermissions = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthorizationPolicy"))
+
 
     $GroupLifecyclePolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupLifecyclePolicy"))
     $GroupSettingsTemp = @($Tracker.TryCommand("Get-MgBetaDirectorySetting")) | ? { $_.DisplayName -eq "Group.Unified"} 
@@ -57,28 +63,10 @@ function Export-EntraProvider {
     $SuccessfulCommands = ConvertTo-Json @($Tracker.GetSuccessfulCommands())
     $UnSuccessfulCommands = ConvertTo-Json @($Tracker.GetUnSuccessfulCommands())
 
-    # Each policy to JSON 
-    # Useful for Checking what the commands are spitting out
-#     $GroupLifecyclePolicy | Out-File -FilePath .\configs-json\entratest\group_lifecycle_policy_config.json
-#     $GroupSettings | Out-File -FilePath .\configs-json\entratest\group_settings_config.json
-#     #$GroupSettings | Out-File -FilePath .\configs-json\entratest\group_settings.json
-#    # $NamedLocationsPolicy | Out-File -FilePath .\configs-json\entratest\named_locations_policy.json
-#     $AuthenticationStrengthPolicy | Out-File -FilePath .\configs-json\entratest\authentication_strength_policy.json
-#     $SecurityDefaults | Out-File -FilePath .\configs-json\entratest\security_defaults_policy.json
-#     $User | Out-File -FilePath .\configs-json\entratest\user.json
-#     $AuthenticationMethodsPolicy | Out-File -FilePath .\configs-json\entratest\authentication_method_policy.json
-#     $AuthorisationPolicy | Out-File -FilePath .\configs-json\entratest\authorisation_policy.json
-#     $CrossTenantAccessPolicy | Out-File -FilePath .\configs-json\entratest\cross_tenant_access_policy.json
-#     $ConditiontalAccessPolicy | Out-File -FilePath .\configs-json\entratest\conditional_access_policy.json
-#     $ConditiontalAccessPolicyAdminSignInFrequency | Out-File -FilePath .\configs-json\entratest\conditional_access_policy_admin_sign_in_frequency.json
-#     $ConditiontalAccessPolicyCountriesNotAllowed | Out-File -FilePath .\configs-json\entratest\conditional_access_policy_countries_not_allowed.json
 
-
-    #$AuthenticationMethodsPolicyMicrosoftAuthenticator | Out-File -FilePath .\configs-json\entratest\authentication_method_policy_Microsoft_Authenticator.json
-
-    
     # Note the spacing and the last comma in the json is important
     $json = @"
+    "user_settings_default_permissions" : $UserSettingsDefaultPermissions,
     "group_lifecycle_policy" : $GroupLifecyclePolicy,
     "group_settings" : $GroupSettings,
     "authentication_strength_policy" : $AuthenticationStrengthPolicy,

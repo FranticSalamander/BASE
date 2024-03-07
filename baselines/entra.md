@@ -95,13 +95,11 @@ Technical contact field will be set to technical contact email for the tenant
 Global privacy contact field will be set to privacy contact email for the tenant
 <!--Policy: MS.Entra.1.7v2; Criticality: Shall-->
 - _Last modified:_ March 2024
-### Resources
 
 #### MS.Entra.1.8v2
 Privacy statement URL field will be set to th privacy statement web address
 <!--Policy: MS.Entra.1.8v2; Criticality: Shall-->
 - _Last modified:_ March 2024
-### Resources
 
 #### MS.Entra.1.9v2
 Access management for Azure resources field will be set to No
@@ -113,44 +111,36 @@ Access management for Azure resources field will be set to No
 - [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/properties/)
 
 ### Implementation
-For details on how and where to check these settings read the [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/properties/) for ASD's Blueprint for Secure Cloud.
+For details on how and where to check these settings read the [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/properties/) of ASD's Blueprint for Secure Cloud.
 
 
-## 2. Authentication Strength
+## 2. User Settings
 
-Authentication Strength Policies
+Configuration for Users - User settings in Entra ID portal
 
 ### Policies
-#### MS.Entra.2.1v1
-Multifactor authentication will be configured correctly
-<!--Policy: MS.Entra.2.1v1; Criticality: SHALL -->
-- _Rationale:_ to manage the Authentication methods policy.
-- _Last modified:_ Jan 2024
+#### MS.Entra.2.1v2
+User cannot register application
+<!--Policy: MS.Entra.2.1v2; Criticality: SHALL -->
+- _Justification:_  Administrator	It is recommended organisations develops a service request process and/or limited developers group to enable creation of new applications. This will enable limiting of access to Microsoft Entra ID.
+- _Last modified:_ March 2024
 
-#### MS.Entra.2.2v1
-Passwordless MFA will be configured correctly
-<!--Policy: MS.Entra.2.2v1; Criticality: SHALL -->
-- _Rationale:_ to manage the Authentication methods policy for passwordless MFA.
-- _Last modified:_ Jan 2024
+#### MS.Entra.2.2v2
+Restrict non-admin users from creating tenants
+<!--Policy: MS.Entra.2.2v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
 
-#### MS.Entra.2.3v1
-Phishing Resistant MFA will be configured correctly
-<!--Policy: MS.Entra.2.3v1; Criticality: SHALL -->
-- _Rationale:_ to manage the Authentication methods policy for passwordless MFA.
-- _Last modified:_ Jan 2024
 
 ### Resources
 
-- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/authentication/)
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/tenant/)
 
-- [Configuration Documentation](null)
+- [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/users/user-settings/)
 
-### License Requirements
 
-- N/A
 
 ### Implementation
-
+For details on how and where to check these settings read the [Configuration](https://blueprint.asd.gov.au/configuration/entra-id/properties/) and [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/tenant/) of ASD's Blueprint for Secure Cloud.
 
 ## 3. Security Defaults
 
@@ -160,7 +150,7 @@ Security Defaults Policies
 #### MS.Entra.3.1v1
 Security Defaults will be Disabled
 <!--Policy: MS.Entra.3.1v1; Criticality: SHALL -->
-- _Rationale:_ Settings (MFA, Conditional Access, etc.) are managed at a more granular level than Security Defaults provides.
+- _Justification:_ Settings (MFA, Conditional Access, etc.) are managed at a more granular level than Security Defaults provides.
 - _Last modified:_ Jan 2024
 
 
@@ -185,13 +175,13 @@ User Configurations
 #### MS.Entra.4.1v1
 Configure Break Glass User Account 1
 <!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
-- _Rationale:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
+- _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.4.2v1
 Configure Break Glass User Account 2
 <!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
-- _Rationale:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
+- _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
 - _Last modified:_ Jan 2024
 
 
@@ -217,37 +207,37 @@ User Configurations
 #### MS.Entra.5.1v1
 Allowed to sign up to email based subscriptions
 <!--Policy: MS.Entra.5.1v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.5.2v1
 Allowed to use SSPR
 <!--Policy: MS.Entra.5.2v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.5.3v1
 Allow email verified users to join organisation
 <!--Policy: MS.Entra.5.3v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.5.4v1
 Allow invites from none
 <!--Policy: MS.Entra.5.4v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.5.5v1
 Do not block Msol PowerShell
 <!--Policy: MS.Entra.5.5v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.5.6v1
 Default user role must be configured correctly
 <!--Policy: MS.Entra.5.6v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 
@@ -274,7 +264,7 @@ Cross Tenant Access Policy
 #### MS.Entra.6.1v1
 Inbound trust setting will be configured correctly
 <!--Policy: MS.Entra.6.1v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 
@@ -285,68 +275,68 @@ Admin SignIn Frequency
 #### MS.Entra.7.1v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.1v1; Criticality: SHALL -->
-- _Rationale:_ Enforces a sign-in frequency to ensure administrators sessions do not remain active for longer than 4 hours.
+- _Justification:_ Enforces a sign-in frequency to ensure administrators sessions do not remain active for longer than 4 hours.
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.7.2v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.2v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.7.3v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.3v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.7.4v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.4v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.7.5v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.5v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.7.6v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.6v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.7.7v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.7v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.7.8v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.8v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.7.9v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.9v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.7.10v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.10v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.7.11v1
 Expire administration sessions
 <!--Policy: MS.Entra.7.11v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 
@@ -370,80 +360,80 @@ Blocks all connections from countries not in the allowed countries list.
 #### MS.Entra.8.1v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.1v1; Criticality: SHALL -->
-- _Rationale:_ Enforces a sign-in frequency to ensure administrators sessions do not remain active for longer than 4 hours.
+- _Justification:_ Enforces a sign-in frequency to ensure administrators sessions do not remain active for longer than 4 hours.
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.8.2v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.2v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.3v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.3v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.4v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.4v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.5v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.5v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.6v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.6v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.7v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.7v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.8v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.8v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.9v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.9v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.10v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.10v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.11v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.11v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.12v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.12v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.8.13v1
 Blocks all connections from countries not in the allowed countries list.
 <!--Policy: MS.Entra.8.13v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 
@@ -466,62 +456,62 @@ Deny all guest and external users by default.
 #### MS.Entra.9.1v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.9.1v1; Criticality: SHALL -->
-- _Rationale:_ 
+- _Justification:_ 
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.9.2v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.9.2v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.9.3v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.9.3v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.9.4v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.9.4v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.9.5v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.9.5v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.9.6v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.9.6v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.9.7v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.9.7v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.9.8v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.9.8v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.9.9v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.9.9v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.9.10v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.9.10v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 ### Resources
@@ -543,62 +533,62 @@ Deny all guest and external users by default.
 #### MS.Entra.10.1v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.10.1v1; Criticality: SHALL -->
-- _Rationale:_ 
+- _Justification:_ 
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.10.2v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.10.2v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.3v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.10.3v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.4v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.10.4v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.5v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.10.5v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.6v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.10.6v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.7v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.10.7v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.8v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.10.8v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.9v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.10.7v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.10.10v1
 Deny all guest and external users by default.
 <!--Policy: MS.Entra.10.10v1; Criticality: SHALL -->
-- _Rationale:_Enforces a sign-in frequency 
+- _Justification:_Enforces a sign-in frequency 
 - _Last modified:_ Jan 2024
 
 ### Resources
@@ -620,38 +610,38 @@ Risk based policies
 #### MS.Entra.11.1v1
 Block Legacy Authentication and high risk logins
 <!--Policy: MS.Entra.11.1v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.11.2v1
 Block Legacy Authentication and high risk logins
 <!--Policy: MS.Entra.11.2v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.11.3v1
 Block Legacy Authentication and high risk logins
 <!--Policy: MS.Entra.11.3v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.11.4v1
 Block Legacy Authentication and high risk logins
 <!--Policy: MS.Entra.11.4v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.11.5v1
 Block Legacy Authentication and high risk logins
 <!--Policy: MS.Entra.11.5v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.11.6v1
 Block Legacy Authentication and high risk logins
 <!--Policy: MS.Entra.11.6v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
 - _Last modified:_ Jan 2024
 
 
@@ -675,62 +665,62 @@ Risk based policies
 #### MS.Entra.12.1v1
 Block Legacy Authentication and high risk logins	
 <!--Policy: MS.Entra.12.1v1; Criticality: SHALL -->
-- _Rationale:_ Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
+- _Justification:_ Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.12.2v1
 Block Legacy Authentication and high risk logins	
 <!--Policy: MS.Entra.12.2v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.3v1
 BASE
 <!--Policy: MS.Entra.12.3v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.4v1
 Block Legacy Authentication and high risk logins	
 <!--Policy: MS.Entra.12.4v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.5v1
 Block Legacy Authentication and high risk logins	
 <!--Policy: MS.Entra.12.5v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.6v1
 Block Legacy Authentication and high risk logins	
 <!--Policy: MS.Entra.12.6v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.7v1
 Block Legacy Authentication and high risk logins	
 <!--Policy: MS.Entra.12.7v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.8v1
 Block Legacy Authentication and high risk logins	
 <!--Policy: MS.Entra.12.8v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2). 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.9v1
 Block Legacy Authentication and high risk logins	
 <!--Policy: MS.Entra.12.7v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.12.10v1
 Block Legacy Authentication and high risk logins	
 <!--Policy: MS.Entra.12.10v1; Criticality: SHALL -->
-- _Rationale:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
+- _Justification:_Blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc., and all high-risk authentications (requires Entra ID Premium P2).
 - _Last modified:_ Jan 2024
 
 
@@ -754,62 +744,62 @@ BASE
 #### MS.Entra.13.1v1
 Require multi-factor authentication for guest access
 <!--Policy: MS.Entra.13.1v1; Criticality: SHALL -->
-- _Rationale:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
+- _Justification:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.13.2v1
 Require multi-factor authentication for guest access
 <!--Policy: MS.Entra.13.2v1; Criticality: SHALL -->
-- _Rationale:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA.
+- _Justification:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.3v1
 Require multi-factor authentication for guest access
 <!--Policy: MS.Entra.13.3v1; Criticality: SHALL -->
-- _Rationale:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA.
+- _Justification:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.4v1
 Require multi-factor authentication for guest access
 <!--Policy: MS.Entra.13.4v1; Criticality: SHALL -->
-- _Rationale:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
+- _Justification:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.5v1
 Require multi-factor authentication for guest access
 <!--Policy: MS.Entra.13.5v1; Criticality: SHALL -->
-- _Rationale:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
+- _Justification:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.6v1
 Require multi-factor authentication for guest access
 <!--Policy: MS.Entra.13.6v1; Criticality: SHALL -->
-- _Rationale:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
+- _Justification:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.7v1
 Require multi-factor authentication for guest access
 <!--Policy: MS.Entra.13.7v1; Criticality: SHALL -->
-- _Rationale:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA.
+- _Justification:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.8v1
 Require multi-factor authentication for guest access
 <!--Policy: MS.Entra.13.8v1; Criticality: SHALL -->
-- _Rationale:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
+- _Justification:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.9v1
 Require multi-factor authentication for guest access
 <!--Policy: MS.Entra.13.9v1; Criticality: SHALL -->
-- _Rationale:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
+- _Justification:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.13.10v1
 Require multi-factor authentication for guest access
 <!--Policy: MS.Entra.13.10v1; Criticality: SHALL -->
-- _Rationale:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
+- _Justification:_MS005: Meets the requirement to enforce MFA for all users. This is a fallback policy given all users require MFA. 
 - _Last modified:_ Jan 2024
 
 ### Resources
@@ -830,68 +820,68 @@ Enforces a sign-in frequency to ensure non-privileged users are required to comp
 #### MS.Entra.14.1v1
 Expire user sessions
 <!--Policy: MS.Entra.14.1v1; Criticality: SHALL -->
-- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Justification:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.14.2v1
 Expire user sessions
 <!--Policy: MS.Entra.14.2v1; Criticality: SHALL -->
-- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Justification:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.14.3v1
 Expire user sessions
 <!--Policy: MS.Entra.14.3v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.14.4v1
 Expire user sessions
 <!--Policy: MS.Entra.14.4v1; Criticality: SHALL -->
-- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Justification:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.14.5v1
 Expire user sessions
 <!--Policy: MS.Entra.14.5v1; Criticality: SHALL -->
-- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Justification:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.14.6v1
 Expire user sessions
 <!--Policy: MS.Entra.14.6v1; Criticality: SHALL -->
-- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Justification:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.14.7v1
 Expire user sessions
 <!--Policy: MS.Entra.14.7v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.14.8v1
 Expire user sessions
 <!--Policy: MS.Entra.14.8v1; Criticality: SHALL -->
-- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Justification:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.14.9v1
 Expire user sessions
 <!--Policy: MS.Entra.14.9v1; Criticality: SHALL -->
-- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Justification:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.14.10v1
 Expire user sessions
 <!--Policy: MS.Entra.14.10v1; Criticality: SHALL -->
-- _Rationale:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+- _Justification:_ Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.14.11v1
 Expire user sessions after 12 hours	
 <!--Policy: MS.Entra.14.11v1; Criticality: SHALL -->
-- _Rationale:_ 	Removes legacy sessions.
+- _Justification:_ 	Removes legacy sessions.
 - _Last modified:_ Jan 2024
 
 
@@ -914,68 +904,68 @@ Terms of Use Policy
 #### MS.Entra.15.1v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.1v1; Criticality: SHALL -->
-- _Rationale:_ 
+- _Justification:_ 
 - _Last modified:_ Jan 2024
 
 
 #### MS.Entra.15.2v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.2v1; Criticality: SHALL -->
-- _Rationale:_ 
+- _Justification:_ 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.15.3v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.3v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.15.4v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.4v1; Criticality: SHALL -->
-- _Rationale:_ 
+- _Justification:_ 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.15.5v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.5v1; Criticality: SHALL -->
-- _Rationale:_ 
+- _Justification:_ 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.15.6v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.6v1; Criticality: SHALL -->
-- _Rationale:_ 
+- _Justification:_ 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.15.7v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.7v1; Criticality: SHALL -->
-- _Rationale:_
+- _Justification:_
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.15.8v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.8v1; Criticality: SHALL -->
-- _Rationale:_ 
+- _Justification:_ 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.15.9v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.9v1; Criticality: SHALL -->
-- _Rationale:_ 
+- _Justification:_ 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.15.10v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.10v1; Criticality: SHALL -->
-- _Rationale:_ 
+- _Justification:_ 
 - _Last modified:_ Jan 2024
 
 #### MS.Entra.15.11v1
 Terms of Use Policy
 <!--Policy: MS.Entra.15.11v1; Criticality: SHALL -->
-- _Rationale:_ 	Removes legacy sessions.
+- _Justification:_ 	Removes legacy sessions.
 - _Last modified:_ Jan 2024
 
 ### Resources
