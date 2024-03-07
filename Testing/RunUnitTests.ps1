@@ -26,8 +26,7 @@
         Will run the specific test inside the TeamsConfig_06_test.rego.
         Only one parameter is allowed for the -t option just as there is only one parameter allowed for the -c option.
 
-#>
-
+#> 
 [CmdletBinding()]
 param (
     [Parameter()]
