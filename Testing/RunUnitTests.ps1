@@ -88,7 +88,14 @@ function Invoke-Product {
     foreach($Product in $p) {
         Write-Output "`n==== Testing $Product ===="
         $Directory = Join-Path -Path $FilePath -ChildPath $Product
-        ..\opa_windows_amd64.exe test ..\Rego\ $Directory $Flag
+
+        if ($Flag -eq ""){
+            ..\opa_windows_amd64.exe test ..\Rego\ $Directory
+        }
+        else {
+            ..\opa_windows_amd64.exe test ..\Rego\ $Directory $Flag        
+        }
+        
     }
     Write-Output ""
 }
@@ -132,7 +139,13 @@ function Invoke-ControlGroupItem {
 
             elseif(Test-Path -Path $Filename.Fullname -PathType Leaf) {
                 Write-Output "`nTesting Control Group $ControlGroup"
-                ..\opa_windows_amd64.exe test ..\Rego\ .\$($Filename.Fullname) $Flag
+                if ($Flag -eq ""){
+                    ..\opa_windows_amd64.exe test ..\Rego\ .\$($Filename.Fullname)
+                }
+                else {
+                    ..\opa_windows_amd64.exe test ..\Rego\ .\$($Filename.Fullname) $Flag
+                }
+                
             }
             else {
                 Get-ErrorMsg FileIOError, $Filename

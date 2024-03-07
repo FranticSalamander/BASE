@@ -663,7 +663,7 @@ tests[{
     "PolicyId" : "MS.Entra.2.4v2",
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
-    "ActualValue" : Policy.DefaultUserRolePermissions.AllowedToCreateSecurityGroups,
+    "ActualValue" : Policy.GuestUserRoleId,
     "ReportDetails" : ReportDetailsString(Status, Detail),
     "RequirementMet" : Status
 }] {
