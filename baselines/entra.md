@@ -130,6 +130,17 @@ Restrict non-admin users from creating tenants
 <!--Policy: MS.Entra.2.2v2; Criticality: SHALL -->
 - _Last modified:_ March 2024
 
+#### MS.Entra.2.3v2
+Users cannot create security groups
+<!--Policy: MS.Entra.2.3v2; Criticality: SHALL -->
+- _Justification:_ Enables for centrally controlled group creation
+- _Last modified:_ March 2024
+
+#### MS.Entra.2.4v2
+Guest user access is restricted to properties and memberships of their own directory objects 
+<!--Policy: MS.Entra.2.4v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
+
 
 ### Resources
 
@@ -137,7 +148,7 @@ Restrict non-admin users from creating tenants
 
 - [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/users/user-settings/)
 
-
+- [Guest Roles](https://learn.microsoft.com/en-us/entra/identity/users/users-restrict-guest-permissions)
 
 ### Implementation
 For details on how and where to check these settings read the [Configuration](https://blueprint.asd.gov.au/configuration/entra-id/properties/) and [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/tenant/) of ASD's Blueprint for Secure Cloud.

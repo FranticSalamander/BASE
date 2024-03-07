@@ -602,27 +602,19 @@ tests[{
 #
 # MS.Entra.2.1v2
 #--
-default UserCannotRegisterApplicationMatch(_) := false
-UserCannotRegisterApplicationMatch(Policy) := true if {
-    Policy.AllowedToCreateApps == false  
-}
 
-UserCannotRegisterApplication[Policy.Name] {
-    Policy := input.user_settings_default_permissions.DefaultUserRolePermissions[_]
-
-    # Match all simple conditions
-    UserCannotRegisterApplicationMatch(Policy)
-}
 
 tests[{
     "PolicyId" : "MS.Entra.2.1v2",
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
-    "ActualValue" : UserCannotRegisterApplication,
+    "ActualValue" : Policy.DefaultUserRolePermissions.AllowedToCreateApps,
     "ReportDetails" : ReportDetailsString(Status, Detail),
     "RequirementMet" : Status
 }] {
-    Status := count(UserCannotRegisterApplication) > 0
+    
+    Policy := input.user_settings_default_permissions[_]
+    Status := Policy.DefaultUserRolePermissions.AllowedToCreateApps == false 
     Detail := "Requirement not met: <b>User can register application</b> must be set to <b>No</b>"
 }
 #--
@@ -630,28 +622,54 @@ tests[{
 #
 # MS.Entra.2.2v2
 #--
-default RestrictNonAdminUsersFromCreatingTenantsMatch(_) := false
-RestrictNonAdminUsersFromCreatingTenantsMatch(Policy) := true if {
-    Policy.AllowedToCreateTenants == false  
-}
-
-RestrictNonAdminUsersFromCreatingTenants[Policy.Name] {
-    Policy := input.user_settings_default_permissions.DefaultUserRolePermissions[_]
-
-    # Match all simple conditions
-    RestrictNonAdminUsersFromCreatingTenantsMatch(Policy)
-}
 
 tests[{
     "PolicyId" : "MS.Entra.2.2v2",
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
-    "ActualValue" : RestrictNonAdminUsersFromCreatingTenants,
+    "ActualValue" : Policy.DefaultUserRolePermissions.AllowedToCreateTenants,
     "ReportDetails" : ReportDetailsString(Status, Detail),
     "RequirementMet" : Status
 }] {
-    Status := count(RestrictNonAdminUsersFromCreatingTenants) > 0
+    Policy := input.user_settings_default_permissions[_]
+    Status := Policy.DefaultUserRolePermissions.AllowedToCreateTenants == false 
     Detail := "Requirement not met: <b>Restrict non-admin users from creating tenants</b> must be set to <b>Yes</b>"
+}
+#--
+
+#
+# MS.Entra.2.3v2
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.2.3v2",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.DefaultUserRolePermissions.AllowedToCreateSecurityGroups,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Policy := input.user_settings_default_permissions[_]
+    Status := Policy.DefaultUserRolePermissions.AllowedToCreateSecurityGroups == false 
+    Detail := "Requirement not met: <b>Users can create security groups</b> must be set to <b>No</b>"
+}
+#--
+
+#
+# MS.Entra.2.4v2
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.2.4v2",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.DefaultUserRolePermissions.AllowedToCreateSecurityGroups,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Policy := input.user_settings_default_permissions[_]
+    Status := Policy.GuestUserRoleId == "2af84b1e-32c8-42b7-82bc-daa82404023b" 
+    Detail := "Requirement not met: <b>Guest user access restrictions</b> must be set to <b>Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)</b>"
 }
 #--
 
