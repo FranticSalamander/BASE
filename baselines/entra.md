@@ -122,7 +122,7 @@ Configuration for Users - User settings in Entra ID portal
 #### MS.Entra.2.1v2
 User cannot register application
 <!--Policy: MS.Entra.2.1v2; Criticality: SHALL -->
-- _Justification:_  Administrator	It is recommended organisations develops a service request process and/or limited developers group to enable creation of new applications. This will enable limiting of access to Microsoft Entra ID.
+- _Justification:_  It is recommended organisations develops a service request process and/or limited developers group to enable creation of new applications. This will enable limiting of access to Microsoft Entra ID.
 - _Last modified:_ March 2024
 
 #### MS.Entra.2.2v2
@@ -140,6 +140,60 @@ Users cannot create security groups
 Guest user access is restricted to properties and memberships of their own directory objects 
 <!--Policy: MS.Entra.2.4v2; Criticality: SHALL -->
 - _Last modified:_ March 2024
+
+#### MS.Entra.2.5v2
+Restrict access to Microsoft Entra admin centre	
+<!--Policy: MS.Entra.2.5v2; Criticality: SHALL -->
+- _Justification:_ Application Administrators require access to the portal. This is provided at an app level through the Application Administrator role.
+- _Last modified:_ March 2024
+
+#### MS.Entra.2.6v2
+Do not allow users to connect their work or school account with LinkedIn	
+<!--Policy: MS.Entra.2.6v2; Criticality: SHALL -->
+- _Justification:_ Organisations should disable integration and ability to share information with third-parties
+- _Last modified:_ March 2024
+
+#### MS.Entra.2.7v2
+Show keep user signed in 
+<!--Policy: MS.Entra.2.7v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
+
+#### MS.Entra.2.8v2
+Guest user access is restricted to properties and memberships of their own directory objects 
+<!--Policy: MS.Entra.2.8v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
+
+#### MS.Entra.2.9v2
+No one in the organization can invite guest users including admins
+<!--Policy: MS.Entra.2.9v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
+
+#### MS.Entra.2.10v2
+Disable guest self-service sign up via user flows	
+<!--Policy: MS.Entra.2.10v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
+
+#### MS.Entra.2.11v2
+Allow external users to remove themselves from your organization
+ <!--Policy: MS.Entra.2.11v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
+
+#### MS.Entra.2.12v2
+Allow collaboration invitations to be sent to any domain (most inclusive)
+<!--Policy: MS.Entra.2.12v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
+
+#### MS.Entra.2.13v2
+User cannot use preview features for My Apps	
+<!--Policy: MS.Entra.2.13v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
+
+#### MS.Entra.2.14v2
+Administrators cannot access My Staff	
+<!--Policy: MS.Entra.2.14v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
+
+
 
 
 ### Resources

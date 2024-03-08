@@ -673,6 +673,192 @@ tests[{
 }
 #--
 
+#
+# MS.Entra.2.5v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.2.5v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.2.5v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.2.6v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.2.6v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.2.6v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.2.7v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.2.7v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.2.7v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.2.8v2
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.2.8v2",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.GuestUserRoleId,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Policy := input.user_settings_default_permissions[_]
+    Status := Policy.GuestUserRoleId == "2af84b1e-32c8-42b7-82bc-daa82404023b" 
+    Detail := "Requirement not met: <b>Guest user access restrictions</b> must be set to <b>Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)</b>"
+}
+#--
+
+#
+# MS.Entra.2.9v2
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.2.9v2",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.AllowInvitesFrom,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Policy := input.user_settings_default_permissions[_]
+    Status := Policy.AllowInvitesFrom == "none"
+    Detail := "Requirement not met: <b>Guest invite restrictions</b> must be set to <b>No one in the organization can invite guest users including admins (most restrictive)</b>"
+}
+#--
+
+#
+# MS.Entra.2.10v2
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.2.10v2",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthenticationFlowPolicy"],
+    "ActualValue" : Policy.SelfServiceSignUp.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Policy := input.authentication_flow_policy[_]
+    Status := Policy.SelfServiceSignUp.IsEnabled == false
+    Detail := "Requirement not met: <b>Enable guest self-service sign up via user flows	</b> must be set to <b>No</b>"
+}
+#--
+
+#
+# MS.Entra.2.11v2
+#--
+
+tests[{
+    "PolicyId" : "MS.Entra.2.11v2",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.SelfServiceSignUp.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    Policy := input.external_identity_policy[_]
+    Status := Policy.AllowExternalIdentitiesToLeave == true
+    Detail := "Requirement not met: <b>Allow external users to remove themselves from your organization (recommended)</b> must be set to <b>Yes</b>"
+}
+#--
+
+#
+# MS.Entra.2.12v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.2.12v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.2.12v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.2.13v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.2.13v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.2.13v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.2.14v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.2.14v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.2.14v2"
+    true
+
+}
+#--
+
 # #--
 # ############
 # # MS.Entra.2 #

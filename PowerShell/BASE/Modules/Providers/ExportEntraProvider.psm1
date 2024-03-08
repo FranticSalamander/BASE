@@ -23,6 +23,16 @@ function Export-EntraProvider {
     # The below cmdlet covers the following baselines
     # - 2.1 2.2, 2., 2.4
     $UserSettingsDefaultPermissions = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthorizationPolicy"))
+    #$UserSettingsDefaultPermissions | Out-File -FilePath .\configs-json\test.json
+
+    $AutenticationFlowPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationFlowPolicy"))
+
+   
+    $ExternalIdentityPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyExternalIdentityPolicy"))
+
+
+   # $TheNextOne = ConvertTo-Json -Depth 100 @($Tracker.TryCommand("Get-MgBetaPolicyCrossTenantAccessPolicy"))
+    #$TheNextOne | Out-File -FilePath .\configs-json\test3.json
 
 
     $GroupLifecyclePolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupLifecyclePolicy"))
@@ -36,7 +46,7 @@ function Export-EntraProvider {
     $User = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUser"))
    # $AuthenticationMethodsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationMethodPolicy"))
     $AuthorisationPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthorizationPolicy"))
-    $CrossTenantAccessPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyCrossTenantAccessPolicyDefault"))
+    $CrossTenantAccessPolicy = ConvertTo-Json  @($Tracker.TryCommand("Get-MgBetaPolicyCrossTenantAccessPolicyDefault"))
 
     $AuthenticationMethodsPolicyTEMP = @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationMethodPolicy"))  | ? { $_.Id -eq "authenticationMethodsPolicy"}
     $AuthenticationMethodsPolicy = ConvertTo-Json $AuthenticationMethodsPolicyTEMP
@@ -67,6 +77,8 @@ function Export-EntraProvider {
     # Note the spacing and the last comma in the json is important
     $json = @"
     "user_settings_default_permissions" : $UserSettingsDefaultPermissions,
+    "authentication_flow_policy" : $AutenticationFlowPolicy,
+    "external_identity_policy" : $ExternalIdentityPolicy,
     "group_lifecycle_policy" : $GroupLifecyclePolicy,
     "group_settings" : $GroupSettings,
     "authentication_strength_policy" : $AuthenticationStrengthPolicy,

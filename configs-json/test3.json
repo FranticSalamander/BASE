@@ -1,0 +1,147 @@
+[
+  {
+    "AllowedCloudEndpoints": [],
+    "Default": {
+      "AutomaticUserConsentSettings": {
+        "InboundAllowed": null,
+        "OutboundAllowed": null
+      },
+      "B2BCollaborationInbound": {
+        "Applications": {
+          "AccessType": null,
+          "Targets": null
+        },
+        "UsersAndGroups": {
+          "AccessType": null,
+          "Targets": null
+        }
+      },
+      "B2BCollaborationOutbound": {
+        "Applications": {
+          "AccessType": null,
+          "Targets": null
+        },
+        "UsersAndGroups": {
+          "AccessType": null,
+          "Targets": null
+        }
+      },
+      "B2BDirectConnectInbound": {
+        "Applications": {
+          "AccessType": null,
+          "Targets": null
+        },
+        "UsersAndGroups": {
+          "AccessType": null,
+          "Targets": null
+        }
+      },
+      "B2BDirectConnectOutbound": {
+        "Applications": {
+          "AccessType": null,
+          "Targets": null
+        },
+        "UsersAndGroups": {
+          "AccessType": null,
+          "Targets": null
+        }
+      },
+      "Id": null,
+      "InboundTrust": {
+        "IsCompliantDeviceAccepted": null,
+        "IsHybridAzureAdJoinedDeviceAccepted": null,
+        "IsMfaAccepted": null
+      },
+      "InvitationRedemptionIdentityProviderConfiguration": {
+        "FallbackIdentityProvider": null,
+        "PrimaryIdentityProviderPrecedenceOrder": null
+      },
+      "IsServiceDefault": null,
+      "TenantRestrictions": {
+        "Applications": {
+          "AccessType": null,
+          "Targets": null
+        },
+        "Devices": {
+          "Mode": null,
+          "Rule": null
+        },
+        "UsersAndGroups": {
+          "AccessType": null,
+          "Targets": null
+        }
+      }
+    },
+    "Definition": [
+      "{\"CrossTenantAccessPolicy\":{\"Version\":2,\"MigrationStatus\":2,\"LastModified\":\"03/08/2024 04:14:43\",\"TenantGroup\":[]}}"
+    ],
+    "DeletedDateTime": null,
+    "Description": null,
+    "DisplayName": "CrossTenantAccessPolicy for 21f12302-fa43-4a63-a360-d5385c8e4910",
+    "Id": "crossTenantAccessPolicy",
+    "Partners": null,
+    "Templates": {
+      "Id": null,
+      "MultiTenantOrganizationIdentitySynchronization": {
+        "Id": null,
+        "TemplateApplicationLevel": null,
+        "UserSyncInbound": {
+          "IsSyncAllowed": null
+        }
+      },
+      "MultiTenantOrganizationPartnerConfiguration": {
+        "AutomaticUserConsentSettings": {
+          "InboundAllowed": null,
+          "OutboundAllowed": null
+        },
+        "B2BCollaborationInbound": {
+          "Applications": {
+            "AccessType": null,
+            "Targets": null
+          },
+          "UsersAndGroups": {
+            "AccessType": null,
+            "Targets": null
+          }
+        },
+        "B2BCollaborationOutbound": {
+          "Applications": {
+            "AccessType": null,
+            "Targets": null
+          },
+          "UsersAndGroups": {
+            "AccessType": null,
+            "Targets": null
+          }
+        },
+        "B2BDirectConnectInbound": {
+          "Applications": {
+            "AccessType": null,
+            "Targets": null
+          },
+          "UsersAndGroups": {
+            "AccessType": null,
+            "Targets": null
+          }
+        },
+        "B2BDirectConnectOutbound": {
+          "Applications": {
+            "AccessType": null,
+            "Targets": null
+          },
+          "UsersAndGroups": {
+            "AccessType": null,
+            "Targets": null
+          }
+        },
+        "Id": null,
+        "InboundTrust": {
+          "IsCompliantDeviceAccepted": null,
+          "IsHybridAzureAdJoinedDeviceAccepted": null,
+          "IsMfaAccepted": null
+        },
+        "TemplateApplicationLevel": null
+      }
+    }
+  }
+]
