@@ -780,7 +780,7 @@ tests[{
 }] {
     Policy := input.authentication_flow_policy[_]
     Status := Policy.SelfServiceSignUp.IsEnabled == false
-    Detail := "Requirement not met: <b>Enable guest self-service sign up via user flows	</b> must be set to <b>No</b>"
+    Detail := "Requirement not met: <b>Enable guest self-service sign up via user flows</b> must be set to <b>No</b>"
 }
 #--
 
