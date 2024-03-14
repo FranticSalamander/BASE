@@ -791,8 +791,8 @@ tests[{
 tests[{
     "PolicyId" : "MS.Entra.2.11v2",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
-    "ActualValue" : Policy.SelfServiceSignUp.IsEnabled,
+    "Commandlet" : ["Get-MgBetaPolicyExternalIdentityPolicy"],
+    "ActualValue" : Policy.AllowExternalIdentitiesToLeave,
     "ReportDetails" : ReportDetailsString(Status, Detail),
     "RequirementMet" : Status
 }] {
@@ -990,19 +990,19 @@ tests[{
 #--
 
 
-tests[{
-    "PolicyId" : "MS.Entra.3.1v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaPolicyIdentitySecurityDefaultEnforcementPolicy"],
-    "ActualValue" : Policy.IsEnabled,
-    "ReportDetails" : ReportDetailsString(Status, Detail),
-    "RequirementMet" : Status
-}] {
-    Policy := input.security_defaults[_]
-    Status := Policy.IsEnabled == false
-    Detail := "Requirement not met: Security Defaults must be disabled"
-}
-#--
+# tests[{
+#     "PolicyId" : "MS.Entra.3.1v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaPolicyIdentitySecurityDefaultEnforcementPolicy"],
+#     "ActualValue" : Policy.IsEnabled,
+#     "ReportDetails" : ReportDetailsString(Status, Detail),
+#     "RequirementMet" : Status
+# }] {
+#     Policy := input.security_defaults[_]
+#     Status := Policy.IsEnabled == false
+#     Detail := "Requirement not met: Security Defaults must be disabled"
+# }
+# #--
 
 #--
 ############
@@ -1010,80 +1010,166 @@ tests[{
 ############
 
 #
-# MS.Entra.4.1v1
+# MS.Entra.4.1v2
 #--
 
 
-default BreakGlassUser1Match(_) := false
-BreakGlassUser1Match(Policy) := true if {
-    Policy.DisplayName == "Break Glass"  
-    Policy.PasswordPolicies == null
-    Policy.UsageLocation == "AU"
-    Policy.UserType == "Member"
-    startswith(Policy.UserPrincipalName, "break.glass_priv1")
+default BreakGlassUser1DisplayNameMatch(_) := false
+BreakGlassUser1DisplayNameMatch(Policy) := true if {
+    Policy.DisplayName == "BreakGlass 1"  
    
 }
 
-BreakGlassUser1[Policy.DisplayName] {
+BreakGlassUser1DisplayName[Policy.DisplayName] {
     Policy := input.user[_]
 
     # Match all simple conditions
-    BreakGlassUser1Match(Policy)
+    BreakGlassUser1DisplayNameMatch(Policy)
 
 }
 
 tests[{
-    "PolicyId" : "MS.Entra.4.1v1",
+    "PolicyId" : "MS.Entra.4.1v2",
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaUser"],
-    "ActualValue" : BreakGlassUser1,
+    "ActualValue" : BreakGlassUser1DisplayName,
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
     
-    Status := count(BreakGlassUser1) == 1
-    Details := "Requirement not met: Break Glass User Account 1 is not configured correctly"
-    
+    Status := count(BreakGlassUser1DisplayName) == 1
+    Details := "Requirement not met: <b>Display name</b> must be set to <b>BreakGlass 1<b/> --- <b>IF THIS IS NOT CORRECT 4.2, 4.3 & 4.4 WILL FAIL<b/>"
+
 }
 #--
 
 #
-# MS.Entra.4.2v1
+# MS.Entra.4.2v2
 #--
 
-
-default BreakGlassUser2Match(_) := false
-BreakGlassUser2Match(Policy) := true if {
-    Policy.DisplayName == "Break Glass"  
-    Policy.PasswordPolicies == null
-    Policy.UsageLocation == "AU"
-    Policy.UserType == "Member"
-    startswith(Policy.UserPrincipalName, "break.glass_priv2")
-   
+default BreakGlassUser1UserTypeMatch(_) := false
+BreakGlassUser1UserTypeMatch(Policy) := true if {
+    Policy.DisplayName == "BreakGlass 1" 
+    Policy.UserType == "Memeber"
 }
 
-BreakGlassUser2[Policy.DisplayName] {
+BreakGlassUser1UserType[Policy.UserType] {
     Policy := input.user[_]
 
     # Match all simple conditions
-    BreakGlassUser2Match(Policy)
+    BreakGlassUser1UserTypeMatch(Policy)
 
 }
 
 tests[{
-    "PolicyId" : "MS.Entra.4.2v1",
+    "PolicyId" : "MS.Entra.4.2v2",
     "Criticality" : "Shall",
     "Commandlet" : ["Get-MgBetaUser"],
-    "ActualValue" : BreakGlassUser2,
+    "ActualValue" : BreakGlassUser1UserType,
     "ReportDetails" : ReportDetailsString(Status, Details),
     "RequirementMet" : Status
 }] {
     
-    Status := count(BreakGlassUser2) == 1
-    Details := "Requirement not met: Break Glass User Account 2 is not configured correctly"
-    
+    Status := count(BreakGlassUser1UserType) == 1
+    Details := "Requirement not met: <b>User type</b> must be set to <b>Member<b/>"
+
 }
 #--
+
+#
+# MS.Entra.4.3v2
+#--
+
+default BreakGlassUser1AccountEnabledMatch(_) := false
+BreakGlassUser1AccountEnabledMatch(Policy) := true if {
+    Policy.DisplayName == "BreakGlass 1" 
+    Policy.AccountEnabled == true
+}
+
+BreakGlassUser1AccountEnabled[Policy.AccountEnabled] {
+    Policy := input.user[_]
+
+    # Match all simple conditions
+    BreakGlassUser1AccountEnabledMatch(Policy)
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.4.3v2",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaUser"],
+    "ActualValue" : BreakGlassUser1AccountEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Status := count(BreakGlassUser1AccountEnabled) == 1
+    Details := "Requirement not met: <b>Account enabled</b> must be checked"
+
+}
+
+default BreakGlassUser1UsageLocationMatch(_) := false
+BreakGlassUser1UsageLocationMatch(Policy) := true if {
+    Policy.DisplayName == "BreakGlass 1" 
+    Policy.UsageLocation == "AU"
+}
+
+BreakGlassUser1UsageLocation[Policy.UsageLocation] {
+    Policy := input.user[_]
+
+    # Match all simple conditions
+    BreakGlassUser1UsageLocationMatch(Policy)
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.4.4v2",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaUser"],
+    "ActualValue" : BreakGlassUser1UsageLocation,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Status := count(BreakGlassUser1UsageLocation) == 1
+    Details := "Requirement not met: <b>Usage location</b> must be set to <b>Australia</b>"
+
+}
+#--
+
+
+# default BreakGlassUser2Match(_) := false
+# BreakGlassUser2Match(Policy) := true if {
+#     Policy.DisplayName == "Break Glass"  
+#     Policy.PasswordPolicies == null
+#     Policy.UsageLocation == "AU"
+#     Policy.UserType == "Member"
+#     startswith(Policy.UserPrincipalName, "break.glass_priv2")
+   
+# }
+
+# BreakGlassUser2[Policy.DisplayName] {
+#     Policy := input.user[_]
+
+#     # Match all simple conditions
+#     BreakGlassUser2Match(Policy)
+
+# }
+
+# tests[{
+#     "PolicyId" : "MS.Entra.4.2v1",
+#     "Criticality" : "Shall",
+#     "Commandlet" : ["Get-MgBetaUser"],
+#     "ActualValue" : BreakGlassUser2,
+#     "ReportDetails" : ReportDetailsString(Status, Details),
+#     "RequirementMet" : Status
+# }] {
+    
+#     Status := count(BreakGlassUser2) == 1
+#     Details := "Requirement not met: Break Glass User Account 2 is not configured correctly"
+    
+# }
+# #--
 
 ############
 # MS.Entra.5 #

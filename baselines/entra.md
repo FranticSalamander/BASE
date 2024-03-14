@@ -193,9 +193,6 @@ Administrators cannot access My Staff
 <!--Policy: MS.Entra.2.14v2; Criticality: SHALL -->
 - _Last modified:_ March 2024
 
-
-
-
 ### Resources
 
 - [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/tenant/)
@@ -207,24 +204,15 @@ Administrators cannot access My Staff
 ### Implementation
 For details on how and where to check these settings read the [Configuration](https://blueprint.asd.gov.au/configuration/entra-id/properties/) and [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/tenant/) of ASD's Blueprint for Secure Cloud.
 
-## 3. Security Defaults
+## 3. Per-User MFA(Incomplete)
 
-Security Defaults Policies
-
-### Policies
-#### MS.Entra.3.1v1
-Security Defaults will be Disabled
-<!--Policy: MS.Entra.3.1v1; Criticality: SHALL -->
-- _Justification:_ Settings (MFA, Conditional Access, etc.) are managed at a more granular level than Security Defaults provides.
-- _Last modified:_ Jan 2024
+Configuration of users within Microsoft Entra ID
 
 
 
 ### Resources
 
-- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/authentication/)
-
-- [Configuration Documentation](null)
+- [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/users/per-user-mfa/)
 
 ### License Requirements
 
@@ -232,18 +220,30 @@ Security Defaults will be Disabled
 
 ### Implementation
 
-## 4. Security Defaults
+## 4. BreakGlass account setup
 
 User Configurations
 
 ### Policies
-#### MS.Entra.4.1v1
+#### MS.Entra.4.1v2
 Configure Break Glass User Account 1
 <!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
 - _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
 - _Last modified:_ Jan 2024
 
-#### MS.Entra.4.2v1
+#### MS.Entra.4.2v2
+Configure Break Glass User Account 2
+<!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
+- _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.4.3v2
+Configure Break Glass User Account 2
+<!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
+- _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.4.4v2
 Configure Break Glass User Account 2
 <!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
 - _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.

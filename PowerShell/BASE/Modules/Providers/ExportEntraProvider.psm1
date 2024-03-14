@@ -21,15 +21,20 @@ function Export-EntraProvider {
 
 
     # The below cmdlet covers the following baselines
-    # - 2.1 2.2, 2., 2.4
+    # - 2.1 2.2, 2.3, 2.4, 2.8, 2.9
     $UserSettingsDefaultPermissions = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthorizationPolicy"))
-    #$UserSettingsDefaultPermissions | Out-File -FilePath .\configs-json\test.json
 
+    # The below cmdlet covers the following baselines
+    # - 2.10
     $AutenticationFlowPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationFlowPolicy"))
 
-   
+    # The below cmdlet covers the following baselines
+    # - 2.11
     $ExternalIdentityPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyExternalIdentityPolicy"))
 
+    # The below cmdlet covers the following baselines
+    # - 4.1, 4.2, 4.3, 4.4, 4.7, 4.8, 4.9, 4.10
+    $User = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUser"))
 
    # $TheNextOne = ConvertTo-Json -Depth 100 @($Tracker.TryCommand("Get-MgBetaPolicyCrossTenantAccessPolicy"))
     #$TheNextOne | Out-File -FilePath .\configs-json\test3.json
@@ -43,7 +48,7 @@ function Export-EntraProvider {
     #$NamedLocationsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-countryNamedLocation"))
     $AuthenticationStrengthPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationStrengthPolicy"))
     $SecurityDefaults = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyIdentitySecurityDefaultEnforcementPolicy"))
-    $User = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUser"))
+    
    # $AuthenticationMethodsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationMethodPolicy"))
     $AuthorisationPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthorizationPolicy"))
     $CrossTenantAccessPolicy = ConvertTo-Json  @($Tracker.TryCommand("Get-MgBetaPolicyCrossTenantAccessPolicyDefault"))

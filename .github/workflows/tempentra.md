@@ -99,4 +99,21 @@ Phishing Resistant MFA will be configured correctly
 
 ### Implementation
 
+## 3. Security Defaults
 
+Security Defaults Policies
+
+### Policies
+#### MS.Entra.3.1v1
+Security Defaults will be Disabled
+<!--Policy: MS.Entra.3.1v1; Criticality: SHALL -->
+- _Justification:_ Settings (MFA, Conditional Access, etc.) are managed at a more granular level than Security Defaults provides.
+- _Last modified:_ Jan 2024
+
+
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/authentication/)
+
+- [Configuration Documentation](null)
