@@ -222,32 +222,73 @@ Configuration of users within Microsoft Entra ID
 
 ## 4. BreakGlass account setup
 
-User Configurations
+Two emergency access accounts configured in alignment to Microsoft and security best practice are to exist.
 
 ### Policies
 #### MS.Entra.4.1v2
-Configure Break Glass User Account 1
-<!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
+Accounts are not to be associated with any individual user.
+<!--Policy: MS.Entra.4.1v2; Criticality: SHOULD -->
 - _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
-- _Last modified:_ Jan 2024
+- _Last modified:_ Mar 2024
 
 #### MS.Entra.4.2v2
-Configure Break Glass User Account 2
-<!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
-- _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
-- _Last modified:_ Jan 2024
+User type should be Member
+<!--Policy: MS.Entra.4.2v2; Criticality: SHOULD -->
+- _Last modified:_ Mar 2024
 
 #### MS.Entra.4.3v2
-Configure Break Glass User Account 2
-<!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
-- _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
-- _Last modified:_ Jan 2024
+Account should be enabled
+<!--Policy: MS.Entra.4.3v2; Criticality: SHOULD -->
+- _Last modified:_ Mar 2024
 
 #### MS.Entra.4.4v2
-Configure Break Glass User Account 2
-<!--Policy: MS.Entra.4.1v1; Criticality: SHALL -->
+Usage location should be Australia
+<!--Policy: MS.Entra.4.4v2; Criticality: SHOULD -->
+- _Last modified:_ Mar 2024
+
+#### MS.Entra.4.5v2
+Emergency access accounts will be assigned the Global Administrator role.
+<!--Policy: MS.Entra.4.5v2; Criticality: SHALL -->
 - _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
-- _Last modified:_ Jan 2024
+- _Last modified:_ Mar 2024
+
+#### MS.Entra.4.6v2
+Groups
+<!--Policy: MS.Entra.4.6v2; Criticality: SHALL -->
+- _Last modified:_ Mar 2024
+
+#### MS.Entra.4.7v2
+Accounts are not to be associated with any individual user.
+<!--Policy: MS.Entra.4.7v2; Criticality: SHOULD -->
+- _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
+- _Last modified:_ Mar 2024
+
+#### MS.Entra.4.8v2
+User type should be Member
+<!--Policy: MS.Entra.4.8v2; Criticality: SHOULD -->
+- _Last modified:_ Mar 2024
+
+#### MS.Entra.4.9v2
+Account should be enabled
+<!--Policy: MS.Entra.4.9v2; Criticality: SHOULD -->
+- _Last modified:_ Mar 2024
+
+#### MS.Entra.4.10v2
+Usage location should be Australia
+<!--Policy: MS.Entra.4.10v2; Criticality: SHOULD -->
+- _Last modified:_ Mar 2024
+
+#### MS.Entra.4.11v2
+Emergency access accounts will be assigned the Global Administrator role.
+<!--Policy: MS.Entra.4.11v2; Criticality: SHALL -->
+- _Justification:_ Two emergency access accounts configured in alignment to Microsoft and security best practice.
+- _Last modified:_ Mar 2024
+
+#### MS.Entra.4.12v2
+Groups
+<!--Policy: MS.Entra.4.12v2; Criticality: SHALL -->
+- _Last modified:_ Mar 2024
+
 
 
 
@@ -255,7 +296,7 @@ Configure Break Glass User Account 2
 
 - [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/users/)
 
-- [Configuration Documentation](null)
+- [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/users/break-glass-accounts/)
 
 ### License Requirements
 

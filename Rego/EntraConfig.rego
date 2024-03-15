@@ -1,4 +1,4 @@
-   package entra
+package entra
 import future.keywords
 import data.report.utils.NotCheckedDetails
 import data.report.utils.Format
@@ -1030,7 +1030,7 @@ BreakGlassUser1DisplayName[Policy.DisplayName] {
 
 tests[{
     "PolicyId" : "MS.Entra.4.1v2",
-    "Criticality" : "Shall",
+    "Criticality" : "Should",
     "Commandlet" : ["Get-MgBetaUser"],
     "ActualValue" : BreakGlassUser1DisplayName,
     "ReportDetails" : ReportDetailsString(Status, Details),
@@ -1038,7 +1038,7 @@ tests[{
 }] {
     
     Status := count(BreakGlassUser1DisplayName) == 1
-    Details := "Requirement not met: <b>Display name</b> must be set to <b>BreakGlass 1<b/> --- <b>IF THIS IS NOT CORRECT 4.2, 4.3 & 4.4 WILL FAIL<b/>"
+    Details := "Requirement not met: <b>Display name</b> must be set to <b>BreakGlass 1</b> --- <b>IF THIS IS NOT CORRECT 4.2, 4.3 & 4.4 WILL FAIL</b>. \n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 1</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
 
 }
 #--
@@ -1050,7 +1050,7 @@ tests[{
 default BreakGlassUser1UserTypeMatch(_) := false
 BreakGlassUser1UserTypeMatch(Policy) := true if {
     Policy.DisplayName == "BreakGlass 1" 
-    Policy.UserType == "Memeber"
+    Policy.UserType == "Member"
 }
 
 BreakGlassUser1UserType[Policy.UserType] {
@@ -1063,7 +1063,7 @@ BreakGlassUser1UserType[Policy.UserType] {
 
 tests[{
     "PolicyId" : "MS.Entra.4.2v2",
-    "Criticality" : "Shall",
+    "Criticality" : "Should",
     "Commandlet" : ["Get-MgBetaUser"],
     "ActualValue" : BreakGlassUser1UserType,
     "ReportDetails" : ReportDetailsString(Status, Details),
@@ -1071,7 +1071,7 @@ tests[{
 }] {
     
     Status := count(BreakGlassUser1UserType) == 1
-    Details := "Requirement not met: <b>User type</b> must be set to <b>Member<b/>"
+    Details := "Requirement not met: <b>User type</b> must be set to <b>Member<b/>. \n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 1</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
 
 }
 #--
@@ -1096,7 +1096,7 @@ BreakGlassUser1AccountEnabled[Policy.AccountEnabled] {
 
 tests[{
     "PolicyId" : "MS.Entra.4.3v2",
-    "Criticality" : "Shall",
+    "Criticality" : "Should",
     "Commandlet" : ["Get-MgBetaUser"],
     "ActualValue" : BreakGlassUser1AccountEnabled,
     "ReportDetails" : ReportDetailsString(Status, Details),
@@ -1104,7 +1104,7 @@ tests[{
 }] {
     
     Status := count(BreakGlassUser1AccountEnabled) == 1
-    Details := "Requirement not met: <b>Account enabled</b> must be checked"
+    Details := "Requirement not met: <b>Account enabled</b> must be checked.\n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 1</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
 
 }
 
@@ -1124,7 +1124,7 @@ BreakGlassUser1UsageLocation[Policy.UsageLocation] {
 
 tests[{
     "PolicyId" : "MS.Entra.4.4v2",
-    "Criticality" : "Shall",
+    "Criticality" : "Should",
     "Commandlet" : ["Get-MgBetaUser"],
     "ActualValue" : BreakGlassUser1UsageLocation,
     "ReportDetails" : ReportDetailsString(Status, Details),
@@ -1132,11 +1132,214 @@ tests[{
 }] {
     
     Status := count(BreakGlassUser1UsageLocation) == 1
-    Details := "Requirement not met: <b>Usage location</b> must be set to <b>Australia</b>"
+    Details := "Requirement not met: <b>Usage location</b> must be set to <b>Australia</b>.\n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 1</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
 
 }
 #--
 
+#
+# MS.Entra.4.5v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.4.5v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.4.5v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.4.6v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.4.6v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.4.6v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.4.7v2
+#--
+
+
+default BreakGlassUser2DisplayNameMatch(_) := false
+BreakGlassUser2DisplayNameMatch(Policy) := true if {
+    Policy.DisplayName == "BreakGlass 2"  
+   
+}
+
+BreakGlassUser2DisplayName[Policy.DisplayName] {
+    Policy := input.user[_]
+
+    # Match all simple conditions
+    BreakGlassUser2DisplayNameMatch(Policy)
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.4.7v2",
+    "Criticality" : "Should",
+    "Commandlet" : ["Get-MgBetaUser"],
+    "ActualValue" : BreakGlassUser2DisplayName,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Status := count(BreakGlassUser2DisplayName) == 1
+    Details := "Requirement not met: <b>Display name</b> must be set to <b>BreakGlass 2</b> --- <b>IF THIS IS NOT CORRECT 4.8, 4.9 & 4.10 WILL FAIL</b>. \n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 2</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
+
+}
+#--
+
+#
+# MS.Entra.4.8v2
+#--
+
+default BreakGlassUser2UserTypeMatch(_) := false
+BreakGlassUser2UserTypeMatch(Policy) := true if {
+    Policy.DisplayName == "BreakGlass 2" 
+    Policy.UserType == "Member"
+}
+
+BreakGlassUser2UserType[Policy.UserType] {
+    Policy := input.user[_]
+
+    # Match all simple conditions
+    BreakGlassUser2UserTypeMatch(Policy)
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.4.8v2",
+    "Criticality" : "Should",
+    "Commandlet" : ["Get-MgBetaUser"],
+    "ActualValue" : BreakGlassUser2UserType,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Status := count(BreakGlassUser2UserType) == 1
+    Details := "Requirement not met: <b>User type</b> must be set to <b>Member<b/>. \n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 2</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
+
+}
+#--
+
+#
+# MS.Entra.4.9v2
+#--
+
+default BreakGlassUser2AccountEnabledMatch(_) := false
+BreakGlassUser2AccountEnabledMatch(Policy) := true if {
+    Policy.DisplayName == "BreakGlass 2" 
+    Policy.AccountEnabled == true
+}
+
+BreakGlassUser2AccountEnabled[Policy.AccountEnabled] {
+    Policy := input.user[_]
+
+    # Match all simple conditions
+    BreakGlassUser2AccountEnabledMatch(Policy)
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.4.9v2",
+    "Criticality" : "Should",
+    "Commandlet" : ["Get-MgBetaUser"],
+    "ActualValue" : BreakGlassUser2AccountEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Status := count(BreakGlassUser2AccountEnabled) == 1
+    Details := "Requirement not met: <b>Account enabled</b> must be checked.\n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 2</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
+
+}
+
+default BreakGlassUser2UsageLocationMatch(_) := false
+BreakGlassUser2UsageLocationMatch(Policy) := true if {
+    Policy.DisplayName == "BreakGlass 2" 
+    Policy.UsageLocation == "AU"
+}
+
+BreakGlassUser2UsageLocation[Policy.UsageLocation] {
+    Policy := input.user[_]
+
+    # Match all simple conditions
+    BreakGlassUser2UsageLocationMatch(Policy)
+
+}
+
+tests[{
+    "PolicyId" : "MS.Entra.4.10v2",
+    "Criticality" : "Should",
+    "Commandlet" : ["Get-MgBetaUser"],
+    "ActualValue" : BreakGlassUser2UsageLocation,
+    "ReportDetails" : ReportDetailsString(Status, Details),
+    "RequirementMet" : Status
+}] {
+    
+    Status := count(BreakGlassUser2UsageLocation) == 1
+    Details := "Requirement not met: <b>Usage location</b> must be set to <b>Australia</b>.\n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 2</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
+
+}
+#--
+
+#
+# MS.Entra.4.11v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.4.11v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.4.11v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.4.12v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.4.12v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.4.12v2"
+    true
+
+}
+#--
 
 # default BreakGlassUser2Match(_) := false
 # BreakGlassUser2Match(Policy) := true if {

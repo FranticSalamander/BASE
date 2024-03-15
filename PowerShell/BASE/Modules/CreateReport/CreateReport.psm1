@@ -115,10 +115,10 @@ function New-Report {
                     $Result = "Aligned"
                     $ReportSummary.Passes += 1
                 }
-                # elseif ($Test.Criticality -eq "Should") {
-                #     $Result = "Warning"
-                #     $ReportSummary.Warnings += 1
-                # }
+                elseif ($Test.Criticality -eq "Should") {
+                    $Result = "Warning"
+                    $ReportSummary.Warnings += 1
+                }
                 elseif ($Test.Criticality.EndsWith('3rd Party') -or $test.Criticality.EndsWith('Not-Implemented')) {
                     $Result = "N/A"
                     $ReportSummary.Manual += 1
