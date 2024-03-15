@@ -1071,7 +1071,7 @@ tests[{
 }] {
     
     Status := count(BreakGlassUser1UserType) == 1
-    Details := "Requirement not met: <b>User type</b> must be set to <b>Member<b/>. \n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 1</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
+    Details := "Requirement not met: <b>User type</b> must be set to <b>Member</b>. \n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 1</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
 
 }
 #--
@@ -1237,7 +1237,7 @@ tests[{
 }] {
     
     Status := count(BreakGlassUser2UserType) == 1
-    Details := "Requirement not met: <b>User type</b> must be set to <b>Member<b/>. \n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 2</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
+    Details := "Requirement not met: <b>User type</b> must be set to <b>Member</b>. \n\nThis test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 2</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user."
 
 }
 #--
