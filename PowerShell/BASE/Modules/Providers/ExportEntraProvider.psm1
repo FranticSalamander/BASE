@@ -21,7 +21,7 @@ function Export-EntraProvider {
 
 
     # The below cmdlet covers the following baselines
-    # - 2.1 2.2, 2.3, 2.4, 2.8, 2.9
+    # - 2.1 2.2, 2.3, 2.4, 2.8, 2.9, 5.3
     $UserSettingsDefaultPermissions = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthorizationPolicy"))
 
     # The below cmdlet covers the following baselines
@@ -36,14 +36,18 @@ function Export-EntraProvider {
     # - 4.1, 4.2, 4.3, 4.4, 4.7, 4.8, 4.9, 4.10
     $User = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUser"))
 
+    # The below cmdlet covers the following baselines
+    # - 5.4
+    $GroupSettingsTemp = @($Tracker.TryCommand("Get-MgBetaDirectorySetting")) | ? { $_.DisplayName -eq "Group.Unified"} 
+    $GroupSettings = ConvertTo-Json $GroupSettingsTemp.Values
+
 
     # $TheNextOne = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaDirectorySetting"))
     # $TheNextOne | Out-File -FilePath .\configs-json\test.json
     
 
     $GroupLifecyclePolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupLifecyclePolicy"))
-    $GroupSettingsTemp = @($Tracker.TryCommand("Get-MgBetaDirectorySetting")) | ? { $_.DisplayName -eq "Group.Unified"} 
-    $GroupSettings = ConvertTo-Json $GroupSettingsTemp.Values
+    
 
 
     #

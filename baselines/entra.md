@@ -307,6 +307,7 @@ Groups
 
 ## 5. Groups - General
 
+Configuration of external identities within Microsoft Entra ID
 #### MS.Entra.5.1v2
 Owners can manage group membership requests in My Groups
 <!--Policy: MS.Entra.5.1v2; Criticality: SHALL -->
@@ -342,17 +343,41 @@ Users cannot create Microsoft 365  groups
 
 ### Implementation
 
+## 6. Groups - Expiration
 
-## 6. Cross Tenant Access Policy
-Cross Tenant Access Policy
+Configuration of expiration of groups within Microsoft Entra ID
+
+#### MS.Entra.6.1v2
+Groups will have a lifetime of 180 days
+<!--Policy: MS.Entra.6.1v2; Criticality: SHALL -->
+- _Justification:_ Limit group sprawl by ensuring that groups that are no longer in use are deleted
+- _Last modified:_ March 2024
+
+#### MS.Entra.6.2v2
+Configuration for Email contact for groups with no owners	
+<!--Policy: MS.Entra.6.2v2; Criticality: SHALL -->
+- _Justification:_ Limit group sprawl by ensuring that groups that are no longer in use are deleted
+- _Last modified:_ March 2024
 
 
-### Policies
-#### MS.Entra.6.1v1
-Inbound trust setting will be configured correctly
-<!--Policy: MS.Entra.6.1v1; Criticality: SHALL -->
-- _Justification:_
-- _Last modified:_ Jan 2024
+#### MS.Entra.6.3v2
+Expiration Enabled for all Microsoft 365 groups
+<!--Policy: MS.Entra.6.3v2; Criticality: SHALL -->
+- _Justification:_ Limit group sprawl by ensuring that groups that are no longer in use are deleted
+- _Last modified:_ March 2024
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/groups/)
+
+- [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/groups/expiration/)
+
+### License Requirements
+
+- N/A
+
+### Implementation
+
 
 
 ## 7. Conditional Access Policy (CAP) - Admin SignIn Frequency

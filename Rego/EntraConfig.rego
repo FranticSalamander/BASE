@@ -1077,50 +1077,73 @@ tests[{
 }
 #--
 
-
-
+#--
 ############
 # MS.Entra.6 #
 ############
 
 #
-# MS.Entra.6.1v1
+# MS.Entra.6.1v2
 #--
-
-
-default InboundTrustMatch(_) := false
-InboundTrustMatch(Policy) := true if {
-    Policy.InboundTrust ==  {
-                             "IsCompliantDeviceAccepted":  false,
-                             "IsHybridAzureAdJoinedDeviceAccepted":  false,
-                             "IsMfaAccepted":  false
-                            }
-}
-
-InboundTrust[Policy.InboundTrust] {
-    Policy := input.cross_tenant_access_policy[_]
-
-    
-
-    # Match all simple conditions
-    InboundTrustMatch(Policy)
-
-}
-
 tests[{
-    "PolicyId" : "MS.Entra.6.1v1",
+    "PolicyId" : "MS.Entra.6.1v2",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaPolicyCrossTenantAccessPolicyDefault"],
-    "ActualValue" : InboundTrust,
-    "ReportDetails" : ReportDetailsString(Status, Details),
+    "Commandlet" : ["Get-MgBetaGroupLifecyclePolicy"],
+    "ActualValue" : Policy.GroupLifetimeInDays,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
     "RequirementMet" : Status
 }] {
     
-    Status := count(InboundTrust) > 0
-    Details := "Requirement not met: 'IsCompliantDeviceAccepted', 'IsHybridAzureAdJoinedDeviceAccepted' and 'IsMfaAccepted' must be set to false"
+
+    Policy := input.group_lifecycle_policy[_]
+    Status := Policy.GroupLifetimeInDays == 180
+    Detail := "Requirement not met: <b>Group lifetime (in days)</b> must be set to <b>180</b>"
+
     
 }
 #--
+
+
+#
+# MS.Entra.6.2v2
+#--
+# At this time we are unable to test for this because it will be different for every setup
+tests[{
+    "PolicyId" : "MS.Entra.6.2v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.6.2v2"
+    true
+
+}
+#--
+
+#
+# MS.Entra.6.3v2
+#--
+tests[{
+    "PolicyId" : "MS.Entra.6.3v2",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaGroupLifecyclePolicy"],
+    "ActualValue" : Policy.ManagedGroupTypes,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+
+    Policy := input.group_lifecycle_policy[_]
+    Status := Policy.ManagedGroupTypes == "All"
+    Detail := "Requirement not met: <b>Enable expiration for these Microsoft 365 groups</b> must be set to <b>All</b>"
+
+    
+}
+#--
+
 
 ############
 # MS.Entra.7 #
