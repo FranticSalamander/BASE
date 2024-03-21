@@ -37,13 +37,15 @@ function Export-EntraProvider {
     $User = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUser"))
 
 
-    # $TheNextOne = ConvertTo-Json -Depth 100 @($Tracker.TryCommand("Get-MgBetaUserMemberOfAsAdministrativeUnit -UserId "7c60be77-21a0-4b4c-9880-0d48a5fb5a60""))
-    # $TheNextOne | Out-File -FilePath .\configs-json\test4.json
-
+    # $TheNextOne = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaDirectorySetting"))
+    # $TheNextOne | Out-File -FilePath .\configs-json\test.json
+    
 
     $GroupLifecyclePolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupLifecyclePolicy"))
     $GroupSettingsTemp = @($Tracker.TryCommand("Get-MgBetaDirectorySetting")) | ? { $_.DisplayName -eq "Group.Unified"} 
     $GroupSettings = ConvertTo-Json $GroupSettingsTemp.Values
+
+
     #
    # $GroupSettings = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupSetting"))
     #$NamedLocationsPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-countryNamedLocation"))

@@ -1108,6 +1108,10 @@ tests[{
 
 }
 
+#
+# MS.Entra.4.4v2
+#--
+
 default BreakGlassUser1UsageLocationMatch(_) := false
 BreakGlassUser1UsageLocationMatch(Policy) := true if {
     Policy.DisplayName == "BreakGlass 1" 
