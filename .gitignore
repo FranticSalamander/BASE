@@ -27,6 +27,6 @@
 **/.DS_Store
 
 # Reports
-/M365BaselineConformance*
+**/M365BaselineConformance*
 /Testing/Functional/Reports*
 /Testing/Functional/Archive*

@@ -3,56 +3,51 @@ import future.keywords
 import data.report.utils.NotCheckedDetails
 import data.report.utils.ReportDetailsBoolean
 
+
+
 #
-# MS.Entra.5.1v1
+# MS.Entra.5.1v2
 #--
-test_AllowedToSignUpEmailBasedSubscriptions_Correct if {
-    PolicyId := "MS.Entra.5.1v1"
+test_NotImplemented_Correct if {
+    PolicyId := "MS.Entra.5.1v2"
 
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "AllowedToSignUpEmailBasedSubscriptions" : true
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement met"
-}
-
-test_AllowedToSignUpEmailBasedSubscriptions_Incorrect if {
-    PolicyId := "MS.Entra.5.1v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "AllowedToSignUpEmailBasedSubscriptions" : false
-            }
-        ]
-    }
+    Output := tests with input as { }
 
     RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
 
     count(RuleOutput) == 1
     not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'AllowedToSignUpEmailBasedSubscriptions' must be set to true"
+    RuleOutput[0].ReportDetails == NotCheckedDetails(PolicyId)
+}
+
+#
+# MS.Entra.5.2v2
+#--
+test_NotImplemented_Correct if {
+    PolicyId := "MS.Entra.5.2v2"
+
+    Output := tests with input as { }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    not RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == NotCheckedDetails(PolicyId)
 }
 
 
 #
-# MS.Entra.5.2v1
+# MS.Entra.5.3v2
 #--
-test_AllowedToUseSSPR_Correct if {
-    PolicyId := "MS.Entra.5.2v1"
+test_AllowedToCreateSecurityGroups_Correct if {
+    PolicyId := "MS.Entra.5.3v2"
 
     Output := tests with input as {
-        "authorisation_policy": [
+        "user_settings_default_permissions": [
             {
-                "AllowedToUseSspr" : true
+                "DefaultUserRolePermissions": {
+                            "AllowedToCreateSecurityGroups": false
+                },
             }
         ]
     }
@@ -64,13 +59,15 @@ test_AllowedToUseSSPR_Correct if {
     RuleOutput[0].ReportDetails == "Requirement met"
 }
 
-test_AllowedToUseSSPR_Incorrect if {
-    PolicyId := "MS.Entra.5.2v1"
+test_AllowedToCreateSecurityGroups_Incorrect_V1 if {
+    PolicyId := "MS.Entra.5.3v2"
 
     Output := tests with input as {
-        "authorisation_policy": [
+        "user_settings_default_permissions": [
             {
-                "AllowedToUseSspr" : false
+                "DefaultUserRolePermissions": {
+                            "AllowedToCreateSecurityGroups": true
+                },
             }
         ]
     }
@@ -79,180 +76,83 @@ test_AllowedToUseSSPR_Incorrect if {
 
     count(RuleOutput) == 1
     not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'AllowedToUseSSPR' must be set to true"
+    RuleOutput[0].ReportDetails == "Requirement not met: <b>Users can create security groups in Azure portals, API or PowerShell</b> must be set to <b>No</b>"
+
+}
+test_AllowedToCreateSecurityGroups_Incorrect_V2 if {
+    PolicyId := "MS.Entra.5.3v2"
+
+    Output := tests with input as {
+        "user_settings_default_permissions": [
+            {
+                "DefaultUserRolePermissions": {
+                            "AllowedToCreateSecurityGroups": null
+                },
+            }
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    not RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement not met: <b>Users can create security groups in Azure portals, API or PowerShell</b> must be set to <b>No</b>"
+
 }
 
 #
-# MS.Entra.5.3v1
+# MS.Entra.5.4v2
 #--
-test_AllowEmailVerifiedUsersToJoinOrganization_Correct if {
-    PolicyId := "MS.Entra.5.3v1"
+test_AllowedToCreateM365Groups_Correct_V1 if {
+    PolicyId := "MS.Entra.5.4v2"
 
     Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "AllowEmailVerifiedUsersToJoinOrganization" : true
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement met"
-}
-
-test_AllowEmailVerifiedUsersToJoinOrganization_Incorrect if {
-    PolicyId := "MS.Entra.5.3v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "AllowEmailVerifiedUsersToJoinOrganization" : false
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'AllowEmailVerifiedUsersToJoinOrganization' must be set to true"
-}
-
-# MS.Entra.5.4v1
-#--
-test_AllowInvitesFrom_Correct if {
-    PolicyId := "MS.Entra.5.4v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "AllowInvitesFrom" : "none"
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement met"
-}
-
-test_AllowInvitesFrom_Incorrect_V1 if {
-    PolicyId := "MS.Entra.5.4v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "AllowInvitesFrom" : ""
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'AllowInvitesFrom' must be set to 'none'"
-}
-
-test_AllowInvitesFrom_Incorrect_V2 if {
-    PolicyId := "MS.Entra.5.4v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "AllowInvitesFrom" : "no"
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'AllowInvitesFrom' must be set to 'none'"
-}
-
-#
-# MS.Entra.5.5v1
-#--
-test_BlockMsolPowerShell_Correct if {
-    PolicyId := "MS.Entra.5.5v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "BlockMsolPowerShell" : false
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement met"
-}
-
-test_BlockMsolPowerShell_Incorrect if {
-    PolicyId := "MS.Entra.5.5v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "BlockMsolPowerShell" : true
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'BlockMsolPowerShell' must be set to false"
-}
-
-#
-# MS.Entra.5.6v1
-#--
-test_DefaultUserRoleAllowedToCreateApps_Correct if {
-    PolicyId := "MS.Entra.5.6v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "DefaultUserRolePermissions":  {
-                                           "AllowedToCreateApps":  false,
-                                           "AllowedToCreateSecurityGroups":  false,
-                                           "AllowedToCreateTenants":  true,
-                                           "AllowedToReadBitlockerKeysForOwnedDevice":  true,
-                                           "AllowedToReadOtherUsers":  true
-                                       },
-            }
-        ]
-    }
-
-    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
-
-    count(RuleOutput) == 1
-    RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement met"
-}
-
-test_DefaultUserRoleAllowedToCreateApps_Incorrect if {
-    PolicyId := "MS.Entra.5.6v1"
-
-    Output := tests with input as {
-        "authorisation_policy": [
-            {
-                "DefaultUserRolePermissions":  {
-                                           "AllowedToCreateApps":  true
+        "group_settings": [
+                {
+                    "Name": "EnableGroupCreation",
+                    "Value": "false"
                 }
-            }
+              
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement met"
+}
+
+test_AllowedToCreateM365Groups_Correct_V1 if {
+    PolicyId := "MS.Entra.5.4v2"
+
+    Output := tests with input as {
+        "group_settings": [
+                {
+                    "Name": "EnableGroupCreation",
+                    "Value": "False"
+                }
+              
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement met"
+}
+
+test_AllowedToCreateM365Groups_Incorrect_V1 if {
+    PolicyId := "MS.Entra.5.4v2"
+
+    Output := tests with input as {
+        "group_settings": [
+                {
+                    "Name": "EnableGroupCreation",
+                    "Value": ""
+                }
+              
         ]
     }
 
@@ -260,6 +160,86 @@ test_DefaultUserRoleAllowedToCreateApps_Incorrect if {
 
     count(RuleOutput) == 1
     not RuleOutput[0].RequirementMet
-    RuleOutput[0].ReportDetails == "Requirement not met: 'DefaultUserRolePermissions' must be configured correctly"
-}
+    RuleOutput[0].ReportDetails == "Requirement not met: <b>Users can create M365 groups in Azure portals, API or PowerShell</b> must be set to <b>No</b>"
 
+}
+test_AllowedToCreateM365Groups_Incorrect_V2 if {
+    PolicyId := "MS.Entra.5.4v2"
+
+    Output := tests with input as {
+        "group_settings": [
+                {
+                    "Name": "EnableGroupCreation",
+                    "Value": "true"
+                }
+              
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    not RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement not met: <b>Users can create M365 groups in Azure portals, API or PowerShell</b> must be set to <b>No</b>"
+
+}
+test_AllowedToCreateM365Groups_Incorrect_V3 if {
+    PolicyId := "MS.Entra.5.4v2"
+
+    Output := tests with input as {
+        "group_settings": [
+                {
+                    "Name": "EnableGroupCreation",
+                    "Value": "True"
+                }
+              
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    not RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement not met: <b>Users can create M365 groups in Azure portals, API or PowerShell</b> must be set to <b>No</b>"
+
+}
+test_AllowedToCreateM365Groups_Incorrect_V4 if {
+    PolicyId := "MS.Entra.5.4v2"
+
+    Output := tests with input as {
+        "group_settings": [
+                {
+                    "Name": "AllowGuestsToBeGroupOwner",
+                    "Value": "False"
+                }
+              
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    not RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement not met: <b>Users can create M365 groups in Azure portals, API or PowerShell</b> must be set to <b>No</b>"
+
+}
+test_AllowedToCreateM365Groups_Incorrect_V5 if {
+    PolicyId := "MS.Entra.5.4v2"
+
+    Output := tests with input as {
+        "group_settings": [
+                {
+                    "Name": "AllowGuestsToBeGroupOwner",
+                    "Value": "false"
+                }
+              
+        ]
+    }
+
+    RuleOutput := [Result | Result = Output[_]; Result.PolicyId == PolicyId]
+
+    count(RuleOutput) == 1
+    not RuleOutput[0].RequirementMet
+    RuleOutput[0].ReportDetails == "Requirement not met: <b>Users can create M365 groups in Azure portals, API or PowerShell</b> must be set to <b>No</b>"
+
+}

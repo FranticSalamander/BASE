@@ -117,3 +117,45 @@ Security Defaults will be Disabled
 - [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/authentication/)
 
 - [Configuration Documentation](null)
+
+
+## 5. Authorisation Policy
+
+User Configurations
+
+### Policies
+#### MS.Entra.5.1v1
+Allowed to sign up to email based subscriptions
+<!--Policy: MS.Entra.5.1v1; Criticality: SHALL -->
+- _Justification:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.5.2v1
+Allowed to use SSPR
+<!--Policy: MS.Entra.5.2v1; Criticality: SHALL -->
+- _Justification:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.5.3v1
+Allow email verified users to join organisation
+<!--Policy: MS.Entra.5.3v1; Criticality: SHALL -->
+- _Justification:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.5.4v1
+Allow invites from none
+<!--Policy: MS.Entra.5.4v1; Criticality: SHALL -->
+- _Justification:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.5.5v1
+Do not block Msol PowerShell
+<!--Policy: MS.Entra.5.5v1; Criticality: SHALL -->
+- _Justification:_
+- _Last modified:_ Jan 2024
+
+#### MS.Entra.5.6v1
+Default user role must be configured correctly
+<!--Policy: MS.Entra.5.6v1; Criticality: SHALL -->
+- _Justification:_
+- _Last modified:_ Jan 2024

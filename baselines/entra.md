@@ -305,55 +305,36 @@ Groups
 ### Implementation
 
 
-## 5. Authorisation Policy
+## 5. Groups - General
 
-User Configurations
+#### MS.Entra.5.1v2
+Owners can manage group membership requests in My Groups
+<!--Policy: MS.Entra.5.1v2; Criticality: SHALL -->
+- _Last modified:_ Mar 2024
 
-### Policies
-#### MS.Entra.5.1v1
-Allowed to sign up to email based subscriptions
-<!--Policy: MS.Entra.5.1v1; Criticality: SHALL -->
-- _Justification:_
-- _Last modified:_ Jan 2024
+#### MS.Entra.5.2v2
+Restrict user ability to access groups features in My Groups
+<!--Policy: MS.Entra.5.2v2; Criticality: SHALL -->
+- _Last modified:_ Mar 2024
 
-#### MS.Entra.5.2v1
-Allowed to use SSPR
-<!--Policy: MS.Entra.5.2v1; Criticality: SHALL -->
-- _Justification:_
-- _Last modified:_ Jan 2024
+#### MS.Entra.5.3v2
+Users cannot create security groups
+<!--Policy: MS.Entra.5.3v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
 
-#### MS.Entra.5.3v1
-Allow email verified users to join organisation
-<!--Policy: MS.Entra.5.3v1; Criticality: SHALL -->
-- _Justification:_
-- _Last modified:_ Jan 2024
-
-#### MS.Entra.5.4v1
-Allow invites from none
-<!--Policy: MS.Entra.5.4v1; Criticality: SHALL -->
-- _Justification:_
-- _Last modified:_ Jan 2024
-
-#### MS.Entra.5.5v1
-Do not block Msol PowerShell
-<!--Policy: MS.Entra.5.5v1; Criticality: SHALL -->
-- _Justification:_
-- _Last modified:_ Jan 2024
-
-#### MS.Entra.5.6v1
-Default user role must be configured correctly
-<!--Policy: MS.Entra.5.6v1; Criticality: SHALL -->
-- _Justification:_
-- _Last modified:_ Jan 2024
+#### MS.Entra.5.4v2
+Users cannot create Microsoft 365  groups
+<!--Policy: MS.Entra.5.4v2; Criticality: SHALL -->
+- _Last modified:_ March 2024
 
 
 
 
 ### Resources
 
-- [Design Documentation]()
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/groups/)
 
-- [Configuration Documentation](null)
+- [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/groups/general/)
 
 ### License Requirements
 
