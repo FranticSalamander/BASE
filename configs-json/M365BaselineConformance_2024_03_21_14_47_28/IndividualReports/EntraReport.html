@@ -1,0 +1,821 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <title>Entra ID Baseline Report</title>
+        <style>
+        :root {
+    --background-primary: white;
+    --background-secondary: #b9bec2;
+    --test-pass: #d5ebd5;
+    --test-fail: #E5C7C7;
+    --test-warning: #fff7d6;
+    --test-other: #ebebf2;
+    --test-deleted-bg: #b2beb5;
+    --test-deleted-color: #6f7478;
+    --test-bug-color: #e80b0b;
+    --test-error-color: #DD4803;
+    --cap-even: #0052882d;
+    --cap-hover: #00528850;
+    --header-color: #005288;
+    --note-color: #ee4e04;
+    --header-bottom: black;
+    --link-color: #85B065;
+    --unvisited-link-color: #0092CC;
+    --text-color: black;
+    --border-color: black;
+    --toggle-height: 25px;
+    --toggle-width: 46px;
+    --toggle-radius: 18px;
+}
+
+html[data-theme='dark'] {
+    --background-primary: #10171D;
+    --background-secondary: #121212;
+    --test-pass: #1C361C;
+    --test-fail: #381919;
+    --test-warning: #524100;
+    --test-other: #414141;
+    --cap-even: #0052882d;
+    --cap-hover: #007ccf50;
+    --test-error-color: #FD885D;
+    --header-color: #b7c8d2;
+    --note-color: #ee4e04;
+    --header-bottom: rgb(221, 221, 221);
+    --link-color: #85B065;
+    --unvisited-link-color: #0092CC;
+    --text-color: #bdbdbd;
+    --border-color: #7b7b7b;
+}
+
+body {
+    background-color: var(--background-secondary);
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+    color: var(--text-color);
+}
+
+table {
+    margin: auto;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 1000px;
+}
+
+h3 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--header-color);
+}
+
+h4 {
+    text-align: center;
+    justify-content: start;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--note-color);
+    margin-left:20%;
+    margin-right: 20%;
+    margin-bottom:5px;
+}
+
+
+.links {
+    display: flex;
+}
+
+header {
+    width: 1000px;
+    margin: auto;
+    border-bottom: 1px solid var(--header-bottom);
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 5px;
+}
+
+header h3 {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 5px solid rgba(0, 0, 0, 0);
+    color: var(--header-color);
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header h3:hover {
+    border-bottom: 5px solid var(--header-color);
+}
+
+td {
+    padding: 4px;
+    margin: 0px;
+    overflow-wrap: break-word;
+}
+
+td a {
+    color: var(--header-color);
+}
+
+table, th, td {
+    border: 1px solid;
+    border-color: var(--border-color);
+    white-space: pre-wrap;
+}
+
+main {
+    background-color: var(--background-primary);
+    width: 1100px;
+    margin: auto;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--header-color);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--header-color);
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+img {
+    width: 100px;
+}
+
+#caps {
+    width: 1000px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#caps h2 {
+    margin-top: 10px;
+}
+
+#caps tr:nth-child(even){
+    background-color: var(--cap-even);
+}
+
+#caps tr:hover{
+    background-color: var(--cap-hover);
+}
+
+#caps ul {
+    padding: 0;
+    padding-left: 2px;
+    list-style-position: inside;
+}
+
+#caps img:hover {
+    cursor: pointer;
+}
+
+#caps td:nth-child(1), #caps th:nth-child(1) {
+    border-right: none;
+}
+
+#caps td:nth-child(2), #caps th:nth-child(2) {
+    border-left: none;
+}
+
+#caps span {
+    cursor: pointer;
+    color: var(--header-color);
+    text-decoration:underline;
+}
+
+.buttons {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+button {
+    cursor: pointer;
+}
+
+table.caps_table {
+    width: 100%
+}
+
+th.state {
+    text-align: center;
+}
+
+th.apps_actions {
+    width: 15%;
+}
+
+th.users {
+    width: 25%;
+}
+
+th.conditions {
+    width: 25%;
+}
+
+#toggle-text {
+    color: #7b7b7b;
+    margin-left: 50px;
+    margin-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: var(--toggle-width);
+    height: var(--toggle-height);
+    left: 50px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #b9bec2;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: var(--toggle-radius);
+    width: var(--toggle-radius);
+    left: 4px;
+    bottom: 3.5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #005288ad;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #005288ad;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(var(--toggle-radius));
+    -ms-transform: translateX(var(--toggle-radius));
+    transform: translateX(var(--toggle-radius));
+}
+
+.slider.round {
+    border-radius: var(--toggle-height);
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+a.control_group:link {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--unvisited-link-color);
+    text-decoration: underline;
+}
+
+a.control_group:visited {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--link-color);
+}
+
+a.control_group:hover {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a.control_group:active {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--link-color);
+    text-decoration: none;
+}
+    </style>
+        <script>
+        let darkMode = false;
+        const caps = null;
+/**
+ * Adds the red, green, yellow, and gray coloring to the individual report pages.
+ */
+const colorRows = () => {
+    let rows = document.querySelectorAll('tr');
+    const requirementCol = 1;
+    const statusCol = 2;
+    //const criticalityCol = 3;
+    for (let i = 0; i < rows.length; i++) {
+        try {
+            if (rows[i].children[requirementCol].innerHTML.startsWith("[DELETED]")) {
+                rows[i].style.color = "var(--test-deleted-color)";
+                rows[i].style.background = "var(--test-other)";
+            }
+            else if (rows[i].children[statusCol].innerHTML.startsWith("Bug")){
+                rows[i].style.background = "var(--test-bug-color)";
+            }
+            else if (rows[i].children[statusCol].innerHTML === "Unaligned") {
+                rows[i].style.background = "var(--test-fail)";
+            }
+            else if (rows[i].children[statusCol].innerHTML === "Warning") {
+                rows[i].style.background = "var(--test-warning)";
+            }
+            else if (rows[i].children[statusCol].innerHTML === "Aligned") {
+                rows[i].style.background = "var(--test-pass)";
+            }
+            else if (rows[i].children[criticalityCol].innerHTML.includes("Not-Implemented")) {
+                rows[i].style.background = "var(--test-other)";
+            }
+            /*else if (rows[i].children[criticalityCol].innerHTML.includes("3rd Party")) {
+                rows[i].style.background = "var(--test-other)";
+            }*/
+            else if (rows[i].children[statusCol].innerHTML.includes("Error")) {
+                rows[i].style.background = "var(--test-fail)";
+                rows[i].querySelectorAll('td')[statusCol].style.borderColor = "var(--border-color)";
+                rows[i].querySelectorAll('td')[statusCol].style.color = "var(--test-error-color)";
+            }
+        }
+        catch (error) {
+            console.error(`Error in colorRows, i = ${i}`);
+            console.error(error);
+        }
+    }
+}
+
+/**
+ * For the conditional access policy table. For AAD only.
+ * The "" column is used for the nameless column that holds the
+ * "Show more" / "Show less" buttons.
+ */
+const capColNames = ["", "Name", "State", "Users", "Apps/Actions", "Conditions", "Block/Grant Access", "Session Controls"];
+
+/**
+ * Creates the conditional access policy table at the end of the AAD report.
+ * For all other reports (e.g., teams), this function does nothing.
+ */
+const fillCAPTable = () => {
+    if (caps === undefined || caps === null) {
+        /*  The CAP table is only displayed for the AAD baseline, but
+            this js file applies to all baselines. If caps is null,
+            then the current baseline is not AAD and we don't need to
+            do anything.
+
+            Also, note that caps isn't declared in the static version of
+            this file. It is prepended to the version rendered in the html
+            by CreateReport.ps1.
+        */
+       return;
+    }
+    try {
+        let capDiv = document.createElement("div");
+        capDiv.setAttribute("id", "caps");
+        document.querySelector("main").appendChild(capDiv);
+
+        capDiv.appendChild(document.createElement("hr"));
+        h2 = document.createElement("h2");
+        h2.innerHTML = "Conditional Access Policies";
+        capDiv.appendChild(h2);
+
+        let buttons = document.createElement("div");
+        buttons.classList.add("buttons");
+        capDiv.appendChild(buttons);
+
+        let expandAll = document.createElement("button");
+        expandAll.appendChild(document.createTextNode("+ Expand all"));
+        expandAll.title = "Expand all";
+        expandAll.addEventListener("click", expandAllCAPs);
+        buttons.appendChild(expandAll);
+
+        let collapseAll = document.createElement("button");
+        collapseAll.appendChild(document.createTextNode("− Collapse all"));
+        collapseAll.title = "Collapse all";
+        collapseAll.addEventListener("click", collapseAllCAPs);
+        buttons.appendChild(collapseAll);
+
+        let table = document.createElement("table");
+        table.setAttribute("class", "caps_table");
+        capDiv.appendChild(table);
+
+        let header = document.createElement("tr");
+        for (let i = 0; i < capColNames.length; i++) {
+            let th = document.createElement("th");
+            if (capColNames[i] === "Apps/Actions") {
+                th.setAttribute("class", "apps_actions");
+            }
+            else if (capColNames[i] === "State") {
+                th.setAttribute("class", "state");
+            }
+            else if (capColNames[i] === "Users") {
+                th.setAttribute("class", "users");
+            }
+            else if (capColNames[i] === "Conditions") {
+                th.setAttribute("class", "conditions");
+            }
+            th.innerHTML = capColNames[i];
+            header.appendChild(th);
+        }
+        table.appendChild(header);
+
+        for (let i = 0; i < caps.length; i++) {
+            let tr = document.createElement("tr");
+            for (let j = 0; j < capColNames.length; j++) {
+                let td = document.createElement("td");
+                fillTruncatedCell(td, i,j);
+                tr.appendChild(td);
+            }
+
+            let img = document.createElement("img");
+            img.setAttribute('src', 'images/angle-right-solid.svg');
+            img.setAttribute('alt', 'Show more');
+            img.setAttribute('title', 'Show more');
+            img.style.width = '10px';
+            img.rowNumber = i;
+            img.addEventListener("click", expandCAPRow);
+            tr.querySelectorAll('td')[0].appendChild(img);
+            table.appendChild(tr);
+        }
+    }
+    catch (error) {
+        console.error("Error in fillCAPTable");
+        console.error(error);
+    }
+}
+
+/**
+ * Fills in the truncated version of the given cell of the AAD conditional
+ * access policy table. For AAD only.
+ * @param {HTMLElement} td The specific td that will be populated.
+ * @param {number} i The row number (0-indexed, not counting the header row).
+ * @param {number} j The the column number (0-indexed).
+ */
+const fillTruncatedCell = (td, i, j) => {
+    try {
+        const charLimit = 50;
+        let content = "";
+        let truncated = false;
+        if (capColNames[j] === "") {
+            content = ""
+        }
+        else if (caps[i][capColNames[j]].constructor === Array && caps[i][capColNames[j]].length > 1) {
+            content = caps[i][capColNames[j]][0];
+            truncated = true;
+        }
+        else {
+            content = caps[i][capColNames[j]];
+        }
+
+        if (content.length > charLimit) {
+            td.innerHTML = content.substring(0, charLimit);
+            truncated = true;
+        }
+        else {
+            td.innerHTML = content;
+        }
+
+        if (truncated) {
+            let span = document.createElement("span");
+            span.appendChild(document.createTextNode("..."));
+            span.title = "Show more";
+            span.rowNumber = i;
+            span.addEventListener("click", expandCAPRow);
+            td.appendChild(span);
+        }
+    }
+    catch (error) {
+        console.error(`Error in fillTruncatedCell, i = ${i}, j = ${j}`);
+        console.error(error);
+    }
+}
+
+/**
+ * Fills in the row of the conditional access policy table indicated by the
+ * event with the truncated version of the row. For AAD only.
+ * @param {HTMLElement} event The target of the event.
+ */
+const hideCAPRow = (event) => {
+    try {
+        let i = event.currentTarget.rowNumber;
+        let tr = document.querySelector("#caps tr:nth-of-type(" + (i+2).toString() + ")"); /*i+2
+        because nth-of-type is indexed from 1 and to account for the header row */
+        for (let j = 0; j < capColNames.length; j++) {
+            let td = tr.querySelector("td:nth-of-type(" + (j+1).toString() + ")");
+            fillTruncatedCell(td, i, j);
+        }
+        let img = document.createElement("img");
+        img.setAttribute('src', 'images/angle-right-solid.svg');
+        img.style.width = '10px';
+        img.setAttribute('alt', 'Show more');
+        img.setAttribute('title', 'Show more');
+        img.rowNumber = i;
+        img.addEventListener("click", expandCAPRow);
+        tr.querySelectorAll('td')[0].appendChild(img);
+    }
+    catch (error) {
+        console.error("Error in hideCAPRow");
+        console.error(error);
+    }
+}
+
+/**
+ * Expands all rows of the conditional access policy table to the full version.
+ * For AAD only.
+ */
+const expandAllCAPs = () => {
+    try {
+        let buttons = document.querySelectorAll("img[src*='angle-right-solid.svg']");
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].click();
+        }
+    }
+    catch (error) {
+        console.error("Error in expandAllCAPs");
+        console.error(error);
+    }
+}
+
+/**
+ * Shrinks all rows of the conditional access policy table to the truncated
+ * version. For AAD only.
+ */
+const collapseAllCAPs = () => {
+    try {
+        let buttons = document.querySelectorAll("img[src*='angle-down-solid.svg']");
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].click();
+        }
+    }
+    catch (error) {
+        console.error("Error in collapseAllCAPs");
+        console.error(error);
+    }
+}
+
+/**
+ * Fills in the row of the conditional access policy table indicated by the
+ * event with the full version of the row. For AAD only.
+ * @param {HTMLElement} event The target of the event.
+ */
+const expandCAPRow = (event) => {
+    try {
+        let i = event.currentTarget.rowNumber;
+        let tr = document.querySelector("#caps tr:nth-of-type(" + (i+2).toString() + ")"); /*i+2
+        because nth-of-type is indexed from 1 and to account for the header row */
+        for (let j = 0; j < capColNames.length; j++) {
+            let td = tr.querySelector("td:nth-of-type(" + (j+1).toString() + ")");
+            fillTruncatedCell(td, i, j);
+            td.innerHTML = "";
+            if (capColNames[j] === "") {
+                td.innerHTML = "";
+                let img = document.createElement("img");
+                img.setAttribute('src', 'images/angle-down-solid.svg');
+                img.setAttribute('alt', 'Show less');
+                img.setAttribute('title', 'Show less');
+                img.style.width = '14px';
+                img.rowNumber = i;
+                img.addEventListener("click", hideCAPRow);
+                tr.querySelectorAll('td')[0].appendChild(img);
+            }
+            else if (caps[i][capColNames[j]].constructor === Array && caps[i][capColNames[j]].length > 1) {
+                let ul = document.createElement("ul");
+                for (let k = 0; k < caps[i][capColNames[j]].length; k++) {
+                    let li = document.createElement("li");
+                    li.innerHTML = caps[i][capColNames[j]][k];
+                    ul.appendChild(li);
+                }
+                td.appendChild(ul);
+            }
+            else {
+                td.innerHTML = caps[i][capColNames[j]];
+            }
+        }
+    }
+    catch (error) {
+        console.error("Error in expandCAPRow");
+        console.error(error);
+    }
+}
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    colorRows();
+    fillCAPTable();
+    mountDarkMode("Individual Report");
+});
+/**
+ * Checks if Dark Mode session storage variable exists. Creates one if it does not exist.
+ * Sets the report's default Dark Mode state using the $DarkMode (JavaScript darkMode) PowerShell variable.
+ * @param {string} pageLocation The page where this function is called.
+ */
+const mountDarkMode = (pageLocation) => {
+    try {
+        let darkModeCookie = sessionStorage.getItem("darkMode");
+        if (darkModeCookie === undefined || darkModeCookie === null) {
+            if (darkMode) {
+                sessionStorage.setItem("darkMode", 'true');
+            }
+            else {
+                sessionStorage.setItem("darkMode", 'false');
+            }
+            darkModeCookie = sessionStorage.getItem("darkMode");
+        }
+        setDarkMode(darkModeCookie);
+        document.getElementById('toggle').checked = (darkModeCookie === 'true');
+    }
+    catch (error) {
+        console.error("Error applying dark mode to the " + pageLocation + ": " + error)
+    }
+}
+
+/**
+ * Set the report CSS to light mode or dark mode.
+ * @param {string} state true for Dark Mode or false for Light Mode
+ */
+const setDarkMode = (state) => {
+    if (state === 'true') {
+        document.getElementsByTagName('html')[0].dataset.theme = "dark";
+        document.querySelector("#toggle-text").innerHTML = "Dark Mode";
+        sessionStorage.setItem("darkMode", 'true');
+    }
+    else {
+        document.getElementsByTagName('html')[0].dataset.theme = "light";
+        document.querySelector("#toggle-text").innerHTML = "Light Mode";
+        sessionStorage.setItem("darkMode", 'false');
+    }
+}
+
+/**
+ * Toggles light and dark mode
+ */
+const toggleDarkMode = () => {
+    if (document.getElementById('toggle').checked) {
+        setDarkMode('true');
+    }
+    else {
+        setDarkMode('false');
+    }
+}
+    </script>
+    </head>
+    <body>
+        <main>
+            <header>
+               <!--<a href="../BaselineReports.html" title="Return to the report summary"><img src="images/cisa_logo.png" alt="Return to the report summary"></a>--> 
+                <div class="links">
+                    <a href="https://blueprint.asd.gov.au/" target="_blank"><h3 style="width: 210px;">ASD's Blueprint for Secure Cloud</h3></a>
+                    <div style="width:10px;"></div>
+                    <a href="https://github.com/FranticSalamander/BASE/tree/main/baselines" target="_blank"><h3 style="width: 100px;">Baseline Documents</h3></a>
+                </div>
+            </header>
+            <p id="toggle-text">Light mode</p>
+            <label class="switch">
+                <input id="toggle" type="checkbox" onclick="toggleDarkMode()">
+                <span class="slider round"></span>
+              </label>
+            <h1>Entra ID Baseline Report</h1>
+            <h4><p><br/></p></h4>
+            <table id="tenant-data" style = "text-align:center;"> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Tenant Display Name</th><th>Report Date</th><th>Blueprint Version</th><th>Module Version</th></tr> <tr><td>Australian Signals Directorate - Blueprint Hybrid Dev</td><td>03/21/2024 14:47:59 AUS Eastern Daylight Time</td><td>1</td><td>0.1.0</td></tr> </table> <h2>ENTRA-1 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##1-properties" target="_blank">Properties</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.1.1v2</td><td>Name field will be set to the organisation name
+<!--Policy: MS.Entra.1.1v2; Criticality: Shall--></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra11v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.1.2v2</td><td>Country or region field will be set to Australia
+<!--Policy: MS.Entra.1.2v2; Criticality: Shall--></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra12v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.1.3v2</td><td>Data location field will be set to Australia datacenters
+<!--Policy: MS.Entra.1.3v2; Criticality: Shall--></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra13v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.1.4v2</td><td>Notification language field will be set to English
+<!--Policy: MS.Entra.1.4v2; Criticality: Shall--></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra14v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.1.5v2</td><td>Tenant ID field will be unique to each tenant
+<!--Policy: MS.Entra.1.5v2; Criticality: Shall--></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra15v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.1.6v2</td><td>Technical contact field will be set to technical contact email for the tenant
+<!--Policy: MS.Entra.1.6v2; Criticality: Shall--></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra16v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.1.7v2</td><td>Global privacy contact field will be set to privacy contact email for the tenant
+<!--Policy: MS.Entra.1.7v2; Criticality: Shall--></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra17v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.1.8v2</td><td>Privacy statement URL field will be set to th privacy statement web address
+<!--Policy: MS.Entra.1.8v2; Criticality: Shall--></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra18v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.1.9v2</td><td>Access management for Azure resources field will be set to No
+<!--Policy: MS.Entra.1.9v2; Criticality: Shall--></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra19v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> </table> <h2>ENTRA-2 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##2-user-settings" target="_blank">User Settings</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.2.1v2</td><td>User cannot register application
+<!--Policy: MS.Entra.2.1v2; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.2.2v2</td><td>Restrict non-admin users from creating tenants
+<!--Policy: MS.Entra.2.2v2; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.2.3v2</td><td>Users cannot create security groups
+<!--Policy: MS.Entra.2.3v2; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.2.4v2</td><td>Guest user access is restricted to properties and memberships of their own directory objects
+<!--Policy: MS.Entra.2.4v2; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.2.5v2</td><td>Restrict access to Microsoft Entra admin centre
+<!--Policy: MS.Entra.2.5v2; Criticality: SHALL --></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra25v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.2.6v2</td><td>Do not allow users to connect their work or school account with LinkedIn
+<!--Policy: MS.Entra.2.6v2; Criticality: SHALL --></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra26v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.2.7v2</td><td>Show keep user signed in
+<!--Policy: MS.Entra.2.7v2; Criticality: SHALL --></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra27v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.2.8v2</td><td>Guest user access is restricted to properties and memberships of their own directory objects
+<!--Policy: MS.Entra.2.8v2; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.2.9v2</td><td>No one in the organization can invite guest users including admins
+<!--Policy: MS.Entra.2.9v2; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.2.10v2</td><td>Disable guest self-service sign up via user flows
+<!--Policy: MS.Entra.2.10v2; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.2.11v2</td><td>Allow external users to remove themselves from your organization
+<!--Policy: MS.Entra.2.11v2; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.2.12v2</td><td>Allow collaboration invitations to be sent to any domain (most inclusive)
+<!--Policy: MS.Entra.2.12v2; Criticality: SHALL --></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra212v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.2.13v2</td><td>User cannot use preview features for My Apps
+<!--Policy: MS.Entra.2.13v2; Criticality: SHALL --></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra213v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.2.14v2</td><td>Administrators cannot access My Staff
+<!--Policy: MS.Entra.2.14v2; Criticality: SHALL --></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra214v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> </table> <h2>ENTRA-3 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##3-per-user-mfa(incomplete)" target="_blank">Per-User MFA(Incomplete)</a></h2> <table> </table> <h2>ENTRA-4 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##4-breakglass-account-setup" target="_blank">BreakGlass account setup</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.4.1v2</td><td>Accounts are not to be associated with any individual user.</td><td>Warning</td><td>Requirement not met: <b>Display name</b> must be set to <b>BreakGlass 1</b> --- <b>IF THIS IS NOT CORRECT 4.2, 4.3 & 4.4 WILL FAIL</b>. 
+
+This test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 1</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user.</td></tr> <tr><td>MS.Entra.4.2v2</td><td>User type should be Member
+<!--Policy: MS.Entra.4.2v2; Criticality: SHOULD --></td><td>Warning</td><td>Requirement not met: <b>User type</b> must be set to <b>Member</b>. 
+
+This test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 1</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user.</td></tr> <tr><td>MS.Entra.4.3v2</td><td>Account should be enabled
+<!--Policy: MS.Entra.4.3v2; Criticality: SHOULD --></td><td>Warning</td><td>Requirement not met: <b>Account enabled</b> must be checked.
+
+This test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 1</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user.</td></tr> <tr><td>MS.Entra.4.4v2</td><td>Usage location should be Australia
+<!--Policy: MS.Entra.4.4v2; Criticality: SHOULD --></td><td>Warning</td><td>Requirement not met: <b>Usage location</b> must be set to <b>Australia</b>.
+
+This test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 1</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user.</td></tr> <tr><td>MS.Entra.4.5v2</td><td>Emergency access accounts will be assigned the Global Administrator role.</td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra45v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.4.6v2</td><td>Groups
+<!--Policy: MS.Entra.4.6v2; Criticality: SHALL --></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra46v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.4.7v2</td><td>Accounts are not to be associated with any individual user.</td><td>Warning</td><td>Requirement not met: <b>Display name</b> must be set to <b>BreakGlass 2</b> --- <b>IF THIS IS NOT CORRECT 4.8, 4.9 & 4.10 WILL FAIL</b>. 
+
+This test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 2</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user.</td></tr> <tr><td>MS.Entra.4.8v2</td><td>User type should be Member
+<!--Policy: MS.Entra.4.8v2; Criticality: SHOULD --></td><td>Warning</td><td>Requirement not met: <b>User type</b> must be set to <b>Member</b>. 
+
+This test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 2</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user.</td></tr> <tr><td>MS.Entra.4.9v2</td><td>Account should be enabled
+<!--Policy: MS.Entra.4.9v2; Criticality: SHOULD --></td><td>Warning</td><td>Requirement not met: <b>Account enabled</b> must be checked.
+
+This test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 2</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user.</td></tr> <tr><td>MS.Entra.4.10v2</td><td>Usage location should be Australia
+<!--Policy: MS.Entra.4.10v2; Criticality: SHOULD --></td><td>Warning</td><td>Requirement not met: <b>Usage location</b> must be set to <b>Australia</b>.
+
+This test can only run correctly if the <b>Display name</b> is set to <b>BreakGlass 2</b>, however, a different <b>Display name</b> is permisable as long as it is not shared with any other user.</td></tr> <tr><td>MS.Entra.4.11v2</td><td>Emergency access accounts will be assigned the Global Administrator role.</td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra411v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> <tr><td>MS.Entra.4.12v2</td><td>Groups
+<!--Policy: MS.Entra.4.12v2; Criticality: SHALL --></td><td>N/A</td><td>Not currently checked automatically. See <a href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md#msentra412v2" target="_blank">Secure Configuration Baseline policy</a> for instructions on manual check</td></tr> </table> <h2>ENTRA-5 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##5-authorisation-policy" target="_blank">Authorisation Policy</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.5.1v1</td><td>Allowed to sign up to email based subscriptions
+<!--Policy: MS.Entra.5.1v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.5.2v1</td><td>Allowed to use SSPR
+<!--Policy: MS.Entra.5.2v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.5.3v1</td><td>Allow email verified users to join organisation
+<!--Policy: MS.Entra.5.3v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.5.4v1</td><td>Allow invites from none
+<!--Policy: MS.Entra.5.4v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.5.5v1</td><td>Do not block Msol PowerShell
+<!--Policy: MS.Entra.5.5v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.5.6v1</td><td>Default user role must be configured correctly
+<!--Policy: MS.Entra.5.6v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: 'DefaultUserRolePermissions' must be configured correctly</td></tr> </table> <h2>ENTRA-6 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##6-cross-tenant-access-policy" target="_blank">Cross Tenant Access Policy</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.6.1v1</td><td>Inbound trust setting will be configured correctly
+<!--Policy: MS.Entra.6.1v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> </table> <h2>ENTRA-7 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##7-conditional-access-policy-(cap)---admin-signin-frequency" target="_blank">Conditional Access Policy (CAP) - Admin SignIn Frequency</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.7.1v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.1v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.7.2v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.2v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: AdminSignInFrequency - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.7.3v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.3v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.7.4v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.4v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.7.5v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.5v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.7.6v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.6v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.7.7v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.7v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.7.8v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.8v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.7.9v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.9v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.7.10v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.10v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.7.11v1</td><td>Expire administration sessions
+<!--Policy: MS.Entra.7.11v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: State must be set to 'enabledForReportingButNotEnforced'</td></tr> </table> <h2>ENTRA-8 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##8-cap---countries-not-allowed" target="_blank">CAP - Countries Not Allowed</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.8.1v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Unaligned</td><td>Requirement not met: CountriesNotAllowed - SignInFrequency 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.8.2v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Unaligned</td><td>Requirement not met: CountriesNotAllowed - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.8.3v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Unaligned</td><td>Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.8.4v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Unaligned</td><td>Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.8.5v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.8.6v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.8.7v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Unaligned</td><td>Requirement not met: ClientAppTypes must be configured correctly</td></tr> <tr><td>MS.Entra.8.8v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.8.9v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.8.10v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.8.11v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.8.12v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.8.13v1</td><td>Blocks all connections from countries not in the allowed countries list.</td><td>Aligned</td><td>Requirement met</td></tr> </table> <h2>ENTRA-9 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##9-cap---guest-access-block" target="_blank">CAP - Guest Access Block</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.9.1v1</td><td>Deny all guest and external users by default.</td><td>Unaligned</td><td>Requirement not met: GuestAccessBlock - SignInFrequency 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.9.2v1</td><td>Deny all guest and external users by default.</td><td>Unaligned</td><td>Requirement not met: GuestAccessBlock - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.9.3v1</td><td>Deny all guest and external users by default.</td><td>Unaligned</td><td>Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.9.4v1</td><td>Deny all guest and external users by default.</td><td>Unaligned</td><td>Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.9.5v1</td><td>Deny all guest and external users by default.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.9.6v1</td><td>Deny all guest and external users by default.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.9.7v1</td><td>Deny all guest and external users by default.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.9.8v1</td><td>Deny all guest and external users by default.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.9.9v1</td><td>Deny all guest and external users by default.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.9.10v1</td><td>Deny all guest and external users by default.</td><td>Unaligned</td><td>Requirement not met: State must be set to 'enabled'</td></tr> </table> <h2>ENTRA-10 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##10-cap---guest-access-grant" target="_blank">CAP - Guest Access Grant</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.10.1v1</td><td>Deny all guest and external users by default.</td><td>Unaligned</td><td>Requirement not met: GuestAccessGrant - SignInFrequency 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.10.2v1</td><td>Deny all guest and external users by default.</td><td>Unaligned</td><td>Requirement not met: GuestAccessGrant - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.10.3v1</td><td>Deny all guest and external users by default.</td><td>Unaligned</td><td>Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.10.4v1</td><td>Deny all guest and external users by default.</td><td>Unaligned</td><td>Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.10.5v1</td><td>Deny all guest and external users by default.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.10.6v1</td><td>Deny all guest and external users by default.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.10.7v1</td><td>Deny all guest and external users by default.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.10.8v1</td><td>Deny all guest and external users by default.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.10.9v1</td><td>Deny all guest and external users by default.</td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.10.10v1</td><td>Deny all guest and external users by default.</td><td>Unaligned</td><td>Requirement not met: State must be set to 'enabledForReportingButNotEnforced'</td></tr> </table> <h2>ENTRA-11 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##11-cap---high-risk-signins" target="_blank">CAP - High Risk SignIns</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.11.1v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.11.1v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: GuestAccessGrant - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.11.2v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.11.2v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.11.3v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.11.3v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.11.4v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.11.4v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.11.5v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.11.5v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.11.6v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.11.6v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> </table> <h2>ENTRA-12 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##12-cap---legacy-authentication-block" target="_blank">CAP - Legacy Authentication Block</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.12.1v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.12.1v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: GuestAccessGrant - SignInFrequency 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.12.2v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.12.2v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: GuestAccessGrant - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.12.3v1</td><td>BASE
+<!--Policy: MS.Entra.12.3v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.12.4v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.12.4v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.12.5v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.12.5v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.12.6v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.12.6v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.12.7v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.12.7v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.12.8v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.12.8v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.12.9v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.12.7v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.12.10v1</td><td>Block Legacy Authentication and high risk logins
+<!--Policy: MS.Entra.12.10v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> </table> <h2>ENTRA-13 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##13-cap---mfa-guest-b2b-access" target="_blank">CAP - MFA Guest B2B Access</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.13.1v1</td><td>Require multi-factor authentication for guest access
+<!--Policy: MS.Entra.13.1v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: GuestAccessGrant - SignInFrequency 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.13.2v1</td><td>Require multi-factor authentication for guest access
+<!--Policy: MS.Entra.13.2v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: GuestAccessGrant - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.13.3v1</td><td>Require multi-factor authentication for guest access
+<!--Policy: MS.Entra.13.3v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.13.4v1</td><td>Require multi-factor authentication for guest access
+<!--Policy: MS.Entra.13.4v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.13.5v1</td><td>Require multi-factor authentication for guest access
+<!--Policy: MS.Entra.13.5v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.13.6v1</td><td>Require multi-factor authentication for guest access
+<!--Policy: MS.Entra.13.6v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.13.7v1</td><td>Require multi-factor authentication for guest access
+<!--Policy: MS.Entra.13.7v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: ClientAppTypes must be configured correctly</td></tr> <tr><td>MS.Entra.13.8v1</td><td>Require multi-factor authentication for guest access
+<!--Policy: MS.Entra.13.8v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.13.9v1</td><td>Require multi-factor authentication for guest access
+<!--Policy: MS.Entra.13.9v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.13.10v1</td><td>Require multi-factor authentication for guest access
+<!--Policy: MS.Entra.13.10v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: State must be set to 'enabled'</td></tr> </table> <h2>ENTRA-14 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##14-cap---session-based-policies" target="_blank">CAP - Session Based Policies</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.14.1v1</td><td>Expire user sessions
+<!--Policy: MS.Entra.14.1v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.14.2v1</td><td>Expire user sessions
+<!--Policy: MS.Entra.14.2v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.14.3v1</td><td>Expire user sessions
+<!--Policy: MS.Entra.14.3v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.14.4v1</td><td>Expire user sessions
+<!--Policy: MS.Entra.14.4v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.14.5v1</td><td>Expire user sessions
+<!--Policy: MS.Entra.14.5v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.14.6v1</td><td>Expire user sessions
+<!--Policy: MS.Entra.14.6v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.14.7v1</td><td>Expire user sessions
+<!--Policy: MS.Entra.14.7v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.14.8v1</td><td>Expire user sessions
+<!--Policy: MS.Entra.14.8v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.14.9v1</td><td>Expire user sessions
+<!--Policy: MS.Entra.14.9v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.14.10v1</td><td>Expire user sessions
+<!--Policy: MS.Entra.14.10v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.14.11v1</td><td>Expire user sessions after 12 hours
+<!--Policy: MS.Entra.14.11v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: State must be set to 'enabledForReportingButNotEnforced'</td></tr> </table> <h2>ENTRA-15 <a class='control_group' href="https://github.com/FranticSalamander/BASE/blob/main/baselines/entra.md##15-cap---terms-of-use-grant" target="_blank">CAP - Terms of Use Grant</a></h2> <table> <colgroup><col/><col/><col/><col/></colgroup> <tr><th>Control ID</th><th>Requirement</th><th>Result</th><th>Details</th></tr> <tr><td>MS.Entra.15.1v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.1v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: SignInFrequency 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.15.2v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.2v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.15.3v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.3v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.15.4v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.4v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false</td></tr> <tr><td>MS.Entra.15.5v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.5v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.15.6v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.6v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.15.7v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.7v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.15.8v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.8v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.15.9v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.9v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.15.10v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.10v1; Criticality: SHALL --></td><td>Aligned</td><td>Requirement met</td></tr> <tr><td>MS.Entra.15.11v1</td><td>Terms of Use Policy
+<!--Policy: MS.Entra.15.11v1; Criticality: SHALL --></td><td>Unaligned</td><td>Requirement not met: State must be set to 'enabledForReportingButNotEnforced'</td></tr> </table>
+        </main>
+    </body>
+</html>
+<!--Links need to change logos need to be added-->
