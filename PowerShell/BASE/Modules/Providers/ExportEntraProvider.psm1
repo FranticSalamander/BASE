@@ -41,6 +41,10 @@ function Export-EntraProvider {
     $GroupSettingsTemp = @($Tracker.TryCommand("Get-MgBetaDirectorySetting")) | ? { $_.DisplayName -eq "Group.Unified"} 
     $GroupSettings = ConvertTo-Json $GroupSettingsTemp.Values
 
+    # The below cmdlet covers the following baselines
+    # - 6.1, 6.3
+    $GroupLifecyclePolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupLifecyclePolicy"))
+
 
     # $TheNextOne = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaDirectorySetting"))
     # $TheNextOne | Out-File -FilePath .\configs-json\test.json

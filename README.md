@@ -55,7 +55,7 @@ If a tenant does not have the licenses listed above, the report will display a n
 ### Download the Latest Release
 To download ScubaGear:
 
-1. Click [here](https://github.com/cisagov/ScubaGear/releases/latest) to see the latest release.
+1. Click [here](https://github.com/FranticSalamander/BASE) to see the latest release.
 2. Click `ScubaGear-v1-0-0.zip` (or latest version) to download the release.
 3. Extract the folder in the zip file.
 
