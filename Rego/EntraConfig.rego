@@ -1150,186 +1150,38 @@ tests[{
 ############
 
 #
-# MS.Entra.7.1v1
+# MS.Entra.7.1v2
 #--
+default CustomBlockedWordListMatch(_) := false
+CustomBlockedWordListMatch(Policy) := true if {
+    Policy.Name == "CustomBlockedWordsList"
+    Policy.Value == "" 
+}
 
+CustomBlockedWordList[Policy.Name] {
+    Policy := input.group_settings[_]
+    # Match all simple conditions
+    CustomBlockedWordListMatch(Policy)
+
+}
 
 tests[{
-    "PolicyId" : "MS.Entra.7.1v1",
+    "PolicyId" : "MS.Entra.7.1v2",
     "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : [Policy.IsEnabled, Policy.Type, Policy.Value],
-    "ReportDetails" : ReportDetailsString(Status, Details),
+    "Commandlet" : ["Get-MgBetaDirectorySetting"],
+    "ActualValue" : CustomBlockedWordList,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
     "RequirementMet" : Status
 }] {
-    Policy := input.conditional_access_policy_admin_sign_in_frequency.SessionControls.SignInFrequency
-    Conditions := [Policy.IsEnabled == true, Policy.Type == "hours", Policy.Value == 4]
-    Status := count([Condition | Condition = Conditions[_]; Condition == true]) == 3
-    Incorrect := 3 - count([Condition | Condition = Conditions[_]; Condition == true]) 
-    Details := concat(format_int(Incorrect, 10), ["Requirement not met: ", " AdminSignInFrequency - SignInFrequency policies configured incorrectly"])
+    
+
+    Status := count(CustomBlockedWordList) > 0
+    Detail := "Requirement not met: <b>Block word list</b> must be set to <b>Not Configured</b>"
+
     
 }
 #--
 
-#
-# MS.Entra.7.2v1
-#--
-
-
-tests[{
-    "PolicyId" : "MS.Entra.7.2v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.IsEnabled,
-    "ReportDetails" : ReportDetailsString(Status, Details),
-    "RequirementMet" : Status
-}] {
-    Policy := input.conditional_access_policy_admin_sign_in_frequency.SessionControls.ApplicationEnforcedRestrictions
-    Status := Policy.IsEnabled == false
-    Details := "Requirement not met: AdminSignInFrequency - ApplicationEnforcedRestrictions - 'IsEnabled' must be set to false" 
-    
-}
-#--
-
-#
-# MS.Entra.7.3v1
-#--
-
-
-tests[{
-    "PolicyId" : "MS.Entra.7.3v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.IsEnabled,
-    "ReportDetails" : ReportDetailsString(Status, Details),
-    "RequirementMet" : Status
-}] {
-    Policy := input.conditional_access_policy_admin_sign_in_frequency.SessionControls.CloudAppSecurity
-    Status := Policy.IsEnabled == false
-    Details := "Requirement not met: CloudAppSecurity - 'IsEnabled' must be set to false" 
-    
-}
-#--
-
-#
-# MS.Entra.7.4v1
-#--
-
-
-tests[{
-    "PolicyId" : "MS.Entra.7.4v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.IsEnabled,
-    "ReportDetails" : ReportDetailsString(Status, Details),
-    "RequirementMet" : Status
-}] {
-    Policy := input.conditional_access_policy_admin_sign_in_frequency.SessionControls.PersistentBrowser
-    Status := Policy.IsEnabled == false
-    Details := "Requirement not met: PersistentBrowser - 'IsEnabled' must be set to false" 
-    
-}
-#--
-
-#
-# MS.Entra.7.5v1
-#--
-
-
-tests[{
-    "PolicyId" : "MS.Entra.7.5v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.Operator,
-    "ReportDetails" : ReportDetailsString(Status, Details),
-    "RequirementMet" : Status
-}] {
-    Policy := input.conditional_access_policy_admin_sign_in_frequency.GrantControls
-    Status := Policy.Operator == "OR"
-    Details := "Requirement not met: GrantControls Operator must be 'OR'" 
-    
-}
-#--
-
-#
-# MS.Entra.7.6v1
-#--
-
-
-tests[{
-    "PolicyId" : "MS.Entra.7.6v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.BuiltInControls,
-    "ReportDetails" : ReportDetailsString(Status, Details),
-    "RequirementMet" : Status
-}] {
-    Policy := input.conditional_access_policy_admin_sign_in_frequency.GrantControls
-    Status := Policy.BuiltInControls == ["mfa"]
-    Details := "Requirement not met: GrantControlBuiltInControls must be set to 'mfa'" 
-    
-}
-#--
-
-#
-# MS.Entra.7.7v1
-#--
-
-
-tests[{
-    "PolicyId" : "MS.Entra.7.7v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.ClientAppTypes,
-    "ReportDetails" : ReportDetailsString(Status, Details),
-    "RequirementMet" : Status
-}] {
-    Policy := input.conditional_access_policy_admin_sign_in_frequency.Conditions
-    Status := Policy.ClientAppTypes == ["browser", "mobileAppsAndDesktopClients", "other"]
-    Details := "Requirement not met: ClientAppTypes must be configured correctly" 
-
-}
-#--
-
-#
-# MS.Entra.7.8v1
-#--
-
-
-tests[{
-    "PolicyId" : "MS.Entra.7.8v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.IncludeApplications,
-    "ReportDetails" : ReportDetailsString(Status, Details),
-    "RequirementMet" : Status
-}] {
-    Policy := input.conditional_access_policy_admin_sign_in_frequency.Conditions.Applications
-    Status := Policy.IncludeApplications == "All"
-    Details := "Requirement not met: IncludeApplications must be set to 'All'" 
-
-}
-#--
-
-#
-# MS.Entra.7.9v1
-#--
-
-
-tests[{
-    "PolicyId" : "MS.Entra.7.9v1",
-    "Criticality" : "Shall",
-    "Commandlet" : ["Get-MgBetaIdentityConditionalAccessPolicy"],
-    "ActualValue" : Policy.ExcludeGroups,
-    "ReportDetails" : ReportDetailsString(Status, Details),
-    "RequirementMet" : Status
-}] {
-    Policy := input.conditional_access_policy_admin_sign_in_frequency.Conditions.Users
-    Status := Policy.ExcludeGroups == "a2b89a91-d113-4d94-9d17-08875130ecc1"
-    Details := "Requirement not met: ExcludeGroups must be set to 'grp-Conditional_Access_Exclude'/'a2b89a91-d113-4d94-9d17-08875130ecc1'" 
-
-}
-#--
 
 #
 # MS.Entra.7.10v1
