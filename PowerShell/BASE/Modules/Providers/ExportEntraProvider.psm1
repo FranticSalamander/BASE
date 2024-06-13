@@ -45,14 +45,19 @@ function Export-EntraProvider {
     # - 6.1, 6.3
     $GroupLifecyclePolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupLifecyclePolicy"))
 
+    ##Device | Device Settings | Microsoft Entra join and registration settings - (azureADJoin, azureADRegistration, multiFactorAuthConfiguration, userDeviceQuota, localAdminPassword) https://learn.microsoft.com/en-us/graph/api/deviceregistrationpolicy-update?view=graph-rest-beta&preserve-view=true&tabs=http
+    ##https://graph.microsoft.com/v1.0/policies/deviceRegistrationPolicy
+    $DeviceRegistrationPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgPolicyDeviceRegistrationPolicy"))
 
-    # $TheNextOne = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaDirectorySetting"))
-    # $TheNextOne | Out-File -FilePath .\configs-json\test.json
-    
+    ##Device | Device Settings | Other - (allowedToReadBitlockerKeysForOwnedDevice) - Covered in $UserSettingsDefaultPermissions
+   
+    # The below cmdlet covers the following baselines
+    # - 9.1
+    ##Device | Enterprise state roaming
+    #No cmdlet for retrieving setting found
 
-    $GroupLifecyclePolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupLifecyclePolicy"))
+
     
-    #$GroupNamingPolicy = ConvertTo-Json @($Tracker.TryCommand("(Get-MgBetaDirectorySetting -DirectorySettingId (Get-MgBetaDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id).Values"))
 
 
     #
@@ -93,6 +98,7 @@ function Export-EntraProvider {
 
     # Note the spacing and the last comma in the json is important
     $json = @"
+    "Device_Registration_Policy" : $DeviceRegistrationPolicy,
     "user_settings_default_permissions" : $UserSettingsDefaultPermissions,
     "authentication_flow_policy" : $AutenticationFlowPolicy,
     "external_identity_policy" : $ExternalIdentityPolicy,

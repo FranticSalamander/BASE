@@ -327,9 +327,9 @@ If you see the error above run the command below in Powershell:
 Disconnect-ExchangeOnline
 ```
 
-or alternatively run `Disconnect-SCuBATenant` exported by the ScubaGear module.
+or alternatively run `Disconnect-BASETenant` exported by the ScubaGear module.
 ```powershell
-Disconnect-SCuBATenant
+Disconnect-BASETenant
 ```
 
 ### Power Platform errors

@@ -415,3 +415,20 @@ meets their business requirements.
 - [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/groups/naming-policy/)
 
 
+## 8. Devices - Device Settings
+<!-- @Scott Miller if you want to put the baseline documentation for device setting you can -->
+
+
+## 9. Devices - Enterprise State Roaming
+
+#### MS.Entra.9.1v2
+All users may sync settings and app data across devices
+<!--Policy: MS.Entra.9.1v2; Criticality: SHALL -->
+- _Justification:_ 
+- _Last modified:_ June 2024
+
+### Resources
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/devices/)
+
+- [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/devices/enterprise-state-roaming/)

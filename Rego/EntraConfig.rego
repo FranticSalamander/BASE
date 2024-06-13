@@ -1235,3 +1235,34 @@ tests[{
     
 }
 #--
+
+############
+# MS.Entra.8 #
+############
+
+##@Scott Miller if you want to add the rego policy for device settings you can.
+
+
+############
+# MS.Entra.9 #
+############
+#Devices | Enterprise state roaming
+
+#
+# MS.Entra.9.1v2
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.9.1v2",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.9.1v2"
+    true
+
+}
+#--
