@@ -21,40 +21,62 @@ function Export-EntraProvider {
 
 
     # The below cmdlet covers the following baselines
-    # - 2.1 2.2, 2.3, 2.4, 2.8, 2.9, 5.3
+    # - 2.1 2.2, 2.3, 2.4, 2.8, 2.9, 5.3, 11.1, 11.2
+    ##Users | User Settings
+    ##Groups | General (Users can create security groups in Azure portals, API or PowerShell)
+    ##Applications | Enterprise applications | Consent and permissions | User consent settings
     $UserSettingsDefaultPermissions = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthorizationPolicy"))
 
     # The below cmdlet covers the following baselines
     # - 2.10
+    ##Users | User Settings (Enable guest self-service sign up via user flows)
     $AutenticationFlowPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyAuthenticationFlowPolicy"))
 
     # The below cmdlet covers the following baselines
     # - 2.11
+    ##Users | User Settings (Allow external users to remove themselves from your organization (recommended))
     $ExternalIdentityPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaPolicyExternalIdentityPolicy"))
 
     # The below cmdlet covers the following baselines
     # - 4.1, 4.2, 4.3, 4.4, 4.7, 4.8, 4.9, 4.10
+    ##Users | BreakGlass account setup
     $User = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaUser"))
 
     # The below cmdlet covers the following baselines
     # - 5.4, 7.1,7.2,7.3
+    ##Groups | General (Users can create Microsoft 365 groups in Azure portals, API or PowerShell)
+    ##Groups | Naming policy
     $GroupSettingsTemp = @($Tracker.TryCommand("Get-MgBetaDirectorySetting")) | ? { $_.DisplayName -eq "Group.Unified"} 
     $GroupSettings = ConvertTo-Json $GroupSettingsTemp.Values
 
     # The below cmdlet covers the following baselines
     # - 6.1, 6.3
+    ##Groups | Expiration
     $GroupLifecyclePolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgBetaGroupLifecyclePolicy"))
 
-    ##Device | Device Settings | Microsoft Entra join and registration settings - (azureADJoin, azureADRegistration, multiFactorAuthConfiguration, userDeviceQuota, localAdminPassword) https://learn.microsoft.com/en-us/graph/api/deviceregistrationpolicy-update?view=graph-rest-beta&preserve-view=true&tabs=http
-    ##https://graph.microsoft.com/v1.0/policies/deviceRegistrationPolicy
-    $DeviceRegistrationPolicy = ConvertTo-Json @($Tracker.TryCommand("Get-MgPolicyDeviceRegistrationPolicy"))
-
+    # The below cmdlet covers the following baselines
+    # - 8.1, 8.2, 8.3
+    ##Devices | Device Settings | Microsoft Entra join and registration settings - (azureADJoin, azureADRegistration, multiFactorAuthConfiguration, userDeviceQuota, localAdminPassword) https://learn.microsoft.com/en-us/graph/api/deviceregistrationpolicy-update?view=graph-rest-beta&preserve-view=true&tabs=http
+    #https://graph.microsoft.com/beta/policies/deviceRegistrationPolicy
+    $DeviceRegistrationPolicy = ConvertTo-Json -Depth 10 @($Tracker.TryCommand("Get-MgBetaPolicyDeviceRegistrationPolicy"))
     ##Device | Device Settings | Other - (allowedToReadBitlockerKeysForOwnedDevice) - Covered in $UserSettingsDefaultPermissions
-   
+
+
     # The below cmdlet covers the following baselines
     # - 9.1
     ##Device | Enterprise state roaming
     #No cmdlet for retrieving setting found
+
+
+
+    # The below cmdlet covers the following baselines
+    # - 10.1, 10.2, 10.3, 10.4
+    ##Applications | Enterprise applications | Consent and permissions | Admin consent settings (isEnabled, notifyReviewers, remindersEnabled, requestDurationInDays, reviewers)
+    ##https://graph.microsoft.com/v1.0/policies/adminConsentRequestPolicy
+    $AdminConsentRequestPolicy = ConvertTo-Json -Depth 10 @($Tracker.TryCommand("Get-MgPolicyAdminConsentRequestPolicy"))
+    
+   
+
 
 
     
@@ -98,6 +120,7 @@ function Export-EntraProvider {
 
     # Note the spacing and the last comma in the json is important
     $json = @"
+    "Admin_Consent_Request_Policy" : $AdminConsentRequestPolicy,
     "Device_Registration_Policy" : $DeviceRegistrationPolicy,
     "user_settings_default_permissions" : $UserSettingsDefaultPermissions,
     "authentication_flow_policy" : $AutenticationFlowPolicy,

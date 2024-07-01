@@ -1236,11 +1236,123 @@ tests[{
 }
 #--
 
-############
-# MS.Entra.8 #
-############
+# ############
+# # MS.Entra.8 #
+# ############
+# ##Devices | Device Settings | Microsoft Entra join and registration settings
 
-##@Scott Miller if you want to add the rego policy for device settings you can.
+#--
+# THIS PIECE OF CODE IS NOT NEEDED IN THIS CASE AND IS NOW REPLACED BY THE CODE IN 1297
+# default multiFactorAuthConfigurationMatch(_) := false
+# multiFactorAuthConfigurationMatch(Policy) := true if {
+#     Policy.MultiFactorAuthConfiguration == "required"
+# }
+
+# userDeviceQuota( ) := true
+# userDeviceQuota(Policy) := true if {
+#     Policy.Name == "userDeviceQuota"
+#     Policy.Value == "2147483647" 
+
+# }
+
+# azureADRegistration( ) := true
+# azureADRegistration(Policy) := true if {
+#     Policy.Name == "azureADRegistration"
+#     Policy.Value == "true" 
+
+# }
+
+# azureADJoin( ) := true
+# azureADJoin(Policy) := true if {
+#     Policy.Name == "azureADJoin"
+#     Policy.Value == "true" 
+
+# }
+
+# localAdminPassword( ) := true
+# localAdminPassword(Policy) := true if {
+#     Policy.Name == "localAdminPassword"
+#     Policy.Value == "true" 
+
+# }
+
+
+# THIS PIECE OF CODE IS NOT NEEDED IN THIS CASE AND IS NOW REPLACED BY THE CODE IN 1296
+# multiFactorAuthConfiguration[Policy.Name] {
+#     Policy := input.Device_Registration_Policy[_]
+#     #Match all simple conditions
+#     multiFactorAuthConfigurationMatch(Policy)
+# }
+
+# MS.Entra.8.1v1
+tests[{
+    "PolicyId" : "MS.Entra.8.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyDeviceRegistrationPolicy"],
+    "ActualValue" : Policy.MultiFactorAuthConfiguration,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.Device_Registration_Policy[_]
+    Status := Policy.MultiFactorAuthConfiguration == "required"
+    Detail := "Requirement not met: <b>Add prefix</b> must be set to <b>Not Configured</b>"
+
+}
+
+# MS.Entra.8.2v1
+tests[{
+    "PolicyId" : "MS.Entra.8.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyDeviceRegistrationPolicy"],
+    "ActualValue" : Policy.UserDeviceQuota,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.Device_Registration_Policy[_]
+    Status := Policy.UserDeviceQuota == 2147483647
+    Detail := "Requirement not met: <b>Add prefix</b> must be set to <b>Not Configured</b>"
+   
+}
+
+
+# MS.Entra.8.3v1
+tests[{
+    "PolicyId" : "MS.Entra.8.3v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyDeviceRegistrationPolicy"],
+    "ActualValue" : Policy.LocalAdminPassword.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.Device_Registration_Policy[_]
+    Status := Policy.LocalAdminPassword.IsEnabled == true
+    Detail := "Requirement not met: <b>Add prefix</b> must be set to <b>Not Configured</b>"
+   
+}
+
+
+# MS.Entra.8.4v1
+tests[{
+    "PolicyId" : "MS.Entra.8.4v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyDeviceRegistrationPolicy"],
+    "ActualValue" : Policy.AzureAdRegistration,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.Device_Registration_Policy[_]
+    Status := Policy.AzureAdRegistration == "true"
+    Detail := "Requirement not met: <b>Add prefix</b> must be set to <b>Not Configured</b>"
+   
+}
+
+
+
+#--
 
 
 ############
@@ -1262,6 +1374,170 @@ tests[{
 }] {
     
     PolicyId := "MS.Entra.9.1v2"
+    true
+
+}
+#--
+
+############
+# MS.Entra.10 #
+############
+#Applications | Enterprise Applications | Consent and Permissions | Admin consent requests
+
+# MS.Entra.10.1v1
+tests[{
+    "PolicyId" : "MS.Entra.10.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAdminConsentRequestPolicy"],
+    "ActualValue" : Policy.IsEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.Admin_Consent_Request_Policy[_]
+    Status := Policy.IsEnabled == "false"
+    Detail := "Requirement not met: <b>Request admin consent to apps they are unable to consent to.</b> must be set to <b>No</b>"
+
+}
+
+# MS.Entra.10.2v1
+tests[{
+    "PolicyId" : "MS.Entra.10.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAdminConsentRequestPolicy"],
+    "ActualValue" : Policy.NotifyReviewers,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.Admin_Consent_Request_Policy[_]
+    Status := Policy.NotifyReviewers == "true"
+    Detail := "Requirement not met: <b>Receive email notifications for requests.</b> must be set to <b>Yes</b>"
+   
+}
+
+
+# MS.Entra.10.3v1
+tests[{
+    "PolicyId" : "MS.Entra.10.3v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAdminConsentRequestPolicy"],
+    "ActualValue" : Policy.RemindersEnabled,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.Admin_Consent_Request_Policy[_]
+    Status := Policy.RemindersEnabled == "true"
+    Detail := "Requirement not met: <bRequest expiration reminders.</b> must be set to <b>Yes</b>"
+   
+}
+
+
+# MS.Entra.10.4v1
+tests[{
+    "PolicyId" : "MS.Entra.10.4v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAdminConsentRequestPolicy"],
+    "ActualValue" : Policy.RequestDurationInDays,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.Admin_Consent_Request_Policy[_]
+    Status := Policy.RequestDurationInDays == "30"
+    Detail := "Requirement not met: <b>Consent request expires after (days).</b> must be set to <b>30 days</b>"
+         
+}
+#--
+
+
+############
+# MS.Entra.11 #
+############
+#Applications | Enterprise applications | consent and permissions | User consent settings
+
+#
+# MS.Entra.11.1v1
+#--
+tests[{
+    "PolicyId" : "MS.Entra.11.1v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.PermissionGrantPolicyIdsAssignedToDefaultUserRole,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.user_settings_default_permissions[_]
+    Conditions := [contains(concat(",",Policy.PermissionGrantPolicyIdsAssignedToDefaultUserRole), "ManagePermissionGrantsForSelf.microsoft-user-default-low"), contains(concat(",",Policy.PermissionGrantPolicyIdsAssignedToDefaultUserRole), "ManagePermissionGrantsForSelf.microsoft-user-default-legacy")]
+    Status := count([Condition | Condition = Conditions[_]; Condition == false]) == 2
+    Detail := "Requirement not met: <b>Configure whether users are allowed to consent for applications to access your organization's data.</b> must be set to <b>Do not allow user consent</b>"
+
+    
+}
+#--
+
+# This Setting is now managed from teams instead of Entra so test 11.2v1 may be depreciated
+#
+# MS.Entra.11.2v1
+#--
+tests[{
+    "PolicyId" : "MS.Entra.11.2v1",
+    "Criticality" : "Shall",
+    "Commandlet" : ["Get-MgBetaPolicyAuthorizationPolicy"],
+    "ActualValue" : Policy.PermissionGrantPolicyIdsAssignedToDefaultUserRole,
+    "ReportDetails" : ReportDetailsString(Status, Detail),
+    "RequirementMet" : Status
+}] {
+    
+    Policy := input.user_settings_default_permissions[_]
+    Conditions := [contains(concat(",",Policy.PermissionGrantPolicyIdsAssignedToDefaultUserRole), "ManagePermissionGrantsForOwnedResource.microsoft-pre-approval-apps-for-group"), contains(concat(",",Policy.PermissionGrantPolicyIdsAssignedToDefaultUserRole), "ManagePermissionGrantsForOwnedResource.microsoft-all-application-permissions-for-group")]
+    Status := count([Condition | Condition = Conditions[_]; Condition == false]) == 2
+    Detail := "Requirement not met: <b>Configure whether group owners are allowed to consent for applications to access your organization's data for the groups they own</b> must be set to <b>Do not allow group owner consent</b>"
+
+    
+}
+#--
+
+############
+# MS.Entra.12 #
+############
+#Applications | Enterprise applications | User settings
+
+#
+# MS.Entra.12.1v1
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.12.1v1",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.12.1v1"
+    true
+
+}
+#--
+
+#
+# MS.Entra.12.2v1
+#--
+# At this time we are unable to test for X because of Y
+tests[{
+    "PolicyId" : "MS.Entra.12.2v1",
+    "Criticality" : "Shall/Not-Implemented",
+    "Commandlet" : [],
+    "ActualValue" : [],
+    "ReportDetails" : NotCheckedDetails(PolicyId),
+    "RequirementMet" : false
+}] {
+    
+    PolicyId := "MS.Entra.12.2v1"
     true
 
 }

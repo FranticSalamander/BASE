@@ -1,0 +1,6 @@
+
+Id                       Description                                                                                                                                DisplayName                MultiFactorAuthC
+                                                                                                                                                                                               onfiguration
+--                       -----------                                                                                                                                -----------                ----------------
+deviceRegistrationPolicy Tenant-wide policy that manages initial provisioning controls using quota restrictions, additional authentication and authorization checks Device Registration Policy required        
+

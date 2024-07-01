@@ -344,7 +344,6 @@ Users cannot create Microsoft 365  groups
 ### Implementation
 
 ## 6. Groups - Expiration
-
 Configuration of expiration of groups within Microsoft Entra ID
 
 #### MS.Entra.6.1v2
@@ -416,7 +415,44 @@ meets their business requirements.
 
 
 ## 8. Devices - Device Settings
-<!-- @Scott Miller if you want to put the baseline documentation for device setting you can -->
+Microsoft Entra join and registration settings
+
+#### MS.Entra.8.1v1
+Multifactor Authentication Enabled
+<!--Policy: MS.Entra.8.1v1; Criticality: SHALL -->
+- _Justification:_ This setting enables you to select the users who can register their devices as Microsoft Entra joined devices. The default is All.
+- _Last modified:_ June 2024
+
+
+#### MS.Entra.8.2v1
+User Device Quota Maximum number of devices per user
+<!--Policy: MS.Entra.8.2v1; Criticality: SHALL -->
+- _Justification:_ This setting enables you to select the maximum number of Microsoft Entra joined or Microsoft Entra registered devices that a user can have in Microsoft Entra ID.
+- _Last modified:_ June 2024
+
+
+#### MS.Entra.8.3v1
+Local Admin Password is Enabled
+<!--Policy: MS.Entra.8; Criticality: SHALL -->
+- _Justification:_ Local Admin Password
+- _Last modified:_ June 2024
+
+
+#### MS.Entra.8.4v1
+Azure AD Registration
+<!--Policy: MS.Entra.8; Criticality: SHALL -->
+- _Justification:_ Azure AD Registration
+- _Last modified:_ June 2024
+
+
+### Resources
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/devices/)
+
+- [Design Documentation](https://blueprint.asd.gov.au/design/platform/client/device-enrolment/#windows-autopilot-overview)
+
+- [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/devices/device-settings/)
+
+
 
 
 ## 9. Devices - Enterprise State Roaming
@@ -427,8 +463,85 @@ All users may sync settings and app data across devices
 - _Justification:_ 
 - _Last modified:_ June 2024
 
-### Resources
 
+### Resources
 - [Design Documentation](https://blueprint.asd.gov.au/design/platform/identity/devices/)
 
 - [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/devices/enterprise-state-roaming/)
+
+
+
+
+## 10. Applications - Enterprise Applications - Consent and Permissions - Admin consent settings
+
+#### MS.Entra.10.1v1
+Users can request admin consent to apps they are unable to consent to​. Recommended approach is to configure the admin consent workflow.
+<!--Policy: MS.Entra.10.1v1; Criticality: SHALL -->
+- _Justification:_ Enabling it can easily allow phishing attacks into your Microsoft 365 environment and breach your business security. 
+- _Last modified:_ June 2024
+
+
+#### MS.Entra.10.2v1
+Selected users will receive email notifications for requests
+<!--Policy: MS.Entra.10.2v1; Criticality: SHALL -->
+- _Justification:_ Enable or disable email notifications to the reviewers when a request is made.
+- _Last modified:_ June 2024
+
+
+#### MS.Entra.10.3v1
+Selected users will receive request expiration reminders​
+<!--Policy: MS.Entra.10.3v1; Criticality: SHALL -->
+- _Justification:_ Enable or disable reminder email notifications to the reviewers when a request is about to expire. 
+- _Last modified:_ June 2024
+
+
+#### MS.Entra.10.4v1
+Consent request expires after (days)​
+<!--Policy: MS.Entra.10.4v1; Criticality: SHALL -->
+- _Justification:_ Specify how long requests stay valid.
+- _Last modified:_ June 2024
+
+
+### Resources
+
+- [Design Documentation](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-admin-consent-workflow)
+  
+  [Design Documentation](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-admin-consent-workflow)
+
+- [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/applications/enterprise-applications/consent-and-permissions/admin-consent-settings/)
+
+
+## 11. Applications - Enterprise Applications - Consent and Permissions - User consent settings
+
+#### MS.Entra.11.1v1
+Users are not allowed to consent for applications to access your organization’s data
+<!--Policy: MS.Entra.11.1v1; Criticality: SHALL -->
+- _Justification:_ prevent users (other than local administrators) from installing or uninstalling applications
+- _Last modified:_ June 2024
+
+#### MS.Entra.11.2v1
+Group owners are not allowed to consent for applications to access your organization’s data for the groups they own
+<!--Policy: MS.Entra.11.2v1; Criticality: SHALL -->
+- _Note:_ This Setting is now managed from teams instead of Entra so test 11.2v1 may be depreciated
+- _Justification:_ 
+- _Last modified:_ June 2024
+
+- [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/applications/enterprise-applications/consent-and-permissions/user-consent-settings/)
+
+
+
+## 12. Applications - Enterprise Applications - User settings
+
+#### MS.Entra.12.1v1
+Users cannnot add gallery apps to My Apps
+<!--Policy: MS.Entra.11.1v1; Criticality: SHALL -->
+- _Justification:_ 
+- _Last modified:_ July 2024
+
+#### MS.Entra.12.2v1
+Users cannot only see Office 365 apps in the Office 365 portal	
+<!--Policy: MS.Entra.11.2v1; Criticality: SHALL -->
+- _Justification:_ 
+- _Last modified:_ July 2024
+
+- [Configuration Documentation](https://blueprint.asd.gov.au/configuration/entra-id/applications/enterprise-applications/user-settings/)
